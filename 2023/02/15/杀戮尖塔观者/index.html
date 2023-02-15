@@ -5,6 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.3.0">
+(function(){
+    if('123456'){
+        if (prompt('请输入文章密码') !== '123456'){
+            alert('密码错误！');
+            history.back();
+        }
+    }
+})();
   <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
@@ -23,14 +31,6 @@
   </script>
 
 
-(function(){
-    if('123456'){
-        if (prompt('请输入文章密码') !== '123456'){
-            alert('密码错误！');
-            history.back();
-        }
-    }
-})();
 
   <meta name="description" content="这是显示在首页的概述，正文内容均会被隐藏。111">
 <meta property="og:type" content="article">
