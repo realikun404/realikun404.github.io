@@ -38,8 +38,9 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230303095111026.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230303102245084.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230303102945089.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230306090357474.png">
 <meta property="article:published_time" content="2023-03-03T01:06:47.000Z">
-<meta property="article:modified_time" content="2023-03-03T02:29:46.096Z">
+<meta property="article:modified_time" content="2023-03-09T00:31:40.846Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -196,10 +197,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-03 09:06:47 / 修改时间：10:29:46" itemprop="dateCreated datePublished" datetime="2023-03-03T09:06:47+08:00">2023-03-03</time>
+              <time title="创建时间：2023-03-03 09:06:47" itemprop="dateCreated datePublished" datetime="2023-03-03T09:06:47+08:00">2023-03-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-09 08:31:40" itemprop="dateModified" datetime="2023-03-09T08:31:40+08:00">2023-03-09</time>
+              </span>
 
           
             <div class="post-description">mysql基本使用</div>
@@ -335,7 +342,146 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">create table tb_user(</span><br><span class="line">id int comment &#x27;编号&#x27;,</span><br><span class="line">name varchar(50) comment &#x27;姓名&#x27;,</span><br><span class="line">age int comment &#x27;年龄&#x27;,</span><br><span class="line">gender varchar(1) comment &#x27;性别&#x27;</span><br><span class="line">) comment &#x27;用户表&#x27;;</span><br></pre></td></tr></table></figure>
 
 <p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230303102945089.png" alt="image-20230303102945089"></p>
-<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h2 id="DOL"><a href="#DOL" class="headerlink" title="DOL"></a>DOL</h2><h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2>
+<h4 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h4><p>参考菜鸟教程</p>
+<p><a target="_blank" rel="noopener" href="https://www.runoob.com/mysql/mysql-data-types.html">MySQL 数据类型 | 菜鸟教程 (runoob.com)</a></p>
+<p>1). 数值类型</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1). 年龄字段 -- 不会出现负数, 而且人的年龄不会太大</span><br><span class="line">age tinyint unsigned</span><br><span class="line">2). 分数 -- 总分100分, 最多出现一位小数</span><br><span class="line">score double(4,1)</span><br></pre></td></tr></table></figure>
+
+<p>2). 字符串类型</p>
+<p>vchar性能比char要低一些</p>
+<p>用户名：vchar</p>
+<p>性别：char</p>
+<p>3). 日期时间类型</p>
+<h4 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h4><p>设计一张员工信息表，要求如下：</p>
+<ol>
+<li>编号（纯数字） </li>
+<li>员工工号 (字符串类型，长度不超过10位) </li>
+<li>员工姓名（字符串类型，长度不超过10位） </li>
+<li>性别（男&#x2F;女，存储一个汉字） </li>
+<li>年龄（正常人年龄，不可能存储负数） </li>
+<li>身份证号（二代身份证号均为18位，身份证中有X这样的字符） 入职时间（取值年月日即可）</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">create table emp(</span><br><span class="line">    id int comment &quot;编号&quot;,</span><br><span class="line">    workno varchar(10) comment &quot;员工工号&quot;,</span><br><span class="line">    name varchar(10) comment &#x27;姓名&#x27;,</span><br><span class="line">	gender char(1) comment &#x27;性别&#x27;,</span><br><span class="line">	age tinyint unsigned comment &#x27;年龄&#x27;,</span><br><span class="line">	idcard char(18) comment &#x27;身份证号&#x27;,</span><br><span class="line">	entrydate date comment &#x27;入职时间&#x27;</span><br><span class="line">) comment &quot;员工表&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h4><p>1). 添加字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 ADD 字段名 类型 (长度) [ COMMENT 注释 ] [ 约束 ];</span><br></pre></td></tr></table></figure>
+
+<p>案例: </p>
+<p>为emp表增加一个新的字段”昵称”为nickname，类型为varchar(20)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE emp ADD nickname varchar(20) COMMENT &#x27;昵称&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>2). 修改数据类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 MODIFY 字段名 新数据类型 (长度);</span><br></pre></td></tr></table></figure>
+
+<p>3). 修改字段名和字段类型</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 CHANGE 旧字段名 新字段名 类型 (长度) [ COMMENT 注释 ] [ 约束 ];</span><br></pre></td></tr></table></figure>
+
+<p>案例: 将emp表的nickname字段修改为username，类型为varchar(30)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE emp CHANGE nickname username varchar(30) COMMENT &#x27;昵称&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>4). 删除字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 DROP 字段名;</span><br></pre></td></tr></table></figure>
+
+<p>案例: 将emp表的字段username删除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE emp DROP username;</span><br></pre></td></tr></table></figure>
+
+<p>5). 修改表名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE 表名 RENAME TO 新表名;</span><br></pre></td></tr></table></figure>
+
+<p>案例:</p>
+<p> 将emp表的表名修改为 employee</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE emp RENAME TO employee;</span><br></pre></td></tr></table></figure>
+
+<h4 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h4><p>1). 删除表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">DROP TABLE [ IF EXISTS ] 表名;</span><br><span class="line">DROP TABLE IF EXISTS tb_user;</span><br></pre></td></tr></table></figure>
+
+<p>2). 删除指定表, 并重新创建表</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TRUNCATE TABLE 表名;-- 在删除表的时候，表中的全部数据也都会被删除。</span><br></pre></td></tr></table></figure>
+
+<h2 id="图形化界面工具"><a href="#图形化界面工具" class="headerlink" title="图形化界面工具"></a>图形化界面工具</h2><p>主流工具：sqlyog、Navicate、DataGrip</p>
+<p>这次使用DataGrip</p>
+<p>还挺好用，不会的sql可以在这里面看对于语句。</p>
+<h2 id="DML"><a href="#DML" class="headerlink" title="DML"></a>DML</h2><h3 id="添加数据（INSERT）"><a href="#添加数据（INSERT）" class="headerlink" title="添加数据（INSERT）"></a>添加数据（INSERT）</h3><p>1). 给指定字段添加数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO 表名 (字段名1, 字段名2, ...) VALUES (值1, 值2, ...);</span><br><span class="line">insert into employee(id,workno,name,gender,age,idcard,entrydate)</span><br><span class="line">values(1,&#x27;1&#x27;,&#x27;Itcast&#x27;,&#x27;男&#x27;,10,&#x27;123456789012345678&#x27;,&#x27;2000-01-01&#x27;);</span><br><span class="line"></span><br><span class="line">insert into employee values(3,&#x27;3&#x27;,&#x27;韦一笑&#x27;,&#x27;男&#x27;,38,&#x27;123456789012345670&#x27;,&#x27;2005-01-</span><br><span class="line">01&#x27;),(4,&#x27;4&#x27;,&#x27;赵敏&#x27;,&#x27;女&#x27;,18,&#x27;123456789012345670&#x27;,&#x27;2005-01-01&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="修改数据（UPDATE）"><a href="#修改数据（UPDATE）" class="headerlink" title="修改数据（UPDATE）"></a>修改数据（UPDATE）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">UPDATE 表名 SET 字段名1 = 值1 , 字段名2 = 值2 , .... [ WHERE 条件 ] ;</span><br><span class="line">update employee set name = &#x27;itheima&#x27; where id = 1;</span><br><span class="line">update employee set name = &#x27;小昭&#x27; , gender = &#x27;女&#x27; where id = 1;</span><br><span class="line">update employee set entrydate = &#x27;2008-01-01&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="删除数据（DELETE）"><a href="#删除数据（DELETE）" class="headerlink" title="删除数据（DELETE）"></a>删除数据（DELETE）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DELETE FROM 表名 [ WHERE 条件 ] ;</span><br><span class="line">delete from employee where gender = &#x27;女&#x27;;</span><br><span class="line">delete from employee;</span><br></pre></td></tr></table></figure>
+
+<h2 id="DOL"><a href="#DOL" class="headerlink" title="DOL"></a>DOL</h2><p>DQL英文全称是Data Query Language(数据查询语言)，数据查询语言，用来查询数据库中表的记 录。</p>
+<p>数据准备:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">drop table if exists employee;</span><br><span class="line">create table emp(</span><br><span class="line">id int comment &#x27;编号&#x27;,</span><br><span class="line">workno varchar(10) comment &#x27;工号&#x27;,</span><br><span class="line">name varchar(10) comment &#x27;姓名&#x27;,</span><br><span class="line">gender char(1) comment &#x27;性别&#x27;,</span><br><span class="line">age tinyint unsigned comment &#x27;年龄&#x27;,</span><br><span class="line">idcard char(18) comment &#x27;身份证号&#x27;,</span><br><span class="line">workaddress varchar(50) comment &#x27;工作地址&#x27;,</span><br><span class="line">entrydate date comment &#x27;入职时间&#x27;</span><br><span class="line">)comment &#x27;员工表&#x27;;</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (1, &#x27;00001&#x27;, &#x27;柳岩666&#x27;, &#x27;女&#x27;, 20, &#x27;123456789012345678&#x27;, &#x27;北京&#x27;, &#x27;2000-01-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (2, &#x27;00002&#x27;, &#x27;张无忌&#x27;, &#x27;男&#x27;, 18, &#x27;123456789012345670&#x27;, &#x27;北京&#x27;, &#x27;2005-09-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (3, &#x27;00003&#x27;, &#x27;韦一笑&#x27;, &#x27;男&#x27;, 38, &#x27;123456789712345670&#x27;, &#x27;上海&#x27;, &#x27;2005-08-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (4, &#x27;00004&#x27;, &#x27;赵敏&#x27;, &#x27;女&#x27;, 18, &#x27;123456757123845670&#x27;, &#x27;北京&#x27;, &#x27;2009-12-01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (5, &#x27;00005&#x27;, &#x27;小昭&#x27;, &#x27;女&#x27;, 16, &#x27;123456769012345678&#x27;, &#x27;上海&#x27;, &#x27;2007-07-01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (6, &#x27;00006&#x27;, &#x27;杨逍&#x27;, &#x27;男&#x27;, 28, &#x27;12345678931234567X&#x27;, &#x27;北京&#x27;, &#x27;2006-01-01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (7, &#x27;00007&#x27;, &#x27;范瑶&#x27;, &#x27;男&#x27;, 40, &#x27;123456789212345670&#x27;, &#x27;北京&#x27;, &#x27;2005-05-01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (8, &#x27;00008&#x27;, &#x27;黛绮丝&#x27;, &#x27;女&#x27;, 38, &#x27;123456157123645670&#x27;, &#x27;天津&#x27;, &#x27;2015-05-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (9, &#x27;00009&#x27;, &#x27;范凉凉&#x27;, &#x27;女&#x27;, 45, &#x27;123156789012345678&#x27;, &#x27;北京&#x27;, &#x27;2010-04-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (10, &#x27;00010&#x27;, &#x27;陈友谅&#x27;, &#x27;男&#x27;, 53, &#x27;123456789012345670&#x27;, &#x27;上海&#x27;, &#x27;2011-01-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (11, &#x27;00011&#x27;, &#x27;张士诚&#x27;, &#x27;男&#x27;, 55, &#x27;123567897123465670&#x27;, &#x27;江苏&#x27;, &#x27;2015-05-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (12, &#x27;00012&#x27;, &#x27;常遇春&#x27;, &#x27;男&#x27;, 32, &#x27;123446757152345670&#x27;, &#x27;北京&#x27;, &#x27;2004-02-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (13, &#x27;00013&#x27;, &#x27;张三丰&#x27;, &#x27;男&#x27;, 88, &#x27;123656789012345678&#x27;, &#x27;江苏&#x27;, &#x27;2020-11-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (14, &#x27;00014&#x27;, &#x27;灭绝&#x27;, &#x27;女&#x27;, 65, &#x27;123456719012345670&#x27;, &#x27;西安&#x27;, &#x27;2019-05-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (15, &#x27;00015&#x27;, &#x27;胡青牛&#x27;, &#x27;男&#x27;, 70, &#x27;12345674971234567X&#x27;, &#x27;西安&#x27;, &#x27;2018-04-</span><br><span class="line">01&#x27;);</span><br><span class="line">INSERT INTO emp (id, workno, name, gender, age, idcard, workaddress, entrydate)</span><br><span class="line">VALUES (16, &#x27;00016&#x27;, &#x27;周芷若&#x27;, &#x27;女&#x27;, 18, null, &#x27;北京&#x27;, &#x27;2012-06-01&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">SELECT</span><br><span class="line">字段列表</span><br><span class="line">FROM</span><br><span class="line">表名列表</span><br><span class="line">WHERE</span><br><span class="line">条件列表</span><br><span class="line">GROUP BY</span><br><span class="line">分组字段列表</span><br><span class="line">HAVING</span><br><span class="line">分组后条件列表</span><br><span class="line">ORDER BY</span><br><span class="line">排序字段列表</span><br><span class="line">LIMIT</span><br><span class="line">分页参数</span><br></pre></td></tr></table></figure>
+
+<p>基本查询（不带任何条件） 条件查询（WHERE） 聚合函数（count、max、min、avg、sum） 分组查询（group by） 排序查询（order by） 分页查询（limit）</p>
+<h3 id="基础查询"><a href="#基础查询" class="headerlink" title="基础查询"></a>基础查询</h3><p>1). 查询多个字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段1, 字段2, 字段3 ... FROM 表名 ;</span><br><span class="line">SELECT * FROM 表名 ;</span><br></pre></td></tr></table></figure>
+
+<p>2). 字段设置别名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段1 [ AS 别名1 ] , 字段2 [ AS 别名2 ] ... FROM 表名;</span><br><span class="line">SELECT 字段1 [ 别名1 ] , 字段2 [ 别名2 ] ... FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<p>3). 去除重复记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT 字段列表 FROM 表名;</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<p>A. 查询指定字段 name, workno, age并返回</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select name,workno,age from emp;</span><br></pre></td></tr></table></figure>
+
+<p>B. 查询返回所有字段</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select id ,workno,name,gender,age,idcard,workaddress,entrydate from emp;</span><br><span class="line">select * from emp;</span><br></pre></td></tr></table></figure>
+
+<p>C. 查询所有员工的工作地址,起别名</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select workaddress as &#x27;工作地址&#x27; from emp;</span><br><span class="line">-- as可以省略</span><br><span class="line">select workaddress &#x27;工作地址&#x27; from emp;</span><br></pre></td></tr></table></figure>
+
+<p>D. 查询公司员工的上班地址有哪些(不要重复)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select distinct workaddress &#x27;工作地址&#x27; from emp;</span><br></pre></td></tr></table></figure>
+
+<h3 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h3><p>1). 语法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 字段列表 FROM 表名 WHERE 条件列表 ;</span><br></pre></td></tr></table></figure>
+
+<p>2). 条件</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230306090357474.png" alt="image-20230306090357474"></p>
+<p>eg</p>
+<p>A. 查询年龄等于 88 的员工</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age = 88;</span><br></pre></td></tr></table></figure>
+
+<p>B. 查询年龄小于 20 的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age &lt; 20;</span><br></pre></td></tr></table></figure>
+
+<p>C. 查询年龄小于等于 20 的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age &lt;= 20;</span><br></pre></td></tr></table></figure>
+
+<p>D. 查询没有身份证号的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where idcard is null;</span><br></pre></td></tr></table></figure>
+
+<p>E.查询有身份证号的员工信</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where idcard is not null;</span><br></pre></td></tr></table></figure>
+
+<p>F:查询年龄不等于 88 的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age != 88;</span><br><span class="line">select * from emp where age &lt;&gt; 88;</span><br></pre></td></tr></table></figure>
+
+<p>G. 查询年龄在15岁(包含) 到 20岁(包含)之间的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age &gt;= 15 &amp;&amp; age &lt;= 20;</span><br><span class="line">select * from emp where age &gt;= 15 and age &lt;= 20;</span><br><span class="line">select * from emp where age between 15 and 20;</span><br></pre></td></tr></table></figure>
+
+<p>H. 查询性别为 女 且年龄小于 25岁的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where gender = &#x27;女&#x27; and age &lt; 25;</span><br></pre></td></tr></table></figure>
+
+<p>I. 查询年龄等于18 或 20 或 40 的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where age = 18 or age = 20 or age =40;</span><br><span class="line">select * from emp where age in(18,20,40);</span><br></pre></td></tr></table></figure>
+
+<p>J. 查询姓名为两个字的员工信息 _ %</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where name like &#x27;__&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>k. 查询身份证号最后一位是X的员工信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where idcard like &#x27;%X&#x27;;</span><br><span class="line">select * from emp where idcard like &#x27;_________________X&#x27;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="DCL"><a href="#DCL" class="headerlink" title="DCL"></a>DCL</h2>
     </div>
 
     
@@ -356,7 +502,10 @@
     <a href="/2023/03/01/docker/" rel="prev" title="docker use">
       <i class="fa fa-chevron-left"></i> docker use
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2023/03/08/Fuzzing-study/" rel="next" title="Fuzzing_study">
+      Fuzzing_study <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -414,7 +563,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">mysql概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">数据库相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="nav-number">1.2.4.</span> <span class="nav-text">启动与停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.5.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88RDBMS%EF%BC%89"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">关系型数据库（RDBMS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-1"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">数据模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">2.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL"><span class="nav-number">2.3.</span> <span class="nav-text">DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%9B%E5%BB%BA"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">查询创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">数据类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML"><span class="nav-number">2.4.</span> <span class="nav-text">DML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOL"><span class="nav-number">2.5.</span> <span class="nav-text">DOL</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCL"><span class="nav-number">2.6.</span> <span class="nav-text">DCL</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">mysql概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">数据库相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="nav-number">1.2.4.</span> <span class="nav-text">启动与停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.5.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88RDBMS%EF%BC%89"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">关系型数据库（RDBMS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-1"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">数据模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">2.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL"><span class="nav-number">2.3.</span> <span class="nav-text">DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%9B%E5%BB%BA"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">查询创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">2.4.</span> <span class="nav-text">图形化界面工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML"><span class="nav-number">2.5.</span> <span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%EF%BC%88INSERT%EF%BC%89"><span class="nav-number">2.5.1.</span> <span class="nav-text">添加数据（INSERT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%EF%BC%88UPDATE%EF%BC%89"><span class="nav-number">2.5.2.</span> <span class="nav-text">修改数据（UPDATE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%EF%BC%88DELETE%EF%BC%89"><span class="nav-number">2.5.3.</span> <span class="nav-text">删除数据（DELETE）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOL"><span class="nav-number">2.6.</span> <span class="nav-text">DOL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">基础查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.3.</span> <span class="nav-text">条件查询</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCL"><span class="nav-number">2.7.</span> <span class="nav-text">DCL</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
@@ -429,7 +578,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
