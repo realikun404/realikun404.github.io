@@ -34,7 +34,7 @@
 <meta property="og:description" content="记录第一段实习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-14T10:11:46.000Z">
-<meta property="article:modified_time" content="2023-03-17T09:59:26.095Z">
+<meta property="article:modified_time" content="2023-03-18T07:19:09.452Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="日常记录 安全服务实习生">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-17 17:59:26" itemprop="dateModified" datetime="2023-03-17T17:59:26+08:00">2023-03-17</time>
+                <time title="修改时间：2023-03-18 15:19:09" itemprop="dateModified" datetime="2023-03-18T15:19:09+08:00">2023-03-18</time>
               </span>
 
           
@@ -230,6 +230,7 @@
 </tbody></table>
 <h3 id="17日"><a href="#17日" class="headerlink" title="17日"></a>17日</h3><p>进行漏洞种类的看</p>
 <p>下面写下看到的漏洞及等级</p>
+<p>等级判定可参考：<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/40067.html">https://help.aliyun.com/document_detail/40067.html</a></p>
 <table>
 <thead>
 <tr>
@@ -306,12 +307,12 @@
 <tr>
 <td align="center">Fastjson反序列化漏洞</td>
 <td align="center">中</td>
-<td align="center">可以dnslog验证，（看到json数据传输可以试试看是不是fastjson，也是其一个特征</td>
+<td align="center">可以dnslog验证，（看到json数据传输可以试试看是不是fastjson，也是其一个特征，<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1957185">浅析FastJSON反序列化漏洞（1.2.24——1.2.68） - 腾讯云开发者社区-腾讯云 (tencent.com)</a></td>
 </tr>
 <tr>
 <td align="center">信息泄露</td>
-<td align="center">低</td>
-<td align="center">破坏请求头结构，使得报错，返回详细报错信息</td>
+<td align="center">低|高</td>
+<td align="center">破坏请求头结构，使得报错，返回详细报错信息（等级看泄露东西的严重性</td>
 </tr>
 <tr>
 <td align="center">链接注入漏洞</td>
@@ -321,7 +322,7 @@
 <tr>
 <td align="center">任意文件上传</td>
 <td align="center">中</td>
-<td align="center">上传php文件，但不知道为什么看到的只算中危</td>
+<td align="center">上传任意后缀文件</td>
 </tr>
 <tr>
 <td align="center">CSRF</td>
@@ -361,7 +362,7 @@
 <tr>
 <td align="center">spring-boot端点未授权</td>
 <td align="center">高</td>
-<td align="center">例如：*&#x2F;prod-api&#x2F;actuator&#x2F;env，会泄露敏感信息</td>
+<td align="center">例如：*&#x2F;prod-api&#x2F;actuator&#x2F;env，会泄露敏感信息；特征：左上角绿叶，对应报错信息；参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/guo15890025019/article/details/119885737">Spring Boot Actuator未授权访问漏洞利用_springboot漏洞利用_大鸟安全的博客-CSDN博客</a></td>
 </tr>
 <tr>
 <td align="center">图形验证码失效</td>
@@ -381,6 +382,36 @@
 <tr>
 <td align="center">swagger未授权</td>
 <td align="center">高</td>
+<td align="center"><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2160217">Swagger未授权访问漏洞 - 腾讯云开发者社区-腾讯云 (tencent.com)</a>，会暴露接口地址，从而可能被进行利用</td>
+</tr>
+<tr>
+<td align="center">短信验证码爆破漏洞</td>
+<td align="center">低</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">用户名枚举</td>
+<td align="center">低</td>
+<td align="center">可以根据验证码结合，当用户存在会发验证码，不存在不会发</td>
+</tr>
+<tr>
+<td align="center">Thymeleaf远程命令执行</td>
+<td align="center">高</td>
+<td align="center">若依CMS</td>
+</tr>
+<tr>
+<td align="center">接口文档泄露</td>
+<td align="center">高</td>
+<td align="center">有的XML文档包含接口也算</td>
+</tr>
+<tr>
+<td align="center">phpinfo界面泄露</td>
+<td align="center">中</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
 <td align="center"></td>
 </tr>
 </tbody></table>
