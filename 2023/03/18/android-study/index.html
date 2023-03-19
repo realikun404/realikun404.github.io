@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+  <link rel="manifest" href="/images/favicon.ico">
+  <meta name="msapplication-config" content="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+
+
+  <meta name="description" content="一直想学安卓逆向，不能在鸽了，得重拳出击，根据吾爱破解https:&#x2F;&#x2F;www.52pojie.cn&#x2F;thread-1695141-1-1.html进行学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android_study_吴爱破解">
+<meta property="og:url" content="http://example.com/2023/03/18/android-study/index.html">
+<meta property="og:site_name" content="realikun404">
+<meta property="og:description" content="一直想学安卓逆向，不能在鸽了，得重拳出击，根据吾爱破解https:&#x2F;&#x2F;www.52pojie.cn&#x2F;thread-1695141-1-1.html进行学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230318203435733.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230319110933178.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230319111126434.png">
+<meta property="article:published_time" content="2023-03-18T10:58:55.000Z">
+<meta property="article:modified_time" content="2023-03-19T07:28:27.635Z">
+<meta property="article:author" content="ZER0">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230318203435733.png">
+
+<link rel="canonical" href="http://example.com/2023/03/18/android-study/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>android_study_吴爱破解 | realikun404</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">realikun404</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">太刀は至上である.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/18/android-study/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="ZER0">
+      <meta itemprop="description" content="太刀は至上である.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="realikun404">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          android_study_吴爱破解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-03-18 18:58:55" itemprop="dateCreated datePublished" datetime="2023-03-18T18:58:55+08:00">2023-03-18</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-03-19 15:28:27" itemprop="dateModified" datetime="2023-03-19T15:28:27+08:00">2023-03-19</time>
+              </span>
+
+          
+            <div class="post-description">一直想学安卓逆向，不能在鸽了，得重拳出击，根据吾爱破解https://www.52pojie.cn/thread-1695141-1-1.html进行学习</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="模拟器环境搭建"><a href="#模拟器环境搭建" class="headerlink" title="模拟器环境搭建"></a>模拟器环境搭建</h2><h3 id="什么是安卓逆向？"><a href="#什么是安卓逆向？" class="headerlink" title="什么是安卓逆向？"></a>什么是安卓逆向？</h3><p>安卓逆向是对已经打包好的APP进行反编译、源码分析了解APP实现逻辑的一门技术</p>
+<h3 id="安卓逆向可以干嘛？"><a href="#安卓逆向可以干嘛？" class="headerlink" title="安卓逆向可以干嘛？"></a>安卓逆向可以干嘛？</h3><p>去更新<br>去广告<br>内购&#x2F;会员破解<br>协议自动签到<br>白嫖！！！</p>
+<h3 id="Magisk介绍"><a href="#Magisk介绍" class="headerlink" title="Magisk介绍"></a>Magisk介绍</h3><p>参考链接：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://sspai.com/post/67932</span><br><span class="line">https://magiskcn.com/</span><br><span class="line">https://www.52pojie.cn/thread-1583586-1-1.html</span><br><span class="line">https://magiskcn.com/lsposed-instal</span><br></pre></td></tr></table></figure>
+
+<p>Magisk 是一套用于定制 Android 的开源软件，支持高于 Android 5.0 的设备。</p>
+<p>以下是一些功能亮点：</p>
+<ul>
+<li><strong>MagiskSU</strong>：为应用程序提供 root 访问权限</li>
+<li><strong>Magisk 模块</strong>：通过安装模块修改只读分区</li>
+<li><strong>MagiskHide</strong>：从根检测 &#x2F; 系统完整性检查中隐藏 Magisk(Shamiko)</li>
+<li><strong>MagiskBoot</strong> : 最完整的安卓启动镜像解包和重新打包工具</li>
+</ul>
+<h3 id="学习环境搭建"><a href="#学习环境搭建" class="headerlink" title="学习环境搭建"></a>学习环境搭建</h3><ul>
+<li>下载雷电模拟器，开启root权限以及System.vmdk可写入</li>
+<li>拖进面具安装，安装至系统分区，出现ALL DONE安装成功</li>
+<li>安装lsposed模块</li>
+</ul>
+<h2 id="APK文件结构、双开、汉化、基础修改"><a href="#APK文件结构、双开、汉化、基础修改" class="headerlink" title="APK文件结构、双开、汉化、基础修改"></a>APK文件结构、双开、汉化、基础修改</h2><p>工具</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">教程Demo</span><br><span class="line">MT管理器/NP管理器</span><br><span class="line">开发者助手</span><br><span class="line">雷电模拟器</span><br><span class="line">核心破解器（可以按照相同包名不同签名</span><br></pre></td></tr></table></figure>
+
+<h3 id="Apk结构"><a href="#Apk结构" class="headerlink" title="Apk结构"></a>Apk结构</h3><p>apk 全称 Android Package，它相当于一个压缩文件，只要在电脑上将apk后缀改为zip即可解压。</p>
+<p>解压后：</p>
+<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230318203435733.png" alt="image-20230318203435733" style="zoom:25%;" />
+
+
+
+<table>
+<thead>
+<tr>
+<th align="center">文件</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">assets目录</td>
+<td align="center">存放APK的静态资源文件，比如视频，音频，图片等</td>
+</tr>
+<tr>
+<td align="center">lib 目录</td>
+<td align="center">armeabi-v7a基本通用所有android设备，arm64-v8a只适用于64位的android设备，x86常见用于android模拟器，其目录下的.so文件是c或c++编译的动态链接库文件</td>
+</tr>
+<tr>
+<td align="center">META-INF目录</td>
+<td align="center">保存应用的签名信息，签名信息可以验证APK文件的完整性，相当于APK的身份证(验证文件是否又被修改)</td>
+</tr>
+<tr>
+<td align="center">res目录</td>
+<td align="center">res目录存放资源文件，包括图片，字符串等等，APK的脸蛋由他的layout文件设计</td>
+</tr>
+<tr>
+<td align="center">AndroidMainfest.xml文件</td>
+<td align="center">APK的应用清单信息，它描述了应用的名字，版本，权限，引用的库文件等等信息</td>
+</tr>
+<tr>
+<td align="center">classes.dex文件</td>
+<td align="center">classes.dex是java源码编译后生成的java字节码文件，APK运行的主要逻辑</td>
+</tr>
+<tr>
+<td align="center">resources.arsc文件</td>
+<td align="center">resources.arsc是编译后的二进制资源文件，它是一个映射表，映射着资源和id，通过R文件中的id就可以找到对应的资源</td>
+</tr>
+</tbody></table>
+<h3 id="双开及原理"><a href="#双开及原理" class="headerlink" title="双开及原理"></a>双开及原理</h3><p>双开：简单来说，就是手机同时运行两个或多个相同的应用</p>
+<p>可以直接使用MT管理器修改包名</p>
+<table>
+<thead>
+<tr>
+<th align="center">原理</th>
+<th align="center">解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">修改包名</td>
+<td align="center">让手机系统认为这是2个APP，这样的话就能生成2个数据存储路径，此时的多开就等于你打开了两个互不干扰的APP</td>
+</tr>
+<tr>
+<td align="center">修改Framework</td>
+<td align="center">对于有系统修改权限的厂商，可以修改Framework来实现双开的目的，例如：小米自带多开</td>
+</tr>
+<tr>
+<td align="center">通过虚拟化技术实现</td>
+<td align="center">虚拟Framework层、虚拟文件系统、模拟Android对组件的管理、虚拟应用进程管理 等一整套虚拟技术，将APK复制一份到虚拟空间中运行，例如：平行空间</td>
+</tr>
+<tr>
+<td align="center">以插件机制运行</td>
+<td align="center">利用反射替换，动态代{过}{滤}理，hook了系统的大部分与system—server进程通讯的函数，以此作为“欺上瞒下”的目的，欺骗系统“以为”只有一个apk在运行，瞒过插件让其“认为”自己已经安装。例如：VirtualApp</td>
+</tr>
+</tbody></table>
+<h3 id="汉化APK"><a href="#汉化APK" class="headerlink" title="汉化APK"></a>汉化APK</h3><p>汉化：使用专门的工具对外文版的软件资源进行读取、翻译、修改、回写等一系列处理，使软件的菜单、对话框、提示等用户界面显示为中文，而程序的内核和功能保持不变，这个过程即为软件汉化</p>
+<h3 id="AndroidManifest-xml"><a href="#AndroidManifest-xml" class="headerlink" title="AndroidManifest.xml"></a>AndroidManifest.xml</h3><table>
+<thead>
+<tr>
+<th align="center">属性</th>
+<th align="center">定义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">versionCode</td>
+<td align="center">版本号，主要用来更新，例如:12</td>
+</tr>
+<tr>
+<td align="center">versionName</td>
+<td align="center">版本名，给用户看的，例如:1.2</td>
+</tr>
+<tr>
+<td align="center">package</td>
+<td align="center">包名，例如：com.zj.52pj.demo</td>
+</tr>
+<tr>
+<td align="center">uses-permission android:name&#x3D;””</td>
+<td align="center">应用权限，例如：android.permission.INTERNET 代表网络权限</td>
+</tr>
+<tr>
+<td align="center">android:label&#x3D;”@string&#x2F;app_name”</td>
+<td align="center">应用名称</td>
+</tr>
+<tr>
+<td align="center">android:icon&#x3D;”@mipmap&#x2F;ic_launcher”</td>
+<td align="center">应用图标路径</td>
+</tr>
+<tr>
+<td align="center">android:debuggable&#x3D;”true”</td>
+<td align="center">应用是否开启debug权限</td>
+</tr>
+</tbody></table>
+<h3 id="eg"><a href="#eg" class="headerlink" title="eg:"></a>eg:</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1UV411i7sG/">超详细MT管理器改包教程：教你修改包名、名称、版本、图标_哔哩哔哩_bilibili</a></p>
+<p>应用双开</p>
+<p>修改名字:<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wxy13644813114/p/13608281.html">转载-mt管理器修改软件名称（第二课） - 王啸岩 - 博客园 (cnblogs.com)</a></p>
+<p>找个英文应用汉化</p>
+<p>替换应用的图片：在res中找文件</p>
+<h2 id="初识smali，vip终结者"><a href="#初识smali，vip终结者" class="headerlink" title="初识smali，vip终结者"></a>初识smali，vip终结者</h2><h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><p>了解JVM、Dalvik、ART<br>初识smali语法<br>实战修改smali</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>教程Demo(更新)<br>MT管理器&#x2F;NP管理器<br>雷电模拟器<br>jadx-gui（开源反编译工具<br>核心破解（解决签名问题</p>
+<p>smail语法查询</p>
+<h3 id="JVM、Dalvik、ART"><a href="#JVM、Dalvik、ART" class="headerlink" title="JVM、Dalvik、ART"></a>JVM、Dalvik、ART</h3><p>JVM是JAVA虚拟机，运行JAVA字节码程序<br>Dalvik是Google专门为Android设计的一个虚拟机，Dalvik有专属的文件执行格式dex(Dalvik executable)<br>Art(Android Runtime)相当于Dalvik的升级版，本质与Dalvik无异</p>
+<h3 id="smali及其语法"><a href="#smali及其语法" class="headerlink" title="smali及其语法"></a>smali及其语法</h3><p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/lixpjita39/article/details/75193833">Android逆向世界之一:smali文件_smail_逆风Lee的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/l_o_s/article/details/79305253">Smali基本语法(一)_smali注释_岳锋的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.chieng.cn/post/169.html">smali语法详解（逆向安卓必学）_文摘_Chieng个人博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/379336005">Smali基本语法与指令 - 知乎 (zhihu.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Rozol/article/details/88368358">https://blog.csdn.net/Rozol/article/details/88368358</a></p>
+<h4 id="smali文件的结构"><a href="#smali文件的结构" class="headerlink" title="smali文件的结构"></a>smali文件的结构</h4><h5 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class &lt;访问权限修饰符&gt; [非权限修饰符] &lt;类名&gt;</span><br><span class="line">.<span class="built_in">super</span> &lt;父类名&gt;</span><br><span class="line">.source &lt;源文件名称&gt;</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.class public final Llutey/FTPServer/preferences/PreferencesFactory;</span><br><span class="line">.super Ljava/lang/Object;</span><br><span class="line">.source &quot;PreferencesFactory.java&quot;</span><br></pre></td></tr></table></figure>
+
+<h5 id="接口实现"><a href="#接口实现" class="headerlink" title="接口实现"></a>接口实现</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#interfaces</span><br><span class="line">.implements &lt;接口名称&gt;</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># interfaces</span><br><span class="line">.implements Landroid/view/View$OnClickListener;</span><br></pre></td></tr></table></figure>
+
+<h5 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#annotations</span><br><span class="line">.annotation [注解的属性] &lt;注解类名&gt;</span><br><span class="line">    [注解字段=值]</span><br><span class="line">    ...</span><br><span class="line">.end annotation</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># annotations</span><br><span class="line">.annotation build Landroid/annotation/TargetApi;</span><br><span class="line">    value = 0xb</span><br><span class="line">.end annotation</span><br></pre></td></tr></table></figure>
+
+<h5 id="变量定义"><a href="#变量定义" class="headerlink" title="变量定义"></a>变量定义</h5><p>使用.field描述字段的定义，分为静态变量和普通变量两种：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#static fields</span><br><span class="line">.field &lt;访问权限&gt; static [修饰词] &lt;字段名&gt;:&lt;变量类型&gt;</span><br></pre></td></tr></table></figure>
+
+<p>eg:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># static fields</span><br><span class="line">.field public static mStr:Ljava/lang/String;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="常用指令1"><a href="#常用指令1" class="headerlink" title="常用指令1"></a>常用指令1</h4><table>
+<thead>
+<tr>
+<th align="center">名称</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">.class</td>
+<td align="center">类名</td>
+</tr>
+<tr>
+<td align="center">.super</td>
+<td align="center">父类名，继承的上级类名名称</td>
+</tr>
+<tr>
+<td align="center">.source</td>
+<td align="center">源名</td>
+</tr>
+<tr>
+<td align="center">.field</td>
+<td align="center">变量</td>
+</tr>
+<tr>
+<td align="center">.method</td>
+<td align="center">方法名</td>
+</tr>
+<tr>
+<td align="center">.register</td>
+<td align="center">寄存器</td>
+</tr>
+<tr>
+<td align="center">.end method</td>
+<td align="center">方法名的结束</td>
+</tr>
+<tr>
+<td align="center">public</td>
+<td align="center">公有</td>
+</tr>
+<tr>
+<td align="center">protected</td>
+<td align="center">半公开，只有同一家人才能用</td>
+</tr>
+<tr>
+<td align="center">private</td>
+<td align="center">私有，只能自己使用</td>
+</tr>
+<tr>
+<td align="center">.parameter</td>
+<td align="center">方法参数</td>
+</tr>
+<tr>
+<td align="center">.prologue</td>
+<td align="center">方法开始</td>
+</tr>
+<tr>
+<td align="center">.line xxx</td>
+<td align="center">位于第xxx行</td>
+</tr>
+<tr>
+<td align="center">.annotation&#x2F;.end annotation</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h4 id="数据类型对应"><a href="#数据类型对应" class="headerlink" title="数据类型对应"></a>数据类型对应</h4><table>
+<thead>
+<tr>
+<th align="center">smali类型</th>
+<th align="center">java类型</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">V</td>
+<td align="center">void</td>
+<td align="center">无返回值</td>
+</tr>
+<tr>
+<td align="center">Z</td>
+<td align="center">boolean</td>
+<td align="center">布尔值类型，返回0或1</td>
+</tr>
+<tr>
+<td align="center">B</td>
+<td align="center">byte</td>
+<td align="center">字节类型，返回字节</td>
+</tr>
+<tr>
+<td align="center">S</td>
+<td align="center">short</td>
+<td align="center">短整数类型，返回数字</td>
+</tr>
+<tr>
+<td align="center">C</td>
+<td align="center">char</td>
+<td align="center">字符类型，返回字符</td>
+</tr>
+<tr>
+<td align="center">I</td>
+<td align="center">int</td>
+<td align="center">整数类型，返回数字</td>
+</tr>
+<tr>
+<td align="center">J</td>
+<td align="center">long （64位 需要2个寄存器存储）</td>
+<td align="center">长整数类型，返回数字</td>
+</tr>
+<tr>
+<td align="center">F</td>
+<td align="center">float</td>
+<td align="center">单浮点类型，返回数字</td>
+</tr>
+<tr>
+<td align="center">D</td>
+<td align="center">double （64位 需要2个寄存器存储）</td>
+<td align="center">双浮点类型，返回数字</td>
+</tr>
+<tr>
+<td align="center">string</td>
+<td align="center">String</td>
+<td align="center">文本类型，返回字符串</td>
+</tr>
+<tr>
+<td align="center">Lxxx&#x2F;xxx&#x2F;xxx</td>
+<td align="center">object</td>
+<td align="center">对象类型，返回对象</td>
+</tr>
+</tbody></table>
+<h4 id="常用指令2"><a href="#常用指令2" class="headerlink" title="常用指令2"></a>常用指令2</h4><table>
+<thead>
+<tr>
+<th align="center">关键字</th>
+<th align="center">注释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">const</td>
+<td align="center">重写整数属性，真假属性内容，只能是数字类型</td>
+</tr>
+<tr>
+<td align="center">const-string</td>
+<td align="center">重写字符串内容</td>
+</tr>
+<tr>
+<td align="center">const-wide</td>
+<td align="center">重写长整数类型，多用于修改到期时间。</td>
+</tr>
+<tr>
+<td align="center">return</td>
+<td align="center">返回指令</td>
+</tr>
+<tr>
+<td align="center">if-eq</td>
+<td align="center">全称equal(a&#x3D;b)，比较寄存器ab内容，相同则跳</td>
+</tr>
+<tr>
+<td align="center">if-ne</td>
+<td align="center">全称not equal(a!&#x3D;b)，ab内容不相同则跳</td>
+</tr>
+<tr>
+<td align="center">if-eqz</td>
+<td align="center">全称equal zero(a&#x3D;0)，z即是0的标记，a等于0则跳</td>
+</tr>
+<tr>
+<td align="center">if-nez</td>
+<td align="center">全称not equal zero(a!&#x3D;0)，a不等于0则跳</td>
+</tr>
+<tr>
+<td align="center">if-ge</td>
+<td align="center">全称greater equal(a&gt;&#x3D;b)，a大于或等于则跳</td>
+</tr>
+<tr>
+<td align="center">if-le</td>
+<td align="center">全称little equal(a&lt;&#x3D;b)，a小于或等于则跳</td>
+</tr>
+<tr>
+<td align="center">goto</td>
+<td align="center">强制跳到指定位置</td>
+</tr>
+<tr>
+<td align="center">switch</td>
+<td align="center">分支跳转，一般会有多个分支线，并根据指令跳转到适当位置</td>
+</tr>
+<tr>
+<td align="center">iget</td>
+<td align="center">获取寄存器数据</td>
+</tr>
+</tbody></table>
+<h4 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器:"></a>寄存器:</h4><p>在smali里的所有操作都必须经过寄存器来进行:本地寄存器用v开头数字结尾的符号来表示，如v0、 v1、v2。 参数寄存器则使用p开头数字结尾的符号来表示，如p0、p1、p2。特别注意的是，p0不一定是函数中的第一个参数，在非static函数中，p0代指“this”，p1表示函数的第一个 参数，p2代表函数中的第二个参数。而在static函数中p0才对应第一个参数(因为Java的static方法中没有this方法）</p>
+<h3 id="流程"><a href="#流程" class="headerlink" title="流程"></a>流程</h3><p>本次学习使用的demo为修改一app使其能够一来就有大会员。</p>
+<h4 id="jadx-gui寻找目标位置"><a href="#jadx-gui寻找目标位置" class="headerlink" title="jadx-gui寻找目标位置"></a>jadx-gui寻找目标位置</h4><p>打开文件</p>
+<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230319110933178.png" alt="image-20230319110933178" style="zoom:67%;" />
+
+<p>jadx-gui搜索关键字符串：大会员</p>
+<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230319111126434.png" alt="image-20230319111126434" style="zoom:50%;" />
+
+<p>找到对应位置了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line">//一个私有、静态、不可变的方法   方法名</span><br><span class="line">.method private static final onCreate$lambda-2(Lkotlin/jvm/internal/Ref$IntRef;Lcom/zj/wuaipojie/ui/ChallengeSecond;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/widget/ImageView;Landroid/view/View;)Z //(这里面是方法的参数)这里是方法返回值类型，表示布尔值类型，返回假或真</span><br><span class="line">    .registers 7  //寄存器数量</span><br><span class="line"></span><br><span class="line">    .line 33  //代码所在的行数</span><br><span class="line">    iget p0, p0, Lkotlin/jvm/internal/Ref$IntRef;-&gt;element:I  //读取p0(第一个参数，参考寄存器知识)中element的值赋值给p0</span><br><span class="line"></span><br><span class="line">    const/4 p5, 0x1  //p5赋值1</span><br><span class="line"></span><br><span class="line">    const/16 v0, 0xa //v0赋值10，在16进制里a表示10</span><br><span class="line"></span><br><span class="line">    if-ge p0, v0, :cond_15  //判断p0的值是否大于或等于v0的值(即p0的值是否大于或等于10)，如果大于或等于则跳转到:cond_15</span><br><span class="line"></span><br><span class="line">    .line 34  //以下是常见的Toast弹窗代码</span><br><span class="line">    check-cast p1, Landroid/content/Context; //检查Context对象引用</span><br><span class="line"></span><br><span class="line">    const-string p0, &quot;请先获取10个硬币哦&quot; //弹窗文本信息，把&quot;&quot;里的字符串数据赋值给p0</span><br><span class="line"></span><br><span class="line">    check-cast p0, Ljava/lang/CharSequence; //检查CharSequence对象引用</span><br><span class="line"></span><br><span class="line">    invoke-static &#123;p1, p0, p5&#125;, Landroid/widget/Toast;-&gt;makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast; </span><br><span class="line">    //将弹窗文本、显示时间等信息传给p1</span><br><span class="line"></span><br><span class="line">    move-result-object p0  //结果传递给p0</span><br><span class="line"></span><br><span class="line">    invoke-virtual &#123;p0&#125;, Landroid/widget/Toast;-&gt;show()V  //当看到这个Toast;-&gt;show你就应该反应过来这里是弹窗代码</span><br><span class="line"></span><br><span class="line">    goto :goto_31  //跳转到:goto_31</span><br><span class="line"></span><br><span class="line">    :cond_15 //跳转的一个地址</span><br><span class="line"></span><br><span class="line">    invoke-virtual &#123;p1&#125;, Lcom/zj/wuaipojie/ui/ChallengeSecond;-&gt;isvip()Z  //判断isvip方法的返回值是否为真(即结果是否为1)</span><br><span class="line"></span><br><span class="line">    move-result p0  //结果赋值给p0</span><br><span class="line"></span><br><span class="line">    if-eqz p0, :cond_43 //如果结果为0则跳转cond_43地址</span><br><span class="line"></span><br><span class="line">    const p0, 0x7f0d0018  //在arsc中的id索引，这个值可以进行查询</span><br><span class="line"></span><br><span class="line">    .line 37</span><br><span class="line">    invoke-virtual &#123;p2, p0&#125;, Landroid/widget/ImageView;-&gt;setImageResource(I)V //设置图片资源</span><br><span class="line"></span><br><span class="line">    const p0, 0x7f0d0008</span><br><span class="line"></span><br><span class="line">    .line 38</span><br><span class="line">    invoke-virtual &#123;p3, p0&#125;, Landroid/widget/ImageView;-&gt;setImageResource(I)V</span><br><span class="line"></span><br><span class="line">    const p0, 0x7f0d000a</span><br><span class="line"></span><br><span class="line">    .line 39</span><br><span class="line">    invoke-virtual &#123;p4, p0&#125;, Landroid/widget/ImageView;-&gt;setImageResource(I)V</span><br><span class="line"></span><br><span class="line">    .line 40</span><br><span class="line">    sget-object p0, Lcom/zj/wuaipojie/util/SPUtils;-&gt;INSTANCE:Lcom/zj/wuaipojie/util/SPUtils; </span><br><span class="line"></span><br><span class="line">    check-cast p1, Landroid/content/Context;</span><br><span class="line"></span><br><span class="line">    const/4 p2, 0x2 //p2赋值2</span><br><span class="line"></span><br><span class="line">    const-string p3, &quot;level&quot; //sp的索引</span><br><span class="line"></span><br><span class="line">    invoke-virtual &#123;p0, p1, p3, p2&#125;, Lcom/zj/wuaipojie/util/SPUtils;-&gt;saveInt(Landroid/content/Context;Ljava/lang/String;I)V //写入数据</span><br><span class="line"></span><br><span class="line">    goto :goto_50 //跳转地址</span><br><span class="line"></span><br><span class="line">    :cond_43</span><br><span class="line"></span><br><span class="line">    check-cast p1, Landroid/content/Context;</span><br><span class="line"></span><br><span class="line">    const-string p0, &quot;\u8bf7\u5148\u5145\u503c\u5927\u4f1a\u5458\u54e6\uff01&quot; //请先充值大会员哦！</span><br><span class="line"></span><br><span class="line">    check-cast p0, Ljava/lang/CharSequence;</span><br><span class="line"></span><br><span class="line">    invoke-static &#123;p1, p0, p5&#125;, Landroid/widget/Toast;-&gt;makeText(Landroid/content/Context;Ljava/lang/CharSequence;I)Landroid/widget/Toast;</span><br><span class="line"></span><br><span class="line">    move-result-object p0</span><br><span class="line"></span><br><span class="line">    invoke-virtual &#123;p0&#125;, Landroid/widget/Toast;-&gt;show()V</span><br><span class="line"></span><br><span class="line">    :goto_50</span><br><span class="line">    return p5  //返回p5的值</span><br><span class="line">.end method //方法结束</span><br><span class="line"></span><br><span class="line">//判断是否是大会员的方法</span><br><span class="line">.method public final isvip()Z</span><br><span class="line">    .registers 2</span><br><span class="line"></span><br><span class="line">    const/4 v0, 0x0 //v0赋值0</span><br><span class="line"></span><br><span class="line">    return v0 //返回v0的值</span><br><span class="line"></span><br><span class="line">.end method</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>修改方法：修改判断、强制跳转、修改寄存器的值</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/android/" rel="tag"><i class="fa fa-tag"></i> android</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/16/%E9%9D%B6%E6%9C%BA%E7%8E%A9%E8%80%8D/" rel="prev" title="靶机玩耍">
+      <i class="fa fa-chevron-left"></i> 靶机玩耍
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E5%99%A8%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">模拟器环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是安卓逆向？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E5%8D%93%E9%80%86%E5%90%91%E5%8F%AF%E4%BB%A5%E5%B9%B2%E5%98%9B%EF%BC%9F"><span class="nav-number">1.2.</span> <span class="nav-text">安卓逆向可以干嘛？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Magisk%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.3.</span> <span class="nav-text">Magisk介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.4.</span> <span class="nav-text">学习环境搭建</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#APK%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84%E3%80%81%E5%8F%8C%E5%BC%80%E3%80%81%E6%B1%89%E5%8C%96%E3%80%81%E5%9F%BA%E7%A1%80%E4%BF%AE%E6%94%B9"><span class="nav-number">2.</span> <span class="nav-text">APK文件结构、双开、汉化、基础修改</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Apk%E7%BB%93%E6%9E%84"><span class="nav-number">2.1.</span> <span class="nav-text">Apk结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E5%BC%80%E5%8F%8A%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.</span> <span class="nav-text">双开及原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B1%89%E5%8C%96APK"><span class="nav-number">2.3.</span> <span class="nav-text">汉化APK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AndroidManifest-xml"><span class="nav-number">2.4.</span> <span class="nav-text">AndroidManifest.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eg"><span class="nav-number">2.5.</span> <span class="nav-text">eg:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%AF%86smali%EF%BC%8Cvip%E7%BB%88%E7%BB%93%E8%80%85"><span class="nav-number">3.</span> <span class="nav-text">初识smali，vip终结者</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87"><span class="nav-number">3.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7"><span class="nav-number">3.2.</span> <span class="nav-text">工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JVM%E3%80%81Dalvik%E3%80%81ART"><span class="nav-number">3.3.</span> <span class="nav-text">JVM、Dalvik、ART</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#smali%E5%8F%8A%E5%85%B6%E8%AF%AD%E6%B3%95"><span class="nav-number">3.4.</span> <span class="nav-text">smali及其语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#smali%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84"><span class="nav-number">3.4.1.</span> <span class="nav-text">smali文件的结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">3.4.1.1.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3%E5%AE%9E%E7%8E%B0"><span class="nav-number">3.4.1.2.</span> <span class="nav-text">接口实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%B3%A8%E8%A7%A3"><span class="nav-number">3.4.1.3.</span> <span class="nav-text">注解</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">3.4.1.4.</span> <span class="nav-text">变量定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A41"><span class="nav-number">3.4.2.</span> <span class="nav-text">常用指令1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%AF%B9%E5%BA%94"><span class="nav-number">3.4.3.</span> <span class="nav-text">数据类型对应</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A42"><span class="nav-number">3.4.4.</span> <span class="nav-text">常用指令2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="nav-number">3.4.5.</span> <span class="nav-text">寄存器:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">3.5.</span> <span class="nav-text">流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#jadx-gui%E5%AF%BB%E6%89%BE%E7%9B%AE%E6%A0%87%E4%BD%8D%E7%BD%AE"><span class="nav-number">3.5.1.</span> <span class="nav-text">jadx-gui寻找目标位置</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ZER0"
+      src="/images/cat.gif">
+  <p class="site-author-name" itemprop="name">ZER0</p>
+  <div class="site-description" itemprop="description">太刀は至上である.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZER0</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
