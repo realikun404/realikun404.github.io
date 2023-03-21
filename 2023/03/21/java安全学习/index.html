@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+  <link rel="manifest" href="/images/favicon.ico">
+  <meta name="msapplication-config" content="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.json"};
+  </script>
+
+
+
+  <meta name="description" content="根据P神的java安全漫谈进行学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java安全学习">
+<meta property="og:url" content="http://example.com/2023/03/21/java%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="realikun404">
+<meta property="og:description" content="根据P神的java安全漫谈进行学习">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-03-21T00:54:04.000Z">
+<meta property="article:modified_time" content="2023-03-21T06:38:06.106Z">
+<meta property="article:author" content="ZER0">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2023/03/21/java%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>java安全学习 | realikun404</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">realikun404</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">太刀は至上である.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/03/21/java%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="ZER0">
+      <meta itemprop="description" content="太刀は至上である.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="realikun404">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          java安全学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-03-21 08:54:04 / 修改时间：14:38:06" itemprop="dateCreated datePublished" datetime="2023-03-21T08:54:04+08:00">2023-03-21</time>
+            </span>
+
+          
+            <div class="post-description">根据P神的java安全漫谈进行学习</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><a target="_blank" rel="noopener" href="https://github.com/phith0n/JavaThings">phith0n&#x2F;JavaThings: Share Things Related to Java - Java安全漫谈笔记相关内容 (github.com)</a></p>
+<h2 id="Java-runtime类介绍"><a href="#Java-runtime类介绍" class="headerlink" title="Java runtime类介绍"></a>Java runtime类介绍</h2><h2 id="Java的动态特性——反射"><a href="#Java的动态特性——反射" class="headerlink" title="Java的动态特性——反射"></a>Java的动态特性——反射</h2><p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://wx.zsxq.com/dweb2/index/topic_detail/422128255425528">知识星球 | 深度连接铁杆粉丝，运营高品质社群，知识变现的工具 (zsxq.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://wx.zsxq.com/dweb2/index/columns/2212251881">知识星球 | 深度连接铁杆粉丝，运营高品质社群，知识变现的工具 (zsxq.com)</a></p>
+<p>反射是⼤多数语⾔⾥都必不可少的组成部分，对象可以通过反射获取他的类，类可以通过反射拿到所有 ⽅法（包括私有），拿到的⽅法可以调⽤，总之通过“反射”，我们可以将Java这种静态语⾔附加上动态 特性。</p>
+<p>“动态特性”：⼀段代码，改变其中的变量，将会导致这段代码产⽣功能性的变化，称之为动态特性</p>
+<p>下面是一段反射的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">(String className, String methodName)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"> <span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> Class.forName(className);</span><br><span class="line"> clazz.getMethod(methodName).invoke(clazz.newInstance());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>⼏个在反射⾥极为重要的⽅法：</p>
+<p> 获取类的⽅法： forName </p>
+<p>实例化类对象的⽅法： newInstance </p>
+<p>获取函数的⽅法： getMethod </p>
+<p>执⾏函数的⽅法： invoke</p>
+<p>forName 不是获取“类”的唯⼀途径，通常来说我们有如下三种⽅式获取⼀个“类”，也就 是 java.lang.Class 对象：</p>
+<ol>
+<li>obj.getClass() 如果上下⽂中存在某个类的实例 obj ，那么我们可以直接通过 obj.getClass() 来获取它的类 </li>
+<li>Test.class 如果你已经加载了某个类，只是想获取到它的 java.lang.Class 对象，那么就直接 拿它的 class 属性即可。这个⽅法其实不属于反射。 </li>
+<li>Class.forName 如果你知道某个类的名字，想获取到这个类，就可以使⽤ forName 来获取</li>
+</ol>
+<p>使⽤反射的⼀⼤⽬的，就是绕过某些沙盒。⽐如，上下⽂中如果只有Integer类型的 数字，我们如何获取到可以执⾏命令的Runtime类呢？也许可以这样（伪代 码）： 1.getClass().forName(“java.lang.Runtime”)</p>
+<p>forName有两个函数重载：</p>
+<ul>
+<li><p>Class forName(String name) </p>
+</li>
+<li><p>Class forName(String name, <strong>boolean</strong> initialize, ClassLoader loader)</p>
+</li>
+</ul>
+<p>第⼀个就是我们最常⻅的获取class的⽅式，其实可以理解为第⼆种⽅式的⼀个封装：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(className)</span><br><span class="line"><span class="comment">// 等于</span></span><br><span class="line">Class.forName(className, <span class="literal">true</span>, currentLoader)</span><br></pre></td></tr></table></figure>
+
+<p>默认情况下， forName 的第⼀个参数是类名；第⼆个参数表示是否初始化；第三个参数就 是 ClassLoader 。</p>
+<p>ClassLoader 是什么呢？它就是⼀个“加载器”，告诉Java虚拟机如何加载这个类。</p>
+<p>下面是一个类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TrainPrint</span> &#123;</span><br><span class="line"> &#123;</span><br><span class="line"> System.out.printf(<span class="string">&quot;Empty block initial %s\n&quot;</span>, <span class="built_in">this</span>.getClass());</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">static</span> &#123;</span><br><span class="line"> System.out.printf(<span class="string">&quot;Static initial %s\n&quot;</span>, TrainPrint.class);</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="keyword">public</span> <span class="title function_">TrainPrint</span><span class="params">()</span> &#123;</span><br><span class="line"> System.out.printf(<span class="string">&quot;Initial %s\n&quot;</span>, <span class="built_in">this</span>.getClass());</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br><span class="line">Static initial <span class="keyword">class</span> <span class="title class_">org</span>.example.Main$TrainPrint</span><br><span class="line">Empty block initial <span class="keyword">class</span> <span class="title class_">org</span>.example.Main$TrainPrint</span><br><span class="line">Initial <span class="keyword">class</span> <span class="title class_">org</span>.example.Main$TrainPrint</span><br></pre></td></tr></table></figure>
+
+<p>⾸先调⽤的是 static {} ，其次是 {} ，最后是构造函数。</p>
+<p>其中， static {} 就是在“类初始化”的时候调⽤的，⽽ {} 中的代码会放在构造函数的 super() 后⾯， 但在当前构造函数内容的前⾯。</p>
+<p>forName 中的 initialize&#x3D;true 其实就是告诉Java虚拟机是否执⾏”类初始化“。</p>
+<p>假设我们有如下函数，其中函数的参数name可控：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">ref</span><span class="params">(String name)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line"> Class.forName(name);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们就可以编写⼀个恶意类，将恶意代码放置在 static {} 中，从⽽执⾏：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.lang.Runtime;</span><br><span class="line"><span class="keyword">import</span> java.lang.Process;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TouchFile</span> &#123;</span><br><span class="line"> <span class="keyword">static</span> &#123;</span><br><span class="line"> <span class="keyword">try</span> &#123;</span><br><span class="line"> <span class="type">Runtime</span> <span class="variable">rt</span> <span class="operator">=</span> Runtime.getRuntime();</span><br><span class="line"> String[] commands = &#123;<span class="string">&quot;touch&quot;</span>, <span class="string">&quot;/tmp/success&quot;</span>&#125;;</span><br><span class="line"> <span class="type">Process</span> <span class="variable">pc</span> <span class="operator">=</span> rt.exec(commands);</span><br><span class="line"> pc.waitFor();</span><br><span class="line"> &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line"> <span class="comment">// do nothing</span></span><br><span class="line"> &#125;</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>下面是自己写的demo</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">import</span> java.lang.Runtime;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException &#123;</span><br><span class="line">        excute(<span class="string">&quot;org.example.hello&quot;</span>,<span class="string">&quot;sayHello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">excute</span><span class="params">(String className, String methodName)</span> <span class="keyword">throws</span> ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException &#123;</span><br><span class="line">        Class clazz=Class.forName(className);</span><br><span class="line">        clazz.getMethod(methodName).invoke(clazz.newInstance());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">hello</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    hello()&#123;</span><br><span class="line">        name=<span class="string">&quot;xcc&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.println(name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在正常情况下，除了系统类，如果我们想拿到一个类，需要先 import 才能使用。而使用forName就不需要，这样对于我们的攻击者来说就十分有利，我们可以加载任意类。</p>
+<p>另外，我们经常在一些源码里看到，类名的部分包含 $ 符号，比如<em>fastjson</em>在 checkAutoType 时候就会 先将$ 替换成 . ：<a target="_blank" rel="noopener" href="https://github.com/alibaba/fastjson/blob/fcc9c2a/src/main/java/com/alibaba/fa">https://github.com/alibaba/fastjson/blob/fcc9c2a/src/main/java/com/alibaba/fa</a> stjson&#x2F;parser&#x2F;ParserConfig.java#L1038。 $ 的作用是查找内部类。</p>
+<p>Java的普通类 C1 中支持编写内部类 C2 ，而在编译的时候，会生成两个文件： C1.class 和 C1$C2.class ，我们可以把他们看作两个无关的类，通过 Class.forName(“C1$C2”) 即可加载这个内 部类。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b10d006a14fd">Java 反射内部类 - 简书 (jianshu.com)</a></p>
+<p>下面是自己写的demo：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.lang.reflect.InvocationTargetException;</span><br><span class="line"><span class="keyword">import</span> java.lang.Runtime;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException, ClassNotFoundException, InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException &#123;</span><br><span class="line">        excute(<span class="string">&quot;org.example.test$hello&quot;</span>,<span class="string">&quot;sayHello&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">excute</span><span class="params">(String className, String methodName)</span> <span class="keyword">throws</span> ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException &#123;</span><br><span class="line">        Class clazz=Class.forName(className);</span><br><span class="line">        clazz.getMethod(methodName).invoke(clazz.newInstance());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">class</span> <span class="title class_">hello</span>&#123;</span><br><span class="line">        <span class="keyword">public</span> String name;</span><br><span class="line">        hello()&#123;</span><br><span class="line">            name=<span class="string">&quot;xcc&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sayHello</span><span class="params">()</span>&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>class.newInstance() 的作用就是调用这个类的无参构造函数，这个比较好理解。不过，我们有时候 在写漏洞利用方法的时候，会发现使用 newInstance 总是不成功，这时候原因可能是： </p>
+<ol>
+<li>你使用的类没有无参构造函数 </li>
+<li>你使用的类构造函数是私有的</li>
+</ol>
+<p>最常见的情况就是 java.lang.Runtime ，这个类在我们构造命令执行Payload的时候很常见，但 我们不能直接这样来执行命令：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">clazz.getMethod(<span class="string">&quot;exec&quot;</span>, String.class).invoke(clazz.newInstance(), <span class="string">&quot;id&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>原因是 Runtime 类的构造方法是私有的。</p>
+<p>类的私有原因设计到一种设计模式“单例模式”。</p>
+<p>比如，对于Web应用来说，数据库连接只需要建立一次，而不是每次用到数据库的时候再新建立一个连 接，此时作为开发者你就可以将数据库连接使用的类的构造函数设置为私有，然后编写一个静态方法来 获取：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TrainDB</span> &#123;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="type">TrainDB</span> <span class="variable">instance</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">TrainDB</span>();</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> TrainDB <span class="title function_">getInstance</span><span class="params">()</span> &#123;</span><br><span class="line"><span class="keyword">return</span> instance;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">private</span> <span class="title function_">TrainDB</span><span class="params">()</span> &#123;</span><br><span class="line">	<span class="comment">// 建立连接的代码...</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样，只有类初始化的时候会执行一次构造函数，后面只能通过 getInstance 获取这个对象，避免建立多个数据库连接。</p>
+<p>Runtime类就是单例模式，我们只能通过 Runtime.getRuntime() 来获取到 Runtime 对 象。我们将上述Payload进行修改即可正常执行命令了：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line">clazz.getMethod(<span class="string">&quot;exec&quot;</span>,</span><br><span class="line">String.class).invoke(clazz.getMethod(<span class="string">&quot;getRuntime&quot;</span>).invoke(clazz),</span><br><span class="line"><span class="string">&quot;calc.exe&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>这里用到了 getMethod 和 invoke 方法。 getMethod 的作用是通过反射获取一个类的某个特定的公有方法。而学过Java的同学应该清楚，Java中 支持类的重载，我们不能仅通过函数名来确定一个函数。所以，在调用 getMethod 的时候，我们需要 传给他你需要获取的函数的参数类型列表。</p>
+<p>Runtime.exec 方法有6个重载：</p>
+<p>使用最简单的，也就是第一个，它只有一个参数，类型是String，所以我们使用 getMethod(“exec”, String.class) 来获取 Runtime.exec 方法。</p>
+<p>invoke 的作用是执行方法，它的第一个参数是： </p>
+<ul>
+<li><p>如果这个方法是一个普通方法，那么第一个参数是类对象</p>
+</li>
+<li><p>如果这个方法是一个静态方法，那么第一个参数是类</p>
+</li>
+</ul>
+<p>这也比较好理解了，我们正常执行方法是 [1].method([2], [3], [4]…) ，其实在反射里就是 method.invoke([1], [2], [3], [4]…) 。</p>
+<p>将上述命令执行的Payload分解一下就是：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> Class.forName(<span class="string">&quot;java.lang.Runtime&quot;</span>);</span><br><span class="line"><span class="type">Method</span> <span class="variable">execMethod</span> <span class="operator">=</span> clazz.getMethod(<span class="string">&quot;exec&quot;</span>, String.class);</span><br><span class="line"><span class="type">Method</span> <span class="variable">getRuntimeMethod</span> <span class="operator">=</span> clazz.getMethod(<span class="string">&quot;getRuntime&quot;</span>);</span><br><span class="line"><span class="type">Object</span> <span class="variable">runtime</span> <span class="operator">=</span> getRuntimeMethod.invoke(clazz);</span><br><span class="line">execMethod.invoke(runtime, <span class="string">&quot;calc.exe&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>现在有两个问题：</p>
+<ul>
+<li><p>如果一个类没有无参构造方法，也没有类似单例模式里的静态方法，我们怎样通过反射实例化该类 呢？ </p>
+</li>
+<li><p>如果一个方法或构造方法是私有方法，我们是否能执行它呢？</p>
+</li>
+</ul>
+<p>下面在回答。</p>
+<h2 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h2><p><a target="_blank" rel="noopener" href="http://rui0.cn/archives/1015">Code-Breaking Puzzles — javacon WriteUp - Ruilin (rui0.cn)</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/03/18/android-study/" rel="prev" title="android_study_吴爱破解">
+      <i class="fa fa-chevron-left"></i> android_study_吴爱破解
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-runtime%E7%B1%BB%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">Java runtime类介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E7%9A%84%E5%8A%A8%E6%80%81%E7%89%B9%E6%80%A7%E2%80%94%E2%80%94%E5%8F%8D%E5%B0%84"><span class="nav-number">2.</span> <span class="nav-text">Java的动态特性——反射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%88%98"><span class="nav-number">3.</span> <span class="nav-text">实战</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ZER0"
+      src="/images/cat.gif">
+  <p class="site-author-name" itemprop="name">ZER0</p>
+  <div class="site-description" itemprop="description">太刀は至上である.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZER0</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
