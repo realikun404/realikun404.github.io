@@ -35,7 +35,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230324223636869.png">
 <meta property="article:published_time" content="2023-03-14T10:11:46.000Z">
-<meta property="article:modified_time" content="2023-03-24T14:42:29.535Z">
+<meta property="article:modified_time" content="2023-03-29T09:51:33.473Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="日常记录 安全服务实习生">
 <meta name="twitter:card" content="summary">
@@ -200,7 +200,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-24 22:42:29" itemprop="dateModified" datetime="2023-03-24T22:42:29+08:00">2023-03-24</time>
+                <time title="修改时间：2023-03-29 17:51:33" itemprop="dateModified" datetime="2023-03-29T17:51:33+08:00">2023-03-29</time>
               </span>
 
           
@@ -233,207 +233,7 @@
 <h3 id="17日"><a href="#17日" class="headerlink" title="17日"></a>17日</h3><p>进行漏洞种类的看</p>
 <p>下面写下看到的漏洞及等级</p>
 <p>summary：找到了两个低危，以及进行学习，处理报告</p>
-<h4 id="web漏洞"><a href="#web漏洞" class="headerlink" title="web漏洞"></a>web漏洞</h4><p>等级判定可参考：<a target="_blank" rel="noopener" href="https://help.aliyun.com/document_detail/40067.html">https://help.aliyun.com/document_detail/40067.html</a></p>
-<table>
-<thead>
-<tr>
-<th align="center">漏洞名称</th>
-<th align="center">等级</th>
-<th align="center">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">短信验证码可暴力破解</td>
-<td align="center">中</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">敏感文件泄露</td>
-<td align="center">低</td>
-<td align="center">error.log</td>
-</tr>
-<tr>
-<td align="center">敏感文件泄露</td>
-<td align="center">低</td>
-<td align="center">nginx-status</td>
-</tr>
-<tr>
-<td align="center">敏感文件泄露</td>
-<td align="center">低</td>
-<td align="center">前端加密方法泄露也算</td>
-</tr>
-<tr>
-<td align="center">存储型XSS</td>
-<td align="center">高</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">弱口令</td>
-<td align="center">高</td>
-<td align="center">弱口令竟然都算高</td>
-</tr>
-<tr>
-<td align="center">验证码失效</td>
-<td align="center">中</td>
-<td align="center">验证码没在服务器端验证</td>
-</tr>
-<tr>
-<td align="center">crossdomain.xml文件配置不当</td>
-<td align="center">中</td>
-<td align="center">可能导致csrf</td>
-</tr>
-<tr>
-<td align="center">反射型xss</td>
-<td align="center">中</td>
-<td align="center">恶意代码并没有保存在目标网站，通过引诱用户点击一个链接到目标网站的恶意链接来实施攻击的</td>
-</tr>
-<tr>
-<td align="center">逻辑漏洞之任意用户登录</td>
-<td align="center">高</td>
-<td align="center">修改返回包直接登录</td>
-</tr>
-<tr>
-<td align="center">暴力破解</td>
-<td align="center">中</td>
-<td align="center">密码错误长度相同，且多次爆破没返回次数限制</td>
-</tr>
-<tr>
-<td align="center">越权访问</td>
-<td align="center">低</td>
-<td align="center">根据越权修改ID获取他人余额(看到有的等级是高</td>
-</tr>
-<tr>
-<td align="center">内网IP地址泄露</td>
-<td align="center">低</td>
-<td align="center">直接返回IP而不是域名，惊（注释的内网IP泄露竟然也算</td>
-</tr>
-<tr>
-<td align="center">Fastjson反序列化漏洞</td>
-<td align="center">中</td>
-<td align="center">可以dnslog验证，（看到json数据传输可以试试看是不是fastjson，也是其一个特征，<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1957185">浅析FastJSON反序列化漏洞（1.2.24——1.2.68） - 腾讯云开发者社区-腾讯云 (tencent.com)</a></td>
-</tr>
-<tr>
-<td align="center">信息泄露</td>
-<td align="center">低|高</td>
-<td align="center">破坏请求头结构，使得报错，返回详细报错信息（等级看泄露东西的严重性</td>
-</tr>
-<tr>
-<td align="center">链接注入漏洞</td>
-<td align="center">中</td>
-<td align="center">感觉属于xss，但可以点击链接跳转（确实，同一个点刷了两个洞</td>
-</tr>
-<tr>
-<td align="center">任意文件上传</td>
-<td align="center">中</td>
-<td align="center">上传任意后缀文件</td>
-</tr>
-<tr>
-<td align="center">CSRF</td>
-<td align="center">中</td>
-<td align="center">对应表单，burp抓包，bp CSRF POC构造</td>
-</tr>
-<tr>
-<td align="center">未授权访问</td>
-<td align="center">中|高</td>
-<td align="center">直接不需要登录就管理界面，加token等</td>
-</tr>
-<tr>
-<td align="center">软件压缩目录泄露</td>
-<td align="center">中</td>
-<td align="center">可以多扫目录试试</td>
-</tr>
-<tr>
-<td align="center">Webpack源码泄漏</td>
-<td align="center">中</td>
-<td align="center">webpack是一个打包器，能将多个文件打包成一个文件。（在源代码处看到webpack可以仔细检查确定是否存在该漏洞</td>
-</tr>
-<tr>
-<td align="center">CORS</td>
-<td align="center">中</td>
-<td align="center">特征：Access-Control-Allow-Origin：*，cors漏洞一般用于窃取用户敏感数据</td>
-</tr>
-<tr>
-<td align="center">tomcat示例目录未删除</td>
-<td align="center">低</td>
-<td align="center">*&#x2F;docs&#x2F;，存在说明文档</td>
-</tr>
-<tr>
-<td align="center">目录浏览</td>
-<td align="center">低</td>
-<td align="center">利用该信息可以更容易得到网站权限</td>
-</tr>
-<tr>
-<td align="center">spring-boot端点未授权</td>
-<td align="center">高</td>
-<td align="center">例如：*&#x2F;prod-api&#x2F;actuator&#x2F;env，会泄露敏感信息；特征：左上角绿叶，对应报错信息；参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/guo15890025019/article/details/119885737">Spring Boot Actuator未授权访问漏洞利用_springboot漏洞利用_大鸟安全的博客-CSDN博客</a></td>
-</tr>
-<tr>
-<td align="center">图形验证码失效</td>
-<td align="center">中</td>
-<td align="center">使用相同验证码多次重发，验证码仍可用</td>
-</tr>
-<tr>
-<td align="center">中间件版本泄露</td>
-<td align="center">低</td>
-<td align="center">一般不收</td>
-</tr>
-<tr>
-<td align="center">批量提交</td>
-<td align="center">中</td>
-<td align="center">表单重复提交，会造成数据重复，增加服务器负载，严重甚至会造成服务器宕机（这都算</td>
-</tr>
-<tr>
-<td align="center">swagger未授权</td>
-<td align="center">高</td>
-<td align="center"><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2160217">Swagger未授权访问漏洞 - 腾讯云开发者社区-腾讯云 (tencent.com)</a>，会暴露接口地址，从而可能被进行利用</td>
-</tr>
-<tr>
-<td align="center">短信验证码爆破漏洞</td>
-<td align="center">低</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">用户名枚举</td>
-<td align="center">低</td>
-<td align="center">可以根据验证码结合，当用户存在会发验证码，不存在不会发</td>
-</tr>
-<tr>
-<td align="center">Thymeleaf远程命令执行</td>
-<td align="center">高</td>
-<td align="center">若依CMS</td>
-</tr>
-<tr>
-<td align="center">接口文档泄露</td>
-<td align="center">高</td>
-<td align="center">有的XML文档包含接口也算</td>
-</tr>
-<tr>
-<td align="center">phpinfo界面泄露</td>
-<td align="center">中</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">Nginx主机实时监控流量数据泄露</td>
-<td align="center">高</td>
-<td align="center">*&#x2F;statusicon&#x2F;</td>
-</tr>
-<tr>
-<td align="center">Source Map</td>
-<td align="center">中</td>
-<td align="center">*.js.map</td>
-</tr>
-<tr>
-<td align="center">Springboot Snake YAML</td>
-<td align="center">高</td>
-<td align="center">反弹shell</td>
-</tr>
-<tr>
-<td align="center">上传jspgetshell</td>
-<td align="center">高</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<h4 id="APP漏洞："><a href="#APP漏洞：" class="headerlink" title="APP漏洞："></a>APP漏洞：</h4><p><del>等我学习了在更新</del></p>
+<p>对漏洞进行了整理，在常见漏洞里面</p>
 <h3 id="20日"><a href="#20日" class="headerlink" title="20日"></a>20日</h3><p>summary:找到二个中危（表单无限制提交、密码爆破）、二个低危（敏感信息泄露）、对内网资产进行整合共整合IP10894条</p>
 <p>下面是今天写的IP资产整合的代码，代码挺丑</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line">df = pd.read_excel(<span class="string">&#x27;1.xlsx&#x27;</span>)</span><br><span class="line"><span class="comment"># print(df.describe())</span></span><br><span class="line">columns = df.columns.values.tolist()  <span class="comment">### 获取excel 表头 ，第一行</span></span><br><span class="line"><span class="comment"># res=[]</span></span><br><span class="line">myfile = <span class="built_in">open</span>(<span class="string">&quot;res.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ip_identify1</span>(<span class="params">ip</span>):  <span class="comment"># 192.168.1.1</span></span><br><span class="line">    result = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        iplist = ip.split(<span class="string">&quot;.&quot;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(iplist) == <span class="number">4</span>:</span><br><span class="line">            check_count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> iplist:</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> (<span class="built_in">int</span>(i) &lt;= <span class="number">255</span> <span class="keyword">and</span> <span class="built_in">int</span>(i) &gt;= <span class="number">0</span>):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    check_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> check_count == <span class="number">4</span>: result = <span class="literal">True</span>  <span class="comment"># ip</span></span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">return</span> result</span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ip_identify2</span>(<span class="params">ip</span>):  <span class="comment"># 192.168.1.2-13</span></span><br><span class="line">    result = <span class="literal">False</span></span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    end = <span class="number">0</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        iplist = ip.split(<span class="string">&quot;.&quot;</span>)</span><br><span class="line">        checkCount = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(iplist) == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> (<span class="number">255</span> &gt;= <span class="built_in">int</span>(iplist[i]) &gt;= <span class="number">0</span>):</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    checkCount += <span class="number">1</span></span><br><span class="line">            <span class="comment"># 处理有-的</span></span><br><span class="line">            _numcount = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> iplist[<span class="number">3</span>]:</span><br><span class="line">                <span class="keyword">if</span> j == <span class="string">&quot;-&quot;</span> <span class="keyword">or</span> (<span class="built_in">int</span>(j) &lt;= <span class="number">255</span> <span class="keyword">and</span> <span class="built_in">int</span>(j) &gt;= <span class="number">0</span>) :</span><br><span class="line">                    <span class="keyword">if</span> j == <span class="string">&quot;-&quot;</span>:</span><br><span class="line">                        _numcount += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            <span class="keyword">if</span> _numcount == <span class="number">1</span>:</span><br><span class="line">                _index = iplist[<span class="number">3</span>].find(<span class="string">&#x27;-&#x27;</span>)</span><br><span class="line">                start = iplist[<span class="number">3</span>][:_index]</span><br><span class="line">                end = iplist[<span class="number">3</span>][_index + <span class="number">1</span>:]</span><br><span class="line">                checkCount += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> checkCount == <span class="number">4</span>:</span><br><span class="line">            <span class="keyword">if</span> start&gt;end:</span><br><span class="line">                temp=end</span><br><span class="line">                end=start</span><br><span class="line">                start=temp</span><br><span class="line">            <span class="keyword">return</span> iplist[<span class="number">0</span>] + <span class="string">&quot;.&quot;</span> + iplist[<span class="number">1</span>] + <span class="string">&quot;.&quot;</span> + iplist[<span class="number">2</span>] + <span class="string">&quot;.&quot;</span>, start, end</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"><span class="keyword">for</span> idx, row <span class="keyword">in</span> df.iterrows():  <span class="comment">### 迭代数据 以键值对的形式 获取 每行的数据</span></span><br><span class="line">    <span class="keyword">for</span> column <span class="keyword">in</span> columns:</span><br><span class="line">        <span class="comment"># print(row[column])</span></span><br><span class="line">        curstr = row[column]</span><br><span class="line">        <span class="keyword">if</span> pd.isna(curstr):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            strlen = <span class="built_in">len</span>(curstr)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = <span class="number">7</span></span><br><span class="line">        <span class="keyword">if</span> j &gt; strlen:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>, strlen + <span class="number">1</span>):</span><br><span class="line">            <span class="comment"># print(res)</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, j):</span><br><span class="line">                tempstr = curstr[i:j]</span><br><span class="line">                <span class="comment"># 分成两种进行判断要么是类型一要么是类型二</span></span><br><span class="line">                <span class="keyword">if</span> ip_identify1(tempstr):</span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">str</span>.isdigit(curstr[j - <span class="number">1</span>]):</span><br><span class="line">                        <span class="keyword">if</span> (j != strlen <span class="keyword">and</span> <span class="keyword">not</span> <span class="built_in">str</span>.isdigit(curstr[j])) <span class="keyword">or</span> j == strlen:<span class="comment">#j后面不能有数字，i前面也不能有数字</span></span><br><span class="line">                            <span class="keyword">if</span> i&gt;<span class="number">0</span> <span class="keyword">and</span> <span class="built_in">str</span>.isdigit(curstr[i-<span class="number">1</span>]):</span><br><span class="line">                                <span class="keyword">continue</span></span><br><span class="line">                            <span class="keyword">if</span> (ip_identify1(tempstr)):</span><br><span class="line">                                <span class="comment"># res.append(tempstr)</span></span><br><span class="line">                                myfile.write(tempstr + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                            ipres = ip_identify2(tempstr)</span><br><span class="line">                            <span class="keyword">if</span> (ipres):</span><br><span class="line">                                <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(ipres[<span class="number">1</span>]), <span class="built_in">int</span>(ipres[<span class="number">2</span>]) + <span class="number">1</span>):</span><br><span class="line">                                    <span class="keyword">try</span>:</span><br><span class="line">                                        myfile.write(tempstr + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                                        <span class="comment"># res.append(ipres[0] + str(k))</span></span><br><span class="line">                                    <span class="keyword">except</span>:</span><br><span class="line">                                        <span class="keyword">pass</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    ipres = ip_identify2(tempstr)</span><br><span class="line">                    <span class="keyword">if</span> j&lt;strlen-<span class="number">1</span> <span class="keyword">and</span> <span class="built_in">str</span>.isdigit(curstr[j]):  <span class="comment"># j后面不能有数字，i前面也不能有数字</span></span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> i &gt; <span class="number">0</span> <span class="keyword">and</span> <span class="built_in">str</span>.isdigit(curstr[i - <span class="number">1</span>]):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (ipres):</span><br><span class="line">                        <span class="keyword">try</span>:</span><br><span class="line">                            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(ipres[<span class="number">1</span>]), <span class="built_in">int</span>(ipres[<span class="number">2</span>]) + <span class="number">1</span>):</span><br><span class="line">                                <span class="keyword">try</span>:</span><br><span class="line">                                    myfile.write(ipres[<span class="number">0</span>]+<span class="built_in">str</span>(k) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">                                    <span class="comment"># res.append(ipres[0] + str(k))</span></span><br><span class="line">                                <span class="keyword">except</span>:</span><br><span class="line">                                    <span class="keyword">pass</span></span><br><span class="line">                        <span class="keyword">except</span>:</span><br><span class="line">                            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
@@ -475,7 +275,27 @@
 <h3 id="20日："><a href="#20日：" class="headerlink" title="20日："></a>20日：</h3><p>漏洞挖掘，挖到一个中危短信滥用、三个低危敏感信息泄露。</p>
 <p>学了点java安全知识。</p>
 <h3 id="22日："><a href="#22日：" class="headerlink" title="22日："></a>22日：</h3><p>忘了记了。</p>
-<h3 id="24日："><a href="#24日：" class="headerlink" title="24日："></a>24日：</h3><h2 id="TODO："><a href="#TODO：" class="headerlink" title="TODO："></a>TODO：</h2><table>
+<h3 id="24日："><a href="#24日：" class="headerlink" title="24日："></a>24日：</h3><p>还是日常挖洞。一中危（爆破）、二低危</p>
+<h3 id="27日："><a href="#27日：" class="headerlink" title="27日："></a>27日：</h3><p>上午找网站洞，下午去客服那里驻场实施、渗透测试、基线检测</p>
+<p><strong>堡垒机</strong>：堡垒机，即在一个特定的网络环境下，为了保障网络和数据不受来自外部和内部用户的入侵和破坏，而运用各种技术手段监控和记录运维人员对网络内的服务器、网络设备、安全设备、数据库等设备的操作行为，以便集中报警、及时处理及审计定责。</p>
+<p>用一句话来说，堡垒机就是用来后控制哪些人可以登录哪些资产（事先防范和事中控制），以及录像记录登录资产后做了什么事情（事溯源）</p>
+<p>堡垒机很多时候也叫运维审计系统，它的核心是可控及审计。可控是指权限可控、行为可控。<strong>权限可控</strong>，比如某个工程师要离职或要转岗了。如果没有一个统一的权限管理入口，是一场梦魇。<strong>行为可控</strong>，比如我们需要集中禁用某个危险命令，如果没有一个统一入口，操作的难度可想而知。</p>
+<p><strong>跳板机</strong>：跳板机其实就是一台unix&#x2F;windows操作系统的服务器，所有运维人员都需要先远程登录跳板机，然后再从跳板机登录其他服务器中进行运维操作。</p>
+<p>但跳板机并没有实现对运维人员操作行为的控制和审计，使用跳板机过程中还是会有误操作、违规操作导致的操作事故，一旦出现操作事故很难快速定位原因和责任人。此外，跳板机存在严重的安全风险，一旦跳板机系统被攻入，则将后端资源风险完全暴露无遗。同时，对于个别资源（如telnet）可以通过跳板机来完成一定的内控，但是对于更多更特殊的资源（ftp、rdp等）来讲就显得力不从心了。</p>
+<p>今天对内网进行基线检测和渗透测试：</p>
+<p>先是登录到堡垒机</p>
+<p>上传nussues、xshell、xftp</p>
+<p>然后扫描内网存活主机：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@<span class="built_in">echo</span> off</span><br><span class="line">chcp 65001&gt;nul</span><br><span class="line"><span class="built_in">echo</span> 正在扫描。。。。。。</span><br><span class="line"><span class="keyword">for</span> /L %%P <span class="keyword">in</span> (1,1,254) <span class="keyword">do</span> @ping -w 10 -n 1 192.168.1.%%P | findstr TTL= &gt;&gt;C:\ping.txt</span><br><span class="line"><span class="built_in">echo</span> 扫描结束，按任意键结束窗口！</span><br><span class="line">pause&gt;nul</span><br></pre></td></tr></table></figure>
+
+<p>然后使用nmap windows版本扫描端口看哪个开了ftp</p>
+<p>然后build nussues，批量扫描</p>
+<p>当时想要某个内网IP的账号密码，后面说把脚本给运维就行，也就没管了</p>
+<p>然后对内网段进行弱密码爆破</p>
+<h3 id="29日"><a href="#29日" class="headerlink" title="29日"></a>29日</h3><p>学了小程序的测试已经小程序的源代码怎么解密，怎么导入到开发者工具进行调试等。</p>
+<p>协助进行漏洞复测、找到一条低危漏洞（敏感信息泄露）。</p>
+<p><del>还想摸鱼学会java漏洞的，没摸成，</del>看小程序漏洞去了。</p>
+<h2 id="TODO："><a href="#TODO：" class="headerlink" title="TODO："></a>TODO：</h2><table>
 <thead>
 <tr>
 <th align="center">名称</th>
@@ -766,7 +586,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%9C%88"><span class="nav-number">1.</span> <span class="nav-text">三月</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E6%97%A5"><span class="nav-number">1.1.</span> <span class="nav-text">15日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%E6%97%A5"><span class="nav-number">1.2.</span> <span class="nav-text">17日</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#web%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.2.1.</span> <span class="nav-text">web漏洞</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#APP%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number">1.2.2.</span> <span class="nav-text">APP漏洞：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E6%97%A5"><span class="nav-number">1.3.</span> <span class="nav-text">20日</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.3.1.</span> <span class="nav-text">公众号漏洞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E6%97%A5%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">20日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22%E6%97%A5%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">22日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24%E6%97%A5%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">24日：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">TODO：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">了解fastjson反序列化漏洞原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cors%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">Cors漏洞原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP-shell"><span class="nav-number">2.3.</span> <span class="nav-text">JSP shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#re-match%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text">re.match函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-search%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.2.</span> <span class="nav-text">re.search方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-match%E4%B8%8Ere-search%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.3.</span> <span class="nav-text">re.match与re.search的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2"><span class="nav-number">2.4.4.</span> <span class="nav-text">检索和替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.5.</span> <span class="nav-text">java安全学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsFinder-AND-Plus-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E5%8F%91%E7%8E%B0%E7%A5%9E%E5%99%A8%EF%BC%88%E5%86%85%E7%BD%91IP%E3%80%81password%E7%AD%89%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">jsFinder AND Plus : 敏感信息泄露发现神器（内网IP、password等）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Plus"><span class="nav-number">2.6.1.</span> <span class="nav-text">Plus:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsFinder"><span class="nav-number">2.6.2.</span> <span class="nav-text">jsFinder:</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E6%9C%88"><span class="nav-number">1.</span> <span class="nav-text">三月</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#15%E6%97%A5"><span class="nav-number">1.1.</span> <span class="nav-text">15日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#17%E6%97%A5"><span class="nav-number">1.2.</span> <span class="nav-text">17日</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E6%97%A5"><span class="nav-number">1.3.</span> <span class="nav-text">20日</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E6%BC%8F%E6%B4%9E"><span class="nav-number">1.3.1.</span> <span class="nav-text">公众号漏洞</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#20%E6%97%A5%EF%BC%9A"><span class="nav-number">1.4.</span> <span class="nav-text">20日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22%E6%97%A5%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">22日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#24%E6%97%A5%EF%BC%9A"><span class="nav-number">1.6.</span> <span class="nav-text">24日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#27%E6%97%A5%EF%BC%9A"><span class="nav-number">1.7.</span> <span class="nav-text">27日：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#29%E6%97%A5"><span class="nav-number">1.8.</span> <span class="nav-text">29日</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TODO%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">TODO：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%86%E8%A7%A3fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">了解fastjson反序列化漏洞原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cors%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">Cors漏洞原理：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSP-shell"><span class="nav-number">2.3.</span> <span class="nav-text">JSP shell</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">2.4.</span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#re-match%E5%87%BD%E6%95%B0"><span class="nav-number">2.4.1.</span> <span class="nav-text">re.match函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-search%E6%96%B9%E6%B3%95"><span class="nav-number">2.4.2.</span> <span class="nav-text">re.search方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#re-match%E4%B8%8Ere-search%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.3.</span> <span class="nav-text">re.match与re.search的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A3%80%E7%B4%A2%E5%92%8C%E6%9B%BF%E6%8D%A2"><span class="nav-number">2.4.4.</span> <span class="nav-text">检索和替换</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java%E5%AE%89%E5%85%A8%E5%AD%A6%E4%B9%A0"><span class="nav-number">2.5.</span> <span class="nav-text">java安全学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#jsFinder-AND-Plus-%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E5%8F%91%E7%8E%B0%E7%A5%9E%E5%99%A8%EF%BC%88%E5%86%85%E7%BD%91IP%E3%80%81password%E7%AD%89%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">jsFinder AND Plus : 敏感信息泄露发现神器（内网IP、password等）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Plus"><span class="nav-number">2.6.1.</span> <span class="nav-text">Plus:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#jsFinder"><span class="nav-number">2.6.2.</span> <span class="nav-text">jsFinder:</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
@@ -781,12 +601,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
