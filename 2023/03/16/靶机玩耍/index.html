@@ -36,8 +36,20 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316092242512.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316092603021.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316093047508.png">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/e874e4e1-6981-469c-9d66-09d0b8a0c953-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/24460aa6-3cc1-49bc-b10b-ca3e1d063731-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/271e47c1-d865-4c73-bed1-174f348dc01f-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/e1f93768-df56-4fd4-8ba9-baf8e8ad45e7-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/ebe9376e-7eec-40ff-bf55-af408cf9a039-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/1b8ee47f-7a60-4979-b382-f8dd852407b9-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/fac7740e-0279-49e8-9c15-63af5e4734a9-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/4635c79e-b18f-4768-be95-8402052db235-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/939d0297-acfe-42a1-9a21-61839f2adf3f-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/b0650d15-a14f-410d-8e88-5e444e4ffcbf-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/cf0e5e49-a74e-4ab7-b332-523dd9eebafb-18494357.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/38f69a88-a519-432d-a4be-458890219659-18494357.jpg">
 <meta property="article:published_time" content="2023-03-16T01:15:57.000Z">
-<meta property="article:modified_time" content="2023-03-16T01:31:44.676Z">
+<meta property="article:modified_time" content="2023-04-11T12:39:00.249Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="vulhub靶机 渗透">
 <meta name="twitter:card" content="summary">
@@ -194,10 +206,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-16 09:15:57 / 修改时间：09:31:44" itemprop="dateCreated datePublished" datetime="2023-03-16T09:15:57+08:00">2023-03-16</time>
+              <time title="创建时间：2023-03-16 09:15:57" itemprop="dateCreated datePublished" datetime="2023-03-16T09:15:57+08:00">2023-03-16</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-04-11 20:39:00" itemprop="dateModified" datetime="2023-04-11T20:39:00+08:00">2023-04-11</time>
+              </span>
 
           
             <div class="post-description">靶机学习</div>
@@ -233,6 +251,60 @@
 <p>可以ftp提权，也可以sudo &#x2F;bin&#x2F;bash，也可也sudo time &#x2F;root&#x2F;flag.txt</p>
 <p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316093047508.png" alt="image-20230316093047508"></p>
 <p>成功</p>
+<h2 id="jarbas"><a href="#jarbas" class="headerlink" title="jarbas"></a>jarbas</h2><ul>
+<li><p>先nmap扫描</p>
+<ul>
+<li><p>得到靶机IP 192.168.1.30<img src="https://api2.mubu.com/v3/document_image/e874e4e1-6981-469c-9d66-09d0b8a0c953-18494357.jpg" alt="img"></p>
+</li>
+<li><p>全面的扫：sudo nmap –min-rate 10000  -p-  192.168.1.30<img src="https://api2.mubu.com/v3/document_image/24460aa6-3cc1-49bc-b10b-ca3e1d063731-18494357.jpg" alt="img"></p>
+</li>
+<li><p>sudo nmap -sT -sV -O -p22,80,3306,8080 192.168.1.30 （TCP）<img src="https://api2.mubu.com/v3/document_image/271e47c1-d865-4c73-bed1-174f348dc01f-18494357.jpg" alt="img"></p>
+</li>
+<li><p>sudo nmap -sU -sV -O -p22,80,3306,8080 192.168.1.30 （UDP）<img src="https://api2.mubu.com/v3/document_image/e1f93768-df56-4fd4-8ba9-baf8e8ad45e7-18494357.jpg" alt="img"></p>
+</li>
+<li><p>扫描漏洞：sudo nmap –script&#x3D;vuln -p22,80,3306,8080 192.168.1.30<img src="https://api2.mubu.com/v3/document_image/ebe9376e-7eec-40ff-bf55-af408cf9a039-18494357.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>80端口web服务</p>
+<ul>
+<li><p>dirb 扫描dirb <a target="_blank" rel="noopener" href="http://192.168.1.30/">http://192.168.1.30:80</a>   -X .html -o output.txt  (可以多试下看加不加.html)<img src="https://api2.mubu.com/v3/document_image/1b8ee47f-7a60-4979-b382-f8dd852407b9-18494357.jpg" alt="img"></p>
+</li>
+<li><p>访问access<img src="https://api2.mubu.com/v3/document_image/fac7740e-0279-49e8-9c15-63af5e4734a9-18494357.jpg" alt="img"></p>
+</li>
+<li><p>hash解密</p>
+<ul>
+<li><p>看类型（md5）<img src="https://api2.mubu.com/v3/document_image/4635c79e-b18f-4768-be95-8402052db235-18494357.jpg" alt="img"></p>
+</li>
+<li><p>解密</p>
+<ul>
+<li><p>tiago:5978a63b4654c73c60fa24f836386d87：italia99</p>
+</li>
+<li><p>trindade:f463f63616cb3f1e81ce46b39f882fd5：marianna</p>
+</li>
+<li><p>eder:9b38e2b1e8b12f426b0d208a7ab6cb98：vipsu</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>8080端口处理</p>
+<ul>
+<li><p>使用之前三组密码登录，最后一组可以<img src="https://api2.mubu.com/v3/document_image/939d0297-acfe-42a1-9a21-61839f2adf3f-18494357.jpg" alt="img"></p>
+</li>
+<li><p>jenkins尝试使用msf攻击<img src="https://api2.mubu.com/v3/document_image/b0650d15-a14f-410d-8e88-5e444e4ffcbf-18494357.jpg" alt="img"></p>
+</li>
+<li><p>use exploit&#x2F;multi&#x2F;http&#x2F;jenkins_script_console</p>
+</li>
+<li><p>show options（注意lport不要设成4444）<img src="https://api2.mubu.com/v3/document_image/cf0e5e49-a74e-4ab7-b332-523dd9eebafb-18494357.jpg" alt="img"></p>
+</li>
+<li><p>成功得到shell<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/38f69a88-a519-432d-a4be-458890219659-18494357.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -315,7 +387,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#W1R3S"><span class="nav-number">1.</span> <span class="nav-text">W1R3S</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap-%E6%89%AB%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">nmap 扫服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEftp"><span class="nav-number">1.2.</span> <span class="nav-text">访问ftp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEweb"><span class="nav-number">1.3.</span> <span class="nav-text">访问web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%88%86%E7%A0%B4%EF%BC%9Adirb%E3%80%81gobuster%E3%80%81feroxbuster"><span class="nav-number">1.3.1.</span> <span class="nav-text">目录爆破：dirb、gobuster、feroxbuster</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="nav-number">1.4.</span> <span class="nav-text">权限维持</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#W1R3S"><span class="nav-number">1.</span> <span class="nav-text">W1R3S</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap-%E6%89%AB%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">nmap 扫服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEftp"><span class="nav-number">1.2.</span> <span class="nav-text">访问ftp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEweb"><span class="nav-number">1.3.</span> <span class="nav-text">访问web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%88%86%E7%A0%B4%EF%BC%9Adirb%E3%80%81gobuster%E3%80%81feroxbuster"><span class="nav-number">1.3.1.</span> <span class="nav-text">目录爆破：dirb、gobuster、feroxbuster</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="nav-number">1.4.</span> <span class="nav-text">权限维持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jarbas"><span class="nav-number">2.</span> <span class="nav-text">jarbas</span></a></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
@@ -330,12 +402,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
