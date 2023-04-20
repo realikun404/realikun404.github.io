@@ -34,7 +34,7 @@
 <meta property="og:description" content="漏洞进行整理">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-28T11:40:31.000Z">
-<meta property="article:modified_time" content="2023-04-17T12:21:14.420Z">
+<meta property="article:modified_time" content="2023-04-20T09:11:21.273Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="漏洞整理">
 <meta name="twitter:card" content="summary">
@@ -198,7 +198,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-04-17 20:21:14" itemprop="dateModified" datetime="2023-04-17T20:21:14+08:00">2023-04-17</time>
+                <time title="修改时间：2023-04-20 17:11:21" itemprop="dateModified" datetime="2023-04-20T17:11:21+08:00">2023-04-20</time>
               </span>
 
           
@@ -559,15 +559,75 @@
 <td align="center">turbo intruder 模式下进行并发 选择race.py</td>
 </tr>
 <tr>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">不收限制的资源调用</td>
+<td align="center">高</td>
+<td align="center">调用接口消耗资源，爆破信息</td>
+</tr>
+<tr>
+<td align="center">短信验证码复用漏洞</td>
+<td align="center">低</td>
+<td align="center">登录成功后不失效</td>
+</tr>
+<tr>
+<td align="center">验证码与手机号未绑定</td>
+<td align="center">高</td>
+<td align="center">未绑定手机号，任意修改密码</td>
+</tr>
+<tr>
+<td align="center">验证码爆破</td>
+<td align="center">高</td>
+<td align="center">手机号码前后加空格，86，086，0086，+86，0，00，&#x2F;r,&#x2F;n, 以及特殊符号等。或者url编码</td>
+</tr>
+<tr>
+<td align="center">csrf</td>
+<td align="center">高</td>
+<td align="center">使用cookie等本地凭证在<img>打等</td>
+</tr>
+<tr>
+<td align="center">逻辑并发</td>
+<td align="center">中</td>
+<td align="center">领东西的时候并发测试</td>
+</tr>
+<tr>
+<td align="center">时间校验漏洞</td>
+<td align="center">中</td>
+<td align="center">某些会员通过本地时间判断</td>
+</tr>
+<tr>
+<td align="center">手机验证码回显</td>
+<td align="center">中</td>
+<td align="center">（没见到谁这么干过</td>
+</tr>
+<tr>
+<td align="center">首单优惠绕过</td>
+<td align="center">中</td>
+<td align="center">优惠数据包重发</td>
+</tr>
+<tr>
+<td align="center">xss</td>
+<td align="center">中</td>
+<td align="center">上传html文件中有xss，路径随机但host相同也算（竟然都要算</td>
+</tr>
+<tr>
+<td align="center">敏感信息泄露</td>
+<td align="center">低</td>
+<td align="center">匿名用户uid泄露等，身份证暴露等</td>
+</tr>
+<tr>
+<td align="center">邮箱轰炸</td>
+<td align="center">中</td>
+<td align="center">还以为只有短信轰炸才算</td>
 </tr>
 </tbody></table>
 <h2 id="APP漏洞："><a href="#APP漏洞：" class="headerlink" title="APP漏洞："></a>APP漏洞：</h2><p><del>等我学习了在更新</del></p>
-<h2 id="公众号小程序漏洞"><a href="#公众号小程序漏洞" class="headerlink" title="公众号小程序漏洞"></a>公众号小程序漏洞</h2><h2 id="SRC挖掘技巧"><a href="#SRC挖掘技巧" class="headerlink" title="SRC挖掘技巧"></a>SRC挖掘技巧</h2><h3 id="利用fofa语法"><a href="#利用fofa语法" class="headerlink" title="利用fofa语法"></a>利用fofa语法</h3><p>“系统” &amp;&amp; org&#x3D;”China Education and Research Network Center”，我们可以看见红色框内是有很多图标，这些有可能就是系统的指纹，fofa直接给你归纳好的，现在我们只需要一个一个图标打开然后用傻瓜式渗透顺序打一通</p>
+<h2 id="公众号小程序漏洞"><a href="#公众号小程序漏洞" class="headerlink" title="公众号小程序漏洞"></a>公众号小程序漏洞</h2><h2 id="SRC挖掘技巧"><a href="#SRC挖掘技巧" class="headerlink" title="SRC挖掘技巧"></a>SRC挖掘技巧</h2><h3 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h3><p>多看burp http-history看</p>
+<p>jsfind</p>
+<p>控制台</p>
+<h3 id="利用fofa语法"><a href="#利用fofa语法" class="headerlink" title="利用fofa语法"></a>利用fofa语法</h3><p>“系统” &amp;&amp; org&#x3D;”China Education and Research Network Center”，我们可以看见红色框内是有很多图标，这些有可能就是系统的指纹，fofa直接给你归纳好的，现在我们只需要一个一个图标打开然后用傻瓜式渗透顺序打一通</p>
 <h3 id="查看开发商排行榜"><a href="#查看开发商排行榜" class="headerlink" title="查看开发商排行榜"></a>查看开发商排行榜</h3><p>edu平台的跟新，我发现他多了一个开发商排行，这样等于是给我们列出来了edu用户的系统公司，就可以节省我们的时间再去查找开发商来找对应的系统，确定系统寻找手册弱口令</p>
 <h3 id="利用谷歌hacking、咸鱼、github搜集敏感信息"><a href="#利用谷歌hacking、咸鱼、github搜集敏感信息" class="headerlink" title="利用谷歌hacking、咸鱼、github搜集敏感信息"></a>利用谷歌hacking、咸鱼、github搜集敏感信息</h3><p>site:.edu.cn sfz  filetype: pdf|xls|doc</p>
+<p>site:edu.cn (filetype:pdf OR filetype:xls OR filetype:doc)</p>
+<p>学号 工号 身份证</p>
 <p>去找所在学校相关的教育局站点，因为助学金等奖励都会通过当地教育局进行展开，这样在相关教育局站点我们也可以收集到我们需要的信息，当然你也可以加入班群，表白墙等容易泄露信息的地方。高校网站找找到门户服务网站，此时一定要注意门户网站的帮助</p>
 <h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h2><p>关注漏洞库：<a target="_blank" rel="noopener" href="http://www.i-dock.net/">PeiQi文库 (i-dock.net)</a>，有网站测绘，即搜索语法使用起来还挺方便</p>
 <h2 id="github信息收集"><a href="#github信息收集" class="headerlink" title="github信息收集"></a>github信息收集</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gtihub搜索语法:</span><br><span class="line">in:name baidu              #标题搜索含有关键字baidu</span><br><span class="line">in:descripton baidu         #仓库描述搜索含有关键字</span><br><span class="line">in:readme baidu             #Readme文件搜素含有关键字</span><br><span class="line">stars:&gt;3000 baidu           #stars数量大于3000的搜索关键字</span><br><span class="line">stars:1000..3000 baidu      #stars数量大于1000小于3000的搜索关键字</span><br><span class="line">forks:&gt;1000 baidu           #forks数量大于1000的搜索关键字</span><br><span class="line">forks:1000..3000 baidu      #forks数量大于1000小于3000的搜索关键字</span><br><span class="line">size:&gt;=5000 baidu           #指定仓库大于5000k(5M)的搜索关键字</span><br><span class="line">pushed:&gt;2019-02-12 baidu    #发布时间大于2019-02-12的搜索关键字</span><br><span class="line">created:&gt;2019-02-12 baidu   #创建时间大于2019-02-12的搜索关键字</span><br><span class="line">user:name                  #用户名搜素</span><br><span class="line">license:apache-2.0 baidu    #明确仓库的 LICENSE 搜索关键字</span><br><span class="line">language:java baidu         #在java语言的代码中搜索关键字</span><br><span class="line">user:baidu in:name baidu     #组合搜索,用户名baidu的标题含有baidu的</span><br></pre></td></tr></table></figure>
@@ -656,7 +716,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%AC%E4%BC%97%E5%8F%B7%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">小程序公众号漏洞：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">web漏洞：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APP%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">APP漏洞：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.</span> <span class="nav-text">公众号小程序漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRC%E6%8C%96%E6%8E%98%E6%8A%80%E5%B7%A7"><span class="nav-number">3.</span> <span class="nav-text">SRC挖掘技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8fofa%E8%AF%AD%E6%B3%95"><span class="nav-number">3.1.</span> <span class="nav-text">利用fofa语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%8F%91%E5%95%86%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="nav-number">3.2.</span> <span class="nav-text">查看开发商排行榜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E8%B0%B7%E6%AD%8Chacking%E3%80%81%E5%92%B8%E9%B1%BC%E3%80%81github%E6%90%9C%E9%9B%86%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">3.3.</span> <span class="nav-text">利用谷歌hacking、咸鱼、github搜集敏感信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">代码审计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">5.</span> <span class="nav-text">github信息收集</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%85%AC%E4%BC%97%E5%8F%B7%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">小程序公众号漏洞：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#web%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number"></span> <span class="nav-text">web漏洞：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APP%E6%BC%8F%E6%B4%9E%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">APP漏洞：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AC%E4%BC%97%E5%8F%B7%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%BC%8F%E6%B4%9E"><span class="nav-number">2.</span> <span class="nav-text">公众号小程序漏洞</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SRC%E6%8C%96%E6%8E%98%E6%8A%80%E5%B7%A7"><span class="nav-number">3.</span> <span class="nav-text">SRC挖掘技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A5%E5%8F%A3"><span class="nav-number">3.1.</span> <span class="nav-text">接口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8fofa%E8%AF%AD%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">利用fofa语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%BC%80%E5%8F%91%E5%95%86%E6%8E%92%E8%A1%8C%E6%A6%9C"><span class="nav-number">3.3.</span> <span class="nav-text">查看开发商排行榜</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A9%E7%94%A8%E8%B0%B7%E6%AD%8Chacking%E3%80%81%E5%92%B8%E9%B1%BC%E3%80%81github%E6%90%9C%E9%9B%86%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF"><span class="nav-number">3.4.</span> <span class="nav-text">利用谷歌hacking、咸鱼、github搜集敏感信息</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1"><span class="nav-number">4.</span> <span class="nav-text">代码审计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#github%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="nav-number">5.</span> <span class="nav-text">github信息收集</span></a></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">

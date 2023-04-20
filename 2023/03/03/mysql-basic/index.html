@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230309090928741.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230309092308658.png">
 <meta property="article:published_time" content="2023-03-03T01:06:47.000Z">
-<meta property="article:modified_time" content="2023-03-09T01:27:12.846Z">
+<meta property="article:modified_time" content="2023-04-20T07:18:10.937Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="mysql">
 <meta name="twitter:card" content="summary">
@@ -208,7 +208,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-03-09 09:27:12" itemprop="dateModified" datetime="2023-03-09T09:27:12+08:00">2023-03-09</time>
+                <time title="修改时间：2023-04-20 15:18:10" itemprop="dateModified" datetime="2023-04-20T15:18:10+08:00">2023-04-20</time>
               </span>
 
           
@@ -223,7 +223,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="mysql概述"><a href="#mysql概述" class="headerlink" title="mysql概述"></a>mysql概述</h1><h2 id="数据库相关概念"><a href="#数据库相关概念" class="headerlink" title="数据库相关概念"></a>数据库相关概念</h2><table>
+        <p>[toc]</p>
+<h1 id="mysql概述"><a href="#mysql概述" class="headerlink" title="mysql概述"></a>mysql概述</h1><h2 id="数据库相关概念"><a href="#数据库相关概念" class="headerlink" title="数据库相关概念"></a>数据库相关概念</h2><table>
 <thead>
 <tr>
 <th>名称</th>
@@ -659,6 +660,152 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">revoke all on itcast.* from &#x27;heima&#x27;@&#x27;%&#x27;;</span><br></pre></td></tr></table></figure>
 
 <h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><p>函数 是指一段可以直接被另一段程序调用的程序或代码。</p>
+<p>问题：</p>
+<p>1). 在企业的OA或其他的人力系统中，经常会提供的有这样一个功能，每一个员工登录上来之后都能 够看到当前员工入职的天数。 而在数据库中，存储的都是入职日期，如 2000-11-12，那如果快速计 算出天数呢？</p>
+<p> 2). 在做报表这类的业务需求中,我们要展示出学员的分数等级分布。而在数据库中，存储的是学生的 分数值，如98&#x2F;75，如何快速判定分数的等级呢？ </p>
+<p>其实，上述的这一类的需求呢，我们通过MySQL中的函数都可以很方便的实现 。 MySQL中的函数主要分为以下四类： 字符串函数、数值函数、日期函数、流程函数。</p>
+<h3 id="字符串函数"><a href="#字符串函数" class="headerlink" title="字符串函数"></a>字符串函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CONCAT(S1,S2,…Sn)</td>
+<td align="center">字符串拼接，将S1，S2，… Sn拼接成一个字符串</td>
+</tr>
+<tr>
+<td align="center">LOWER(str)</td>
+<td align="center">将字符串str全部转为小写</td>
+</tr>
+<tr>
+<td align="center">UPPER(str)</td>
+<td align="center">将字符串str全部转为大写</td>
+</tr>
+<tr>
+<td align="center">LPAD(str,n,pad)</td>
+<td align="center">左填充，用字符串pad对str的左边进行填充，达到n个字符 串长度</td>
+</tr>
+<tr>
+<td align="center">RPAD(str,n,pad)</td>
+<td align="center">右填充，用字符串pad对str的右边进行填充，达到n个字符 串长度</td>
+</tr>
+<tr>
+<td align="center">TRIM(str)</td>
+<td align="center">去掉字符串头部和尾部的空格</td>
+</tr>
+<tr>
+<td align="center">SUBSTRING(str,start,len)</td>
+<td align="center">返回从字符串str从start位置起的len个长度的字符串</td>
+</tr>
+</tbody></table>
+<p>由于业务需求变更，企业员工的工号，统一为5位数，目前不足5位数的全部在前面补0。比如： 1号员 工的工号应该为00001。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update emp set workno = lpad(workno, 5, &#x27;0&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="数值函数"><a href="#数值函数" class="headerlink" title="数值函数"></a>数值函数</h3><p>常见的数值函数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CEIL(x)</td>
+<td align="center">向上取整</td>
+</tr>
+<tr>
+<td align="center">向上取整</td>
+<td align="center">向下取整</td>
+</tr>
+<tr>
+<td align="center">MOD(x,y)</td>
+<td align="center">返回x&#x2F;y的模</td>
+</tr>
+<tr>
+<td align="center">RAND()</td>
+<td align="center">返回0~1内的随机数</td>
+</tr>
+<tr>
+<td align="center">ROUND(x,y)</td>
+<td align="center">求参数x的四舍五入的值，保留y位小数</td>
+</tr>
+</tbody></table>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-- 数值函数</span><br><span class="line">-- ceil</span><br><span class="line">select ceil(1.1);</span><br><span class="line"></span><br><span class="line">-- floor</span><br><span class="line">select floor(1.9);</span><br><span class="line"></span><br><span class="line">-- mod</span><br><span class="line">select mod(7,4);</span><br><span class="line"></span><br><span class="line">-- rand</span><br><span class="line">select rand();</span><br><span class="line"></span><br><span class="line">-- round</span><br><span class="line">select round(2.344,2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 案例: 通过数据库的函数，生成一个六位数的随机验证码。</span><br><span class="line">select lpad(round(rand()*1000000 , 0), 6, &#x27;0&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h3><p>常见的日期函数如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">CURDATE()</td>
+<td align="center">返回当前日期</td>
+</tr>
+<tr>
+<td align="center">CURTIME()</td>
+<td align="center">返回当前时间</td>
+</tr>
+<tr>
+<td align="center">NOW()</td>
+<td align="center">返回当前日期和时间</td>
+</tr>
+<tr>
+<td align="center">YEAR(date)</td>
+<td align="center">获取指定date的年份</td>
+</tr>
+<tr>
+<td align="center">MONTH(date)</td>
+<td align="center">获取指定date的月份</td>
+</tr>
+<tr>
+<td align="center">DAY(date)</td>
+<td align="center">获取指定date的日期</td>
+</tr>
+<tr>
+<td align="center">DATE_ADD(date, INTERVAL expr type)</td>
+<td align="center">返回一个日期&#x2F;时间值加上一个时间间隔expr后的时间值</td>
+</tr>
+<tr>
+<td align="center">DATEDIFF(date1,date2)</td>
+<td align="center">返回起始时间date1 和 结束时间date2之间的天数</td>
+</tr>
+</tbody></table>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-- 案例: 查询所有员工的入职天数，并根据入职天数倒序排序。</span><br><span class="line">select name, datediff(curdate(), entrydate) as &#x27;entrydays&#x27; from emp order by entrydays desc;</span><br></pre></td></tr></table></figure>
+
+<h3 id="流程函数"><a href="#流程函数" class="headerlink" title="流程函数"></a>流程函数</h3><table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">IF(value, t, f)</td>
+<td align="center">如果value为true，则返回t，否则返回f</td>
+</tr>
+<tr>
+<td align="center">IFNULL(value1, value2)</td>
+<td align="center">如果value1不为空，返回value1，否则返回value2</td>
+</tr>
+<tr>
+<td align="center">CASE WHEN [val1] THEN [res1] … ELSE [default] END</td>
+<td align="center">如果val1为true，返回res1，… 否则返回default默认值</td>
+</tr>
+<tr>
+<td align="center">CASE [expr] WHEN [val1] THEN [res1] … ELSE [default] END</td>
+<td align="center">如果expr的值等于val1，返回res1，… 否则返回default默认值</td>
+</tr>
+</tbody></table>
+<p>实例：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">-- 流程控制函数</span><br><span class="line">-- if</span><br><span class="line">select if(false, &#x27;Ok&#x27;, &#x27;Error&#x27;);</span><br><span class="line"></span><br><span class="line">-- ifnull</span><br><span class="line">select ifnull(&#x27;Ok&#x27;,&#x27;Default&#x27;);</span><br><span class="line"></span><br><span class="line">select ifnull(&#x27;&#x27;,&#x27;Default&#x27;);</span><br><span class="line"></span><br><span class="line">select ifnull(null,&#x27;Default&#x27;);</span><br><span class="line"></span><br><span class="line">-- case when then else end</span><br><span class="line">-- 需求: 查询emp表的员工姓名和工作地址 (北京/上海 ----&gt; 一线城市 , 其他 ----&gt; 二线城市)</span><br><span class="line">select</span><br><span class="line">    name,</span><br><span class="line">    ( case workaddress when &#x27;北京&#x27; then &#x27;一线城市&#x27; when &#x27;上海&#x27; then &#x27;一线城市&#x27; else &#x27;二线城市&#x27; end ) as &#x27;工作地址&#x27;</span><br><span class="line">from emp;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">-- 案例: 统计班级各个学员的成绩，展示的规则如下：</span><br><span class="line">-- &gt;= 85，展示优秀</span><br><span class="line">-- &gt;= 60，展示及格</span><br><span class="line">-- 否则，展示不及格</span><br><span class="line"></span><br><span class="line">create table score(</span><br><span class="line">    id int comment &#x27;ID&#x27;,</span><br><span class="line">    name varchar(20) comment &#x27;姓名&#x27;,</span><br><span class="line">    math int comment &#x27;数学&#x27;,</span><br><span class="line">    english int comment &#x27;英语&#x27;,</span><br><span class="line">    chinese int comment &#x27;语文&#x27;</span><br><span class="line">) comment &#x27;学员成绩表&#x27;;</span><br><span class="line">insert into score(id, name, math, english, chinese) VALUES (1, &#x27;Tom&#x27;, 67, 88, 95 ), (2, &#x27;Rose&#x27; , 23, 66, 90),(3, &#x27;Jack&#x27;, 56, 98, 76);</span><br><span class="line"></span><br><span class="line">--</span><br><span class="line">select</span><br><span class="line">    id,</span><br><span class="line">    name,</span><br><span class="line">    (case when math &gt;= 85 then &#x27;优秀&#x27; when math &gt;=60 then &#x27;及格&#x27; else &#x27;不及格&#x27; end ) &#x27;数学&#x27;,</span><br><span class="line">    (case when english &gt;= 85 then &#x27;优秀&#x27; when english &gt;=60 then &#x27;及格&#x27; else &#x27;不及格&#x27; end ) &#x27;英语&#x27;,</span><br><span class="line">    (case when chinese &gt;= 85 then &#x27;优秀&#x27; when chinese &gt;=60 then &#x27;及格&#x27; else &#x27;不及格&#x27; end ) &#x27;语文&#x27;</span><br><span class="line">from score;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -741,7 +888,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">mysql概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">数据库相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="nav-number">1.2.4.</span> <span class="nav-text">启动与停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.5.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88RDBMS%EF%BC%89"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">关系型数据库（RDBMS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-1"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">数据模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">2.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL"><span class="nav-number">2.3.</span> <span class="nav-text">DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%9B%E5%BB%BA"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">查询创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">2.4.</span> <span class="nav-text">图形化界面工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML"><span class="nav-number">2.5.</span> <span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%EF%BC%88INSERT%EF%BC%89"><span class="nav-number">2.5.1.</span> <span class="nav-text">添加数据（INSERT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%EF%BC%88UPDATE%EF%BC%89"><span class="nav-number">2.5.2.</span> <span class="nav-text">修改数据（UPDATE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%EF%BC%88DELETE%EF%BC%89"><span class="nav-number">2.5.3.</span> <span class="nav-text">删除数据（DELETE）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOL"><span class="nav-number">2.6.</span> <span class="nav-text">DOL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">基础查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.3.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">2.6.4.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.5.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.6.</span> <span class="nav-text">排序查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.7.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="nav-number">2.6.8.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.6.9.</span> <span class="nav-text">执行顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCL"><span class="nav-number">2.7.</span> <span class="nav-text">DCL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7"><span class="nav-number">2.7.1.</span> <span class="nav-text">管理用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="nav-number">2.7.2.</span> <span class="nav-text">权限控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#mysql%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">mysql概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="nav-number">1.1.</span> <span class="nav-text">数据库相关概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="nav-number">1.2.</span> <span class="nav-text">MySQL数据库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC"><span class="nav-number">1.2.1.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.2.2.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8A%A8%E4%B8%8E%E5%81%9C%E6%AD%A2"><span class="nav-number">1.2.4.</span> <span class="nav-text">启动与停止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%BF%9E%E6%8E%A5"><span class="nav-number">1.2.5.</span> <span class="nav-text">客户端连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.2.6.</span> <span class="nav-text">数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%88RDBMS%EF%BC%89"><span class="nav-number">1.2.6.1.</span> <span class="nav-text">关系型数据库（RDBMS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B-1"><span class="nav-number">1.2.6.2.</span> <span class="nav-text">数据模型</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sql"><span class="nav-number">2.</span> <span class="nav-text">sql</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E9%80%9A%E7%94%A8%E8%AF%AD%E6%B3%95"><span class="nav-number">2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL%E5%88%86%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">SQL分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DDL"><span class="nav-number">2.3.</span> <span class="nav-text">DDL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.1.</span> <span class="nav-text">数据库操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">2.3.2.</span> <span class="nav-text">表操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2%E5%88%9B%E5%BB%BA"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">查询创建</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B"><span class="nav-number">2.3.2.3.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">2.3.2.4.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4"><span class="nav-number">2.3.2.5.</span> <span class="nav-text">删除</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%B7%A5%E5%85%B7"><span class="nav-number">2.4.</span> <span class="nav-text">图形化界面工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DML"><span class="nav-number">2.5.</span> <span class="nav-text">DML</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%95%B0%E6%8D%AE%EF%BC%88INSERT%EF%BC%89"><span class="nav-number">2.5.1.</span> <span class="nav-text">添加数据（INSERT）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%EF%BC%88UPDATE%EF%BC%89"><span class="nav-number">2.5.2.</span> <span class="nav-text">修改数据（UPDATE）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%EF%BC%88DELETE%EF%BC%89"><span class="nav-number">2.5.3.</span> <span class="nav-text">删除数据（DELETE）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOL"><span class="nav-number">2.6.</span> <span class="nav-text">DOL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="nav-number">2.6.1.</span> <span class="nav-text">基本语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.2.</span> <span class="nav-text">基础查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.3.</span> <span class="nav-text">条件查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%81%9A%E5%90%88%E5%87%BD%E6%95%B0"><span class="nav-number">2.6.4.</span> <span class="nav-text">聚合函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.5.</span> <span class="nav-text">分组查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.6.</span> <span class="nav-text">排序查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="nav-number">2.6.7.</span> <span class="nav-text">分页查询</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%88%E4%BE%8B-1"><span class="nav-number">2.6.8.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E9%A1%BA%E5%BA%8F"><span class="nav-number">2.6.9.</span> <span class="nav-text">执行顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DCL"><span class="nav-number">2.7.</span> <span class="nav-text">DCL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7"><span class="nav-number">2.7.1.</span> <span class="nav-text">管理用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9D%83%E9%99%90%E6%8E%A7%E5%88%B6"><span class="nav-number">2.7.2.</span> <span class="nav-text">权限控制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0"><span class="nav-number">3.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0"><span class="nav-number">3.0.1.</span> <span class="nav-text">字符串函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E5%80%BC%E5%87%BD%E6%95%B0"><span class="nav-number">3.0.2.</span> <span class="nav-text">数值函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E6%9C%9F%E5%87%BD%E6%95%B0"><span class="nav-number">3.0.3.</span> <span class="nav-text">日期函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E5%87%BD%E6%95%B0"><span class="nav-number">3.0.4.</span> <span class="nav-text">流程函数</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
