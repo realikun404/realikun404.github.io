@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+  <link rel="manifest" href="/images/favicon.ico">
+  <meta name="msapplication-config" content="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+
+
+  <meta name="description" content="流量分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="流量分析">
+<meta property="og:url" content="http://example.com/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/index.html">
+<meta property="og:site_name" content="realikun404">
+<meta property="og:description" content="流量分析">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230424191154222.png">
+<meta property="article:published_time" content="2023-04-24T01:44:51.000Z">
+<meta property="article:modified_time" content="2023-04-24T11:51:44.532Z">
+<meta property="article:author" content="ZER0">
+<meta property="article:tag" content="流量分析">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230424191154222.png">
+
+<link rel="canonical" href="http://example.com/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>流量分析 | realikun404</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">realikun404</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">太刀は至上である.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="archive fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="ZER0">
+      <meta itemprop="description" content="太刀は至上である.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="realikun404">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          流量分析
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-04-24 09:44:51 / 修改时间：19:51:44" itemprop="dateCreated datePublished" datetime="2023-04-24T09:44:51+08:00">2023-04-24</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.6k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+            <div class="post-description">流量分析</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>11</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/122096176">Shell管理工具流量分析-上（菜刀、蚁剑、冰蝎2.0流量分析）&amp;入侵检测、应急响应资料整理_冰蝎2.0流量特征_OceanSec的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32393893/article/details/117574848">CTF之流量分析_ctf 流量分析_shy014的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/122096176">Shell管理工具流量分析-上（菜刀、蚁剑、冰蝎2.0流量分析）&amp;入侵检测、应急响应资料整理_冰蝎2.0流量特征_OceanSec的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53577336/article/details/125048353">Webshell工具的流量特征分析（菜刀，蚁剑，冰蝎，哥斯拉）_冰蝎流量特征_告白热的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/eternitymd/article/details/124492261">菜刀、冰蝎、蚁剑、哥斯拉的流量特征_蚁剑流量特征_呜呼起飞~的博客-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42880719/article/details/122148345">ctfshow 摆烂杯 writeup_jiajia-cp-1_是Mumuzi的博客-CSDN博客</a></p>
+<h2 id="常见指纹"><a href="#常见指纹" class="headerlink" title="常见指纹"></a>常见指纹</h2><p>过滤语句：http contains “sqlmap”</p>
+<p>Awvs:<br>AWVS扫描器在请求的URL，Headers, Body三项里随机包含了能代表自己的特征信息</p>
+<p>&lt;1&gt; Url: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acunetix-wvs-test-for-some-inexistent-file</span><br><span class="line">by_wvs</span><br><span class="line">acunetix_wvs_security_testacunetix</span><br><span class="line">acunetix_wvs</span><br><span class="line">acunetix_test</span><br></pre></td></tr></table></figure>
+
+<p>&lt;2&gt; Headers:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Acunetix-Aspect-Password:</span><br><span class="line">Cookie: acunetixCookie</span><br><span class="line">Location: acunetix_wvs_security_testX-Forwarded-Host: acunetix_wvs_security_testX-Forwarded-For: acunetix_wvs_security_testHost: acunetix_wvs_security_testCookie: acunetix_wvs_security_testCookie: acunetix</span><br><span class="line">Accept: acunetix/wvs</span><br><span class="line">Origin: acunetix_wvs_security_testReferer: acunetix_wvs_security_testVia: acunetix_wvs_security_testAccept-Language: acunetix_wvs_security_testClient-IP: acunetix_wvs_security_testHTTP_AUTH_PASSWD: acunetix</span><br><span class="line">User-Agent: acunetix_wvs_security_testAcunetix-Aspect-Queries:任意值</span><br><span class="line">Acunetix-Aspect:任意值</span><br></pre></td></tr></table></figure>
+
+<p>&lt;3&gt; Body </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acunetix_wvs_security_testacunetix</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Appscan:</p>
+<p>Appscan依然在请求的URL，Headers，Body三项里随机包含了能代表自己的特征信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt;Url</span><br><span class="line">Appscan</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;2&gt; Headers</span><br><span class="line">Content-Type: Appscan</span><br><span class="line">Content-Type: AppScanHeader</span><br><span class="line">Accept: Appscan</span><br><span class="line">User-Agent:Appscan</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;3&gt; Body</span><br><span class="line">Appscan</span><br></pre></td></tr></table></figure>
+
+
+
+<p>Nessus:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt; Url</span><br><span class="line">nessus</span><br><span class="line">Nessus</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;2&gt; Headers</span><br><span class="line">x_forwarded_for: nessus</span><br><span class="line">referer: nessus</span><br><span class="line">host: nessus</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;3&gt; Body</span><br><span class="line">nessus</span><br><span class="line">Nessus</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>x_forwarded_for:nessus</li>
+<li>referer:nessus</li>
+<li>host:nessus</li>
+</ul>
+<p>sqlmap:</p>
+<ul>
+<li>User-Agent:sqlmap1.2.8#stable</li>
+</ul>
+<p>Netsparker: </p>
+<ul>
+<li>X-Scanner:NetsparkerLocation:</li>
+<li>NetsparkerAccept:netsparker&#x2F;chechCookie:</li>
+<li>netsparkerCookie:NETSPARKER</li>
+</ul>
+<h2 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h2><h3 id="中国菜刀"><a href="#中国菜刀" class="headerlink" title="中国菜刀"></a>中国菜刀</h3><p>1.请求包中会有eval，assert, base64的特征字符（这里如果用eval方法就是eval ,如果是assert方法就是assert）<br>2.payload为base64加密，且为默认为&amp;z0&#x3D;QGluaV9zZXQ… 参数z0对应$_POST[z0]接收到的数据<br>且固定为QGluaV9zZXQ开头</p>
+<h3 id="蚁剑"><a href="#蚁剑" class="headerlink" title="蚁剑"></a>蚁剑</h3><p>默认的蚁剑 shell，连接时会请求两次，其请求体只是经过 url 编码</p>
+<p>第一次请求，关闭报错和 magic_quotes，接下来去获取主机的信息</p>
+<p>第二次请求，会把主机目录列出来</p>
+<h3 id="冰蝎"><a href="#冰蝎" class="headerlink" title="冰蝎"></a>冰蝎</h3><h4 id="2-0"><a href="#2-0" class="headerlink" title="2.0"></a>2.0</h4><p>使用 aes 加密发起三次请求</p>
+<p>第一次请求服务端产生密钥写入 session，session 和当前会话绑定，不同的客户端的密钥也是不同的</p>
+<p>第二次请求是为了获取 key，第三次使用 key 的 aes 加密进行通信</p>
+<h4 id="3-0"><a href="#3-0" class="headerlink" title="3.0"></a>3.0</h4><p>使用 aes 加密发起两次请求</p>
+<p>3.0 分析流量发现相比 2.0 少了动态密钥的获取的请求，不再使用随机生成 key，改为取连接密码的 md5 加密值的前 16 位作为密钥</p>
+<p>一次请求为判断是否可以建立连接，少了俩次 get 获取冰蝎动态密钥的行为，第二次发送 phpinfo 等代码执行，获取网站的信息</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.请求数据包中的content-type字段常见为application/octet-stream；</span><br><span class="line"> 2.内置16个user-agent头</span><br><span class="line"> 3.content-lengt]请求长度，对于密钥交互，获取基本信息来讲，payload都为定长。</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-0"><a href="#4-0" class="headerlink" title="4.0"></a>4.0</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.Accep和Content-Type为弱特征且Content-type:一般为Application/x-www-form-urlencoded，这里可作为辅助特征</span><br><span class="line">2.内置10个user-agent ,每次连接shell时会随机选择一个进行使用.</span><br><span class="line">3.因为冰蝎4.0建立连接的同时，javaw也与目的主机建立tcp连接，每次连接使用本地端口在49700左右</span><br><span class="line">4.冰蝎通讯默认使用长连接，请求头和响应头里会带有 Connection且Connection为 Keep-Alive</span><br><span class="line">5.有固定的请求头和响应头，请求字节头：dFAXQV1LORcHRQtLRlwMAhwFTAg/M</span><br><span class="line">响应字节头：TxcWR1NNExZAD0ZaAWMIPAZjH1BFBFtHThcJSlUXWEd</span><br><span class="line">6.默认时，冰蝎 webshell都有“e45e329feb5d925b” 一串密钥。该密钥为连接密码32位md5值的前16位，默认连接密码rebeyond</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="哥斯拉"><a href="#哥斯拉" class="headerlink" title="哥斯拉"></a>哥斯拉</h3><p>支持多种加密</p>
+<p>采用了和冰蝎 3.0 一样的密钥交换方式，哥斯拉建立连接时会发起三次请求，第一次请求数据超级长，建立 session，第二三次请求确认连接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.user-agent,如果不修改的话会返回使用的jdk信息</span><br><span class="line">2.在请求包的Cookie中有一个非常致命的特征是会在最后出现分号</span><br><span class="line">3.请求Accept和响应中Cache-Control字段（辅助认证）</span><br><span class="line">4.响应包中的数据前16位为MD5+base64+后16位为MD5。</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>做题：</p>
+<p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/14AyqVEydOREdifeeKvETjg?pwd=vray">https://pan.baidu.com/s/14AyqVEydOREdifeeKvETjg?pwd=vray</a> </p>
+<p>1 某公司内网网络被黑客渗透，请分析流量，给出黑客使用的扫描器</p>
+<p>awvs：</p>
+<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230424191154222.png" alt="image-20230424191154222" style="zoom:67%;" />
+
+<p>2 某公司内网网络被黑客渗透，请分析流量，得到黑客扫描到的登陆后台是(相对路径即可)</p>
+<p>&#x2F;admin&#x2F;login</p>
+<p>3 某公司内网网络被黑客渗透，请分析流量，得到黑客使用了什么账号密码登陆了web后台(形式:username&#x2F;password)</p>
+<p>4 某公司内网网络被黑客渗透，请分析流量，得到黑客上传的webshell文件名是，内容是什么,提交webshell内容的base编码</p>
+<p>5 某公司内网网络被黑客渗透，请分析流量，黑客在robots.txt中找到的flag是什么</p>
+<p>6 某公司内网网络被黑客渗透，请分析流量，黑客找到的数据库密码是多少<br>7 某公司内网网络被黑客渗透，请分析流量，黑客在数据库中找到的hash_code是什么</p>
+<p>8 某公司内网网络被黑客渗透，请分析流量，黑客破解了账号<a href="mailto:&#105;&#x6a;&#110;&#x75;&#x40;&#x74;&#x65;&#x73;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#105;&#x6a;&#110;&#x75;&#x40;&#x74;&#x65;&#x73;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a>得到的密码是什么</p>
+<p>9 某公司内网网络被黑客渗透，请分析流量，被黑客攻击的web服务器，网卡配置是是什么，提交网卡内网ip</p>
+<p>10 某公司内网网络被黑客渗透，请分析流量，黑客使用了什么账号登陆了mail系统（形式: username&#x2F;password）</p>
+<p>11某公司内网网络被黑客渗透，请分析流量，黑客获得的vpn的ip是多少</p>
+
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" rel="tag"><i class="fa fa-tag"></i> 流量分析</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/04/20/rmi%E4%B8%93%E9%A2%98/" rel="prev" title="rmi专题">
+      <i class="fa fa-chevron-left"></i> rmi专题
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E6%8C%87%E7%BA%B9"><span class="nav-number">1.</span> <span class="nav-text">常见指纹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webshell"><span class="nav-number">2.</span> <span class="nav-text">webshell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%9B%BD%E8%8F%9C%E5%88%80"><span class="nav-number">2.1.</span> <span class="nav-text">中国菜刀</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%9A%81%E5%89%91"><span class="nav-number">2.2.</span> <span class="nav-text">蚁剑</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%86%B0%E8%9D%8E"><span class="nav-number">2.3.</span> <span class="nav-text">冰蝎</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-0"><span class="nav-number">2.3.1.</span> <span class="nav-text">2.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-0"><span class="nav-number">2.3.2.</span> <span class="nav-text">3.0</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-0"><span class="nav-number">2.3.3.</span> <span class="nav-text">4.0</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%A5%E6%96%AF%E6%8B%89"><span class="nav-number">2.4.</span> <span class="nav-text">哥斯拉</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ZER0"
+      src="/images/cat.gif">
+  <p class="site-author-name" itemprop="name">ZER0</p>
+  <div class="site-description" itemprop="description">太刀は至上である.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+      
+      
+        <div class="links-of-blogroll motion-element links-of-blogroll-block">
+          <div class="links-of-blogroll-title">
+            <!-- modify icon to fire by szw -->
+            <i class="fa fa-history fa-" aria-hidden="true"></i>
+            近期文章
+          </div>
+          <ul class="links-of-blogroll-list">
+            
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+          </ul>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZER0</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">178k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:42</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
