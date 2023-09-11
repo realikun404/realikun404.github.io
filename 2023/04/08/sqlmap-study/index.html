@@ -35,7 +35,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230426164201842.png">
 <meta property="article:published_time" content="2023-04-08T05:06:15.000Z">
-<meta property="article:modified_time" content="2023-05-23T09:26:35.739Z">
+<meta property="article:modified_time" content="2023-05-25T14:16:01.572Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="sqlmap">
 <meta name="twitter:card" content="summary">
@@ -213,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-05-23 17:26:35" itemprop="dateModified" datetime="2023-05-23T17:26:35+08:00">2023-05-23</time>
+                <time title="修改时间：2023-05-25 22:16:01" itemprop="dateModified" datetime="2023-05-25T22:16:01+08:00">2023-05-25</time>
               </span>
 
           <br>
@@ -222,7 +222,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>3.1k</span>
+              <span>3.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -248,7 +248,10 @@
 <p>3、启发式测试是什么</p>
 <p>……</p>
 <p>[toc]</p>
-<h2 id="环境怎么搭建"><a href="#环境怎么搭建" class="headerlink" title="环境怎么搭建"></a>环境怎么搭建</h2><h2 id="sqlmap-项目剖析（I）-使用"><a href="#sqlmap-项目剖析（I）-使用" class="headerlink" title="sqlmap 项目剖析（I）-使用"></a>sqlmap 项目剖析（I）-使用</h2><h3 id="0x00-sqlmap-介绍"><a href="#0x00-sqlmap-介绍" class="headerlink" title="0x00 sqlmap 介绍"></a>0x00 sqlmap 介绍</h3><p>sqlmap 是一款开源的自动化 SQL 注入测试及漏洞利用工具，有着十余年的开发历史（当然这也造就了一些问题），这款工具最强大的地方在于它对数据库种类以及注入类型的支持堪称史诗级。</p>
+<h2 id="我的测试环境"><a href="#我的测试环境" class="headerlink" title="我的测试环境"></a>我的测试环境</h2><p>sqlmap版本：1.5.10.17#dev</p>
+<p>在buuctf上弄动态靶场</p>
+<p>然后pycharm断点运行</p>
+<h2 id="sqlmap自己分析"><a href="#sqlmap自己分析" class="headerlink" title="sqlmap自己分析"></a>sqlmap自己分析</h2><h2 id="sqlmap-项目剖析（I）-使用"><a href="#sqlmap-项目剖析（I）-使用" class="headerlink" title="sqlmap 项目剖析（I）-使用"></a>sqlmap 项目剖析（I）-使用</h2><h3 id="0x00-sqlmap-介绍"><a href="#0x00-sqlmap-介绍" class="headerlink" title="0x00 sqlmap 介绍"></a>0x00 sqlmap 介绍</h3><p>sqlmap 是一款开源的自动化 SQL 注入测试及漏洞利用工具，有着十余年的开发历史（当然这也造就了一些问题），这款工具最强大的地方在于它对数据库种类以及注入类型的支持堪称史诗级。</p>
 <p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/262848">sqlmap 项目剖析（I）-安全客 - 安全资讯平台 (anquanke.com)</a></p>
 <p>使用懒得写了，上面的链接有说。</p>
 <p>主要记录自己不是很熟练的部分。</p>
@@ -273,6 +276,21 @@
 
 <p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230426164201842.png" alt="image-20230426164201842"></p>
 <h2 id="sqlmap-项目剖析（II）"><a href="#sqlmap-项目剖析（II）" class="headerlink" title="sqlmap 项目剖析（II）"></a>sqlmap 项目剖析（II）</h2><p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/262847">sqlmap 项目剖析（II）-安全客 - 安全资讯平台 (anquanke.com)</a></p>
+<p>sqlmap步骤：</p>
+<ul>
+<li>全局变量初始化</li>
+<li>命令行参数解析</li>
+<li>全局变量赋值</li>
+<li>环境检查</li>
+<li>目标连通性检查</li>
+<li>WAF 探测</li>
+<li>页面动态内容提取</li>
+<li>参数动态性检测</li>
+<li>启发式测试</li>
+</ul>
+<p>下面挑一点详细的看</p>
+<h3 id="初始化流程"><a href="#初始化流程" class="headerlink" title="初始化流程"></a>初始化流程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Main function of sqlmap when running from command line.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        dirtyPatches()</span><br><span class="line">        resolveCrossReferences()</span><br><span class="line">        checkEnvironment()</span><br><span class="line">        setPaths(modulePath())</span><br><span class="line">        banner()</span><br><span class="line"></span><br><span class="line">        args = cmdLineParser()</span><br><span class="line">        cmdLineOptions.update(args.__dict__ <span class="keyword">if</span> <span class="built_in">hasattr</span>(args, <span class="string">&quot;__dict__&quot;</span>) <span class="keyword">else</span> args)</span><br><span class="line">        initOptions(cmdLineOptions)</span><br><span class="line"></span><br><span class="line">        init()</span><br><span class="line">        start()</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -361,7 +379,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%80%8E%E4%B9%88%E6%90%AD%E5%BB%BA"><span class="nav-number">1.</span> <span class="nav-text">环境怎么搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap-%E9%A1%B9%E7%9B%AE%E5%89%96%E6%9E%90%EF%BC%88I%EF%BC%89-%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">sqlmap 项目剖析（I）-使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x00-sqlmap-%E4%BB%8B%E7%BB%8D"><span class="nav-number">2.1.</span> <span class="nav-text">0x00 sqlmap 介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap-%E9%A1%B9%E7%9B%AE%E5%89%96%E6%9E%90%EF%BC%88II%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">sqlmap 项目剖析（II）</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%91%E7%9A%84%E6%B5%8B%E8%AF%95%E7%8E%AF%E5%A2%83"><span class="nav-number">1.</span> <span class="nav-text">我的测试环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap%E8%87%AA%E5%B7%B1%E5%88%86%E6%9E%90"><span class="nav-number">2.</span> <span class="nav-text">sqlmap自己分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap-%E9%A1%B9%E7%9B%AE%E5%89%96%E6%9E%90%EF%BC%88I%EF%BC%89-%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">sqlmap 项目剖析（I）-使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x00-sqlmap-%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.1.</span> <span class="nav-text">0x00 sqlmap 介绍</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap-%E9%A1%B9%E7%9B%AE%E5%89%96%E6%9E%90%EF%BC%88II%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">sqlmap 项目剖析（II）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E6%B5%81%E7%A8%8B"><span class="nav-number">4.1.</span> <span class="nav-text">初始化流程</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
@@ -451,12 +469,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">197k</span>
+    <span title="站点总字数">194k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">2:59</span>
+    <span title="站点阅读时长">2:57</span>
 </div>
 
         
