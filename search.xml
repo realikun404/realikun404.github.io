@@ -659,14 +659,6 @@
     <content><![CDATA[]]></content>
   </entry>
   <entry>
-    <title>fastjson分析</title>
-    <url>/2023/05/23/fastjson%E5%88%86%E6%9E%90/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>java fastjson</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>docker use</title>
     <url>/2023/03/01/docker/</url>
     <content><![CDATA[<h1 id="Docker学习"><a href="#Docker学习" class="headerlink" title="Docker学习"></a>Docker学习</h1><p>对应大纲：<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230301085455109.png" alt="image-20230301085455109" style="zoom:25%;" /></p>
@@ -1054,6 +1046,14 @@
 ]]></content>
       <tags>
         <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>fastjson分析</title>
+    <url>/2023/05/23/fastjson%E5%88%86%E6%9E%90/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>java fastjson</tag>
       </tags>
   </entry>
   <entry>
@@ -1815,7 +1815,7 @@
 <td align="center">后面的也都拒了</td>
 </tr>
 </tbody></table>
-<h2 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h2><h3 id="19号"><a href="#19号" class="headerlink" title="19号"></a>19号</h3><p>今天入职，体验还不错，mentor、leader都挺好、感觉很友善。</p>
+<h1 id="2023"><a href="#2023" class="headerlink" title="2023"></a>2023</h1><h2 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h2><h3 id="19号"><a href="#19号" class="headerlink" title="19号"></a>19号</h3><p>今天入职，体验还不错，mentor、leader都挺好、感觉很友善。</p>
 <p>主要看了文档，对甲方安全有了一些了解包括甲方安全的现状、国家的一些法规、和一些设备。</p>
 <p>然后主要看了云端办公的内容，主要是要做客服，应该主要回答解决别人遇到的问题包括vnc输不了密码、磁盘扩容、连接不了等问题。</p>
 <h3 id="20号"><a href="#20号" class="headerlink" title="20号"></a>20号</h3><p>主要试了下公司安全设备包括绿盟RSAS（感觉界面挺丑）、奇安信天眼（beng炸弹特性奇怪、然后发现好像有IP遭了挖矿病毒，然后云了下挖矿病毒排查方法包括strace看攻击者替换二进制比如ps的一些preload劫持的dll是什么、或者使用busybox，然后试了下微步情报发现攻击IP确实是恶意IP，问了mentor说最近比较忙之后再看看）、长亭x-ray（感觉跟其它工具差不多）、深信服审计系统（只能说逆天，能看到访问招聘网站就算了连qq给谁发消息都能看到）</p>
@@ -1908,17 +1908,13 @@
 <h3 id="27日-1"><a href="#27日-1" class="headerlink" title="27日"></a>27日</h3><p>有台机器挖矿还是命令执行的，以为弱口令进来的爆了半天。结果是开了vscode server，whoami直接是root，服了</p>
 <h3 id="28日"><a href="#28日" class="headerlink" title="28日"></a>28日</h3><p>处理hdmap的出网域名，发现三个未授权访问。被批评工具一知半解，fscan、绿盟之前都不是全端口扫描</p>
 <h3 id="29日"><a href="#29日" class="headerlink" title="29日"></a>29日</h3><p>日常活。要放假了大家都比较兴奋哈哈哈</p>
+<h1 id="2024"><a href="#2024" class="headerlink" title="2024"></a>2024</h1><h2 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h2><h3 id="02日-1"><a href="#02日-1" class="headerlink" title="02日"></a>02日</h3><p>日常活</p>
+<h3 id="03日-1"><a href="#03日-1" class="headerlink" title="03日"></a>03日</h3><p>呜呜呜，导师劝我好好研究研究代码，了解漏洞原理，还说有问题问她，太好了吧。</p>
+<p>360渗透测试还是牛逼，直接钓鱼钓到了两个hr，直接cs上线了</p>
 ]]></content>
       <tags>
         <tag>security intership</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>rmi专题</title>
-    <url>/2023/04/20/rmi%E4%B8%93%E9%A2%98/</url>
-    <content><![CDATA[<p>[toc]</p>
-<p>参考：<a href="https://docs.oracle.com/javase/tutorial/rmi/overview.html">https://docs.oracle.com/javase/tutorial/rmi/overview.html</a></p>
-]]></content>
   </entry>
   <entry>
     <title>mysql_basic</title>
@@ -2512,14 +2508,6 @@
       </tags>
   </entry>
   <entry>
-    <title>sagemathStudy</title>
-    <url>/2023/03/09/sagemathStudy/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>crypto sageMath</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>pwn入门</title>
     <url>/2023/04/18/pwn%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<p>[toc]</p>
@@ -2594,6 +2582,21 @@
       <tags>
         <tag>pwn</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>sagemathStudy</title>
+    <url>/2023/03/09/sagemathStudy/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>crypto sageMath</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rmi专题</title>
+    <url>/2023/04/20/rmi%E4%B8%93%E9%A2%98/</url>
+    <content><![CDATA[<p>[toc]</p>
+<p>参考：<a href="https://docs.oracle.com/javase/tutorial/rmi/overview.html">https://docs.oracle.com/javase/tutorial/rmi/overview.html</a></p>
+]]></content>
   </entry>
   <entry>
     <title>slay_the_spire</title>
@@ -2716,41 +2719,6 @@
 ]]></content>
       <tags>
         <tag>sqlmap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>前端key加密处理</title>
-    <url>/2023/03/31/%E5%89%8D%E7%AB%AFkey%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86/</url>
-    <content><![CDATA[<p>z</p>
-<p>在做渗透测试的时候，很多时候我们想爆破，但是前端加密的情况。</p>
-<p>我们可能会想到，把前端加密的代码一个一个弄到本地，然后在本地nodejs环境跑，但是有的时候，弄到最后会发现：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eferenceError: window is not defined</span><br><span class="line">    at e:\code\nodejs\webcrack\index.js:1270:9</span><br><span class="line">    at Object.&lt;anonymous&gt; (e:\code\nodejs\webcrack\index.js:2773:2)</span><br><span class="line">    at Module._compile (node:internal/modules/cjs/loader:1101:14)</span><br><span class="line">    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)</span><br><span class="line">    at Module.load (node:internal/modules/cjs/loader:981:32)</span><br><span class="line">    at Function.Module._load (node:internal/modules/cjs/loader:822:12)</span><br><span class="line">    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)</span><br><span class="line">    at node:internal/main/run_main_module:17:47</span><br></pre></td></tr></table></figure>
-
-<p>本地搭建一个flask服务，代码</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyPassword</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, filename</span>):</span><br><span class="line">        self.password = []</span><br><span class="line">        self.passwordDict = &#123;&#125;</span><br><span class="line">        self.passwordLength = <span class="number">0</span></span><br><span class="line">        self.curIndex=<span class="number">0</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">                <span class="keyword">if</span> line:</span><br><span class="line">                    self.password.append(line.replace(<span class="string">&quot;\n&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">                    self.passwordLength += <span class="number">1</span></span><br><span class="line">                    self.passwordDict[line] = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">write</span>(<span class="params">self, outputfilename</span>):</span><br><span class="line">        outfile1 = <span class="built_in">open</span>(outputfilename + <span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">        outfile2 = <span class="built_in">open</span>(outputfilename + <span class="string">&quot;2.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> self.passwordDict.items():</span><br><span class="line">            outfile1.write(key + <span class="string">&quot;   &quot;</span> + value + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            outfile2.write(value + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getCurPassword</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.curIndex&lt;self.passwordLength:</span><br><span class="line">            self.curIndex+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> self.password[self.curIndex-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span></span><br><span class="line"></span><br><span class="line">mypassword = MyPassword(<span class="string">&quot;1.txt&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(mypassword.password)</span><br><span class="line"><span class="built_in">print</span>(mypassword.passwordLength)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getCurpasswd&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_curpasswd</span>():</span><br><span class="line">    curPass=mypassword.getCurPassword()</span><br><span class="line">    <span class="built_in">print</span>(curPass)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;password&quot;</span>: curPass&#125;)</span><br><span class="line">    <span class="comment"># 这里可以添加实际的逻辑以获取当前密码</span></span><br><span class="line">    <span class="comment"># a = request.args.get(&#x27;a&#x27;, None)</span></span><br><span class="line">    <span class="comment"># print(a)</span></span><br><span class="line">    <span class="comment"># if a is not None:</span></span><br><span class="line">    <span class="comment">#     return &#123;&quot;a&quot;: a&#125;</span></span><br><span class="line">    <span class="comment">#     # return jsonify(&#123;&quot;a&quot;: a&#125;)</span></span><br><span class="line">    <span class="comment"># else:</span></span><br><span class="line">    <span class="comment">#     return jsonify(&#123;&quot;error&quot;: &quot;Parameter &#x27;a&#x27; is missing&quot;&#125;), 400</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getEncodePass&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_encode_pass</span>():</span><br><span class="line">    password=request.args.get(<span class="string">&quot;password&quot;</span>,<span class="literal">None</span>)</span><br><span class="line">    encodePassword=request.args.get(<span class="string">&quot;encodePass&quot;</span>,<span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">if</span> password <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> encodePassword <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;Parameter &#x27;password&#x27; &#x27;encodePass&#x27;is missing&quot;</span>&#125;), <span class="number">400</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        mypassword.passwordDict[password]=encodePassword</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;200&quot;</span>&#125;)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/write&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">write_res</span>():</span><br><span class="line">    mypassword.write(<span class="string">&quot;res&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;200&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getLength&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_length</span>():</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>:mypassword.passwordLength&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;127.0.0.1&#x27;</span>,debug=<span class="literal">True</span>,port=<span class="number">443</span>, ssl_context=(<span class="string">&#x27;cert.pem&#x27;</span>, <span class="string">&#x27;key.pem&#x27;</span>))</span><br><span class="line">    <span class="comment"># app.run(host=&#x27;127.0.0.1&#x27;, debug=True, port=443, ssl_context=&#x27;adhoc&#x27;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>js</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myres = &#123;&#125;;</span><br><span class="line">myres[<span class="string">&quot;password&quot;</span>] = <span class="string">&quot;null&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> mylength = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">myfunc</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/getLength&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">      mylength = response[<span class="string">&quot;code&quot;</span>];</span><br><span class="line">      <span class="comment">//  console.log(myres[&quot;password&quot;]);</span></span><br><span class="line">      <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; mylength; i++) &#123;</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/getCurpasswd&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">      <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">      <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">        myres = response;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(myres[<span class="string">&quot;password&quot;</span>]);</span><br><span class="line">        <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> encodePassword = encrypt.<span class="title function_">encrypt</span>(myres[<span class="string">&quot;password&quot;</span>]);</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>:</span><br><span class="line">        <span class="string">&quot;http://127.0.0.1:443/getEncodePass?password=&quot;</span> +</span><br><span class="line">        myres[<span class="string">&quot;password&quot;</span>] +</span><br><span class="line">        <span class="string">&quot;&amp;encodePass=&quot;</span> +</span><br><span class="line">        encodePassword, <span class="comment">// 请求的URL</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">      <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">      <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">        <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/write&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">      <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>还需要chrome 插件allow cors</p>
-<p>大概是这样搞，还存在一些问题，之后在修复</p>
-]]></content>
-      <tags>
-        <tag>前端 ajax</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>代码审计</title>
-    <url>/2023/04/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</url>
-    <content><![CDATA[<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p><a href="https://www.freebuf.com/articles/web/330861.html">Java代码审计从零到一|基础篇 - FreeBuf网络安全行业门户</a></p>
-<p><a href="https://www.freebuf.com/articles/web/194836.html">Java Web安全之代码审计 - FreeBuf网络安全行业门户</a></p>
-<p><a href="https://blog.csdn.net/liguangyao213/article/details/127364763">Java代码审计审技巧及方法_java代码审计入门篇pdf_mingzhi61的博客-CSDN博客</a></p>
-<h2 id="铭飞MCMS-5-2-4"><a href="#铭飞MCMS-5-2-4" class="headerlink" title="铭飞MCMS(5.2.4)"></a>铭飞MCMS(5.2.4)</h2><p><a href="https://juejin.cn/post/7104087873976008734#heading-7">Java代码审计之路一（OFCMS） - 掘金 (juejin.cn)</a></p>
-<h2 id="OFCMS"><a href="#OFCMS" class="headerlink" title="OFCMS"></a>OFCMS</h2><p><a href="https://forum.butian.net/share/1229">奇安信攻防社区-记又一次Java代码审计 (butian.net)</a></p>
-<h2 id="自己高中CMS（水平上来了在审"><a href="#自己高中CMS（水平上来了在审" class="headerlink" title="自己高中CMS（水平上来了在审"></a>自己高中CMS（水平上来了在审</h2><p>代码：<a href="https://github.com/realikun404/tjsj_cms">realikun404&#x2F;tjsj_cms (github.com)</a></p>
-]]></content>
-      <tags>
-        <tag>代码审计</tag>
       </tags>
   </entry>
   <entry>
@@ -3126,6 +3094,307 @@
 ]]></content>
       <tags>
         <tag>todo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码审计</title>
+    <url>/2023/04/05/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/</url>
+    <content><![CDATA[<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p><a href="https://www.freebuf.com/articles/web/330861.html">Java代码审计从零到一|基础篇 - FreeBuf网络安全行业门户</a></p>
+<p><a href="https://www.freebuf.com/articles/web/194836.html">Java Web安全之代码审计 - FreeBuf网络安全行业门户</a></p>
+<p><a href="https://blog.csdn.net/liguangyao213/article/details/127364763">Java代码审计审技巧及方法_java代码审计入门篇pdf_mingzhi61的博客-CSDN博客</a></p>
+<h2 id="铭飞MCMS-5-2-4"><a href="#铭飞MCMS-5-2-4" class="headerlink" title="铭飞MCMS(5.2.4)"></a>铭飞MCMS(5.2.4)</h2><p><a href="https://juejin.cn/post/7104087873976008734#heading-7">Java代码审计之路一（OFCMS） - 掘金 (juejin.cn)</a></p>
+<h2 id="OFCMS"><a href="#OFCMS" class="headerlink" title="OFCMS"></a>OFCMS</h2><p><a href="https://forum.butian.net/share/1229">奇安信攻防社区-记又一次Java代码审计 (butian.net)</a></p>
+<h2 id="自己高中CMS（水平上来了在审"><a href="#自己高中CMS（水平上来了在审" class="headerlink" title="自己高中CMS（水平上来了在审"></a>自己高中CMS（水平上来了在审</h2><p>代码：<a href="https://github.com/realikun404/tjsj_cms">realikun404&#x2F;tjsj_cms (github.com)</a></p>
+]]></content>
+      <tags>
+        <tag>代码审计</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>前端key加密处理</title>
+    <url>/2023/03/31/%E5%89%8D%E7%AB%AFkey%E5%8A%A0%E5%AF%86%E5%A4%84%E7%90%86/</url>
+    <content><![CDATA[<p>z</p>
+<p>在做渗透测试的时候，很多时候我们想爆破，但是前端加密的情况。</p>
+<p>我们可能会想到，把前端加密的代码一个一个弄到本地，然后在本地nodejs环境跑，但是有的时候，弄到最后会发现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">eferenceError: window is not defined</span><br><span class="line">    at e:\code\nodejs\webcrack\index.js:1270:9</span><br><span class="line">    at Object.&lt;anonymous&gt; (e:\code\nodejs\webcrack\index.js:2773:2)</span><br><span class="line">    at Module._compile (node:internal/modules/cjs/loader:1101:14)</span><br><span class="line">    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)</span><br><span class="line">    at Module.load (node:internal/modules/cjs/loader:981:32)</span><br><span class="line">    at Function.Module._load (node:internal/modules/cjs/loader:822:12)</span><br><span class="line">    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)</span><br><span class="line">    at node:internal/main/run_main_module:17:47</span><br></pre></td></tr></table></figure>
+
+<p>本地搭建一个flask服务，代码</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, jsonify</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyPassword</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, filename</span>):</span><br><span class="line">        self.password = []</span><br><span class="line">        self.passwordDict = &#123;&#125;</span><br><span class="line">        self.passwordLength = <span class="number">0</span></span><br><span class="line">        self.curIndex=<span class="number">0</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&quot;r&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> f.readlines():</span><br><span class="line">                <span class="keyword">if</span> line:</span><br><span class="line">                    self.password.append(line.replace(<span class="string">&quot;\n&quot;</span>, <span class="string">&quot;&quot;</span>))</span><br><span class="line">                    self.passwordLength += <span class="number">1</span></span><br><span class="line">                    self.passwordDict[line] = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">write</span>(<span class="params">self, outputfilename</span>):</span><br><span class="line">        outfile1 = <span class="built_in">open</span>(outputfilename + <span class="string">&quot;1.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">        outfile2 = <span class="built_in">open</span>(outputfilename + <span class="string">&quot;2.txt&quot;</span>, <span class="string">&quot;w&quot;</span>)</span><br><span class="line">        <span class="keyword">for</span> key, value <span class="keyword">in</span> self.passwordDict.items():</span><br><span class="line">            outfile1.write(key + <span class="string">&quot;   &quot;</span> + value + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">            outfile2.write(value + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">getCurPassword</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> self.curIndex&lt;self.passwordLength:</span><br><span class="line">            self.curIndex+=<span class="number">1</span></span><br><span class="line">            <span class="keyword">return</span> self.password[self.curIndex-<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">&quot;0&quot;</span></span><br><span class="line"></span><br><span class="line">mypassword = MyPassword(<span class="string">&quot;1.txt&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(mypassword.password)</span><br><span class="line"><span class="built_in">print</span>(mypassword.passwordLength)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getCurpasswd&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_curpasswd</span>():</span><br><span class="line">    curPass=mypassword.getCurPassword()</span><br><span class="line">    <span class="built_in">print</span>(curPass)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;password&quot;</span>: curPass&#125;)</span><br><span class="line">    <span class="comment"># 这里可以添加实际的逻辑以获取当前密码</span></span><br><span class="line">    <span class="comment"># a = request.args.get(&#x27;a&#x27;, None)</span></span><br><span class="line">    <span class="comment"># print(a)</span></span><br><span class="line">    <span class="comment"># if a is not None:</span></span><br><span class="line">    <span class="comment">#     return &#123;&quot;a&quot;: a&#125;</span></span><br><span class="line">    <span class="comment">#     # return jsonify(&#123;&quot;a&quot;: a&#125;)</span></span><br><span class="line">    <span class="comment"># else:</span></span><br><span class="line">    <span class="comment">#     return jsonify(&#123;&quot;error&quot;: &quot;Parameter &#x27;a&#x27; is missing&quot;&#125;), 400</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getEncodePass&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_encode_pass</span>():</span><br><span class="line">    password=request.args.get(<span class="string">&quot;password&quot;</span>,<span class="literal">None</span>)</span><br><span class="line">    encodePassword=request.args.get(<span class="string">&quot;encodePass&quot;</span>,<span class="literal">None</span>)</span><br><span class="line">    <span class="keyword">if</span> password <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> encodePassword <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;Parameter &#x27;password&#x27; &#x27;encodePass&#x27;is missing&quot;</span>&#125;), <span class="number">400</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        mypassword.passwordDict[password]=encodePassword</span><br><span class="line">        <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;200&quot;</span>&#125;)</span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/write&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">write_res</span>():</span><br><span class="line">    mypassword.write(<span class="string">&quot;res&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>: <span class="string">&quot;200&quot;</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/getLength&#x27;</span>, methods=[<span class="string">&#x27;GET&#x27;</span>]</span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_length</span>():</span><br><span class="line">    <span class="keyword">return</span> jsonify(&#123;<span class="string">&quot;code&quot;</span>:mypassword.passwordLength&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(host=<span class="string">&#x27;127.0.0.1&#x27;</span>,debug=<span class="literal">True</span>,port=<span class="number">443</span>, ssl_context=(<span class="string">&#x27;cert.pem&#x27;</span>, <span class="string">&#x27;key.pem&#x27;</span>))</span><br><span class="line">    <span class="comment"># app.run(host=&#x27;127.0.0.1&#x27;, debug=True, port=443, ssl_context=&#x27;adhoc&#x27;)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>js</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myres = &#123;&#125;;</span><br><span class="line">myres[<span class="string">&quot;password&quot;</span>] = <span class="string">&quot;null&quot;</span>;</span><br><span class="line"><span class="keyword">var</span> mylength = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">let</span> <span class="title function_">myfunc</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line"></span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/getLength&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">      mylength = response[<span class="string">&quot;code&quot;</span>];</span><br><span class="line">      <span class="comment">//  console.log(myres[&quot;password&quot;]);</span></span><br><span class="line">      <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; mylength; i++) &#123;</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/getCurpasswd&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">      <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">      <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">        myres = response;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(myres[<span class="string">&quot;password&quot;</span>]);</span><br><span class="line">        <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> encodePassword = encrypt.<span class="title function_">encrypt</span>(myres[<span class="string">&quot;password&quot;</span>]);</span><br><span class="line">    $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>:</span><br><span class="line">        <span class="string">&quot;http://127.0.0.1:443/getEncodePass?password=&quot;</span> +</span><br><span class="line">        myres[<span class="string">&quot;password&quot;</span>] +</span><br><span class="line">        <span class="string">&quot;&amp;encodePass=&quot;</span> +</span><br><span class="line">        encodePassword, <span class="comment">// 请求的URL</span></span><br><span class="line">      <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">      <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">      <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">        <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">      &#125;,</span><br><span class="line">      <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">        <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  $.<span class="title function_">ajax</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="string">&quot;http://127.0.0.1:443/write&quot;</span>, <span class="comment">// 请求的URL</span></span><br><span class="line">    <span class="attr">type</span>: <span class="string">&quot;GET&quot;</span>, <span class="comment">// 请求方法，可以是 &#x27;GET&#x27;, &#x27;POST&#x27;, &#x27;PUT&#x27;, &#x27;DELETE&#x27; 等</span></span><br><span class="line">    <span class="attr">dataType</span>: <span class="string">&quot;json&quot;</span>, <span class="comment">// 预期服务器返回的数据类型</span></span><br><span class="line">    <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">response</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求成功时的回调函数</span></span><br><span class="line">      <span class="comment">// 这里可以处理响应数据，例如更新DOM元素</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">error</span>: <span class="keyword">function</span> (<span class="params">jqXHR, textStatus, errorThrown</span>) &#123;</span><br><span class="line">      <span class="comment">// 请求失败时的回调函数</span></span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Error: &quot;</span> + textStatus + <span class="string">&quot; - &quot;</span> + errorThrown);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>还需要chrome 插件allow cors</p>
+<p>大概是这样搞，还存在一些问题，之后在修复</p>
+]]></content>
+      <tags>
+        <tag>前端 ajax</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安服基本知识</title>
+    <url>/2023/03/15/%E5%AE%89%E5%85%A8%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<p>[toc]</p>
+<h2 id="安全服务认知"><a href="#安全服务认知" class="headerlink" title="安全服务认知"></a>安全服务认知</h2><p>keyword：安服项、彩虹计划、解决方案项、安全服务 交付文档规范</p>
+<p>tips：不要借安全漏洞做坏事，安服要了解的东西很多</p>
+<h3 id="技术类的交互"><a href="#技术类的交互" class="headerlink" title="技术类的交互"></a>技术类的交互</h3><p>给客户做培训类似的</p>
+<h3 id="安全测试子类"><a href="#安全测试子类" class="headerlink" title="安全测试子类"></a>安全测试子类</h3><h3 id="咨询服务类"><a href="#咨询服务类" class="headerlink" title="咨询服务类"></a>咨询服务类</h3><p>滴滴被查，数据安全，数据怎么存更安全等。</p>
+<p>sdl定义：<a href="https://zhuanlan.zhihu.com/p/252325178">分享|安全开发流程（SDL） - 知乎 (zhihu.com)</a></p>
+<h3 id="培训服务类："><a href="#培训服务类：" class="headerlink" title="培训服务类："></a>培训服务类：</h3><p>等级保护对应了解：<a href="https://zhuanlan.zhihu.com/p/349827782">网络安全等级保护分几级？ - 知乎 (zhihu.com)</a></p>
+<h3 id="安保服务类"><a href="#安保服务类" class="headerlink" title="安保服务类"></a>安保服务类</h3><h3 id="达到目的"><a href="#达到目的" class="headerlink" title="达到目的"></a>达到目的</h3><h3 id="安全服务要素"><a href="#安全服务要素" class="headerlink" title="安全服务要素"></a>安全服务要素</h3><h3 id="人员分类"><a href="#人员分类" class="headerlink" title="人员分类"></a>人员分类</h3><h3 id="树立网络安全"><a href="#树立网络安全" class="headerlink" title="树立网络安全"></a>树立网络安全</h3><h2 id="漏洞扫描实施"><a href="#漏洞扫描实施" class="headerlink" title="漏洞扫描实施"></a>漏洞扫描实施</h2><h3 id="AWVS使用"><a href="#AWVS使用" class="headerlink" title="AWVS使用"></a>AWVS使用</h3><p>安装参考链接：<a href="https://blog.csdn.net/anlr2020/article/details/118484169">AWVS14.1.2下载安装教程（2021.3.6版本）_awvs下载与安装_an1r的博客-CSDN博客</a></p>
+<h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><p>在右上角进行设置，可以设置language为简体，看起来更加舒服</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316161733365.png" alt="image-20230316161733365"></p>
+<p>左边显示的是菜单，因为刚刚开始用不是很熟练，就简单学下前面几个怎么使用：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316161943793.png"></p>
+<h4 id="仪表盘"><a href="#仪表盘" class="headerlink" title="仪表盘"></a>仪表盘</h4><p>可以显示当前进行的扫描的进度，以及发现的漏洞的数量等</p>
+<p>界面形如：<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162415536.png" alt="image-20230316162415536"></p>
+<p>要看具体的漏洞，可以点击左边的扫描具体的看。</p>
+<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162701525.png" alt="image-20230316162701525"></p>
+<p>分为单个目标，多个目标，目标组</p>
+<p>单个目标扫描一个目标，多个目标可以扫描多个目标。</p>
+<h4 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h4><p>显示对应的漏洞，具体看图</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162926643.png" alt="image-20230316162926643"></p>
+<h4 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h4><p>个人感觉最重要的一个tab</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316163005526.png" alt="image-20230316163005526"></p>
+<p>可以看目标的状态，也可以新建扫描，可以看到扫的漏洞个数。</p>
+<p>点击对应的url可以进入下面的界面</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316163210196.png" alt="image-20230316163210196"></p>
+<p>上面圈的可以更加详细的看到对应漏洞及说明，以及扫描出来的网页结构等。</p>
+<h4 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h4><p>可以在扫描出生成报告，也可以在此次生成报告，报告种类很多种，暂时还不清楚不同报告类型的差别。</p>
+<h3 id="nessus"><a href="#nessus" class="headerlink" title="nessus"></a>nessus</h3><h4 id="安装参考链接"><a href="#安装参考链接" class="headerlink" title="安装参考链接"></a>安装参考链接</h4><p><a href="https://www.52pojie.cn/thread-1650667-1-1.html">最详细破解nessus(windows)教程 插件更新至20220613 - 『脱壳破解区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></p>
+<p><a href="https://www.cnblogs.com/Cl0ud/p/13364718.html">Nessus破解没有Scan选项的解决办法 - 春告鳥 - 博客园 (cnblogs.com)</a></p>
+<p>上面两个按照顺序弄即可弄好。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230317085903303.png" alt="image-20230317085903303"></p>
+<p>然后就可以开始使用了</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/smli_ng/article/details/105976795</span><br><span class="line">https://zhuanlan.zhihu.com/p/464866605</span><br><span class="line"></span><br><span class="line">https://www.iculture.cc/software/pig=25546</span><br></pre></td></tr></table></figure>
+
+<h3 id="明鉴扫描系统："><a href="#明鉴扫描系统：" class="headerlink" title="明鉴扫描系统："></a>明鉴扫描系统：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://tool.chacuo.net/cryptaes</span><br><span class="line">aes ECB</span><br><span class="line">产品位置：RCwMiXieqCuESTnXAJRat5cujmQTZHAM6RY0Aufkhu7NAt3rsdWc0Nd0eWUIrxho</span><br><span class="line">明鉴系统镜像位置：RCwMiXieqCuESTnXAJRat5cujmQTZHAM6RY0Aufkhu4ylpJP8AtXUNvXEmb4QM4cEXYVygezOCuwuIoV6wXlIM09YaSGPyd7BiNkp+LGmHS3MEy6hvwp6BJdJbnWirhrurgxHKgWFFu5CkRPOFYssA==</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://bbs.dbappsecurity.com.cn/ahproduct">安恒产品 (dbappsecurity.com.cn)</a></p>
+<p><a href="https://bbs.dbappsecurity.com.cn/productDetail?detailId=1636194071329329154&productType=download">明鉴漏洞扫描系统-V5.0R01C00SPC104-qcow2格式镜像 (dbappsecurity.com.cn)</a></p>
+<p>扫描选桥接模式</p>
+<h2 id="基线核查"><a href="#基线核查" class="headerlink" title="基线核查"></a>基线核查</h2><h3 id="基线核查流程"><a href="#基线核查流程" class="headerlink" title="基线核查流程"></a>基线核查流程</h3><p>前期：信息收集。<br>中期：实施阶段。现场检查。<br>后期：报告编写。</p>
+<p><del>感觉主要是根据报告模板一个一个检查</del></p>
+<h3 id="基线核查方式"><a href="#基线核查方式" class="headerlink" title="基线核查方式"></a>基线核查方式</h3><p>检查方式：</p>
+<h4 id="基线检查平台（公司内部平台）："><a href="#基线检查平台（公司内部平台）：" class="headerlink" title="基线检查平台（公司内部平台）："></a>基线检查平台（公司内部平台）：</h4><p>登录对应平台下载工具进行使用。</p>
+<ul>
+<li>下载脚本</li>
+<li>看readme，然后执行命令</li>
+<li>之前会生成result，新建项目导入之前的result。</li>
+<li>可以生成对应报告，然后对报告进行修改。</li>
+</ul>
+<h4 id="人工检查："><a href="#人工检查：" class="headerlink" title="人工检查："></a>人工检查：</h4><p>根据手册的checklist进行检查</p>
+<p>tips：检查数据库类似的东西小心点</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主机评估-winodws、linux、AIX、HP-UNIX等</span><br><span class="line">网络设备评估-Cisco、H3C、中兴等</span><br><span class="line">其它设备评估-FTP</span><br><span class="line">数据库评估-Oracle-unix、mysql等</span><br><span class="line">中间件评估-Tomcat、Apache、IIS、Nginx</span><br></pre></td></tr></table></figure>
+
+<h4 id="远程评估系统："><a href="#远程评估系统：" class="headerlink" title="远程评估系统："></a>远程评估系统：</h4><p>略</p>
+<h3 id="常见问题及处置"><a href="#常见问题及处置" class="headerlink" title="常见问题及处置"></a>常见问题及处置</h3><p>资产数量大，往往涉及几百台主机。<br>非常规安装，找不到部署目录。<br>输入查询命令，返回为空。<br>软件更新较快，检查版本与客户版本不符合。<br>软件版本差异，部分检查项新版本已无相关配置。发现问题，提出建议后，但软件已无相关配置项。</p>
+<h2 id="web安全测试实施"><a href="#web安全测试实施" class="headerlink" title="web安全测试实施"></a>web安全测试实施</h2><p>主要贴图时要清楚</p>
+<p>略</p>
+<h2 id="互联网敏感信息泄露"><a href="#互联网敏感信息泄露" class="headerlink" title="互联网敏感信息泄露"></a>互联网敏感信息泄露</h2><h3 id="信息资产梳理"><a href="#信息资产梳理" class="headerlink" title="信息资产梳理"></a>信息资产梳理</h3><h4 id="web网站"><a href="#web网站" class="headerlink" title="web网站"></a>web网站</h4><p>子域名收集：挖掘机等</p>
+<h4 id="互联网接口（API）"><a href="#互联网接口（API）" class="headerlink" title="互联网接口（API）"></a>互联网接口（API）</h4><p>官方站点搜索<br> 搜索引擎<br> github</p>
+<h4 id="APP应用"><a href="#APP应用" class="headerlink" title="APP应用"></a>APP应用</h4><p>官网<br> 安卓&#x2F;IOS应用商店搜索<br> 搜索引擎</p>
+<h4 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h4><p>微信搜索：<a href="https://weixin.sogou.com/">搜狗微信搜索_订阅号及文章内容独家收录，一搜即达 (sogou.com)</a><br> 官网<br> 小程序收录平台</p>
+<h4 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h4><p>微信搜索<br> 搜狗搜索<br> 官网</p>
+<h3 id="信息泄露情况排查"><a href="#信息泄露情况排查" class="headerlink" title="信息泄露情况排查"></a>信息泄露情况排查</h3><h4 id="敏感信息排查"><a href="#敏感信息排查" class="headerlink" title="敏感信息排查"></a>敏感信息排查</h4><p>网络拓扑、账户&#x2F;密码、邮箱：网盘、github</p>
+<h4 id="互联网敏感内容排查"><a href="#互联网敏感内容排查" class="headerlink" title="互联网敏感内容排查"></a>互联网敏感内容排查</h4><p>百度文库、招聘网站、招投标网站</p>
+<h4 id="源代码泄露排查"><a href="#源代码泄露排查" class="headerlink" title="源代码泄露排查"></a>源代码泄露排查</h4><p>svn、github、csdn</p>
+<h2 id="渗透测试实施"><a href="#渗透测试实施" class="headerlink" title="渗透测试实施"></a>渗透测试实施</h2><p>略（报告模板</p>
+<h2 id="APP安全测试"><a href="#APP安全测试" class="headerlink" title="APP安全测试"></a>APP安全测试</h2><p>有报告，简单记录下有哪些检查：</p>
+<h4 id="客户端环境安全"><a href="#客户端环境安全" class="headerlink" title="客户端环境安全"></a>客户端环境安全</h4><table>
+<thead>
+<tr>
+<th align="center">客户端环境安全</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">安全完整性校验</td>
+<td align="center">测试客户端是否存在完整性校验。如果iOS APP客户端未进行完整性校验，攻击者可以通过篡改客户端程序，对普通用户进行钓鱼等攻击。</td>
+</tr>
+<tr>
+<td align="center">反编译保护（可选）</td>
+<td align="center">可执行文件可以被反编译。攻击者可通过该问题看到客户端的逻辑。</td>
+</tr>
+<tr>
+<td align="center">日志敏感信息泄露</td>
+<td align="center">如果开发人员在日志中打印信息，则可能造成内网ip、用户名、密码、内部链接等敏感信息泄露。</td>
+</tr>
+<tr>
+<td align="center">应用数据存储安全</td>
+<td align="center">检查客户端程序本地存储文件，防止账号密码等敏感信息保存在本地，造成敏感信息泄露的风险。</td>
+</tr>
+<tr>
+<td align="center">越狱环境检测</td>
+<td align="center">越狱的环境默认是不安全的，是打破了苹果的生态系统的。如果应用未能在运行之初就检测当前系统是否为越狱环境，那么就会存在一定的风险。</td>
+</tr>
+<tr>
+<td align="center">动态调试检测（可选）</td>
+<td align="center">若客户端允许动态调试，攻击者可通过对客户端进行加解密分析、业务流程分析等。</td>
+</tr>
+<tr>
+<td align="center">内存敏感信息检测</td>
+<td align="center">一些重要数据，会被临时存放在内存里面。通过读取客户端内存，寻找内存中可能存在的敏感信息（卡号、明文密码等）。</td>
+</tr>
+<tr>
+<td align="center">输入记录保护</td>
+<td align="center">在系统中安装了键盘记录软件（可以在非越狱状态运行），则使用系统键盘输入的内容易被键盘记录程序记录，导致内容泄露。</td>
+</tr>
+<tr>
+<td align="center">屏幕录像保护</td>
+<td align="center">测试通过截图功能，是否可以截到用户密码输入框（登录密码、交易密码等）的明文密码。</td>
+</tr>
+</tbody></table>
+<h3 id="网络通信安全"><a href="#网络通信安全" class="headerlink" title="网络通信安全"></a>网络通信安全</h3><table>
+<thead>
+<tr>
+<th align="center">网络通信安全</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">通信协议安全</td>
+<td align="center">APP使用HTTP协议进行通信过程中可能会遭受中间人攻击，威胁数据安全。</td>
+</tr>
+<tr>
+<td align="center">通信数据加密</td>
+<td align="center">查看客户端在登录&#x2F;找回密码等关键业务的报文，是否对报文整体，或关键字段进行加密。</td>
+</tr>
+<tr>
+<td align="center">证书强校验检测</td>
+<td align="center">验证客户端是否存在忽略服务端证书校验的问题，客户端没有对服务器进行强校验或者没有在校验错误时候对用户进行提示，攻击者可以通过伪造证书对服务器进行攻击。</td>
+</tr>
+<tr>
+<td align="center">软件升级缺陷</td>
+<td align="center">程序在进行版本更新的时候，会向服务器请求一个跳转地址，如果修改返回包中的地址，存在钓鱼攻击的风险。</td>
+</tr>
+</tbody></table>
+<h3 id="安全策略检测"><a href="#安全策略检测" class="headerlink" title="安全策略检测"></a>安全策略检测</h3><table>
+<thead>
+<tr>
+<th align="center">安全策略检测</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">软键盘随机化排布</td>
+<td align="center">在用户输入敏感信息时，如果系统未使用自定义软键盘，而是使用了系统自带键盘，或者自定义软键盘未随机，那么恶意程序就可能对屏幕点击进行劫持，导致用户敏感信息泄露。</td>
+</tr>
+<tr>
+<td align="center">后台背景模糊</td>
+<td align="center">在切换至多任务状态栏时，APP背景内容是否模糊处理，防止敏感信息泄露。</td>
+</tr>
+<tr>
+<td align="center">手势密码检测</td>
+<td align="center">检测APP内手势密码的复杂度要求，手势密码修改是否需要校验密码，本地是否存储了明文手势密码的信息等。</td>
+</tr>
+<tr>
+<td align="center">密码修改验证</td>
+<td align="center">检测是否需要输入旧密码验证来修改密码。</td>
+</tr>
+<tr>
+<td align="center">密码复杂度检验</td>
+<td align="center">通常客户端没有设置禁止修改口令的强弱判断，导致用户有时贪图方便修改成简单密钥使攻击者容易通过弱口令进入帐号进行非法操作。</td>
+</tr>
+<tr>
+<td align="center">认证失败锁定</td>
+<td align="center">测试账户在登录时候多次输入密码错误或修改密码时候多次错误是否会导致账号被锁定。</td>
+</tr>
+<tr>
+<td align="center">UI敏感信息安全</td>
+<td align="center">登录过程中会为了友好，提示“用户名错误”或者“密码错误”。此时就可以通过这种“友好”的提示检查项目是否存在相关用户名，并且在账号体系不存在锁定的情况下相对容易地进行密码爆破。</td>
+</tr>
+<tr>
+<td align="center">信息屏蔽检测</td>
+<td align="center">检测程序中显示敏感信息是否使用 * 进行部分屏蔽，防止在被截屏获取敏感信息，同时也防止他人窥探手机屏幕得到敏感信息。</td>
+</tr>
+<tr>
+<td align="center">会话超时策略</td>
+<td align="center">程序在长时间不操作时候或者在长时间，若程序没有自动锁定或者退出登录，则有可能导致在这种情况下造成数据窃取。</td>
+</tr>
+<tr>
+<td align="center">会话固定风险</td>
+<td align="center">程序在进行正常退出之后如果后台不消除相关的用户身份凭证，则在身份凭证被窃取之后容易造成会话固定问题。</td>
+</tr>
+<tr>
+<td align="center">锁屏与会话锁定策略</td>
+<td align="center">测试程序在锁屏解锁之后是否会进行会话锁定，并在重新解锁之后要求用户重新进行身份验证。</td>
+</tr>
+<tr>
+<td align="center">TLS&#x2F;SSL协议与加密套件</td>
+<td align="center">程序在进行正常退出之后如果后台不消除相关的用户身份凭证，则在身份凭证被窃取之后容易造成会话固定问题。</td>
+</tr>
+</tbody></table>
+<h2 id="威胁分析与处置"><a href="#威胁分析与处置" class="headerlink" title="威胁分析与处置"></a>威胁分析与处置</h2><p>主要解释了平台怎么使用。</p>
+<p>APT：高级持续性威胁（Advanced Persistent Threat，APT），又叫高级长期威胁，是一种复杂的、持续的网络攻击，包含三个要素：高级、长期、威胁。高级是指执行APT攻击需要比传统攻击更高的定制程度和复杂程度，需要花费大量时间和资源来研究确定系统内部的漏洞；长期是为了达到特定目的，过程中“放长线”，持续监控目标，对目标保有长期的访问权；威胁强调的是人为参与策划的攻击，攻击目标是高价值的组织，攻击一旦得手，往往会给攻击目标造成巨大的经济损失或政治影响，乃至于毁灭性打击。</p>
+<p>参考：<a href="https://info.support.huawei.com/info-finder/encyclopedia/zh/%E9%AB%98%E7%BA%A7%E6%8C%81%E7%BB%AD%E6%80%A7%E5%A8%81%E8%83%81.html">https://info.support.huawei.com/info-finder/encyclopedia/zh/%E9%AB%98%E7%BA%A7%E6%8C%81%E7%BB%AD%E6%80%A7%E5%A8%81%E8%83%81.html</a></p>
+<p><a href="https://www.zhihu.com/question/28881041">https://www.zhihu.com/question/28881041</a></p>
+<h2 id="应急响应分析"><a href="#应急响应分析" class="headerlink" title="应急响应分析"></a>应急响应分析</h2><p>视频包括模板介绍及案例分析</p>
+<p><a href="https://bypass007.github.io/Emergency-Response-Notes/">前言 · 应急响应实战笔记 (bypass007.github.io)</a>  这个说得特别详细</p>
+<p>下面是部分介绍应急响应的链接：</p>
+<p><a href="https://www.freebuf.com/articles/terminal/192859.html">https://www.freebuf.com/articles/terminal/192859.html</a></p>
+<p><a href="https://www.cnblogs.com/fox-yu/p/14380849.html">https://www.cnblogs.com/fox-yu/p/14380849.html</a></p>
+<p><a href="https://www.freebuf.com/column/206886.html">应急响应实战案例分享 - FreeBuf网络安全行业门户</a></p>
+<p><a href="https://www.freebuf.com/column/206886.html">应急响应实战案例分享 - FreeBuf网络安全行业门户</a></p>
+<p><a href="https://blog.csdn.net/weixin_40412037/article/details/114282426">一次真实的应急响应案例——篡改页面、挖矿(sysupdate、networkservice)（含靶场环境）_应急响应靶场_W小哥1的博客-CSDN博客</a></p>
+<p><a href="https://www.freebuf.com/articles/web/216939.html">应急响应实例分享 - FreeBuf网络安全行业门户</a></p>
+<h2 id="网络探针"><a href="#网络探针" class="headerlink" title="网络探针"></a>网络探针</h2><p>什么是网络探针？网络探针是接入控制的有效手段！网络探针就是一个被赋予了特殊功能的BTA桌面安全助理程序，它能够检测到在特定的网络区间内（一般为内网的同一C类网段）没有安装和运行BTA桌面安全助理程序的其它计算机，并采取技术措施自动限制或阻断这些计算机的网络通信。这些操作是由网络探针自动完成的，不需要管理人员的手工操作，也不需要对相关网络设备的配置进行修改。</p>
+<p>人会说谎，流量不会 </p>
+<p><a href="https://blog.csdn.net/Aubergine_kang/article/details/83905614#:~:text=%E7%BD%91%E7%BB%9C%E6%8E%A2%E9%92%88%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA,%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E3%80%82">https://blog.csdn.net/Aubergine_kang/article/details/83905614#:~:text=%E7%BD%91%E7%BB%9C%E6%8E%A2%E9%92%88%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA,%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E3%80%82</a></p>
+<h2 id="红队-信息收集进阶"><a href="#红队-信息收集进阶" class="headerlink" title="红队-信息收集进阶"></a>红队-信息收集进阶</h2><p>ATT&amp;CK：<a href="https://blog.csdn.net/weixin_43965597/article/details/125926620%EF%BC%88%E6%B2%A1%E4%BB%94%E7%BB%86%E7%A0%94%E7%A9%B6%E8%BF%99%E4%B8%AA%EF%BC%8C%E4%BB%A5%E5%90%8E%E9%9C%80%E8%A6%81%E5%86%8D%E7%9C%8B%EF%BC%89">https://blog.csdn.net/weixin_43965597/article/details/125926620（没仔细研究这个，以后需要再看）</a></p>
+<h3 id="OSINT简介"><a href="#OSINT简介" class="headerlink" title="OSINT简介"></a>OSINT简介</h3><p>开源网络情报(Open source intelligence),简称OSINT,是美国中央情报局(CIA)的一种情报搜集手段，从各种公开的信息资源中寻找和获取有价值的情报OSINT特点：因为开源、宽泛；各类情报&#x2F;信息都可收集</p>
+<p>之后看酷学院补充</p>
+<h3 id="端口扫描-nmap-amp-masscan"><a href="#端口扫描-nmap-amp-masscan" class="headerlink" title="端口扫描-nmap&amp;masscan"></a>端口扫描-nmap&amp;masscan</h3><p>url链接：https:&#x2F;nmap.org&#x2F;<br>Nmap可以扫ip可以扫域名，<br>-V显示扫描过程；<br>-A进攻式扫描；<br>-p1-65535,全端：<br>O探测操作系统：<br>-nP不用ping；<br>-Pn&#x3D;-P0不进行主机发现直接扫描：<br>-top-ports100排名前100端口；<br>-iL filename从文件中读取目标进行扫描：<br><strong>扫描方式：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-sT TCP扫描（稳定，相较于SYN次选），三次握手；</span><br><span class="line">-sS用SYN扫描（速度快、隐蔽），半开放式扫描，无完整握手；</span><br><span class="line">-sU用UDP扫描（扫描慢）；</span><br><span class="line">-sA用ACK扫描；</span><br><span class="line">-sX用Xmas扫描；</span><br><span class="line">-sF用FIN扫描（可绕过一些防火墙）；</span><br><span class="line">-sP用ping,确认主机是否在线；</span><br><span class="line">-sV扫描主机和端口的版本</span><br></pre></td></tr></table></figure>
+
+<p><strong>漏洞利用：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-script部分漏洞利用</span><br><span class="line">-script all使用所有脚本进行扫描</span><br><span class="line">-script auth自动识别</span><br><span class="line">-script vuln对常见漏洞扫描</span><br><span class="line">--script smb-brute对用户名密码进行爆破</span><br></pre></td></tr></table></figure>
+
+<p><strong>绕防火墙：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-DRND:10(随机产生10个虚拟ip对目标进行扫描)</span><br><span class="line">-f发送很小的包（类似mtu)</span><br><span class="line">-mtu8(8、16、24、32等8的倍数)</span><br><span class="line">-S源地址伪装</span><br><span class="line">-source-port53用53端口对目标进行扫描</span><br><span class="line">-data-length20发送指定长度的包去探测</span><br><span class="line">-sI agent-ip以agent-ip的身份去扫描（默认80端口）</span><br></pre></td></tr></table></figure>
+
+<h4 id="subfinder"><a href="#subfinder" class="headerlink" title="subfinder"></a>subfinder</h4><p>url链接：https:&#x2F;github.com&#x2F;projectdiscovery&#x2F;subfinder<br>功能：通过调用各个api接口进行子域名收集（调用包括Sublist3r、crtsh、fofa、spyses等等）</p>
+<p>（没用过，以后有机会试试，一般我用layer</p>
+<h4 id="OneForAll"><a href="#OneForAll" class="headerlink" title="OneForAll"></a>OneForAll</h4><p>url链接：https:&#x2F;github.com&#x2F;shmilylty.&#x2F;OneForAll<br>功能：通过DNS、搜索引擎、爬子域等方式进行检索</p>
+<h4 id="Sublist3r-amp-子域名挖掘机"><a href="#Sublist3r-amp-子域名挖掘机" class="headerlink" title="Sublist3r&amp;子域名挖掘机"></a>Sublist3r&amp;子域名挖掘机</h4><p>url链接：<a href="https://github.com/aboul3la/Sublist3r">https://github.com/aboul3la/Sublist3r</a>  功能：通过搜索引擎爬取，多了一个检查端口</p>
+<p>url链接：<a href="https://www.webshell.cc/6384.htm">https://www.webshell.cc/6384.htm</a>  功能：输入直接查询子域名（爆破枚举</p>
+<h4 id="CSP"><a href="#CSP" class="headerlink" title="CSP"></a>CSP</h4><p>内容安全策略(CSP):开发者明确告诉客户端（制定比较严格的策略和规侧）<br>内容安全策略(CSP)定义了Content-Security-Policy HTTP头，它允许我们创建可信内容源的白名单，并指示浏览器只执行或呈现来自这些源的资源<br>我们可以查看HTTP的Content-Security-Policy:字段来搜集子域名信息。</p>
+<h4 id="whois-x2F-DNS查询-centralops"><a href="#whois-x2F-DNS查询-centralops" class="headerlink" title="whois&#x2F;DNS查询-centralops"></a>whois&#x2F;DNS查询-centralops</h4><p>url链接：<a href="https://centralops.net/co/DomainDossier.aspx">https://centralops.net/co/DomainDossier.aspx</a></p>
+<h4 id="whois-x2F-DNS查询-dnsdumpster"><a href="#whois-x2F-DNS查询-dnsdumpster" class="headerlink" title="whois&#x2F;DNS查询-dnsdumpster"></a>whois&#x2F;DNS查询-dnsdumpster</h4><p>url链接：<a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a><br>功能：查询DNS解析记录，其中里面包含其他接口（如：查询共享DNS主机、共享IP主机、端口探测等端口)，但是会招出查询次数</p>
+<h4 id="ip反查域名-rapiddns"><a href="#ip反查域名-rapiddns" class="headerlink" title="ip反查域名-rapiddns"></a>ip反查域名-rapiddns</h4><p>url链接：<a href="https://rapiddns.io/">https://rapiddns.io/</a><br>功能：查询ip归属地、网络中心，反查网站、旁站C段查询</p>
+<h4 id="ip反查域名-IP138"><a href="#ip反查域名-IP138" class="headerlink" title="ip反查域名-IP138"></a>ip反查域名-IP138</h4><p>url链接：<a href="https://www.ip138.com/iplookup.asp">https://www.ip138.com/iplookup.asp</a><br>功能：查询同IP下都有哪些web站点</p>
+<h4 id="CDN-chinaz"><a href="#CDN-chinaz" class="headerlink" title="CDN-chinaz"></a>CDN-chinaz</h4><p>url链接：<a href="https://cdn.chinaz.com/">https://cdn.chinaz.com/</a><br>功能：查询是否有CDN及CDN提供商名字</p>
+<h4 id="数字证书-censys-amp-crt-sh"><a href="#数字证书-censys-amp-crt-sh" class="headerlink" title="数字证书-censys&amp;crt.sh"></a>数字证书-censys&amp;crt.sh</h4><p>url链接：<a href="https://search.censys.io/">https://search.censys.io/</a><br>选择证书查询即可，可查询自签名，过期证书、未过期证书、发行人，以及邮箱</p>
+<p>url链接：<a href="https://crt.sh/">https://crt.sh/</a><br>属于域名即可查询</p>
+<h4 id="搜索引擎-google-amp-fofa"><a href="#搜索引擎-google-amp-fofa" class="headerlink" title="搜索引擎-google&amp;fofa"></a>搜索引擎-google&amp;fofa</h4><h4 id="搜索引擎-x2F-网络空间测绘-shodan-amp-CenSys-amp-DNSdb-amp-Spyse"><a href="#搜索引擎-x2F-网络空间测绘-shodan-amp-CenSys-amp-DNSdb-amp-Spyse" class="headerlink" title="搜索引擎&#x2F;网络空间测绘-shodan&amp;CenSys&amp;DNSdb&amp;Spyse"></a>搜索引擎&#x2F;网络空间测绘-shodan&amp;CenSys&amp;DNSdb&amp;Spyse</h4><h4 id="社交媒体-rocketreach"><a href="#社交媒体-rocketreach" class="headerlink" title="社交媒体-rocketreach"></a>社交媒体-rocketreach</h4><p>url链接：<a href="https://rocketreach.co/">https://rocketreach.co/</a><br>使用twitter、.googlel账号登陆即可查询</p>
+<p>通过ip查社交媒体</p>
+<h4 id="邮件信息收集-hunter-amp-phonebook-amp-infoga"><a href="#邮件信息收集-hunter-amp-phonebook-amp-infoga" class="headerlink" title="邮件信息收集-hunter&amp;phonebook&amp;infoga"></a>邮件信息收集-hunter&amp;phonebook&amp;infoga</h4><p>url链接：<a href="https://hunter.io/">https://hunter.io/</a><br>输入需要查询的邮件后缀，即可查看部分，然后再点击来源即可看到详情</p>
+<p>url链接：<a href="https://phonebook.cz/">https://phonebook.cz/</a>  （效果很好）<br>输入需要查询的邮件后缀，即可查询邮件名（网站中有其他功能但是都不太好用），该网站的数据是从<a href="https://intelx.io/%E4%B8%AD%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE">https://intelx.io/中找的数据</a></p>
+<p>url链接：<a href="https://github.com/m4IIok/infoga">https://github.com/m4IIok/infoga</a><br>功能：从不同公共来源（搜索引擎、pgp密钥服务器和shodan)收集电子邮件帐户信息(IP、主机名、国家&#x2F;地区…)的工具，并使用haveibeenpned.com API检查电子邮件是否泄露</p>
+<h4 id="临时邮件-fakemailgenerator-amp-kuku"><a href="#临时邮件-fakemailgenerator-amp-kuku" class="headerlink" title="临时邮件-fakemailgenerator&amp;kuku"></a>临时邮件-fakemailgenerator&amp;kuku</h4><p>url链接：<a href="http://www.fakemailgenerator.com/">http://www.fakemailgenerator.com/</a><br>功能：生成假造身份后可获得一个邮件地址，该邮件地址可以收邮件内容</p>
+<p>url链接：<a href="https://m.kuku.lu/">https://m.kuku.lu/</a><br>直接使用，可以首发邮件且无需注册</p>
+<h4 id="商业记录-天眼查-x2F-爱企查-x2F-企查查"><a href="#商业记录-天眼查-x2F-爱企查-x2F-企查查" class="headerlink" title="商业记录-天眼查&#x2F;爱企查&#x2F;企查查"></a>商业记录-天眼查&#x2F;爱企查&#x2F;企查查</h4><p>url链接：<a href="https://www.tianyancha.com/">https://www.tianyancha.com/</a><br>url链接：<a href="https://aiqicha.baidu.com/">https://aiqicha.baidu.com/</a><br>url链接：<a href="https://www.qcc.com/">https://www.qcc.com/</a><br>股权穿透、子母公司、相关产品和地址、备案信息查询等信息</p>
+<h4 id="IP定位-ipuu"><a href="#IP定位-ipuu" class="headerlink" title="IP定位-ipuu"></a>IP定位-ipuu</h4><p>url链接：<a href="https://www.ipuu.net/">https://www.ipuu.net</a><br>高精度定位P所在区域，需要登陆后查询（高精度查询每日有查询上限）</p>
+<h4 id="综合信息收集-xray"><a href="#综合信息收集-xray" class="headerlink" title="综合信息收集-xray"></a>综合信息收集-xray</h4><p>详细使用文档：<a href="https://docs.xray.cool/#/">https://docs.xray.cool/#/</a></p>
+<h4 id="综合信息收集-Maltego"><a href="#综合信息收集-Maltego" class="headerlink" title="综合信息收集-Maltego"></a>综合信息收集-Maltego</h4><p>url链接：<a href="https://www.maltego.com/">https://www.maltego.com/</a><br>在官网可以直接下载，Mac、Windows、Linux版本(kali自带)<br>在官网注册一个账号即可直接使用（分收费版、免费版）<br>鼠标右键即可出来<br>可以查dns解析、子域名、邮箱关联等信息</p>
+<h4 id="代码信息泄露-github-amp-searchcode"><a href="#代码信息泄露-github-amp-searchcode" class="headerlink" title="代码信息泄露-github&amp;searchcode"></a>代码信息泄露-github&amp;searchcode</h4><p><a href="https://searchcode.com/">https://searchcode.com/</a></p>
+<h4 id="密码信息泄漏-intelx"><a href="#密码信息泄漏-intelx" class="headerlink" title="密码信息泄漏-intelx"></a>密码信息泄漏-intelx</h4><p>url链接：<a href="https://intelx.io/">https://intelx.io/</a><br>随便注册一个账号即可查询</p>
+<h4 id="交通信息收集-火车地铁"><a href="#交通信息收集-火车地铁" class="headerlink" title="交通信息收集-火车地铁"></a>交通信息收集-火车地铁</h4><p>url链接：<a href="https://www.openrailwaymap.org/">https://www.openrailwaymap.org/</a><br>查线路情况，高速段落、专用线段落</p>
+<h4 id="交通信息收集-飞机"><a href="#交通信息收集-飞机" class="headerlink" title="交通信息收集-飞机"></a>交通信息收集-飞机</h4><p>url链接：<br>航旅纵横app<br><a href="https://www.flightradar24.com/">https://www.flightradar24.com/</a><br>直接章询即可，包括每一趟航天高度、时速、现在位置</p>
+<h2 id="web测试-业务逻辑漏洞"><a href="#web测试-业务逻辑漏洞" class="headerlink" title="web测试-业务逻辑漏洞"></a>web测试-业务逻辑漏洞</h2><p><a href="https://blog.csdn.net/weixin_48421613/article/details/121008379">常见的业务逻辑漏洞-整合篇_vlan911的博客-CSDN博客</a></p>
+<p><a href="https://www.freebuf.com/vuls/281141.html">逻辑漏洞梳理与总结 - FreeBuf网络安全行业门户</a></p>
+<p><a href="https://blog.csdn.net/m0_57751431/article/details/119333788">业务逻辑漏洞总结_Andy数宇的博客-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_48421613/article/details/121008379">https://blog.csdn.net/weixin_48421613/article/details/121008379</a></p>
+<h2 id="APP测试"><a href="#APP测试" class="headerlink" title="APP测试"></a>APP测试</h2><h3 id="安卓客户端测试流程"><a href="#安卓客户端测试流程" class="headerlink" title="安卓客户端测试流程"></a>安卓客户端测试流程</h3><p>客户端静态安全<br>客户端数据安全<br>客户端运行时安全<br>安全策略<br>通信安全</p>
+<h3 id="IOS客户端测试流程"><a href="#IOS客户端测试流程" class="headerlink" title="IOS客户端测试流程"></a>IOS客户端测试流程</h3><p>客户端安全<br>网络通信安全<br>安全策略检测<br>可选测试项</p>
+<h3 id="Drozer使用"><a href="#Drozer使用" class="headerlink" title="Drozer使用"></a>Drozer使用</h3><h3 id="安卓脱壳入门"><a href="#安卓脱壳入门" class="headerlink" title="安卓脱壳入门"></a>安卓脱壳入门</h3><h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h2><h3 id="代码审计工具"><a href="#代码审计工具" class="headerlink" title="代码审计工具"></a>代码审计工具</h3><p><a href="https://www.ddosi.org/fortify/">Fortify SCA 20.2.2 cracked Fortify破解版 - 🔰雨苁ℒ🔰 (ddosi.org)</a></p>
+<p><a href="https://cn-sec.com/archives/1496150.html">fortify_sca_22.2-Windows-linux破解版 | CN-SEC 中文网</a></p>
+<p><a href="https://blog.csdn.net/qq_40597962/article/details/118490818">Fortify介绍及使用教程_fortify 使用方法_「已注销」的博客-CSDN博客</a></p>
+<p>[第37篇：fortify代码审计工具的使用技巧(1)-审计java代码过程 - 腾讯云开发者社区-腾讯云 (tencent.com)](<a href="https://cloud.tencent.com/developer/article/2225044#:~:text=Fortify%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E7%A0%81%E4%B8%8D%E6%98%AFUTF-8%EF%BC%8C%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E7%9A%84Java%E4%BB%A3%E7%A0%81%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E3%80%82">https://cloud.tencent.com/developer/article/2225044#:~:text=Fortify默认的编码不是UTF-8，导致部分中文的Java代码会出现乱码问题。</a> 如果是单文件乱码，可以使用 Edit 选项卡下的,Set Encoding 进行设置， 鼠标光标在右侧代码框内点击一下，否则此项功能不能用 ，但是这种方法只适用于单个文件的乱码解决。)</p>
+<p><a href="https://www.cnblogs.com/happylumei/p/16731407.html">【安全测试】【fortify】fortify设置中文语言 - 码上起舞 - 博客园 (cnblogs.com)</a></p>
+]]></content>
+      <tags>
+        <tag>安全服务</tag>
       </tags>
   </entry>
   <entry>
@@ -3564,280 +3833,6 @@
       </tags>
   </entry>
   <entry>
-    <title>安服基本知识</title>
-    <url>/2023/03/15/%E5%AE%89%E5%85%A8%E6%9C%8D%E5%8A%A1%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<p>[toc]</p>
-<h2 id="安全服务认知"><a href="#安全服务认知" class="headerlink" title="安全服务认知"></a>安全服务认知</h2><p>keyword：安服项、彩虹计划、解决方案项、安全服务 交付文档规范</p>
-<p>tips：不要借安全漏洞做坏事，安服要了解的东西很多</p>
-<h3 id="技术类的交互"><a href="#技术类的交互" class="headerlink" title="技术类的交互"></a>技术类的交互</h3><p>给客户做培训类似的</p>
-<h3 id="安全测试子类"><a href="#安全测试子类" class="headerlink" title="安全测试子类"></a>安全测试子类</h3><h3 id="咨询服务类"><a href="#咨询服务类" class="headerlink" title="咨询服务类"></a>咨询服务类</h3><p>滴滴被查，数据安全，数据怎么存更安全等。</p>
-<p>sdl定义：<a href="https://zhuanlan.zhihu.com/p/252325178">分享|安全开发流程（SDL） - 知乎 (zhihu.com)</a></p>
-<h3 id="培训服务类："><a href="#培训服务类：" class="headerlink" title="培训服务类："></a>培训服务类：</h3><p>等级保护对应了解：<a href="https://zhuanlan.zhihu.com/p/349827782">网络安全等级保护分几级？ - 知乎 (zhihu.com)</a></p>
-<h3 id="安保服务类"><a href="#安保服务类" class="headerlink" title="安保服务类"></a>安保服务类</h3><h3 id="达到目的"><a href="#达到目的" class="headerlink" title="达到目的"></a>达到目的</h3><h3 id="安全服务要素"><a href="#安全服务要素" class="headerlink" title="安全服务要素"></a>安全服务要素</h3><h3 id="人员分类"><a href="#人员分类" class="headerlink" title="人员分类"></a>人员分类</h3><h3 id="树立网络安全"><a href="#树立网络安全" class="headerlink" title="树立网络安全"></a>树立网络安全</h3><h2 id="漏洞扫描实施"><a href="#漏洞扫描实施" class="headerlink" title="漏洞扫描实施"></a>漏洞扫描实施</h2><h3 id="AWVS使用"><a href="#AWVS使用" class="headerlink" title="AWVS使用"></a>AWVS使用</h3><p>安装参考链接：<a href="https://blog.csdn.net/anlr2020/article/details/118484169">AWVS14.1.2下载安装教程（2021.3.6版本）_awvs下载与安装_an1r的博客-CSDN博客</a></p>
-<h4 id="基本设置"><a href="#基本设置" class="headerlink" title="基本设置"></a>基本设置</h4><p>在右上角进行设置，可以设置language为简体，看起来更加舒服</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316161733365.png" alt="image-20230316161733365"></p>
-<p>左边显示的是菜单，因为刚刚开始用不是很熟练，就简单学下前面几个怎么使用：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316161943793.png"></p>
-<h4 id="仪表盘"><a href="#仪表盘" class="headerlink" title="仪表盘"></a>仪表盘</h4><p>可以显示当前进行的扫描的进度，以及发现的漏洞的数量等</p>
-<p>界面形如：<img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162415536.png" alt="image-20230316162415536"></p>
-<p>要看具体的漏洞，可以点击左边的扫描具体的看。</p>
-<h4 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h4><p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162701525.png" alt="image-20230316162701525"></p>
-<p>分为单个目标，多个目标，目标组</p>
-<p>单个目标扫描一个目标，多个目标可以扫描多个目标。</p>
-<h4 id="漏洞"><a href="#漏洞" class="headerlink" title="漏洞"></a>漏洞</h4><p>显示对应的漏洞，具体看图</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316162926643.png" alt="image-20230316162926643"></p>
-<h4 id="扫描"><a href="#扫描" class="headerlink" title="扫描"></a>扫描</h4><p>个人感觉最重要的一个tab</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316163005526.png" alt="image-20230316163005526"></p>
-<p>可以看目标的状态，也可以新建扫描，可以看到扫的漏洞个数。</p>
-<p>点击对应的url可以进入下面的界面</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230316163210196.png" alt="image-20230316163210196"></p>
-<p>上面圈的可以更加详细的看到对应漏洞及说明，以及扫描出来的网页结构等。</p>
-<h4 id="报告"><a href="#报告" class="headerlink" title="报告"></a>报告</h4><p>可以在扫描出生成报告，也可以在此次生成报告，报告种类很多种，暂时还不清楚不同报告类型的差别。</p>
-<h3 id="nessus"><a href="#nessus" class="headerlink" title="nessus"></a>nessus</h3><h4 id="安装参考链接"><a href="#安装参考链接" class="headerlink" title="安装参考链接"></a>安装参考链接</h4><p><a href="https://www.52pojie.cn/thread-1650667-1-1.html">最详细破解nessus(windows)教程 插件更新至20220613 - 『脱壳破解区』 - 吾爱破解 - LCG - LSG |安卓破解|病毒分析|www.52pojie.cn</a></p>
-<p><a href="https://www.cnblogs.com/Cl0ud/p/13364718.html">Nessus破解没有Scan选项的解决办法 - 春告鳥 - 博客园 (cnblogs.com)</a></p>
-<p>上面两个按照顺序弄即可弄好。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230317085903303.png" alt="image-20230317085903303"></p>
-<p>然后就可以开始使用了</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://blog.csdn.net/smli_ng/article/details/105976795</span><br><span class="line">https://zhuanlan.zhihu.com/p/464866605</span><br><span class="line"></span><br><span class="line">https://www.iculture.cc/software/pig=25546</span><br></pre></td></tr></table></figure>
-
-<h3 id="明鉴扫描系统："><a href="#明鉴扫描系统：" class="headerlink" title="明鉴扫描系统："></a>明鉴扫描系统：</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">http://tool.chacuo.net/cryptaes</span><br><span class="line">aes ECB</span><br><span class="line">产品位置：RCwMiXieqCuESTnXAJRat5cujmQTZHAM6RY0Aufkhu7NAt3rsdWc0Nd0eWUIrxho</span><br><span class="line">明鉴系统镜像位置：RCwMiXieqCuESTnXAJRat5cujmQTZHAM6RY0Aufkhu4ylpJP8AtXUNvXEmb4QM4cEXYVygezOCuwuIoV6wXlIM09YaSGPyd7BiNkp+LGmHS3MEy6hvwp6BJdJbnWirhrurgxHKgWFFu5CkRPOFYssA==</span><br></pre></td></tr></table></figure>
-
-<p><a href="https://bbs.dbappsecurity.com.cn/ahproduct">安恒产品 (dbappsecurity.com.cn)</a></p>
-<p><a href="https://bbs.dbappsecurity.com.cn/productDetail?detailId=1636194071329329154&productType=download">明鉴漏洞扫描系统-V5.0R01C00SPC104-qcow2格式镜像 (dbappsecurity.com.cn)</a></p>
-<p>扫描选桥接模式</p>
-<h2 id="基线核查"><a href="#基线核查" class="headerlink" title="基线核查"></a>基线核查</h2><h3 id="基线核查流程"><a href="#基线核查流程" class="headerlink" title="基线核查流程"></a>基线核查流程</h3><p>前期：信息收集。<br>中期：实施阶段。现场检查。<br>后期：报告编写。</p>
-<p><del>感觉主要是根据报告模板一个一个检查</del></p>
-<h3 id="基线核查方式"><a href="#基线核查方式" class="headerlink" title="基线核查方式"></a>基线核查方式</h3><p>检查方式：</p>
-<h4 id="基线检查平台（公司内部平台）："><a href="#基线检查平台（公司内部平台）：" class="headerlink" title="基线检查平台（公司内部平台）："></a>基线检查平台（公司内部平台）：</h4><p>登录对应平台下载工具进行使用。</p>
-<ul>
-<li>下载脚本</li>
-<li>看readme，然后执行命令</li>
-<li>之前会生成result，新建项目导入之前的result。</li>
-<li>可以生成对应报告，然后对报告进行修改。</li>
-</ul>
-<h4 id="人工检查："><a href="#人工检查：" class="headerlink" title="人工检查："></a>人工检查：</h4><p>根据手册的checklist进行检查</p>
-<p>tips：检查数据库类似的东西小心点</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">主机评估-winodws、linux、AIX、HP-UNIX等</span><br><span class="line">网络设备评估-Cisco、H3C、中兴等</span><br><span class="line">其它设备评估-FTP</span><br><span class="line">数据库评估-Oracle-unix、mysql等</span><br><span class="line">中间件评估-Tomcat、Apache、IIS、Nginx</span><br></pre></td></tr></table></figure>
-
-<h4 id="远程评估系统："><a href="#远程评估系统：" class="headerlink" title="远程评估系统："></a>远程评估系统：</h4><p>略</p>
-<h3 id="常见问题及处置"><a href="#常见问题及处置" class="headerlink" title="常见问题及处置"></a>常见问题及处置</h3><p>资产数量大，往往涉及几百台主机。<br>非常规安装，找不到部署目录。<br>输入查询命令，返回为空。<br>软件更新较快，检查版本与客户版本不符合。<br>软件版本差异，部分检查项新版本已无相关配置。发现问题，提出建议后，但软件已无相关配置项。</p>
-<h2 id="web安全测试实施"><a href="#web安全测试实施" class="headerlink" title="web安全测试实施"></a>web安全测试实施</h2><p>主要贴图时要清楚</p>
-<p>略</p>
-<h2 id="互联网敏感信息泄露"><a href="#互联网敏感信息泄露" class="headerlink" title="互联网敏感信息泄露"></a>互联网敏感信息泄露</h2><h3 id="信息资产梳理"><a href="#信息资产梳理" class="headerlink" title="信息资产梳理"></a>信息资产梳理</h3><h4 id="web网站"><a href="#web网站" class="headerlink" title="web网站"></a>web网站</h4><p>子域名收集：挖掘机等</p>
-<h4 id="互联网接口（API）"><a href="#互联网接口（API）" class="headerlink" title="互联网接口（API）"></a>互联网接口（API）</h4><p>官方站点搜索<br> 搜索引擎<br> github</p>
-<h4 id="APP应用"><a href="#APP应用" class="headerlink" title="APP应用"></a>APP应用</h4><p>官网<br> 安卓&#x2F;IOS应用商店搜索<br> 搜索引擎</p>
-<h4 id="微信小程序"><a href="#微信小程序" class="headerlink" title="微信小程序"></a>微信小程序</h4><p>微信搜索：<a href="https://weixin.sogou.com/">搜狗微信搜索_订阅号及文章内容独家收录，一搜即达 (sogou.com)</a><br> 官网<br> 小程序收录平台</p>
-<h4 id="微信公众号"><a href="#微信公众号" class="headerlink" title="微信公众号"></a>微信公众号</h4><p>微信搜索<br> 搜狗搜索<br> 官网</p>
-<h3 id="信息泄露情况排查"><a href="#信息泄露情况排查" class="headerlink" title="信息泄露情况排查"></a>信息泄露情况排查</h3><h4 id="敏感信息排查"><a href="#敏感信息排查" class="headerlink" title="敏感信息排查"></a>敏感信息排查</h4><p>网络拓扑、账户&#x2F;密码、邮箱：网盘、github</p>
-<h4 id="互联网敏感内容排查"><a href="#互联网敏感内容排查" class="headerlink" title="互联网敏感内容排查"></a>互联网敏感内容排查</h4><p>百度文库、招聘网站、招投标网站</p>
-<h4 id="源代码泄露排查"><a href="#源代码泄露排查" class="headerlink" title="源代码泄露排查"></a>源代码泄露排查</h4><p>svn、github、csdn</p>
-<h2 id="渗透测试实施"><a href="#渗透测试实施" class="headerlink" title="渗透测试实施"></a>渗透测试实施</h2><p>略（报告模板</p>
-<h2 id="APP安全测试"><a href="#APP安全测试" class="headerlink" title="APP安全测试"></a>APP安全测试</h2><p>有报告，简单记录下有哪些检查：</p>
-<h4 id="客户端环境安全"><a href="#客户端环境安全" class="headerlink" title="客户端环境安全"></a>客户端环境安全</h4><table>
-<thead>
-<tr>
-<th align="center">客户端环境安全</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">安全完整性校验</td>
-<td align="center">测试客户端是否存在完整性校验。如果iOS APP客户端未进行完整性校验，攻击者可以通过篡改客户端程序，对普通用户进行钓鱼等攻击。</td>
-</tr>
-<tr>
-<td align="center">反编译保护（可选）</td>
-<td align="center">可执行文件可以被反编译。攻击者可通过该问题看到客户端的逻辑。</td>
-</tr>
-<tr>
-<td align="center">日志敏感信息泄露</td>
-<td align="center">如果开发人员在日志中打印信息，则可能造成内网ip、用户名、密码、内部链接等敏感信息泄露。</td>
-</tr>
-<tr>
-<td align="center">应用数据存储安全</td>
-<td align="center">检查客户端程序本地存储文件，防止账号密码等敏感信息保存在本地，造成敏感信息泄露的风险。</td>
-</tr>
-<tr>
-<td align="center">越狱环境检测</td>
-<td align="center">越狱的环境默认是不安全的，是打破了苹果的生态系统的。如果应用未能在运行之初就检测当前系统是否为越狱环境，那么就会存在一定的风险。</td>
-</tr>
-<tr>
-<td align="center">动态调试检测（可选）</td>
-<td align="center">若客户端允许动态调试，攻击者可通过对客户端进行加解密分析、业务流程分析等。</td>
-</tr>
-<tr>
-<td align="center">内存敏感信息检测</td>
-<td align="center">一些重要数据，会被临时存放在内存里面。通过读取客户端内存，寻找内存中可能存在的敏感信息（卡号、明文密码等）。</td>
-</tr>
-<tr>
-<td align="center">输入记录保护</td>
-<td align="center">在系统中安装了键盘记录软件（可以在非越狱状态运行），则使用系统键盘输入的内容易被键盘记录程序记录，导致内容泄露。</td>
-</tr>
-<tr>
-<td align="center">屏幕录像保护</td>
-<td align="center">测试通过截图功能，是否可以截到用户密码输入框（登录密码、交易密码等）的明文密码。</td>
-</tr>
-</tbody></table>
-<h3 id="网络通信安全"><a href="#网络通信安全" class="headerlink" title="网络通信安全"></a>网络通信安全</h3><table>
-<thead>
-<tr>
-<th align="center">网络通信安全</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">通信协议安全</td>
-<td align="center">APP使用HTTP协议进行通信过程中可能会遭受中间人攻击，威胁数据安全。</td>
-</tr>
-<tr>
-<td align="center">通信数据加密</td>
-<td align="center">查看客户端在登录&#x2F;找回密码等关键业务的报文，是否对报文整体，或关键字段进行加密。</td>
-</tr>
-<tr>
-<td align="center">证书强校验检测</td>
-<td align="center">验证客户端是否存在忽略服务端证书校验的问题，客户端没有对服务器进行强校验或者没有在校验错误时候对用户进行提示，攻击者可以通过伪造证书对服务器进行攻击。</td>
-</tr>
-<tr>
-<td align="center">软件升级缺陷</td>
-<td align="center">程序在进行版本更新的时候，会向服务器请求一个跳转地址，如果修改返回包中的地址，存在钓鱼攻击的风险。</td>
-</tr>
-</tbody></table>
-<h3 id="安全策略检测"><a href="#安全策略检测" class="headerlink" title="安全策略检测"></a>安全策略检测</h3><table>
-<thead>
-<tr>
-<th align="center">安全策略检测</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">软键盘随机化排布</td>
-<td align="center">在用户输入敏感信息时，如果系统未使用自定义软键盘，而是使用了系统自带键盘，或者自定义软键盘未随机，那么恶意程序就可能对屏幕点击进行劫持，导致用户敏感信息泄露。</td>
-</tr>
-<tr>
-<td align="center">后台背景模糊</td>
-<td align="center">在切换至多任务状态栏时，APP背景内容是否模糊处理，防止敏感信息泄露。</td>
-</tr>
-<tr>
-<td align="center">手势密码检测</td>
-<td align="center">检测APP内手势密码的复杂度要求，手势密码修改是否需要校验密码，本地是否存储了明文手势密码的信息等。</td>
-</tr>
-<tr>
-<td align="center">密码修改验证</td>
-<td align="center">检测是否需要输入旧密码验证来修改密码。</td>
-</tr>
-<tr>
-<td align="center">密码复杂度检验</td>
-<td align="center">通常客户端没有设置禁止修改口令的强弱判断，导致用户有时贪图方便修改成简单密钥使攻击者容易通过弱口令进入帐号进行非法操作。</td>
-</tr>
-<tr>
-<td align="center">认证失败锁定</td>
-<td align="center">测试账户在登录时候多次输入密码错误或修改密码时候多次错误是否会导致账号被锁定。</td>
-</tr>
-<tr>
-<td align="center">UI敏感信息安全</td>
-<td align="center">登录过程中会为了友好，提示“用户名错误”或者“密码错误”。此时就可以通过这种“友好”的提示检查项目是否存在相关用户名，并且在账号体系不存在锁定的情况下相对容易地进行密码爆破。</td>
-</tr>
-<tr>
-<td align="center">信息屏蔽检测</td>
-<td align="center">检测程序中显示敏感信息是否使用 * 进行部分屏蔽，防止在被截屏获取敏感信息，同时也防止他人窥探手机屏幕得到敏感信息。</td>
-</tr>
-<tr>
-<td align="center">会话超时策略</td>
-<td align="center">程序在长时间不操作时候或者在长时间，若程序没有自动锁定或者退出登录，则有可能导致在这种情况下造成数据窃取。</td>
-</tr>
-<tr>
-<td align="center">会话固定风险</td>
-<td align="center">程序在进行正常退出之后如果后台不消除相关的用户身份凭证，则在身份凭证被窃取之后容易造成会话固定问题。</td>
-</tr>
-<tr>
-<td align="center">锁屏与会话锁定策略</td>
-<td align="center">测试程序在锁屏解锁之后是否会进行会话锁定，并在重新解锁之后要求用户重新进行身份验证。</td>
-</tr>
-<tr>
-<td align="center">TLS&#x2F;SSL协议与加密套件</td>
-<td align="center">程序在进行正常退出之后如果后台不消除相关的用户身份凭证，则在身份凭证被窃取之后容易造成会话固定问题。</td>
-</tr>
-</tbody></table>
-<h2 id="威胁分析与处置"><a href="#威胁分析与处置" class="headerlink" title="威胁分析与处置"></a>威胁分析与处置</h2><p>主要解释了平台怎么使用。</p>
-<p>APT：高级持续性威胁（Advanced Persistent Threat，APT），又叫高级长期威胁，是一种复杂的、持续的网络攻击，包含三个要素：高级、长期、威胁。高级是指执行APT攻击需要比传统攻击更高的定制程度和复杂程度，需要花费大量时间和资源来研究确定系统内部的漏洞；长期是为了达到特定目的，过程中“放长线”，持续监控目标，对目标保有长期的访问权；威胁强调的是人为参与策划的攻击，攻击目标是高价值的组织，攻击一旦得手，往往会给攻击目标造成巨大的经济损失或政治影响，乃至于毁灭性打击。</p>
-<p>参考：<a href="https://info.support.huawei.com/info-finder/encyclopedia/zh/%E9%AB%98%E7%BA%A7%E6%8C%81%E7%BB%AD%E6%80%A7%E5%A8%81%E8%83%81.html">https://info.support.huawei.com/info-finder/encyclopedia/zh/%E9%AB%98%E7%BA%A7%E6%8C%81%E7%BB%AD%E6%80%A7%E5%A8%81%E8%83%81.html</a></p>
-<p><a href="https://www.zhihu.com/question/28881041">https://www.zhihu.com/question/28881041</a></p>
-<h2 id="应急响应分析"><a href="#应急响应分析" class="headerlink" title="应急响应分析"></a>应急响应分析</h2><p>视频包括模板介绍及案例分析</p>
-<p><a href="https://bypass007.github.io/Emergency-Response-Notes/">前言 · 应急响应实战笔记 (bypass007.github.io)</a>  这个说得特别详细</p>
-<p>下面是部分介绍应急响应的链接：</p>
-<p><a href="https://www.freebuf.com/articles/terminal/192859.html">https://www.freebuf.com/articles/terminal/192859.html</a></p>
-<p><a href="https://www.cnblogs.com/fox-yu/p/14380849.html">https://www.cnblogs.com/fox-yu/p/14380849.html</a></p>
-<p><a href="https://www.freebuf.com/column/206886.html">应急响应实战案例分享 - FreeBuf网络安全行业门户</a></p>
-<p><a href="https://www.freebuf.com/column/206886.html">应急响应实战案例分享 - FreeBuf网络安全行业门户</a></p>
-<p><a href="https://blog.csdn.net/weixin_40412037/article/details/114282426">一次真实的应急响应案例——篡改页面、挖矿(sysupdate、networkservice)（含靶场环境）_应急响应靶场_W小哥1的博客-CSDN博客</a></p>
-<p><a href="https://www.freebuf.com/articles/web/216939.html">应急响应实例分享 - FreeBuf网络安全行业门户</a></p>
-<h2 id="网络探针"><a href="#网络探针" class="headerlink" title="网络探针"></a>网络探针</h2><p>什么是网络探针？网络探针是接入控制的有效手段！网络探针就是一个被赋予了特殊功能的BTA桌面安全助理程序，它能够检测到在特定的网络区间内（一般为内网的同一C类网段）没有安装和运行BTA桌面安全助理程序的其它计算机，并采取技术措施自动限制或阻断这些计算机的网络通信。这些操作是由网络探针自动完成的，不需要管理人员的手工操作，也不需要对相关网络设备的配置进行修改。</p>
-<p>人会说谎，流量不会 </p>
-<p><a href="https://blog.csdn.net/Aubergine_kang/article/details/83905614#:~:text=%E7%BD%91%E7%BB%9C%E6%8E%A2%E9%92%88%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA,%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E3%80%82">https://blog.csdn.net/Aubergine_kang/article/details/83905614#:~:text=%E7%BD%91%E7%BB%9C%E6%8E%A2%E9%92%88%E5%B0%B1%E6%98%AF%E4%B8%80%E4%B8%AA,%E7%AE%97%E6%9C%BA%E7%9A%84%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E3%80%82</a></p>
-<h2 id="红队-信息收集进阶"><a href="#红队-信息收集进阶" class="headerlink" title="红队-信息收集进阶"></a>红队-信息收集进阶</h2><p>ATT&amp;CK：<a href="https://blog.csdn.net/weixin_43965597/article/details/125926620%EF%BC%88%E6%B2%A1%E4%BB%94%E7%BB%86%E7%A0%94%E7%A9%B6%E8%BF%99%E4%B8%AA%EF%BC%8C%E4%BB%A5%E5%90%8E%E9%9C%80%E8%A6%81%E5%86%8D%E7%9C%8B%EF%BC%89">https://blog.csdn.net/weixin_43965597/article/details/125926620（没仔细研究这个，以后需要再看）</a></p>
-<h3 id="OSINT简介"><a href="#OSINT简介" class="headerlink" title="OSINT简介"></a>OSINT简介</h3><p>开源网络情报(Open source intelligence),简称OSINT,是美国中央情报局(CIA)的一种情报搜集手段，从各种公开的信息资源中寻找和获取有价值的情报OSINT特点：因为开源、宽泛；各类情报&#x2F;信息都可收集</p>
-<p>之后看酷学院补充</p>
-<h3 id="端口扫描-nmap-amp-masscan"><a href="#端口扫描-nmap-amp-masscan" class="headerlink" title="端口扫描-nmap&amp;masscan"></a>端口扫描-nmap&amp;masscan</h3><p>url链接：https:&#x2F;nmap.org&#x2F;<br>Nmap可以扫ip可以扫域名，<br>-V显示扫描过程；<br>-A进攻式扫描；<br>-p1-65535,全端：<br>O探测操作系统：<br>-nP不用ping；<br>-Pn&#x3D;-P0不进行主机发现直接扫描：<br>-top-ports100排名前100端口；<br>-iL filename从文件中读取目标进行扫描：<br><strong>扫描方式：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-sT TCP扫描（稳定，相较于SYN次选），三次握手；</span><br><span class="line">-sS用SYN扫描（速度快、隐蔽），半开放式扫描，无完整握手；</span><br><span class="line">-sU用UDP扫描（扫描慢）；</span><br><span class="line">-sA用ACK扫描；</span><br><span class="line">-sX用Xmas扫描；</span><br><span class="line">-sF用FIN扫描（可绕过一些防火墙）；</span><br><span class="line">-sP用ping,确认主机是否在线；</span><br><span class="line">-sV扫描主机和端口的版本</span><br></pre></td></tr></table></figure>
-
-<p><strong>漏洞利用：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-script部分漏洞利用</span><br><span class="line">-script all使用所有脚本进行扫描</span><br><span class="line">-script auth自动识别</span><br><span class="line">-script vuln对常见漏洞扫描</span><br><span class="line">--script smb-brute对用户名密码进行爆破</span><br></pre></td></tr></table></figure>
-
-<p><strong>绕防火墙：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">-DRND:10(随机产生10个虚拟ip对目标进行扫描)</span><br><span class="line">-f发送很小的包（类似mtu)</span><br><span class="line">-mtu8(8、16、24、32等8的倍数)</span><br><span class="line">-S源地址伪装</span><br><span class="line">-source-port53用53端口对目标进行扫描</span><br><span class="line">-data-length20发送指定长度的包去探测</span><br><span class="line">-sI agent-ip以agent-ip的身份去扫描（默认80端口）</span><br></pre></td></tr></table></figure>
-
-<h4 id="subfinder"><a href="#subfinder" class="headerlink" title="subfinder"></a>subfinder</h4><p>url链接：https:&#x2F;github.com&#x2F;projectdiscovery&#x2F;subfinder<br>功能：通过调用各个api接口进行子域名收集（调用包括Sublist3r、crtsh、fofa、spyses等等）</p>
-<p>（没用过，以后有机会试试，一般我用layer</p>
-<h4 id="OneForAll"><a href="#OneForAll" class="headerlink" title="OneForAll"></a>OneForAll</h4><p>url链接：https:&#x2F;github.com&#x2F;shmilylty.&#x2F;OneForAll<br>功能：通过DNS、搜索引擎、爬子域等方式进行检索</p>
-<h4 id="Sublist3r-amp-子域名挖掘机"><a href="#Sublist3r-amp-子域名挖掘机" class="headerlink" title="Sublist3r&amp;子域名挖掘机"></a>Sublist3r&amp;子域名挖掘机</h4><p>url链接：<a href="https://github.com/aboul3la/Sublist3r">https://github.com/aboul3la/Sublist3r</a>  功能：通过搜索引擎爬取，多了一个检查端口</p>
-<p>url链接：<a href="https://www.webshell.cc/6384.htm">https://www.webshell.cc/6384.htm</a>  功能：输入直接查询子域名（爆破枚举</p>
-<h4 id="CSP"><a href="#CSP" class="headerlink" title="CSP"></a>CSP</h4><p>内容安全策略(CSP):开发者明确告诉客户端（制定比较严格的策略和规侧）<br>内容安全策略(CSP)定义了Content-Security-Policy HTTP头，它允许我们创建可信内容源的白名单，并指示浏览器只执行或呈现来自这些源的资源<br>我们可以查看HTTP的Content-Security-Policy:字段来搜集子域名信息。</p>
-<h4 id="whois-x2F-DNS查询-centralops"><a href="#whois-x2F-DNS查询-centralops" class="headerlink" title="whois&#x2F;DNS查询-centralops"></a>whois&#x2F;DNS查询-centralops</h4><p>url链接：<a href="https://centralops.net/co/DomainDossier.aspx">https://centralops.net/co/DomainDossier.aspx</a></p>
-<h4 id="whois-x2F-DNS查询-dnsdumpster"><a href="#whois-x2F-DNS查询-dnsdumpster" class="headerlink" title="whois&#x2F;DNS查询-dnsdumpster"></a>whois&#x2F;DNS查询-dnsdumpster</h4><p>url链接：<a href="https://dnsdumpster.com/">https://dnsdumpster.com/</a><br>功能：查询DNS解析记录，其中里面包含其他接口（如：查询共享DNS主机、共享IP主机、端口探测等端口)，但是会招出查询次数</p>
-<h4 id="ip反查域名-rapiddns"><a href="#ip反查域名-rapiddns" class="headerlink" title="ip反查域名-rapiddns"></a>ip反查域名-rapiddns</h4><p>url链接：<a href="https://rapiddns.io/">https://rapiddns.io/</a><br>功能：查询ip归属地、网络中心，反查网站、旁站C段查询</p>
-<h4 id="ip反查域名-IP138"><a href="#ip反查域名-IP138" class="headerlink" title="ip反查域名-IP138"></a>ip反查域名-IP138</h4><p>url链接：<a href="https://www.ip138.com/iplookup.asp">https://www.ip138.com/iplookup.asp</a><br>功能：查询同IP下都有哪些web站点</p>
-<h4 id="CDN-chinaz"><a href="#CDN-chinaz" class="headerlink" title="CDN-chinaz"></a>CDN-chinaz</h4><p>url链接：<a href="https://cdn.chinaz.com/">https://cdn.chinaz.com/</a><br>功能：查询是否有CDN及CDN提供商名字</p>
-<h4 id="数字证书-censys-amp-crt-sh"><a href="#数字证书-censys-amp-crt-sh" class="headerlink" title="数字证书-censys&amp;crt.sh"></a>数字证书-censys&amp;crt.sh</h4><p>url链接：<a href="https://search.censys.io/">https://search.censys.io/</a><br>选择证书查询即可，可查询自签名，过期证书、未过期证书、发行人，以及邮箱</p>
-<p>url链接：<a href="https://crt.sh/">https://crt.sh/</a><br>属于域名即可查询</p>
-<h4 id="搜索引擎-google-amp-fofa"><a href="#搜索引擎-google-amp-fofa" class="headerlink" title="搜索引擎-google&amp;fofa"></a>搜索引擎-google&amp;fofa</h4><h4 id="搜索引擎-x2F-网络空间测绘-shodan-amp-CenSys-amp-DNSdb-amp-Spyse"><a href="#搜索引擎-x2F-网络空间测绘-shodan-amp-CenSys-amp-DNSdb-amp-Spyse" class="headerlink" title="搜索引擎&#x2F;网络空间测绘-shodan&amp;CenSys&amp;DNSdb&amp;Spyse"></a>搜索引擎&#x2F;网络空间测绘-shodan&amp;CenSys&amp;DNSdb&amp;Spyse</h4><h4 id="社交媒体-rocketreach"><a href="#社交媒体-rocketreach" class="headerlink" title="社交媒体-rocketreach"></a>社交媒体-rocketreach</h4><p>url链接：<a href="https://rocketreach.co/">https://rocketreach.co/</a><br>使用twitter、.googlel账号登陆即可查询</p>
-<p>通过ip查社交媒体</p>
-<h4 id="邮件信息收集-hunter-amp-phonebook-amp-infoga"><a href="#邮件信息收集-hunter-amp-phonebook-amp-infoga" class="headerlink" title="邮件信息收集-hunter&amp;phonebook&amp;infoga"></a>邮件信息收集-hunter&amp;phonebook&amp;infoga</h4><p>url链接：<a href="https://hunter.io/">https://hunter.io/</a><br>输入需要查询的邮件后缀，即可查看部分，然后再点击来源即可看到详情</p>
-<p>url链接：<a href="https://phonebook.cz/">https://phonebook.cz/</a>  （效果很好）<br>输入需要查询的邮件后缀，即可查询邮件名（网站中有其他功能但是都不太好用），该网站的数据是从<a href="https://intelx.io/%E4%B8%AD%E6%89%BE%E7%9A%84%E6%95%B0%E6%8D%AE">https://intelx.io/中找的数据</a></p>
-<p>url链接：<a href="https://github.com/m4IIok/infoga">https://github.com/m4IIok/infoga</a><br>功能：从不同公共来源（搜索引擎、pgp密钥服务器和shodan)收集电子邮件帐户信息(IP、主机名、国家&#x2F;地区…)的工具，并使用haveibeenpned.com API检查电子邮件是否泄露</p>
-<h4 id="临时邮件-fakemailgenerator-amp-kuku"><a href="#临时邮件-fakemailgenerator-amp-kuku" class="headerlink" title="临时邮件-fakemailgenerator&amp;kuku"></a>临时邮件-fakemailgenerator&amp;kuku</h4><p>url链接：<a href="http://www.fakemailgenerator.com/">http://www.fakemailgenerator.com/</a><br>功能：生成假造身份后可获得一个邮件地址，该邮件地址可以收邮件内容</p>
-<p>url链接：<a href="https://m.kuku.lu/">https://m.kuku.lu/</a><br>直接使用，可以首发邮件且无需注册</p>
-<h4 id="商业记录-天眼查-x2F-爱企查-x2F-企查查"><a href="#商业记录-天眼查-x2F-爱企查-x2F-企查查" class="headerlink" title="商业记录-天眼查&#x2F;爱企查&#x2F;企查查"></a>商业记录-天眼查&#x2F;爱企查&#x2F;企查查</h4><p>url链接：<a href="https://www.tianyancha.com/">https://www.tianyancha.com/</a><br>url链接：<a href="https://aiqicha.baidu.com/">https://aiqicha.baidu.com/</a><br>url链接：<a href="https://www.qcc.com/">https://www.qcc.com/</a><br>股权穿透、子母公司、相关产品和地址、备案信息查询等信息</p>
-<h4 id="IP定位-ipuu"><a href="#IP定位-ipuu" class="headerlink" title="IP定位-ipuu"></a>IP定位-ipuu</h4><p>url链接：<a href="https://www.ipuu.net/">https://www.ipuu.net</a><br>高精度定位P所在区域，需要登陆后查询（高精度查询每日有查询上限）</p>
-<h4 id="综合信息收集-xray"><a href="#综合信息收集-xray" class="headerlink" title="综合信息收集-xray"></a>综合信息收集-xray</h4><p>详细使用文档：<a href="https://docs.xray.cool/#/">https://docs.xray.cool/#/</a></p>
-<h4 id="综合信息收集-Maltego"><a href="#综合信息收集-Maltego" class="headerlink" title="综合信息收集-Maltego"></a>综合信息收集-Maltego</h4><p>url链接：<a href="https://www.maltego.com/">https://www.maltego.com/</a><br>在官网可以直接下载，Mac、Windows、Linux版本(kali自带)<br>在官网注册一个账号即可直接使用（分收费版、免费版）<br>鼠标右键即可出来<br>可以查dns解析、子域名、邮箱关联等信息</p>
-<h4 id="代码信息泄露-github-amp-searchcode"><a href="#代码信息泄露-github-amp-searchcode" class="headerlink" title="代码信息泄露-github&amp;searchcode"></a>代码信息泄露-github&amp;searchcode</h4><p><a href="https://searchcode.com/">https://searchcode.com/</a></p>
-<h4 id="密码信息泄漏-intelx"><a href="#密码信息泄漏-intelx" class="headerlink" title="密码信息泄漏-intelx"></a>密码信息泄漏-intelx</h4><p>url链接：<a href="https://intelx.io/">https://intelx.io/</a><br>随便注册一个账号即可查询</p>
-<h4 id="交通信息收集-火车地铁"><a href="#交通信息收集-火车地铁" class="headerlink" title="交通信息收集-火车地铁"></a>交通信息收集-火车地铁</h4><p>url链接：<a href="https://www.openrailwaymap.org/">https://www.openrailwaymap.org/</a><br>查线路情况，高速段落、专用线段落</p>
-<h4 id="交通信息收集-飞机"><a href="#交通信息收集-飞机" class="headerlink" title="交通信息收集-飞机"></a>交通信息收集-飞机</h4><p>url链接：<br>航旅纵横app<br><a href="https://www.flightradar24.com/">https://www.flightradar24.com/</a><br>直接章询即可，包括每一趟航天高度、时速、现在位置</p>
-<h2 id="web测试-业务逻辑漏洞"><a href="#web测试-业务逻辑漏洞" class="headerlink" title="web测试-业务逻辑漏洞"></a>web测试-业务逻辑漏洞</h2><p><a href="https://blog.csdn.net/weixin_48421613/article/details/121008379">常见的业务逻辑漏洞-整合篇_vlan911的博客-CSDN博客</a></p>
-<p><a href="https://www.freebuf.com/vuls/281141.html">逻辑漏洞梳理与总结 - FreeBuf网络安全行业门户</a></p>
-<p><a href="https://blog.csdn.net/m0_57751431/article/details/119333788">业务逻辑漏洞总结_Andy数宇的博客-CSDN博客</a></p>
-<p><a href="https://blog.csdn.net/weixin_48421613/article/details/121008379">https://blog.csdn.net/weixin_48421613/article/details/121008379</a></p>
-<h2 id="APP测试"><a href="#APP测试" class="headerlink" title="APP测试"></a>APP测试</h2><h3 id="安卓客户端测试流程"><a href="#安卓客户端测试流程" class="headerlink" title="安卓客户端测试流程"></a>安卓客户端测试流程</h3><p>客户端静态安全<br>客户端数据安全<br>客户端运行时安全<br>安全策略<br>通信安全</p>
-<h3 id="IOS客户端测试流程"><a href="#IOS客户端测试流程" class="headerlink" title="IOS客户端测试流程"></a>IOS客户端测试流程</h3><p>客户端安全<br>网络通信安全<br>安全策略检测<br>可选测试项</p>
-<h3 id="Drozer使用"><a href="#Drozer使用" class="headerlink" title="Drozer使用"></a>Drozer使用</h3><h3 id="安卓脱壳入门"><a href="#安卓脱壳入门" class="headerlink" title="安卓脱壳入门"></a>安卓脱壳入门</h3><h2 id="代码审计"><a href="#代码审计" class="headerlink" title="代码审计"></a>代码审计</h2><h3 id="代码审计工具"><a href="#代码审计工具" class="headerlink" title="代码审计工具"></a>代码审计工具</h3><p><a href="https://www.ddosi.org/fortify/">Fortify SCA 20.2.2 cracked Fortify破解版 - 🔰雨苁ℒ🔰 (ddosi.org)</a></p>
-<p><a href="https://cn-sec.com/archives/1496150.html">fortify_sca_22.2-Windows-linux破解版 | CN-SEC 中文网</a></p>
-<p><a href="https://blog.csdn.net/qq_40597962/article/details/118490818">Fortify介绍及使用教程_fortify 使用方法_「已注销」的博客-CSDN博客</a></p>
-<p>[第37篇：fortify代码审计工具的使用技巧(1)-审计java代码过程 - 腾讯云开发者社区-腾讯云 (tencent.com)](<a href="https://cloud.tencent.com/developer/article/2225044#:~:text=Fortify%E9%BB%98%E8%AE%A4%E7%9A%84%E7%BC%96%E7%A0%81%E4%B8%8D%E6%98%AFUTF-8%EF%BC%8C%E5%AF%BC%E8%87%B4%E9%83%A8%E5%88%86%E4%B8%AD%E6%96%87%E7%9A%84Java%E4%BB%A3%E7%A0%81%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98%E3%80%82">https://cloud.tencent.com/developer/article/2225044#:~:text=Fortify默认的编码不是UTF-8，导致部分中文的Java代码会出现乱码问题。</a> 如果是单文件乱码，可以使用 Edit 选项卡下的,Set Encoding 进行设置， 鼠标光标在右侧代码框内点击一下，否则此项功能不能用 ，但是这种方法只适用于单个文件的乱码解决。)</p>
-<p><a href="https://www.cnblogs.com/happylumei/p/16731407.html">【安全测试】【fortify】fortify设置中文语言 - 码上起舞 - 博客园 (cnblogs.com)</a></p>
-]]></content>
-      <tags>
-        <tag>安全服务</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>蓝队</title>
-    <url>/2023/04/08/%E8%93%9D%E9%98%9F/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>蓝队学习</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>恶意代码</title>
     <url>/2023/04/16/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/</url>
     <content><![CDATA[<p><a href="https://github.com/Rvn0xsy/BadCode">Rvn0xsy&#x2F;BadCode: 恶意代码逃逸源代码 http://payloads.online (github.com)</a></p>
@@ -3995,8 +3990,8 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">mysql.query matches &quot;hash_code&quot;</span><br></pre></td></tr></table></figure>
 
 <p>d1c029893df40cb0f47bcf8f1c3c17ac</p>
-<p>8、黑客破解了账号<a href="mailto:&#105;&#x6a;&#110;&#117;&#64;&#x74;&#x65;&#x73;&#116;&#x2e;&#x63;&#x6f;&#x6d;">&#105;&#x6a;&#110;&#117;&#64;&#x74;&#x65;&#x73;&#116;&#x2e;&#x63;&#x6f;&#x6d;</a>得到的密码是什么</p>
-<p>mysql contains “<a href="mailto:&#x69;&#106;&#110;&#x75;&#x40;&#116;&#x65;&#115;&#x74;&#x2e;&#x63;&#x6f;&#x6d;">&#x69;&#106;&#110;&#x75;&#x40;&#116;&#x65;&#115;&#x74;&#x2e;&#x63;&#x6f;&#x6d;</a>“</p>
+<p>8、黑客破解了账号<a href="mailto:&#x69;&#106;&#110;&#117;&#64;&#116;&#x65;&#115;&#x74;&#46;&#x63;&#x6f;&#109;">&#x69;&#106;&#110;&#117;&#64;&#116;&#x65;&#115;&#x74;&#46;&#x63;&#x6f;&#109;</a>得到的密码是什么</p>
+<p>mysql contains “<a href="mailto:&#105;&#x6a;&#x6e;&#117;&#x40;&#116;&#x65;&#x73;&#116;&#46;&#99;&#x6f;&#109;">&#105;&#x6a;&#x6e;&#117;&#x40;&#116;&#x65;&#x73;&#116;&#46;&#99;&#x6f;&#109;</a>“</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ijnu@test.com b78f5aa6e1606f07def6e839121a22ec.ADMIN</span><br></pre></td></tr></table></figure>
 
 <p>md5解密</p>
@@ -4039,6 +4034,14 @@
 ]]></content>
       <tags>
         <tag>流量分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>蓝队</title>
+    <url>/2023/04/08/%E8%93%9D%E9%98%9F/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>蓝队学习</tag>
       </tags>
   </entry>
   <entry>
@@ -4584,7 +4587,7 @@
 <p>22试下能ssh爆破不（一般不太行，ladon跑，干其他事情）</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Start: 2023-04-12 20:21:51</span><br><span class="line">PC Name: PENETRATION Lang: zh-CN</span><br><span class="line">Runtime: .net 4.0  ME: x64 OS: x64</span><br><span class="line">Found: Runtime .net 4.8.4084.0</span><br><span class="line">OS Name: Microsoft Windows 10 专业工作站版</span><br><span class="line">Machine Make: VMware, Inc.</span><br><span class="line">Network: IS Connected</span><br><span class="line">RunUser: Anonymous PR: -IsUser</span><br><span class="line">PID: 5624  CurrentProcess: Ladon911</span><br><span class="line">CPU: Physical: 2 Cores: 4 Logical: 4</span><br><span class="line">FreeSpace: Disk C:\ 76398 MB</span><br><span class="line"></span><br><span class="line">Threads: 80</span><br><span class="line">Not Found PassWord File,Use DefaultPwd</span><br><span class="line">load SshScan</span><br><span class="line">_ICMP: 192.168.222.132  00-0C-29-F7-4D-E0       VMware</span><br><span class="line">192.168.222.132 22      Close</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2023-04-12 20:21:56</span><br></pre></td></tr></table></figure>
 
-<p>┌──(kali㉿kali)-[~&#x2F;Desktop]<br>└─$ ssh -oKexAlgorithms&#x3D;+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1  -oHostKeyAlgorithms&#x3D;+ssh-rsa,ssh-dss <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#x32;&#50;&#50;&#46;&#49;&#x34;&#51;">&#114;&#x6f;&#x6f;&#116;&#x40;&#x31;&#x39;&#50;&#x2e;&#x31;&#x36;&#x38;&#46;&#x32;&#50;&#50;&#46;&#49;&#x34;&#51;</a><br>The authenticity of host ‘192.168.222.143 (192.168.222.143)’ can’t be established.<br>RSA key fingerprint is SHA256:my5mjHup9LZ8CG0KCcvRNwYyvbuVrZI5nfKF7N1XjcU.<br>This key is not known by any other names.<br>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes<br>Warning: Permanently added ‘192.168.222.143’ (RSA) to the list of known hosts.<br><a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#x32;&#x32;&#x32;&#46;&#x31;&#52;&#51;">&#x72;&#x6f;&#111;&#x74;&#64;&#x31;&#x39;&#x32;&#46;&#49;&#54;&#56;&#x2e;&#x32;&#x32;&#x32;&#46;&#x31;&#52;&#51;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#114;&#111;&#111;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x32;&#x32;&#x32;&#46;&#49;&#x34;&#51;">&#114;&#111;&#111;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#x32;&#x32;&#x32;&#46;&#49;&#x34;&#51;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#x72;&#x6f;&#111;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#50;&#50;&#50;&#46;&#x31;&#x34;&#51;">&#x72;&#x6f;&#111;&#116;&#64;&#x31;&#57;&#x32;&#x2e;&#x31;&#54;&#56;&#x2e;&#50;&#50;&#50;&#46;&#x31;&#x34;&#51;</a>‘s password: </p>
+<p>┌──(kali㉿kali)-[~&#x2F;Desktop]<br>└─$ ssh -oKexAlgorithms&#x3D;+diffie-hellman-group-exchange-sha1,diffie-hellman-group14-sha1,diffie-hellman-group1-sha1  -oHostKeyAlgorithms&#x3D;+ssh-rsa,ssh-dss <a href="mailto:&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#50;&#50;&#x32;&#x2e;&#49;&#x34;&#51;">&#114;&#x6f;&#111;&#x74;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#x36;&#x38;&#x2e;&#50;&#50;&#x32;&#x2e;&#49;&#x34;&#51;</a><br>The authenticity of host ‘192.168.222.143 (192.168.222.143)’ can’t be established.<br>RSA key fingerprint is SHA256:my5mjHup9LZ8CG0KCcvRNwYyvbuVrZI5nfKF7N1XjcU.<br>This key is not known by any other names.<br>Are you sure you want to continue connecting (yes&#x2F;no&#x2F;[fingerprint])? yes<br>Warning: Permanently added ‘192.168.222.143’ (RSA) to the list of known hosts.<br><a href="mailto:&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x32;&#x32;&#x32;&#x2e;&#x31;&#x34;&#x33;">&#114;&#x6f;&#x6f;&#x74;&#64;&#49;&#57;&#x32;&#x2e;&#x31;&#54;&#x38;&#46;&#x32;&#x32;&#x32;&#x2e;&#x31;&#x34;&#x33;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#114;&#111;&#111;&#116;&#64;&#x31;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#50;&#x32;&#x32;&#46;&#49;&#52;&#51;">&#114;&#111;&#111;&#116;&#64;&#x31;&#x39;&#x32;&#x2e;&#x31;&#x36;&#x38;&#46;&#50;&#x32;&#x32;&#46;&#49;&#52;&#51;</a>‘s password:<br>Permission denied, please try again.<br><a href="mailto:&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#50;&#50;&#x32;&#46;&#x31;&#52;&#51;">&#114;&#x6f;&#111;&#116;&#x40;&#49;&#57;&#50;&#x2e;&#49;&#x36;&#x38;&#46;&#50;&#50;&#x32;&#46;&#x31;&#52;&#51;</a>‘s password: </p>
 <p>看看能不能在哪个地方得到用户名</p>
 <p>3306看也能爆破一下不</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FreeSpace: Disk C:\ 76398 MB</span><br><span class="line"></span><br><span class="line">Threads: 80</span><br><span class="line">Not Found PassWord File,Only Scan Mysql Port!</span><br><span class="line">load MysqlScan</span><br><span class="line">_ICMP: 192.168.222.132  00-0C-29-F7-4D-E0       VMware</span><br><span class="line">192.168.222.132 3306    Close</span><br><span class="line">IP Finished!</span><br><span class="line">End: 2023-04-12 20:22:43</span><br></pre></td></tr></table></figure>
