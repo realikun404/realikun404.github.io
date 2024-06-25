@@ -33,11 +33,13 @@
 <meta property="og:site_name" content="realikun404">
 <meta property="og:description" content="瑞吉外卖">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20240624143258336.png">
 <meta property="article:published_time" content="2024-06-23T13:56:54.000Z">
-<meta property="article:modified_time" content="2024-06-24T06:22:20.024Z">
+<meta property="article:modified_time" content="2024-06-24T08:38:44.780Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20240624143258336.png">
 
 <link rel="canonical" href="http://example.com/2024/06/23/ruiji-waimai/">
 
@@ -211,7 +213,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-06-24 14:22:20" itemprop="dateModified" datetime="2024-06-24T14:22:20+08:00">2024-06-24</time>
+                <time title="修改时间：2024-06-24 16:38:44" itemprop="dateModified" datetime="2024-06-24T16:38:44+08:00">2024-06-24</time>
               </span>
 
           <br>
@@ -220,7 +222,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.4k</span>
+              <span>2.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -249,9 +251,16 @@
 </ul>
 <p>这样用户直接访问&#x2F;backend&#x2F;index.html也行啊，得加下token什么的吧？</p>
 <ul>
+<li>之后测试下jmeter使用</li>
+<li>之后看看session对象怎样保存的</li>
+<li></li>
 <li>1</li>
 </ul>
-<h3 id="数据库表设置分析"><a href="#数据库表设置分析" class="headerlink" title="数据库表设置分析"></a>数据库表设置分析</h3><h2 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h2><h2 id="做出的优化"><a href="#做出的优化" class="headerlink" title="做出的优化"></a>做出的优化</h2><h2 id="环境相关配置"><a href="#环境相关配置" class="headerlink" title="环境相关配置"></a>环境相关配置</h2><p>课程相关资料地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1bxEy2bHiCYQtouifUppsTA">https://pan.baidu.com/s/1bxEy2bHiCYQtouifUppsTA</a> 提取码：1234</p>
+<h3 id="数据库表设置分析"><a href="#数据库表设置分析" class="headerlink" title="数据库表设置分析"></a>数据库表设置分析</h3><h2 id="可能存在的问题"><a href="#可能存在的问题" class="headerlink" title="可能存在的问题"></a>可能存在的问题</h2><h2 id="做出的优化"><a href="#做出的优化" class="headerlink" title="做出的优化"></a>做出的优化</h2><ul>
+<li>密码加下salt （todo）</li>
+<li></li>
+</ul>
+<h2 id="环境相关配置"><a href="#环境相关配置" class="headerlink" title="环境相关配置"></a>环境相关配置</h2><p>课程相关资料地址：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1bxEy2bHiCYQtouifUppsTA">https://pan.baidu.com/s/1bxEy2bHiCYQtouifUppsTA</a> 提取码：1234</p>
 <h3 id="mysql配置"><a href="#mysql配置" class="headerlink" title="mysql配置"></a>mysql配置</h3><h3 id="maven配置"><a href="#maven配置" class="headerlink" title="maven配置"></a>maven配置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">registry.addResourceHandler(&quot;/backend/**&quot;).addResourceLocations(&quot;classpath:/backend&quot;);</span><br><span class="line">registry.addResourceHandler(&quot;/front/**&quot;).addResourceLocations(&quot;classpath:/front&quot;);</span><br><span class="line">log.info(&quot;配置springMvc成功&quot;);</span><br></pre></td></tr></table></figure>
 
 <h2 id="业务开发"><a href="#业务开发" class="headerlink" title="业务开发"></a>业务开发</h2><h3 id="后台系统登录业务"><a href="#后台系统登录业务" class="headerlink" title="后台系统登录业务"></a>后台系统登录业务</h3><p>访问controller后流程：Controller&#x3D;&gt;Service&#x3D;&gt;Mapper&#x3D;&gt;DB</p>
@@ -268,12 +277,12 @@
 </li>
 <li><p>新建统一返回类</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">R</span>&lt;T&gt; &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Integer code; <span class="comment">//编码：1成功，0和其它数字为失败</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> String msg; <span class="comment">//错误信息</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> T data; <span class="comment">//数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">Map</span> <span class="variable">map</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">HashMap</span>(); <span class="comment">//动态数据</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; R&lt;T&gt; <span class="title function_">success</span><span class="params">(T object)</span> &#123;</span><br><span class="line">        R&lt;T&gt; r = <span class="keyword">new</span> <span class="title class_">R</span>&lt;T&gt;();</span><br><span class="line">        r.data = object;</span><br><span class="line">        r.code = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; R&lt;T&gt; <span class="title function_">error</span><span class="params">(String msg)</span> &#123;</span><br><span class="line">        <span class="type">R</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">R</span>();</span><br><span class="line">        r.msg = msg;</span><br><span class="line">        r.code = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> R&lt;T&gt; <span class="title function_">add</span><span class="params">(String key, Object value)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.map.put(key, value);</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
 </li>
-<li></li>
+<li><p>开发登录接口</p>
+<img src="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20240624143258336.png" alt="image-20240624143258336" style="zoom: 80%;" /></li>
 </ol>
-
+<p>- </p>
+<h3 id="后台系统退出"><a href="#后台系统退出" class="headerlink" title="后台系统退出"></a>后台系统退出</h3><h4 id=""><a href="#" class="headerlink" title=""></a></h4>
     </div>
 
     
@@ -358,7 +367,7 @@
       </ul>
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">相关分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E8%AE%BE%E7%BD%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">数据库表设置分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">可能存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E5%87%BA%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">做出的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">环境相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">mysql配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">maven配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91"><span class="nav-number">5.</span> <span class="nav-text">业务开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%B8%9A%E5%8A%A1"><span class="nav-number">5.1.</span> <span class="nav-text">后台系统登录业务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">5.1.1.</span> <span class="nav-text">流程</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%88%86%E6%9E%90"><span class="nav-number">1.</span> <span class="nav-text">相关分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8%E8%AE%BE%E7%BD%AE%E5%88%86%E6%9E%90"><span class="nav-number">1.1.</span> <span class="nav-text">数据库表设置分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E8%83%BD%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">可能存在的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%81%9A%E5%87%BA%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">做出的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E7%9B%B8%E5%85%B3%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">环境相关配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mysql%E9%85%8D%E7%BD%AE"><span class="nav-number">4.1.</span> <span class="nav-text">mysql配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#maven%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">maven配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91"><span class="nav-number">5.</span> <span class="nav-text">业务开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E7%99%BB%E5%BD%95%E4%B8%9A%E5%8A%A1"><span class="nav-number">5.1.</span> <span class="nav-text">后台系统登录业务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B"><span class="nav-number">5.1.1.</span> <span class="nav-text">流程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E5%8F%B0%E7%B3%BB%E7%BB%9F%E9%80%80%E5%87%BA"><span class="nav-number">5.2.</span> <span class="nav-text">后台系统退出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-number">5.2.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
       <div class="site-overview-wrap sidebar-panel">
