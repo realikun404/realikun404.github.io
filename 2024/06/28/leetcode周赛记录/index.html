@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon.ico">
+  <link rel="mask-icon" href="/images/favicon.ico" color="#222">
+  <link rel="manifest" href="/images/favicon.ico">
+  <meta name="msapplication-config" content="/images/favicon.ico">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-minimal.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+
+
+  <meta name="description" content="记录从第404场开始的每次周赛（不一定准时参加，也可能之后在做）.每周一次还是有点多，两周做一次吧。主要是太菜了。。。。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode周赛记录">
+<meta property="og:url" content="http://example.com/2024/06/28/leetcode%E5%91%A8%E8%B5%9B%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="realikun404">
+<meta property="og:description" content="记录从第404场开始的每次周赛（不一定准时参加，也可能之后在做）.每周一次还是有点多，两周做一次吧。主要是太菜了。。。。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-28T11:31:42.000Z">
+<meta property="article:modified_time" content="2024-07-05T01:45:19.627Z">
+<meta property="article:author" content="ZER0">
+<meta property="article:tag" content="coding">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2024/06/28/leetcode%E5%91%A8%E8%B5%9B%E8%AE%B0%E5%BD%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
+  <title>leetcode周赛记录 | realikun404</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">realikun404</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">太刀は至上である.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="archive fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/28/leetcode%E5%91%A8%E8%B5%9B%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/cat.gif">
+      <meta itemprop="name" content="ZER0">
+      <meta itemprop="description" content="太刀は至上である.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="realikun404">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode周赛记录
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2024-06-28 19:31:42" itemprop="dateCreated datePublished" datetime="2024-06-28T19:31:42+08:00">2024-06-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-07-05 09:45:19" itemprop="dateModified" datetime="2024-07-05T09:45:19+08:00">2024-07-05</time>
+              </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+            <div class="post-description">记录从第404场开始的每次周赛（不一定准时参加，也可能之后在做）.每周一次还是有点多，两周做一次吧。主要是太菜了。。。。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>[toc]</p>
+<h2 id="404场周赛"><a href="#404场周赛" class="headerlink" title="404场周赛"></a>404场周赛</h2><h3 id="3200-三角形的最大高度-简单"><a href="#3200-三角形的最大高度-简单" class="headerlink" title="3200. 三角形的最大高度-简单"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-height-of-a-triangle/">3200. 三角形的最大高度-简单</a></h3><h4 id="题干"><a href="#题干" class="headerlink" title="题干"></a>题干</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">给你两个整数 red 和 blue，分别表示红色球和蓝色球的数量。你需要使用这些球来组成一个三角形，满足第 1 行有 1 个球，第 2 行有 2 个球，第 3 行有 3 个球，依此类推。</span><br><span class="line"></span><br><span class="line">每一行的球必须是 相同 颜色，且相邻行的颜色必须 不同。</span><br><span class="line"></span><br><span class="line">返回可以实现的三角形的 最大 高度。</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>暴力即可，即两种情况，最上面红色或者最上面蓝色。</p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxHeightOfTriangle</span><span class="params">(<span class="type">int</span> red, <span class="type">int</span> blue)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">red1</span> <span class="operator">=</span> red;</span><br><span class="line">        <span class="type">int</span> <span class="variable">red2</span> <span class="operator">=</span> red;</span><br><span class="line">        <span class="type">int</span> blue1= blue;</span><br><span class="line">        <span class="type">int</span> <span class="variable">blue2</span> <span class="operator">=</span> blue;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res1</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res2</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(res1%<span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                red1 -= (res1 + <span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                blue1 -= (res1 + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(red1 &lt; <span class="number">0</span> || blue1 &lt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            res1++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(res2%<span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                blue2 -= (res2 + <span class="number">1</span>);</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                red2 -= (res2 + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(red2 &lt; <span class="number">0</span> || blue2 &lt; <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">            res2++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Integer.max(res1, res2);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="官方题解新解法"><a href="#官方题解新解法" class="headerlink" title="官方题解新解法"></a>官方题解新解法</h4><p>数学法：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-height-of-a-triangle/solutions/2826755/3200-san-jiao-xing-de-zui-da-gao-du-by-s-m0l3/">3200. 三角形的最大高度 - 力扣（LeetCode）</a></p>
+<p>懒得看了，简单题，懒得理解数学法</p>
+<h3 id="3201-找出有效子序列的最大长度-I-中等"><a href="#3201-找出有效子序列的最大长度-I-中等" class="headerlink" title="3201. 找出有效子序列的最大长度 I-中等"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-i/">3201. 找出有效子序列的最大长度 I-中等</a></h3><h4 id="我的LC题解"><a href="#我的LC题解" class="headerlink" title="我的LC题解"></a>我的LC题解</h4><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-i/solutions/2831684/qi-ou-xing-fen-xi-zuo-ti-by-lvvkuyrei0-gan6/">3201. 找出有效子序列的最大长度 I - 力扣（LeetCode）</a></p>
+<h4 id="题干-1"><a href="#题干-1" class="headerlink" title="题干"></a>题干</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">给你一个整数数组 nums。</span><br><span class="line"></span><br><span class="line">nums 的子序列 sub 的长度为 x ，如果其满足以下条件，则称其为 有效子序列：</span><br><span class="line"></span><br><span class="line">(sub[0] + sub[1]) % 2 == (sub[1] + sub[2]) % 2 == ... == (sub[x - 2] + sub[x - 1]) % 2</span><br><span class="line">返回 nums 的 最长的有效子序列 的长度。</span><br><span class="line"></span><br><span class="line">一个 子序列 指的是从原数组中删除一些元素（也可以不删除任何元素），剩余元素保持原来顺序组成的新数组。</span><br></pre></td></tr></table></figure>
+
+<h4 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h4><p>根据公式有 sub[n+1]-sub[n]&#x3D;&#x3D;sub[n+2]-sub[n+1]%2<br>模数为0 时候&#x3D;&gt; 全为奇数全为偶数<br>模数为1 时候&#x3D;&gt; 奇偶交错<br>分为三个case分析：<br>1.全为奇数：很简单，单编遍历，得出奇数个数就好<br>2.全为偶数：很简单，单编遍历，得出偶数个数就好<br>3.交错：这个情况要复杂点。不过有点像lc的交错数组，具体来说把奇数看成1，偶数看成0。来找最长交错数组。应该有这道题，一会补下链接<br>维护两个变量，up，down。当我们遍历数组处于i的位置时:<br>if nums[i]%2 &#x3D;&#x3D; 1: up &#x3D; down + 1 else down &#x3D; up + 1。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">不妨设dp数组,dp[n] dp[i]表示以nums[i]结尾的最长交错数组</span><br><span class="line">那么有</span><br><span class="line">if nums[i] % 2 == 0: dp[i] = max(dp[j] + 1 ) for j in [0,i-1] when nums[j] % 2 == 1 这个式子是很明显的</span><br><span class="line">我们接下来要证明 </span><br><span class="line">max(dp[j]) 一定是离 i 最近的 奇数。</span><br><span class="line">考虑下反证法，假设存在k&lt;j &amp;&amp; nums[k]%2== 1 &amp;&amp; dp[k] &gt; dp[j]</span><br><span class="line">(根据套路该证明dp[j] &gt; dp[k] 了)</span><br><span class="line">很明显一定有 dp[j]&gt;=dp[k]，因为对于dp[j]的子序列，我们一定可以使用dp[k]将dp[j]替换，得到相同满足条件的子序列。因此得证，nums[i] % 2 == 1 证明同理</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maximumLength</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">         <span class="type">int</span> <span class="variable">oddCount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">         <span class="type">int</span> <span class="variable">evenCount</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">         <span class="type">int</span> <span class="variable">up</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">         <span class="type">int</span> <span class="variable">down</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">         <span class="keyword">for</span>(<span class="type">int</span> num : nums)&#123;</span><br><span class="line">             <span class="keyword">if</span>(num % <span class="number">2</span> == <span class="number">0</span>)&#123;</span><br><span class="line">                 evenCount ++;</span><br><span class="line">                 down = up + <span class="number">1</span>;</span><br><span class="line">             &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                 oddCount ++;</span><br><span class="line">                 up = down + <span class="number">1</span>;</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">return</span> Integer.max(Integer.max(oddCount, evenCount), Integer.max(up, down));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="题解思路"><a href="#题解思路" class="headerlink" title="题解思路"></a>题解思路</h4><p>讲的是更普遍的情况，下道题分析</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-ii/solutions/2826591/deng-jie-zhuan-huan-dong-tai-gui-hua-pyt-z2fs/">3202. 找出有效子序列的最大长度 II - 力扣（LeetCode）</a></p>
+<h3 id="3202-找出有效子序列的最大长度-II"><a href="#3202-找出有效子序列的最大长度-II" class="headerlink" title="3202. 找出有效子序列的最大长度 II"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-ii/">3202. 找出有效子序列的最大长度 II</a></h3>
+    </div>
+
+    
+    
+    <div class="post-widgets">
+      <div id="needsharebutton-postbottom">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/coding/" rel="tag"><i class="fa fa-tag"></i> coding</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2024/06/28/%E9%9D%A2%E7%BB%8F%E8%B5%84%E6%BA%90%E6%95%B4%E7%90%86/" rel="prev" title="面经资源整理">
+      <i class="fa fa-chevron-left"></i> 面经资源整理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#404%E5%9C%BA%E5%91%A8%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text">404场周赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3200-%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E6%9C%80%E5%A4%A7%E9%AB%98%E5%BA%A6-%E7%AE%80%E5%8D%95"><span class="nav-number">1.1.</span> <span class="nav-text">3200. 三角形的最大高度-简单</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E5%B9%B2"><span class="nav-number">1.1.1.</span> <span class="nav-text">题干</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E9%A2%98%E8%A7%A3%E6%96%B0%E8%A7%A3%E6%B3%95"><span class="nav-number">1.1.4.</span> <span class="nav-text">官方题解新解法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3201-%E6%89%BE%E5%87%BA%E6%9C%89%E6%95%88%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-I-%E4%B8%AD%E7%AD%89"><span class="nav-number">1.2.</span> <span class="nav-text">3201. 找出有效子序列的最大长度 I-中等</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E7%9A%84LC%E9%A2%98%E8%A7%A3"><span class="nav-number">1.2.1.</span> <span class="nav-text">我的LC题解</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E5%B9%B2-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">题干</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF-1"><span class="nav-number">1.2.3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E8%A7%A3%E6%80%9D%E8%B7%AF"><span class="nav-number">1.2.5.</span> <span class="nav-text">题解思路</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3202-%E6%89%BE%E5%87%BA%E6%9C%89%E6%95%88%E5%AD%90%E5%BA%8F%E5%88%97%E7%9A%84%E6%9C%80%E5%A4%A7%E9%95%BF%E5%BA%A6-II"><span class="nav-number">1.3.</span> <span class="nav-text">3202. 找出有效子序列的最大长度 II</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="ZER0"
+      src="/images/cat.gif">
+  <p class="site-author-name" itemprop="name">ZER0</p>
+  <div class="site-description" itemprop="description">太刀は至上である.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+      
+      
+        <div class="links-of-blogroll motion-element links-of-blogroll-block">
+          <div class="links-of-blogroll-title">
+            <!-- modify icon to fire by szw -->
+            <i class="fa fa-history fa-" aria-hidden="true"></i>
+            近期文章
+          </div>
+          <ul class="links-of-blogroll-list">
+            
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+              <li class="recent_posts_li">
+                <a href="/" title="" target="_blank"></a>
+              </li>
+            
+          </ul>
+        </div>
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ZER0</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">226k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:25</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/nico.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
+</html>
