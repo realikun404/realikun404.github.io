@@ -22,7 +22,7 @@
     <link rel="alternative" href="/atom.xml" title="ZER0" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/assets/head.jpg">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -46,7 +46,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/assets/head.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -104,7 +104,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/assets/head.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -624,53 +624,7 @@
       
         <p>在线阅读链接：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/ebook/386/read?spm=a2c6h.26392459.ebook-detail.4.63392867ZDnuXr">https://developer.aliyun.com/ebook/386/read?spm=a2c6h.26392459.ebook-detail.4.63392867ZDnuXr</a></p>
 <p>[toc]</p>
-<h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><h3 id="命名风格"><a href="#命名风格" class="headerlink" title="命名风格"></a>命名风格</h3><p>记住即可，有特殊需要备注的在这里写出来</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Dontla/article/details/124428174">小驼峰命名法（lower camel case）和大驼峰命名法（upper camel case）_小驼峰法和大驼峰法-CSDN博客</a></p>
-<p>总结：</p>
-<p>类名：UpperCamelCase </p>
-<p>方法名、参数名、成员变量、局部变量：lowerCamelCase</p>
-<p>常量命名：全部大写、单词间用下划线隔开</p>
-<h4 id="【强制】POJO-类中布尔类型的变量，都不要加-is，否则部分框架解析会引起序列化错误。"><a href="#【强制】POJO-类中布尔类型的变量，都不要加-is，否则部分框架解析会引起序列化错误。" class="headerlink" title="【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。"></a>【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</h4><p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41800884/article/details/103870601">POJO类中布尔类型的变量都不要加is前缀详解_pojo类中的任何布尔类型的变量,都不要加is前缀-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/badaoliumangqizhi/p/17459980.html">霸道的程序猿的博客 (cnblogs.com)</a></p>
-<p>复现：</p>
-<p>下面是一种情况：</p>
-<p>user类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setVip</span><span class="params">(Boolean vip)</span> &#123;</span><br><span class="line">        isVip = vip;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean isVip;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">getVip</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> isVip;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试1</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="literal">true</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">jsonString</span> <span class="operator">=</span> JSON.toJSONString(user); <span class="comment">// 序列化对象</span></span><br><span class="line">    System.out.println(jsonString); <span class="comment">// 输出 JSON 字符串</span></span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;isVip&quot;:true,&quot;vip&quot;:true&#125;</span><br><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到莫名奇妙多了一个变量，断点分析一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">断点：String jsonString = JSON.toJSONString(user);   //user.toString() = User(isVip=true)</span><br><span class="line">进入断点到</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>测试2</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> JSON.parseObject(<span class="string">&quot;&#123;\&quot;Vip\&quot;:true&#125;&quot;</span>, User.class); <span class="comment">// 反序列化 JSON 字符串</span></span><br><span class="line">    System.out.println(user1.toString()); <span class="comment">// 输出反序列化后的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>测试3</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;&#123;\&quot;isVip\&quot;:true&#125;&quot;</span>);</span><br><span class="line">    <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> JSON.parseObject(<span class="string">&quot;&#123;\&quot;isVip\&quot;:true&#125;&quot;</span>, User.class); <span class="comment">// 反序列化 JSON 字符串</span></span><br><span class="line">    System.out.println(user1.toString()); <span class="comment">// 输出反序列化后的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;isVip&quot;:true&#125;</span><br><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>即有奇奇怪怪的问题。</p>
-<p>todo：之后源码分析</p>
-<h4 id="【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式"><a href="#【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式" class="headerlink" title="【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式"></a>【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式</h4><p>说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</p>
-<h4 id="接口类中的方法和属性不要加任何修饰符号（public-也不要加），保持代码的简洁-性，并加上有效的-Javadoc-注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是-与接口方法相关，并且是整个应用的基础常量。"><a href="#接口类中的方法和属性不要加任何修饰符号（public-也不要加），保持代码的简洁-性，并加上有效的-Javadoc-注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是-与接口方法相关，并且是整个应用的基础常量。" class="headerlink" title="接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。"></a>接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。</h4><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44543508/article/details/102609910">java抽象类（abstract）与接口（Interface）的区别_javaabstract 和interface区别-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/80259836">JAVA基础——接口（全网最详细教程）_java接口怎么写-CSDN博客</a></p>
-<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><h3 id="【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中"><a href="#【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中" class="headerlink" title="【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中"></a>【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中</h3><p>参考：[不要再使用魔法值了！_【推荐】不允许任何魔法值(即未经预先定义的常量)直接出现在代码中。 反例: &#96;&#96;&#96; s-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41267618/article/details/103029427">https://blog.csdn.net/qq_41267618/article/details/103029427</a>)</p>
-<p>也就是什么常量，最好用一个变量表达他的意思，不然会给其他阅读者带来阅读障碍。</p>
-
+        
       
 
       
@@ -725,7 +679,7 @@
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -828,15 +782,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">模糊测试学习</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">java fastjson</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -860,10 +806,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">crypto sageMath</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
@@ -872,23 +814,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">代码审计</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">安全服务</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端 ajax</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">学习杀与免杀</a>
               </li>
              
               <li class="article-tag-list-item">
