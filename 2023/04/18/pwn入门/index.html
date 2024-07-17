@@ -155,7 +155,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-pwn入门" class="article article-type-post " itemscope itemprop="blogPost">
+            <!-- 目录内容 -->
+
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+  <span class="btn-bg"></span>
+  <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn%E4%B8%AD%E7%9A%84%E4%BF%9D%E6%8A%A4"><span class="toc-number">1.</span> <span class="toc-text">pwn中的保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwntools%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">pwntools的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5pwntools%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">引入pwntools库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">绑定要处理的程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8A%E4%B8%8B%E6%96%87%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.</span> <span class="toc-text">设置上下文环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BA"><span class="toc-number">2.4.</span> <span class="toc-text">获取程序输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#payload%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">2.5.</span> <span class="toc-text">payload的构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">实现输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92"><span class="toc-number">2.7.</span> <span class="toc-text">实现交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E6%88%96%E8%80%85libc%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.8.</span> <span class="toc-text">获取程序或者libc中的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shellcode%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">2.9.</span> <span class="toc-text">shellcode的生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DynELF%E6%B3%84%E9%9C%B2libc"><span class="toc-number">2.10.</span> <span class="toc-text">DynELF泄露libc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn02"><span class="toc-number">3.</span> <span class="toc-text">pwn02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn-03"><span class="toc-number">4.</span> <span class="toc-text">pwn 03</span></a></li></ol>
+ </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+
+<!-- 目录内容结束 -->
+<article id="post-pwn入门" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -387,33 +414,6 @@
   
 
 
-<!-- 目录内容 -->
-
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-  <span class="btn-bg"></span>
-  <span class="btn-text">文章导航</span>
-  </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn%E4%B8%AD%E7%9A%84%E4%BF%9D%E6%8A%A4"><span class="toc-number">1.</span> <span class="toc-text">pwn中的保护</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwntools%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">pwntools的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5pwntools%E5%BA%93"><span class="toc-number">2.1.</span> <span class="toc-text">引入pwntools库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%91%E5%AE%9A%E8%A6%81%E5%A4%84%E7%90%86%E7%9A%84%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.2.</span> <span class="toc-text">绑定要处理的程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8A%E4%B8%8B%E6%96%87%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.</span> <span class="toc-text">设置上下文环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E8%BE%93%E5%87%BA"><span class="toc-number">2.4.</span> <span class="toc-text">获取程序输出</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#payload%E7%9A%84%E6%9E%84%E9%80%A0"><span class="toc-number">2.5.</span> <span class="toc-text">payload的构造</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BE%93%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">实现输入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BA%92"><span class="toc-number">2.7.</span> <span class="toc-text">实现交互</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%A8%8B%E5%BA%8F%E6%88%96%E8%80%85libc%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.8.</span> <span class="toc-text">获取程序或者libc中的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#shellcode%E7%9A%84%E7%94%9F%E6%88%90"><span class="toc-number">2.9.</span> <span class="toc-text">shellcode的生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DynELF%E6%B3%84%E9%9C%B2libc"><span class="toc-number">2.10.</span> <span class="toc-text">DynELF泄露libc</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn02"><span class="toc-number">3.</span> <span class="toc-text">pwn02</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#pwn-03"><span class="toc-number">4.</span> <span class="toc-text">pwn 03</span></a></li></ol>
- </div>
- <script type="text/javascript">
-  function showToc(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:block");
-      show_toc_btn.setAttribute("style","display:none");
-      };
-  function showBtn(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:none");
-      show_toc_btn.setAttribute("style","display:block");
-      };
- </script>
-
-<!-- 目录内容结束 -->
           </div>
         </div>
       </div>
