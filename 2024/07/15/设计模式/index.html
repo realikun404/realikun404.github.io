@@ -8,13 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>设计模式 | ZER0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="参考资料： [设计模式目录 | CS-Notes 面试笔记 (cyc2018.xyz)](https:&#x2F;&#x2F;www.cyc2018.xyz&#x2F;其它&#x2F;设计模式&#x2F;设计模式 - 目录.html#一、前言) https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Np4y1z7BU">
+<meta property="og:type" content="article">
 <meta property="og:title" content="设计模式">
 <meta property="og:url" content="http://example.com/2024/07/15/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="ZER0">
+<meta property="og:description" content="参考资料： [设计模式目录 | CS-Notes 面试笔记 (cyc2018.xyz)](https:&#x2F;&#x2F;www.cyc2018.xyz&#x2F;其它&#x2F;设计模式&#x2F;设计模式 - 目录.html#一、前言) https:&#x2F;&#x2F;www.bilibili.com&#x2F;video&#x2F;BV1Np4y1z7BU">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-07-15T13:50:16.000Z">
-<meta property="article:modified_time" content="2024-07-17T16:10:55.286Z">
+<meta property="article:modified_time" content="2024-09-14T15:21:48.948Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="架构">
@@ -161,7 +163,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E9%80%A0%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">创造型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%EF%BC%88Simple-Factory%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">简单工厂（Simple Factory）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%88Factory-Method%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">工厂方法（Factory Method）</span></a></li></ol></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -199,7 +201,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>参考资料：</p>
+<p>[设计模式目录 | CS-Notes 面试笔记 (cyc2018.xyz)](<a target="_blank" rel="noopener" href="https://www.cyc2018.xyz/%E5%85%B6%E5%AE%83/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">https://www.cyc2018.xyz/其它/设计模式/设计模式</a> - 目录.html#一、前言)</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Np4y1z7BU">https://www.bilibili.com/video/BV1Np4y1z7BU</a></p>
+<span id="more"></span>
+
+<h1 id="创造型"><a href="#创造型" class="headerlink" title="创造型"></a>创造型</h1><p>单例</p>
+<p>[单例（Singleton） | CS-Notes 面试笔记 (cyc2018.xyz)](<a target="_blank" rel="noopener" href="https://www.cyc2018.xyz/%E5%85%B6%E5%AE%83/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">https://www.cyc2018.xyz/其它/设计模式/设计模式</a>  - 单例.html#单例-singleton)</p>
+<p>确保一个类只有一个实例，并提供该实例的全局访问点</p>
+<p>测试</p>
+<p>线程不安全方法：</p>
+<p>1、打线程暂停断点，多线程执行</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Thread</span> <span class="variable">t1</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">    Singleton.getUniqueInstance();</span><br><span class="line">&#125;, <span class="string">&quot;t1&quot;</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">Thread</span> <span class="variable">t2</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Thread</span>(() -&gt; &#123;</span><br><span class="line">    Singleton.getUniqueInstance();</span><br><span class="line">&#125;, <span class="string">&quot;t2&quot;</span>);</span><br><span class="line">t1.start();</span><br><span class="line">t2.start();</span><br></pre></td></tr></table></figure>
+
+<p>2、提供个接口jmeter 多线程测试</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/test&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestController</span> &#123;</span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/singleton&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;String&gt; <span class="title function_">testSingleton</span><span class="params">()</span>&#123;</span><br><span class="line">        Singleton.getUniqueInstance();</span><br><span class="line">        <span class="keyword">return</span> R.success(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>理论上可行，还未实操。</p>
+<p>todo：学下jmeter使用，然后实操</p>
+<p>关键点</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012723673/article/details/80682208">Java volatile关键字最全总结：原理剖析与实例讲解(简单易懂)-CSDN博客</a></p>
+<p>懒汉、线程安全、双重校验 +  volatile、静态内部类实现、枚举实现（<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Np4y1z7BU?p=28&vd_source=d1cb46e12f3981bbb347ae0eb3b44edd">28.设计模式-创建者模式-单例设计模式-枚举方式_哔哩哔哩_bilibili</a>）、序列化反射破坏单例模式</p>
+<h2 id="简单工厂（Simple-Factory）"><a href="#简单工厂（Simple-Factory）" class="headerlink" title="简单工厂（Simple Factory）"></a>简单工厂（Simple Factory）</h2><p>在创建一个对象时不向客户暴露内部细节，并提供一个创建对象的通用接口。</p>
+<h2 id="工厂方法（Factory-Method）"><a href="#工厂方法（Factory-Method）" class="headerlink" title="工厂方法（Factory Method）"></a>工厂方法（Factory Method）</h2><p>定义了一个创建对象的接口，但由子类决定要实例化哪个类。工厂方法把实例化操作推迟到子类。</p>
+
       
 
       
@@ -324,7 +349,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E9%80%A0%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">创造型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%EF%BC%88Simple-Factory%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">简单工厂（Simple Factory）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%88Factory-Method%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">工厂方法（Factory Method）</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -452,10 +477,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">coding</a>
               </li>
              
@@ -465,6 +486,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -480,6 +505,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
@@ -488,15 +521,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">学习项目</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,11 +529,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安服</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">轮子</a>
               </li>
              
               <li class="article-tag-list-item">
