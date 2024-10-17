@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>project_sass短链接系统 | ZER0</title>
+  <title>Tag: 面试 | ZER0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="sass系统">
-<meta property="og:type" content="article">
-<meta property="og:title" content="project_sass短链接系统">
-<meta property="og:url" content="http://example.com/2024/10/05/project-sass%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%B3%BB%E7%BB%9F/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="ZER0">
+<meta property="og:url" content="http://example.com/tags/%E9%9D%A2%E8%AF%95/index.html">
 <meta property="og:site_name" content="ZER0">
-<meta property="og:description" content="sass系统">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-10-05T02:30:24.000Z">
-<meta property="article:modified_time" content="2024-10-17T02:43:49.843Z">
 <meta property="article:author" content="ZER0">
-<meta property="article:tag" content="java">
-<meta property="article:tag" content="项目">
+<meta property="article:tag" content="java leetcode ctf">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="ZER0" type="application/atom+xml">
@@ -154,403 +149,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <!-- 目录内容 -->
-
-  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
-  <span class="btn-bg"></span>
-  <span class="btn-text">文章导航</span>
-  </p>
-  <div id="toc-article" class="toc-article">
-      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
-      <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E5%88%9B%E5%BB%BA%E7%9F%AD%E9%93%BE%E6%8E%A5%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">从零到一创建短链接项目及子模块项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">项目接口文档工具介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7%E8%A1%A8%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.2.</span> <span class="toc-text">数据库用户表设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text">查询用户信息功能实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%85%A8%E5%B1%80%E8%BF%94%E5%9B%9E%E5%AE%9E%E4%BD%93%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.4.</span> <span class="toc-text">统一全局返回实体对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%A0%81%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.5.</span> <span class="toc-text">业务全局异常码设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">全局异常拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E8%84%B1%E6%95%8F"><span class="toc-number">2.7.</span> <span class="toc-text">用户敏感信息接口返回脱敏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%94%A8%E6%88%B7%E5%90%8D%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">2.8.</span> <span class="toc-text">检查用户名是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E6%A3%80%E6%9F%A5%E7%94%A8%E6%88%B7%E5%90%8D%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">2.9.</span> <span class="toc-text">防止检查用户名缓存穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B5%B7%E9%87%8F%E8%AF%B7%E6%B1%82%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD"><span class="toc-number">2.10.</span> <span class="toc-text">实现海量请求注册功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%B7%E9%87%8F%E7%94%A8%E6%88%B7%E5%A6%82%E4%BD%95%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">2.11.</span> <span class="toc-text">海量用户如何分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%E5%AD%98%E5%82%A8"><span class="toc-number">2.12.</span> <span class="toc-text">用户敏感信息实现加密存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.13.</span> <span class="toc-text">用户信息修改实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.14.</span> <span class="toc-text">用户登录实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E9%80%80%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.15.</span> <span class="toc-text">用户退出功能实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">短链接分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90-1"><span class="toc-number">3.1.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">创建短链接分组数据表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E5%8A%9F%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">新增短链接分组功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E5%8A%9F%E8%83%BD"><span class="toc-number">3.4.</span> <span class="toc-text">查询短链接分组功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E7%94%A8%E6%88%B7%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">3.5.</span> <span class="toc-text">封装用户上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.6.</span> <span class="toc-text">修改短链接分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.7.</span> <span class="toc-text">删除短链接分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E6%8E%92%E5%BA%8F%E5%8A%9F%E8%83%BD"><span class="toc-number">3.8.</span> <span class="toc-text">短链接分组排序功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">短链接管理</span></a></li></ol>
- </div>
- <script type="text/javascript">
-  function showToc(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:block");
-      show_toc_btn.setAttribute("style","display:none");
-      };
-  function showBtn(){
-      var toc_article = document.getElementById("toc-article");
-      var show_toc_btn = document.getElementById("show-toc-btn");
-      toc_article.setAttribute("style","display:none");
-      show_toc_btn.setAttribute("style","display:block");
-      };
- </script>
-
-<!-- 目录内容结束 -->
-<article id="post-project-sass短链接系统" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      project_sass短链接系统
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2024" class="archive-year">2024</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2024/10/10/java-%E5%B8%B8%E8%A7%81%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86/" class="archive-article-date">
+  	<time datetime="2024-10-10T01:26:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-10</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2024/10/10/java-%E5%B8%B8%E8%A7%81%E9%A2%98%E7%9B%AE%E6%95%B4%E7%90%86/">java_常见题目整理</a>
     </h1>
   
 
-        
-        <a href="/2024/10/05/project-sass%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%B3%BB%E7%BB%9F/" class="archive-article-date">
-  	<time datetime="2024-10-05T02:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-10-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://wx.zsxq.com/group/51121244585524/topic/4844515884284858">【4星】SaaS短链接系统 - 适合新手从零视频学习，校&amp;社招均可面试-知识星球 (zsxq.com)</a></p>
-<p>介绍：<a target="_blank" rel="noopener" href="https://articles.zsxq.com/id_4rqwnwwtujir.html">什么是SaaS短链接系统？ (zsxq.com)</a></p>
-<span id="more"></span>
-
-<p>语雀文档：<a target="_blank" rel="noopener" href="https://www.yuque.com/magestack/shortlink/dw576pf7huby4n1b">什么是SaaS短链接 (yuque.com)</a></p>
-<p>视频地址：<a target="_blank" rel="noopener" href="https://wx.zsxq.com/group/51121244585524/topic/4844515884284858">【4星】SaaS短链接系统 - 适合新手从零视频学习，校&amp;社招均可面试-知识星球 (zsxq.com)</a></p>
-<p>[toc]</p>
-<h2 id="快速开始"><a href="#快速开始" class="headerlink" title="快速开始"></a>快速开始</h2><h3 id="从零到一创建短链接项目及子模块项目"><a href="#从零到一创建短链接项目及子模块项目" class="headerlink" title="从零到一创建短链接项目及子模块项目"></a>从零到一创建短链接项目及子模块项目</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42114097/article/details/81391024"><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/e867ac845e11">Maven-dependencyManagement的使用 - 简书 (jianshu.com)</a></a></p>
-<p>初始化及创建对应模块</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/cad5dce1282ba0d7385924e94802383062d001e0">初始化项目，包含一个父模块、三个子模块：project、admin、gateway · cad5dce · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="项目接口文档工具介绍"><a href="#项目接口文档工具介绍" class="headerlink" title="项目接口文档工具介绍"></a>项目接口文档工具介绍</h3><p>swagger对代码侵入性比较强。apifox小型项目要好些</p>
-<p>apifox使用</p>
-<h2 id="用户管理"><a href="#用户管理" class="headerlink" title="用户管理"></a>用户管理</h2><h3 id="功能分析"><a href="#功能分析" class="headerlink" title="功能分析"></a>功能分析</h3><ul>
-<li>检查用户名是否存在</li>
-<li>注册用户</li>
-<li>修改用户</li>
-<li>根据用户名查询用户</li>
-<li>用户登录</li>
-<li>检查用户是否登录</li>
-<li>用户退出登录</li>
-<li>注销用户</li>
-</ul>
-<h3 id="数据库用户表设计"><a href="#数据库用户表设计" class="headerlink" title="数据库用户表设计"></a>数据库用户表设计</h3><p>数据库名叫link</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_user` (</span><br><span class="line">  `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;ID&#x27;</span>,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">256</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;用户名&#x27;</span>,</span><br><span class="line">  `password` <span class="type">varchar</span>(<span class="number">512</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;密码&#x27;</span>,</span><br><span class="line">  `real_name` <span class="type">varchar</span>(<span class="number">256</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;真实姓名&#x27;</span>,</span><br><span class="line">  `phone` <span class="type">varchar</span>(<span class="number">128</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;手机号&#x27;</span>,</span><br><span class="line">  `mail` <span class="type">varchar</span>(<span class="number">512</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;邮箱&#x27;</span>,</span><br><span class="line">  `deletion_time` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;注销时间戳&#x27;</span>,</span><br><span class="line">  `create_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">  `update_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">  `del_flag` tinyint(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;删除标识 0：未删除 1：已删除&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`)</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4;</span><br></pre></td></tr></table></figure>
-
-<p>id为bigint是因为后续要考虑分库分表存雪花算法id</p>
-<p>一些敏感数据存在数据是要加密的不仅仅是密码</p>
-<h3 id="查询用户信息功能实现"><a href="#查询用户信息功能实现" class="headerlink" title="查询用户信息功能实现"></a>查询用户信息功能实现</h3><p>使用<a target="_blank" rel="noopener" href="https://jully.top/generator/">凝聚力开发-JAVA代码生成平台 (jully.top)</a>生成对应实体类</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/7878fc86efc945b8575b496a259acd49a1b8f5eb">feature:增加UserDo、UserRespDto、编写基本的service。实现了getUserByName接口 · 7878fc8 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p>使用构造器注入注入service</p>
-<h3 id="统一全局返回实体对象"><a href="#统一全局返回实体对象" class="headerlink" title="统一全局返回实体对象"></a>统一全局返回实体对象</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sunnyzyq/article/details/119992746">@Accessors 注解详解-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/f45a1d643c26fd7ac3a60bb26cc41094bd119cbd">feature:统一全局返回实体对象 · f45a1d6 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="业务全局异常码设计"><a href="#业务全局异常码设计" class="headerlink" title="业务全局异常码设计"></a>业务全局异常码设计</h3><p>Java开发手册（泰山版）：</p>
-<p>1）错误码为字符串类型，共 5 位，分成两个部分：错误产生来源+四位数字编号。 </p>
-<p>说明：错误产生来源分为 A&#x2F;B&#x2F;C。<strong>A 表示错误来源于用户，比如参数错误，用户安装版本过低，用户支付</strong> </p>
-<p><strong>超时等问题；B 表示错误来源于当前系统，往往是业务逻辑出错，或程序健壮性差等问题；C 表示错误来源</strong> </p>
-<p><strong>于第三方服务，比如 CDN 服务出错，消息投递超时等问题。</strong>四位数字编号从 0001 到 9999，大类之间的步长间距预留 100。</p>
-<p>2）编号不与公司业务架构，更不与组织架构挂钩，一切与平台先到先申请的原则进行，审批生效，编号即被永久固定。</p>
-<p>异常码分类：一级宏观错误码、二级宏观错误码、三级详细错误码。</p>
-<p>对应例子：</p>
-<p>客户端异常。</p>
-<table>
-<thead>
-<tr>
-<th>错误码</th>
-<th>中文描述</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>A0001</td>
-<td>用户端错误</td>
-<td>一级宏观错误码</td>
-</tr>
-<tr>
-<td>A0100</td>
-<td>用户注册错误</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>A0101</td>
-<td>用户未同意隐私协议</td>
-<td></td>
-</tr>
-<tr>
-<td>A0102</td>
-<td>注册国家或地区受限</td>
-<td></td>
-</tr>
-<tr>
-<td>A0110</td>
-<td>用户名校验失败</td>
-<td></td>
-</tr>
-<tr>
-<td>A0111</td>
-<td>用户名已存在</td>
-<td></td>
-</tr>
-<tr>
-<td>A0112</td>
-<td>用户名包含敏感词</td>
-<td></td>
-</tr>
-<tr>
-<td>xxx</td>
-<td>xxx</td>
-<td></td>
-</tr>
-<tr>
-<td>A0200</td>
-<td>用户登录异常</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>A02101</td>
-<td>用户账户不存在</td>
-<td></td>
-</tr>
-<tr>
-<td>A02102</td>
-<td>用户密码错误</td>
-<td></td>
-</tr>
-<tr>
-<td>A02103</td>
-<td>用户账户已作废</td>
-<td></td>
-</tr>
-<tr>
-<td>xxx</td>
-<td>xxx</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>服务端异常。</p>
-<table>
-<thead>
-<tr>
-<th>错误码</th>
-<th>中文描述</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>B0001</td>
-<td>系统执行出错</td>
-<td>一级宏观错误码</td>
-</tr>
-<tr>
-<td>B0100</td>
-<td>系统执行超时</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>B0101</td>
-<td>系统订单处理超时</td>
-<td></td>
-</tr>
-<tr>
-<td>B0200</td>
-<td>系统容灾功能被触发</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>B0210</td>
-<td>系统限流</td>
-<td></td>
-</tr>
-<tr>
-<td>B0220</td>
-<td>系统功能降级</td>
-<td></td>
-</tr>
-<tr>
-<td>B0300</td>
-<td>系统资源异常</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>B0310</td>
-<td>系统资源耗尽</td>
-<td></td>
-</tr>
-<tr>
-<td>B0311</td>
-<td>系统磁盘空间耗尽</td>
-<td></td>
-</tr>
-<tr>
-<td>B0312</td>
-<td>系统内存耗尽</td>
-<td></td>
-</tr>
-<tr>
-<td>xxx</td>
-<td>xxx</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>远程调用异常。</p>
-<table>
-<thead>
-<tr>
-<th>错误码</th>
-<th>中文描述</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>C0001</td>
-<td>调用第三方服务出错</td>
-<td>一级宏观错误码</td>
-</tr>
-<tr>
-<td>C0100</td>
-<td>中间件服务出错</td>
-<td>二级宏观错误码</td>
-</tr>
-<tr>
-<td>C0110</td>
-<td>RPC服务出错</td>
-<td></td>
-</tr>
-<tr>
-<td>C0111</td>
-<td>RPC服务未找到</td>
-<td></td>
-</tr>
-<tr>
-<td>C0112</td>
-<td>RPC服务未注册</td>
-<td></td>
-</tr>
-<tr>
-<td>xxx</td>
-<td>xxx</td>
-<td></td>
-</tr>
-</tbody></table>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/1367ac6bc8329e56e0904574d6af754d804d3edc">feature:业务全局异常码设计 · 1367ac6 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="全局异常拦截器"><a href="#全局异常拦截器" class="headerlink" title="全局异常拦截器"></a>全局异常拦截器</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44299027/article/details/134862759">【Java用法】Lombok中@SneakyThrows注解的使用方法和作用_lombok.sneakythrows-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/5845ae98e67d5a588fdbcc7dfd7f4d00cf302901">feature:全局异常拦截器设计 · 5845ae9 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p>但是前面的代码还是有问题，拦截不到页面不存在异常</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">404错误是不经过Controller的，所以使用@ControllerAdvice或@RestControllerAdvice无法获取到404错误</span><br><span class="line">springboot2处理404错误的两种方式</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hzhh123/p/10881356.html">springboot 2.x处理404、500等异常 - hzhh123 - 博客园 (cnblogs.com)</a></p>
-<h3 id="用户敏感信息接口返回脱敏"><a href="#用户敏感信息接口返回脱敏" class="headerlink" title="用户敏感信息接口返回脱敏"></a>用户敏感信息接口返回脱敏</h3><p>通过jakson默认反序列化默认处理</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/RuanDongDong/article/details/121271205">Hutool - 信息脱敏工具 - DesensitizedUtil-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ystyaoshengting/article/details/103731678">Jackson常用注解、自定义JsonSerializer、整合spring_jackson jsonserializer-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41834086/article/details/111152470">Jackson之ObjectMapper对象的使用-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000019538722">java - springboot中,不存在的url会不会被Interceptor拦截? - SegmentFault 思否</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/77b9d3d8b07fee130f914f49ecdebd671a85c5af">feature:用户敏感信息接口返回脱敏 · 77b9d3d · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p>如果需要返回精确的信息增加actual接口和对应的actual实体类就好：</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/e2fed0887961db87bddaf40bc96c2b7c0e126648">feature:返回具体信息接口编写 · e2fed08 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="检查用户名是否存在"><a href="#检查用户名是否存在" class="headerlink" title="检查用户名是否存在"></a>检查用户名是否存在</h3><p>用户注册的时候输入用户名可以看用户是否已经被用</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/f51640d9269e766ee073bb178e23c3c6c5f5f95e">feature:检查用户是否存在实现 · f51640d · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="防止检查用户名缓存穿透"><a href="#防止检查用户名缓存穿透" class="headerlink" title="防止检查用户名缓存穿透"></a>防止检查用户名缓存穿透</h3><ol>
-<li><p>用户名加载缓存</p>
-<p>该方案问题：</p>
-<ul>
-<li>是否要设置数据的有效期？只能设置为无无有效期，也就是永久数据。</li>
-<li>如果是永久不过期数据，占用 Redis 内存太高。</li>
-</ul>
-</li>
-<li><p>布隆过滤器</p>
-</li>
-</ol>
-<p>布隆过滤器是一种数据结构，用于快速判断一个元素是否存在于一个集合中。具体来说，布隆过滤器包含一个位数组和一组哈希函数。位数组的初始值全部置为 0。在插入一个元素时，将该元素经过多个哈希函数映射到位数组上的多个位置，并将这些位置的值置为 1。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">优点：</span><br><span class="line">● 高效地判断一个元素是否属于一个大规模集合。</span><br><span class="line">● 节省内存。</span><br><span class="line">缺点：</span><br><span class="line">● 可能存在一定的误判。 （不存在一定不存在，存在不一定存在）</span><br><span class="line"></span><br><span class="line">● 布隆过滤器要设置初始容量。容量设置越大，冲突几率越低。</span><br><span class="line">● 布隆过滤器会设置预期的误判值。</span><br><span class="line"></span><br><span class="line">布隆过滤器的误判是否能够接受？</span><br><span class="line">答：可以容忍。为什么？因为用户名不是特别重要的数据，如果说我设置用户名为 aaa，系统返回我不可用，那我大可以在 aaa 的基础上再加一个a，也就是 aaaa。</span><br></pre></td></tr></table></figure>
-
-<p>使用布隆过滤器的两种场景：</p>
-<ul>
-<li>初始使用：注册用户时就向容器中新增数据，就不需要任务向容器存储数据了。</li>
-<li>使用过程中引入：读取数据源将目标数据刷到布隆过滤器。</li>
-</ul>
-<p>布隆过滤器预估网站：<a target="_blank" rel="noopener" href="https://krisives.github.io/bloom-calculator/">Bloom Filter Calculator (krisives.github.io)</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2331120">SpringBoot 如何集成 Redis 实现布隆过滤器-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p>redis账号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">192.168.101.65:6379</span><br><span class="line">docker exec -it redis redis-cli</span><br><span class="line">密码redis</span><br></pre></td></tr></table></figure>
-
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/b2654b88b9203b7e2088b6769eeb39c8c8183891">feature:使用布隆过滤器检查用户是否存在 · b2654b8 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="实现海量请求注册功能"><a href="#实现海量请求注册功能" class="headerlink" title="实现海量请求注册功能"></a>实现海量请求注册功能</h3><p>1.如何防止用户名重复？</p>
-<p>通过布隆过滤器把所有用户名进行加载。这样该功能就能完全隔离数据库。</p>
-<p>数据库层面添加唯一索引。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">t_user	0	PRIMARY	1	id	A	0				BTREE			YES	</span><br><span class="line">t_user	0	idx_unique_username	1	username	A	2			YES	BTREE		用户名唯一	YES	</span><br></pre></td></tr></table></figure>
-
-
-
-<p>2.如何防止恶意请求毫秒级触发大量请求去一个未注册的用户名？</p>
-<p>因为用户名没注册，所以布隆过滤器不存在，代表着可以触发注册流程插入数据库。但是如果恶意请求短时间海量请求，这些请求都会落到数据库，造成数据库访问压力。这里通过分布式锁，锁定用户名进行串行执行，防止恶意请求利用未注册用户名将请求打到数据库。</p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2361352">Redission：可重入锁（Reentrant Lock）-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2127060">redisson锁 tryLock的使用及正确用法-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p>3.如果恶意请求全部使用未注册用户名发起注册</p>
-<p>结论：系统无法进行完全风控，只有通过类似于限流的功能进行保障系统安全。</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/fd6227bc1adac9eaf5139e749eb8533bc76cef6f">feature:实现海量请求注册功能 · fd6227b · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="海量用户如何分库分表"><a href="#海量用户如何分库分表" class="headerlink" title="海量用户如何分库分表"></a>海量用户如何分库分表</h3><p>为什么要分库分表？</p>
-<ul>
-<li>数据量庞大。</li>
-<li>查询性能缓慢，之前可能是 20ms，后续随着数据量的增长，查询时间呈指数增长。</li>
-<li>数据库连接不够。</li>
-</ul>
-<p><em><strong>数据库分库分表框架 ShardingSphere</strong></em></p>
-<p>Sharding-JDBC。<a target="_blank" rel="noopener" href="https://shardingsphere.apache.org/document/current/cn/dev-manual/sharding/">数据分片 :: ShardingSphere (apache.org)</a></p>
-<p>使用后的对应日志：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">2024-10-16T15:28:17.326+08:00  INFO 17172 --- [nio-8002-exec-1] ShardingSphere-SQL                       : Logic SQL: INSERT INTO t_user  ( id,</span><br><span class="line">username,</span><br><span class="line">password,</span><br><span class="line">real_name,</span><br><span class="line">phone,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create_time,</span><br><span class="line">update_time,</span><br><span class="line">del_flag )  VALUES  ( ?,</span><br><span class="line">?,</span><br><span class="line">?,</span><br><span class="line">?,</span><br><span class="line">?,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">?,</span><br><span class="line">?,</span><br><span class="line">? )</span><br><span class="line">2024-10-16T15:28:17.326+08:00  INFO 17172 --- [nio-8002-exec-1] ShardingSphere-SQL                       : Actual SQL: ds_0 ::: INSERT INTO t_user_8  ( id,</span><br><span class="line">username,</span><br><span class="line">password,</span><br><span class="line">real_name,</span><br><span class="line">phone,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">create_time,</span><br><span class="line">update_time,</span><br><span class="line">del_flag )  VALUES  (?, ?, ?, ?, ?, ?, ?, ?) ::: [1846453089775738882, xcc, 123456, 熊长春, 12345678123, 2024-10-16 15:28:16.701, 2024-10-16 15:28:16.701, 0]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p><em><strong>分片键</strong></em></p>
-<p>用于将数据库（表）水平拆分的数据库字段。 </p>
-<p>分库分表中的分片键（Sharding Key）是一个关键决策，它直接影响了分库分表的性能和可扩展性。以下是一些选择分片键的关键因素：</p>
-<ol>
-<li>访问频率：选择分片键应考虑数据的访问频率。将经常访问的数据放在同一个分片上，可以提高查询性能和降低跨分片查询的开销。</li>
-<li>数据均匀性：分片键应该保证数据的均匀分布在各个分片上，避免出现热点数据集中在某个分片上的情况。</li>
-<li>数据不可变：一旦选择了分片键，它应该是不可变的，不能随着业务的变化而频繁修改。</li>
-</ol>
-<p>用户名和用户ID选哪个作为分片键？</p>
-<ul>
-<li>用户名。用户名可以登录。</li>
-</ul>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/119d891a6c1a4810faa2e64eb37810794e01b538">分库分表实现 · 119d891 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="用户敏感信息实现加密存储"><a href="#用户敏感信息实现加密存储" class="headerlink" title="用户敏感信息实现加密存储"></a>用户敏感信息实现加密存储</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/28e2bde90c34f068a49d5cdf702c64cc9e4af3ec">feature:用户敏感信息实现加密存储 · 28e2bde · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p>使用shardingSphere来实现的</p>
-<h3 id="用户信息修改实现"><a href="#用户信息修改实现" class="headerlink" title="用户信息修改实现"></a>用户信息修改实现</h3><p>不同的实体对象尽量不要复用</p>
-<p>对应commit：</p>
-<h3 id="用户登录实现"><a href="#用户登录实现" class="headerlink" title="用户登录实现"></a>用户登录实现</h3><p><a target="_blank" rel="noopener" href="https://www.hutool.cn/docs/#/">入门和安装 (hutool.cn)</a> hutool是真好用啊</p>
-<p><a target="_blank" rel="noopener" href="https://developer.baidu.com/article/details/3215815">RedisTemplate与Redisson：Redis的Java操作工具比较-百度开发者中心 (baidu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/as4589sd/article/details/114587393">详细比较StringRedisTemplate和RedisTemplate的区别及使用方法，及解决融合使用方法-CSDN博客</a></p>
-<p>用户登录先判断账号密码是否正确（其实感觉可以加一步，使用布隆过滤器判断不存在肯定不存在），然后判断redis用户是否已经登录（可以更新在redis中的时间），如果没有登录登录最后在存入redis</p>
-<p>对应commit：</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/44d22dbca081e70863d6a15e0702a0168f642a4f">feature:用户登录功能实现 · 44d22db · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/a2ab412398514c31e6c2d89c310e6202cf8f3ab2">feature:用户登录功能实现 · a2ab412 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/xishining/article/details/115152823">Git：Rebase和Merge之间的区别，看完这篇文章你就懂了！-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1690638">Git 合并多个 commit，保持历史简洁-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/342114817">【git】如何利用 rebase 合并多次 commit - 知乎 (zhihu.com)</a></p>
-<h3 id="用户退出功能实现"><a href="#用户退出功能实现" class="headerlink" title="用户退出功能实现"></a>用户退出功能实现</h3><p>直接从redis删除即可</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/5fd4b0ed985cf96814d3c37eba9e6db5cbdf0f6d">feature:用户退出功能实现 · 5fd4b0e · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h2 id="短链接分组"><a href="#短链接分组" class="headerlink" title="短链接分组"></a>短链接分组</h2><h3 id="功能分析-1"><a href="#功能分析-1" class="headerlink" title="功能分析"></a>功能分析</h3><ul>
-<li>增加短链接分组</li>
-<li>修改短链接分组（只能修改名称）</li>
-<li>查询短链接分组集合（短链接分组最多10个）</li>
-<li>删除短链接分组</li>
-<li>短链接分组排序</li>
-</ul>
-<h3 id="创建短链接分组数据表"><a href="#创建短链接分组数据表" class="headerlink" title="创建短链接分组数据表"></a>创建短链接分组数据表</h3><p>数据表创建语句</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_group` (</span><br><span class="line">  `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;ID&#x27;</span>,</span><br><span class="line">  `gid` <span class="type">varchar</span>(<span class="number">32</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;分组标识&#x27;</span>,</span><br><span class="line">  `name` <span class="type">varchar</span>(<span class="number">64</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;分组名称&#x27;</span>,</span><br><span class="line">  `username` <span class="type">varchar</span>(<span class="number">256</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;创建分组用户名&#x27;</span>,</span><br><span class="line">  `sort_order` <span class="type">int</span>(<span class="number">3</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;分组排序&#x27;</span>,</span><br><span class="line">  `create_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">  `update_time` datetime <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;修改时间&#x27;</span>,</span><br><span class="line">  `del_flag` tinyint(<span class="number">1</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;删除标识 0：未删除 1：已删除&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY</span> KEY (`id`),</span><br><span class="line">  <span class="keyword">UNIQUE</span> KEY `idx_unique_gid_username` (`gid`,`username`) <span class="keyword">USING</span> BTREE</span><br><span class="line">) ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4;;</span><br></pre></td></tr></table></figure>
-
-<p>gid和用户名唯一索引</p>
-<h3 id="新增短链接分组功能"><a href="#新增短链接分组功能" class="headerlink" title="新增短链接分组功能"></a>新增短链接分组功能</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/709fb19f03487d26eae90af30557b8b79c1ddd29">optimize:优化用户属性持久层基础属性 · 709fb19 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/68cfad8d07ba3ef4bd1ab6cd42abaf2bd762c66f">feature:开发短链接分组新增功能 · 68cfad8 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/1ccf7222253e027e1e272926e86fead6a1ccd788">feature:开发数据库持久层对象基本属性 · 1ccf722 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="查询短链接分组功能"><a href="#查询短链接分组功能" class="headerlink" title="查询短链接分组功能"></a>查询短链接分组功能</h3><p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/0cfbcaba382039101fbd6971909296457589765b">feature:开发查询短链接分组接口 · 0cfbcab · changchun&#x2F;shortlink - Gitee.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/5c65e6f40b392603d209c3a87abc3924cad44cfa">optimize:开发短链接分组排序字段 · 5c65e6f · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="封装用户上下文"><a href="#封装用户上下文" class="headerlink" title="封装用户上下文"></a>封装用户上下文</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011291072/article/details/109692603">一眼看清@JSONField注解使用与效果-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_51681531/article/details/130424028">阿里开源的TransmittableThreadLocal的正确使用姿势_com.alibaba.ttl.transmittablethreadlocal-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/c73e3c497e5aebb96a46989f552c93c54bd1c20f">feature:封装用户上下文 · c73e3c4 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="修改短链接分组"><a href="#修改短链接分组" class="headerlink" title="修改短链接分组"></a>修改短链接分组</h3><p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/1971bf633e92ee094b4b722e98b2e3a16549f776">feature:修改短链接分组 · 1971bf6 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="删除短链接分组"><a href="#删除短链接分组" class="headerlink" title="删除短链接分组"></a>删除短链接分组</h3><p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/9fbdcafb638b75eeeedb123a7b5af2d49c8ccf44">feature:删除短链接分组 · 9fbdcaf · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h3 id="短链接分组排序功能"><a href="#短链接分组排序功能" class="headerlink" title="短链接分组排序功能"></a>短链接分组排序功能</h3><p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/shortlink/commit/a2fd2b85707e92e498cb61d5301ac4261461d9f1">feature:短链接分组排序功能实现 · a2fd2b8 · changchun&#x2F;shortlink - Gitee.com</a></p>
-<h2 id="短链接管理"><a href="#短链接管理" class="headerlink" title="短链接管理"></a>短链接管理</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -560,134 +188,25 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">项目</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">面试</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/10/05/project-sass%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%B3%BB%E7%BB%9F/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2024/10/05/project-%E7%89%9B%E5%88%B8oneCoupon/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          project_牛券oneCoupon
-        
-      </div>
-    </a>
   
   
-    <a href="/2024/09/22/project-%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">project_学成在线</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="toc-number">1.</span> <span class="toc-text">快速开始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8E%E9%9B%B6%E5%88%B0%E4%B8%80%E5%88%9B%E5%BB%BA%E7%9F%AD%E9%93%BE%E6%8E%A5%E9%A1%B9%E7%9B%AE%E5%8F%8A%E5%AD%90%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.1.</span> <span class="toc-text">从零到一创建短链接项目及子模块项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%8E%A5%E5%8F%A3%E6%96%87%E6%A1%A3%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">项目接口文档工具介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">用户管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7%E8%A1%A8%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.2.</span> <span class="toc-text">数据库用户表设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.3.</span> <span class="toc-text">查询用户信息功能实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%85%A8%E5%B1%80%E8%BF%94%E5%9B%9E%E5%AE%9E%E4%BD%93%E5%AF%B9%E8%B1%A1"><span class="toc-number">2.4.</span> <span class="toc-text">统一全局返回实体对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%9A%E5%8A%A1%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E7%A0%81%E8%AE%BE%E8%AE%A1"><span class="toc-number">2.5.</span> <span class="toc-text">业务全局异常码设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E5%BC%82%E5%B8%B8%E6%8B%A6%E6%88%AA%E5%99%A8"><span class="toc-number">2.6.</span> <span class="toc-text">全局异常拦截器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E8%84%B1%E6%95%8F"><span class="toc-number">2.7.</span> <span class="toc-text">用户敏感信息接口返回脱敏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5%E7%94%A8%E6%88%B7%E5%90%8D%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8"><span class="toc-number">2.8.</span> <span class="toc-text">检查用户名是否存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%AD%A2%E6%A3%80%E6%9F%A5%E7%94%A8%E6%88%B7%E5%90%8D%E7%BC%93%E5%AD%98%E7%A9%BF%E9%80%8F"><span class="toc-number">2.9.</span> <span class="toc-text">防止检查用户名缓存穿透</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%B5%B7%E9%87%8F%E8%AF%B7%E6%B1%82%E6%B3%A8%E5%86%8C%E5%8A%9F%E8%83%BD"><span class="toc-number">2.10.</span> <span class="toc-text">实现海量请求注册功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%B7%E9%87%8F%E7%94%A8%E6%88%B7%E5%A6%82%E4%BD%95%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8"><span class="toc-number">2.11.</span> <span class="toc-text">海量用户如何分库分表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E6%95%8F%E6%84%9F%E4%BF%A1%E6%81%AF%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%E5%AD%98%E5%82%A8"><span class="toc-number">2.12.</span> <span class="toc-text">用户敏感信息实现加密存储</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.13.</span> <span class="toc-text">用户信息修改实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.14.</span> <span class="toc-text">用户登录实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%88%B7%E9%80%80%E5%87%BA%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.15.</span> <span class="toc-text">用户退出功能实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.</span> <span class="toc-text">短链接分组</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E5%88%86%E6%9E%90-1"><span class="toc-number">3.1.</span> <span class="toc-text">功能分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E6%95%B0%E6%8D%AE%E8%A1%A8"><span class="toc-number">3.2.</span> <span class="toc-text">创建短链接分组数据表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E5%A2%9E%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E5%8A%9F%E8%83%BD"><span class="toc-number">3.3.</span> <span class="toc-text">新增短链接分组功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E5%8A%9F%E8%83%BD"><span class="toc-number">3.4.</span> <span class="toc-text">查询短链接分组功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%81%E8%A3%85%E7%94%A8%E6%88%B7%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-number">3.5.</span> <span class="toc-text">封装用户上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.6.</span> <span class="toc-text">修改短链接分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84"><span class="toc-number">3.7.</span> <span class="toc-text">删除短链接分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E5%88%86%E7%BB%84%E6%8E%92%E5%BA%8F%E5%8A%9F%E8%83%BD"><span class="toc-number">3.8.</span> <span class="toc-text">短链接分组排序功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%AD%E9%93%BE%E6%8E%A5%E7%AE%A1%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">短链接管理</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -710,9 +229,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -788,15 +307,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -840,15 +359,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
