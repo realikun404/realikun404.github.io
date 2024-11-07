@@ -16,7 +16,7 @@
 <meta property="og:description" content="参考01 什么是RPC？原理是什么？ (yuque.com) [toc] 中文文档：先跟着敲下代码有个数 Introduction · Netty 4.x User Guide 中文翻译《Netty 4.x 用户指南》 (gitbooks.io) java - netty中的ReferenceCountUtil.release()方法具体作用是什么？ - SegmentFault 思否 Netty">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-06T07:49:33.000Z">
-<meta property="article:modified_time" content="2024-10-11T11:38:45.254Z">
+<meta property="article:modified_time" content="2024-10-28T08:38:15.656Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="项目">
 <meta property="article:tag" content="轮子">
@@ -163,7 +163,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">中文文档：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">相关知识学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netty"><span class="toc-number">2.1.</span> <span class="toc-text">netty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E6%BA%90%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">spring源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">SPI机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zookeeper"><span class="toc-number">2.5.</span> <span class="toc-text">zookeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">RPC完整代码学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC-%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">RPC 框架设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%AF%87"><span class="toc-number">5.</span> <span class="toc-text">实现篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%BC%96%E5%86%99%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84server%E3%80%81client"><span class="toc-number">5.1.</span> <span class="toc-text">初始化项目，编写最简单的server、client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97"><span class="toc-number">5.2.</span> <span class="toc-text">提取公共模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D%E7%9A%84server%E5%8F%AA%E8%83%BD%E6%B3%A8%E5%86%8C%E4%B8%80%E4%B8%AAservice%EF%BC%8C%E4%BD%BF%E7%94%A8map%E6%B3%A8%E5%86%8C%E5%A4%9A%E4%B8%AAservice"><span class="toc-number">5.3.</span> <span class="toc-text">之前的server只能注册一个service，使用map注册多个service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8netty%E3%80%81%E5%A2%9E%E5%8A%A0netty%E4%BE%9D%E8%B5%96%E3%80%81%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E9%80%BB%E8%BE%91%E5%A6%82%E5%A2%9E%E5%8A%A0%E5%BA%8F%E5%88%97%E5%8C%96%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">5.4.</span> <span class="toc-text">使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8com-xccstu-transport-netty-%E4%B8%8B%E9%9D%A2%E5%9C%A8%E7%BB%86%E5%88%86%E4%BA%86client%E3%80%81server%E3%80%81codec%E5%8C%85"><span class="toc-number">5.5.</span> <span class="toc-text">在com.xccstu.transport.netty 下面在细分了client、server、codec包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8C%E8%AF%B7%E6%B1%82%E4%BD%93%E4%B8%AD%E7%9A%84RequestID"><span class="toc-number">5.6.</span> <span class="toc-text">增加线程池和请求体中的RequestID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%BA%86%E6%96%AD%E8%A8%80%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E4%BA%86RpcRequestHandler%E4%B8%AD%E7%9A%84handle%E6%96%B9%E6%B3%95%EF%BC%88%E4%B9%8B%E5%90%8E%E9%80%9A%E8%BF%87%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9B%AE%E6%A0%87%E7%B1%BB%EF%BC%89"><span class="toc-number">5.7.</span> <span class="toc-text">增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="toc-number">5.8.</span> <span class="toc-text">增加客户端重试机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%89%E6%80%8E%E6%A0%B7%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">5.9.</span> <span class="toc-text">总结-如果让我重写代码，我会按怎样的顺序实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">面试题</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">中文文档：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">相关知识学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netty"><span class="toc-number">2.1.</span> <span class="toc-text">netty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E6%BA%90%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">spring源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">SPI机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zookeeper"><span class="toc-number">2.5.</span> <span class="toc-text">zookeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">RPC完整代码学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC-%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">RPC 框架设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%AF%87"><span class="toc-number">5.</span> <span class="toc-text">实现篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%BC%96%E5%86%99%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84server%E3%80%81client"><span class="toc-number">5.1.</span> <span class="toc-text">初始化项目，编写最简单的server、client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97"><span class="toc-number">5.2.</span> <span class="toc-text">提取公共模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D%E7%9A%84server%E5%8F%AA%E8%83%BD%E6%B3%A8%E5%86%8C%E4%B8%80%E4%B8%AAservice%EF%BC%8C%E4%BD%BF%E7%94%A8map%E6%B3%A8%E5%86%8C%E5%A4%9A%E4%B8%AAservice"><span class="toc-number">5.3.</span> <span class="toc-text">之前的server只能注册一个service，使用map注册多个service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8netty%E3%80%81%E5%A2%9E%E5%8A%A0netty%E4%BE%9D%E8%B5%96%E3%80%81%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E9%80%BB%E8%BE%91%E5%A6%82%E5%A2%9E%E5%8A%A0%E5%BA%8F%E5%88%97%E5%8C%96%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">5.4.</span> <span class="toc-text">使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8com-xccstu-transport-netty-%E4%B8%8B%E9%9D%A2%E5%9C%A8%E7%BB%86%E5%88%86%E4%BA%86client%E3%80%81server%E3%80%81codec%E5%8C%85"><span class="toc-number">5.5.</span> <span class="toc-text">在com.xccstu.transport.netty 下面在细分了client、server、codec包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8C%E8%AF%B7%E6%B1%82%E4%BD%93%E4%B8%AD%E7%9A%84RequestID"><span class="toc-number">5.6.</span> <span class="toc-text">增加线程池和请求体中的RequestID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%BA%86%E6%96%AD%E8%A8%80%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E4%BA%86RpcRequestHandler%E4%B8%AD%E7%9A%84handle%E6%96%B9%E6%B3%95%EF%BC%88%E4%B9%8B%E5%90%8E%E9%80%9A%E8%BF%87%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9B%AE%E6%A0%87%E7%B1%BB%EF%BC%89"><span class="toc-number">5.7.</span> <span class="toc-text">增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="toc-number">5.8.</span> <span class="toc-text">增加客户端重试机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%89%E6%80%8E%E6%A0%B7%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">5.9.</span> <span class="toc-text">总结-如果让我重写代码，我会按怎样的顺序实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%8A%9F%E8%83%BD%E8%AE%B2%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">相关功能讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sping%E6%89%AB%E6%8F%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">sping扫描自定义组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">面试题</span></a></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -278,7 +278,8 @@
 <p>使用schedule控制重新连接的间隔，重试次数越多间隔越长</p>
 <p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/29ff40d171f58df24edd950f9070b52df9fa3781">增加客户端重试机制 · 29ff40d · changchun&#x2F;rpc-framework - Gitee.com</a></p>
 <p>……</p>
-<h3 id="总结-如果让我重写代码，我会按怎样的顺序实现代码"><a href="#总结-如果让我重写代码，我会按怎样的顺序实现代码" class="headerlink" title="总结-如果让我重写代码，我会按怎样的顺序实现代码"></a>总结-如果让我重写代码，我会按怎样的顺序实现代码</h3><h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/644047546">烂大街的 RPC 项目，如何和字节面试官聊出花儿来？ - 知乎 (zhihu.com)</a></p>
+<h3 id="总结-如果让我重写代码，我会按怎样的顺序实现代码"><a href="#总结-如果让我重写代码，我会按怎样的顺序实现代码" class="headerlink" title="总结-如果让我重写代码，我会按怎样的顺序实现代码"></a>总结-如果让我重写代码，我会按怎样的顺序实现代码</h3><h2 id="相关功能讲解"><a href="#相关功能讲解" class="headerlink" title="相关功能讲解"></a>相关功能讲解</h2><h3 id="sping扫描自定义组件"><a href="#sping扫描自定义组件" class="headerlink" title="sping扫描自定义组件"></a>sping扫描自定义组件</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gstsyyb/p/17962233">如何让spring扫描到自定义注解的组件 - gstsyyb - 博客园</a></p>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/644047546">烂大街的 RPC 项目，如何和字节面试官聊出花儿来？ - 知乎 (zhihu.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/363694300083879936">远程服务调用（RPC）高频面试题！(有RPC项目必看！)_牛客网 (nowcoder.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/353157479641063424">(近)万字总结，RPC 项目相关问题及解答_牛客网 (nowcoder.com)</a></p>
 
@@ -406,7 +407,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">中文文档：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">相关知识学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netty"><span class="toc-number">2.1.</span> <span class="toc-text">netty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E6%BA%90%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">spring源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">SPI机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zookeeper"><span class="toc-number">2.5.</span> <span class="toc-text">zookeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">RPC完整代码学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC-%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">RPC 框架设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%AF%87"><span class="toc-number">5.</span> <span class="toc-text">实现篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%BC%96%E5%86%99%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84server%E3%80%81client"><span class="toc-number">5.1.</span> <span class="toc-text">初始化项目，编写最简单的server、client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97"><span class="toc-number">5.2.</span> <span class="toc-text">提取公共模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D%E7%9A%84server%E5%8F%AA%E8%83%BD%E6%B3%A8%E5%86%8C%E4%B8%80%E4%B8%AAservice%EF%BC%8C%E4%BD%BF%E7%94%A8map%E6%B3%A8%E5%86%8C%E5%A4%9A%E4%B8%AAservice"><span class="toc-number">5.3.</span> <span class="toc-text">之前的server只能注册一个service，使用map注册多个service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8netty%E3%80%81%E5%A2%9E%E5%8A%A0netty%E4%BE%9D%E8%B5%96%E3%80%81%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E9%80%BB%E8%BE%91%E5%A6%82%E5%A2%9E%E5%8A%A0%E5%BA%8F%E5%88%97%E5%8C%96%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">5.4.</span> <span class="toc-text">使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8com-xccstu-transport-netty-%E4%B8%8B%E9%9D%A2%E5%9C%A8%E7%BB%86%E5%88%86%E4%BA%86client%E3%80%81server%E3%80%81codec%E5%8C%85"><span class="toc-number">5.5.</span> <span class="toc-text">在com.xccstu.transport.netty 下面在细分了client、server、codec包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8C%E8%AF%B7%E6%B1%82%E4%BD%93%E4%B8%AD%E7%9A%84RequestID"><span class="toc-number">5.6.</span> <span class="toc-text">增加线程池和请求体中的RequestID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%BA%86%E6%96%AD%E8%A8%80%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E4%BA%86RpcRequestHandler%E4%B8%AD%E7%9A%84handle%E6%96%B9%E6%B3%95%EF%BC%88%E4%B9%8B%E5%90%8E%E9%80%9A%E8%BF%87%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9B%AE%E6%A0%87%E7%B1%BB%EF%BC%89"><span class="toc-number">5.7.</span> <span class="toc-text">增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="toc-number">5.8.</span> <span class="toc-text">增加客户端重试机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%89%E6%80%8E%E6%A0%B7%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">5.9.</span> <span class="toc-text">总结-如果让我重写代码，我会按怎样的顺序实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">面试题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%AD%E6%96%87%E6%96%87%E6%A1%A3%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">中文文档：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0%E7%AF%87"><span class="toc-number">2.</span> <span class="toc-text">相关知识学习篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#netty"><span class="toc-number">2.1.</span> <span class="toc-text">netty</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#spring%E6%BA%90%E7%A0%81"><span class="toc-number">2.2.</span> <span class="toc-text">spring源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SPI%E6%9C%BA%E5%88%B6"><span class="toc-number">2.3.</span> <span class="toc-text">SPI机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E8%A7%A3"><span class="toc-number">2.4.</span> <span class="toc-text">注解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#zookeeper"><span class="toc-number">2.5.</span> <span class="toc-text">zookeeper</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC%E5%AE%8C%E6%95%B4%E4%BB%A3%E7%A0%81%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">RPC完整代码学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RPC-%E6%A1%86%E6%9E%B6%E8%AE%BE%E8%AE%A1"><span class="toc-number">4.</span> <span class="toc-text">RPC 框架设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%AF%87"><span class="toc-number">5.</span> <span class="toc-text">实现篇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%B9%E7%9B%AE%EF%BC%8C%E7%BC%96%E5%86%99%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84server%E3%80%81client"><span class="toc-number">5.1.</span> <span class="toc-text">初始化项目，编写最简单的server、client</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%85%AC%E5%85%B1%E6%A8%A1%E5%9D%97"><span class="toc-number">5.2.</span> <span class="toc-text">提取公共模块</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%8B%E5%89%8D%E7%9A%84server%E5%8F%AA%E8%83%BD%E6%B3%A8%E5%86%8C%E4%B8%80%E4%B8%AAservice%EF%BC%8C%E4%BD%BF%E7%94%A8map%E6%B3%A8%E5%86%8C%E5%A4%9A%E4%B8%AAservice"><span class="toc-number">5.3.</span> <span class="toc-text">之前的server只能注册一个service，使用map注册多个service</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8netty%E3%80%81%E5%A2%9E%E5%8A%A0netty%E4%BE%9D%E8%B5%96%E3%80%81%E5%B9%B6%E4%B8%94%E4%BF%AE%E6%94%B9%E9%83%A8%E5%88%86%E9%80%BB%E8%BE%91%E5%A6%82%E5%A2%9E%E5%8A%A0%E5%BA%8F%E5%88%97%E5%8C%96%E5%BC%82%E5%B8%B8%E7%B1%BB"><span class="toc-number">5.4.</span> <span class="toc-text">使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8com-xccstu-transport-netty-%E4%B8%8B%E9%9D%A2%E5%9C%A8%E7%BB%86%E5%88%86%E4%BA%86client%E3%80%81server%E3%80%81codec%E5%8C%85"><span class="toc-number">5.5.</span> <span class="toc-text">在com.xccstu.transport.netty 下面在细分了client、server、codec包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%92%8C%E8%AF%B7%E6%B1%82%E4%BD%93%E4%B8%AD%E7%9A%84RequestID"><span class="toc-number">5.6.</span> <span class="toc-text">增加线程池和请求体中的RequestID</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E4%BA%86%E6%96%AD%E8%A8%80%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9%E4%BA%86RpcRequestHandler%E4%B8%AD%E7%9A%84handle%E6%96%B9%E6%B3%95%EF%BC%88%E4%B9%8B%E5%90%8E%E9%80%9A%E8%BF%87%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%E8%8E%B7%E5%8F%96%E5%88%B0%E7%9B%AE%E6%A0%87%E7%B1%BB%EF%BC%89"><span class="toc-number">5.7.</span> <span class="toc-text">增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A2%9E%E5%8A%A0%E5%AE%A2%E6%88%B7%E7%AB%AF%E9%87%8D%E8%AF%95%E6%9C%BA%E5%88%B6"><span class="toc-number">5.8.</span> <span class="toc-text">增加客户端重试机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93-%E5%A6%82%E6%9E%9C%E8%AE%A9%E6%88%91%E9%87%8D%E5%86%99%E4%BB%A3%E7%A0%81%EF%BC%8C%E6%88%91%E4%BC%9A%E6%8C%89%E6%80%8E%E6%A0%B7%E7%9A%84%E9%A1%BA%E5%BA%8F%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="toc-number">5.9.</span> <span class="toc-text">总结-如果让我重写代码，我会按怎样的顺序实现代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%8A%9F%E8%83%BD%E8%AE%B2%E8%A7%A3"><span class="toc-number">6.</span> <span class="toc-text">相关功能讲解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#sping%E6%89%AB%E6%8F%8F%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BB%84%E4%BB%B6"><span class="toc-number">6.1.</span> <span class="toc-text">sping扫描自定义组件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">7.</span> <span class="toc-text">面试题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -514,7 +515,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,19 +523,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">容器</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -543,6 +540,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">容器</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -562,15 +567,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">轮子</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">轮子</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -586,7 +595,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">安服</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -594,19 +603,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安服</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">资源整理</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">资源整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
             
             <div class="clearfix"></div>
