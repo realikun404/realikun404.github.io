@@ -16,7 +16,7 @@
 <meta property="og:description" content="学下阿里java开发手册，夯实下基础">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-28T08:35:35.000Z">
-<meta property="article:modified_time" content="2024-07-17T16:12:02.847Z">
+<meta property="article:modified_time" content="2024-12-06T09:16:40.436Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC"><span class="toc-number">1.1.</span> <span class="toc-text">命名风格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91POJO-%E7%B1%BB%E4%B8%AD%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%8C%E9%83%BD%E4%B8%8D%E8%A6%81%E5%8A%A0-is%EF%BC%8C%E5%90%A6%E5%88%99%E9%83%A8%E5%88%86%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90%E4%BC%9A%E5%BC%95%E8%B5%B7%E5%BA%8F%E5%88%97%E5%8C%96%E9%94%99%E8%AF%AF%E3%80%82"><span class="toc-number">1.1.1.</span> <span class="toc-text">【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E5%A6%82%E6%9E%9C%E6%A8%A1%E5%9D%97%E3%80%81%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E3%80%81%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8%E4%BA%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%9C%A8%E5%91%BD%E5%90%8D%E6%97%B6%E4%BD%93%E7%8E%B0%E5%87%BA%E5%85%B7%E4%BD%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%A6%81%E5%8A%A0%E4%BB%BB%E4%BD%95%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%8F%B7%EF%BC%88public-%E4%B9%9F%E4%B8%8D%E8%A6%81%E5%8A%A0%EF%BC%89%EF%BC%8C%E4%BF%9D%E6%8C%81%E4%BB%A3%E7%A0%81%E7%9A%84%E7%AE%80%E6%B4%81-%E6%80%A7%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%E6%9C%89%E6%95%88%E7%9A%84-Javadoc-%E6%B3%A8%E9%87%8A%E3%80%82%E5%B0%BD%E9%87%8F%E4%B8%8D%E8%A6%81%E5%9C%A8%E6%8E%A5%E5%8F%A3%E9%87%8C%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%EF%BC%8C%E8%82%AF%E5%AE%9A%E6%98%AF-%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95%E7%9B%B8%E5%85%B3%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%98%AF%E6%95%B4%E4%B8%AA%E5%BA%94%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E5%B8%B8%E9%87%8F%E3%80%82"><span class="toc-number">1.1.3.</span> <span class="toc-text">接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">常量定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BB%BB%E4%BD%95%E9%AD%94%E6%B3%95%E5%80%BC%EF%BC%88%E5%8D%B3%E6%9C%AA%E7%BB%8F%E5%AE%9A%E4%B9%89%E7%9A%84%E5%B8%B8%E9%87%8F%EF%BC%89%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%8E%B0%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD"><span class="toc-number">2.1.</span> <span class="toc-text">【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC"><span class="toc-number">1.1.</span> <span class="toc-text">命名风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">常量定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">代码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP%E8%A7%84%E7%BA%A6"><span class="toc-number">1.4.</span> <span class="toc-text">OOP规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E5%A4%84%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">集合处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">1.6.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">异常日志</span></a></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -201,54 +201,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>在线阅读链接：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/ebook/386/read?spm=a2c6h.26392459.ebook-detail.4.63392867ZDnuXr">https://developer.aliyun.com/ebook/386/read?spm=a2c6h.26392459.ebook-detail.4.63392867ZDnuXr</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1FV411W7a6/?spm_id_from=333.337.search-card.all.click">2021最新最全阿里巴巴Java开发手册最新版(嵩山版150P)【Java编码规范】_哔哩哔哩_bilibili</a></p>
 <span id="more"></span>
 
-<h2 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h2><h3 id="命名风格"><a href="#命名风格" class="headerlink" title="命名风格"></a>命名风格</h3><p>记住即可，有特殊需要备注的在这里写出来</p>
+<p>[toc]</p>
+<h1 id="编码规范"><a href="#编码规范" class="headerlink" title="编码规范"></a>编码规范</h1><h2 id="命名风格"><a href="#命名风格" class="headerlink" title="命名风格"></a>命名风格</h2><p>记住即可，有特殊需要备注的在这里写出来</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Dontla/article/details/124428174">小驼峰命名法（lower camel case）和大驼峰命名法（upper camel case）_小驼峰法和大驼峰法-CSDN博客</a></p>
 <p>总结：</p>
 <p>类名：UpperCamelCase </p>
 <p>方法名、参数名、成员变量、局部变量：lowerCamelCase</p>
 <p>常量命名：全部大写、单词间用下划线隔开</p>
-<h4 id="【强制】POJO-类中布尔类型的变量，都不要加-is，否则部分框架解析会引起序列化错误。"><a href="#【强制】POJO-类中布尔类型的变量，都不要加-is，否则部分框架解析会引起序列化错误。" class="headerlink" title="【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。"></a>【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</h4><p>参考链接：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41800884/article/details/103870601">POJO类中布尔类型的变量都不要加is前缀详解_pojo类中的任何布尔类型的变量,都不要加is前缀-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/badaoliumangqizhi/p/17459980.html">霸道的程序猿的博客 (cnblogs.com)</a></p>
-<p>复现：</p>
-<p>下面是一种情况：</p>
-<p>user类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setVip</span><span class="params">(Boolean vip)</span> &#123;</span><br><span class="line">        isVip = vip;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean isVip;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Boolean <span class="title function_">getVip</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> isVip;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>测试1</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(<span class="literal">true</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">jsonString</span> <span class="operator">=</span> JSON.toJSONString(user); <span class="comment">// 序列化对象</span></span><br><span class="line">    System.out.println(jsonString); <span class="comment">// 输出 JSON 字符串</span></span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;isVip&quot;:true,&quot;vip&quot;:true&#125;</span><br><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>可以看到莫名奇妙多了一个变量，断点分析一下</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">断点：String jsonString = JSON.toJSONString(user);   //user.toString() = User(isVip=true)</span><br><span class="line">进入断点到</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>测试2</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> JSON.parseObject(<span class="string">&quot;&#123;\&quot;Vip\&quot;:true&#125;&quot;</span>, User.class); <span class="comment">// 反序列化 JSON 字符串</span></span><br><span class="line">    System.out.println(user1.toString()); <span class="comment">// 输出反序列化后的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>测试3</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">void</span> <span class="title function_">isPrefixBooleanPropertyTest</span><span class="params">()</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;&#123;\&quot;isVip\&quot;:true&#125;&quot;</span>);</span><br><span class="line">    <span class="type">User</span> <span class="variable">user1</span> <span class="operator">=</span> JSON.parseObject(<span class="string">&quot;&#123;\&quot;isVip\&quot;:true&#125;&quot;</span>, User.class); <span class="comment">// 反序列化 JSON 字符串</span></span><br><span class="line">    System.out.println(user1.toString()); <span class="comment">// 输出反序列化后的对象</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>结果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;isVip&quot;:true&#125;</span><br><span class="line">User(isVip=true)</span><br></pre></td></tr></table></figure>
-
-<p>即有奇奇怪怪的问题。</p>
-<p>todo：之后源码分析</p>
-<h4 id="【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式"><a href="#【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式" class="headerlink" title="【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式"></a>【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式</h4><p>说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</p>
-<h4 id="接口类中的方法和属性不要加任何修饰符号（public-也不要加），保持代码的简洁-性，并加上有效的-Javadoc-注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是-与接口方法相关，并且是整个应用的基础常量。"><a href="#接口类中的方法和属性不要加任何修饰符号（public-也不要加），保持代码的简洁-性，并加上有效的-Javadoc-注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是-与接口方法相关，并且是整个应用的基础常量。" class="headerlink" title="接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。"></a>接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。</h4><p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44543508/article/details/102609910">java抽象类（abstract）与接口（Interface）的区别_javaabstract 和interface区别-CSDN博客</a></p>
+<p>【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</p>
+<p>参考链接：</p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/flunggg/p/12184634.html">POJO类中布尔类型的变量都不要加is前缀详解 - flunggg - 博客园</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39746820/article/details/124005908">Mybatis学习之数据库字段与实体属性的映射_数据库表中的字段映射-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/q7w8e9r4/article/details/133638083">深入了解：MybatisPlus中@TableField注解的使用-CSDN博客</a></p>
+<p>mysql数据库字段为is_deleted 可以将其映射到deleted</p>
+<p>【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式</p>
+<p>说明：将设计模式体现在名字中，有利于阅读者快速理解架构设计理念。</p>
+<p>接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。</p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44543508/article/details/102609910">java抽象类（abstract）与接口（Interface）的区别_javaabstract 和interface区别-CSDN博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19782019/article/details/80259836">JAVA基础——接口（全网最详细教程）_java接口怎么写-CSDN博客</a></p>
-<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><h3 id="【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中"><a href="#【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中" class="headerlink" title="【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中"></a>【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中</h3><p>参考：[不要再使用魔法值了！_【推荐】不允许任何魔法值(即未经预先定义的常量)直接出现在代码中。 反例: &#96;&#96;&#96; s-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41267618/article/details/103029427">https://blog.csdn.net/qq_41267618/article/details/103029427</a>)</p>
+<h2 id="常量定义"><a href="#常量定义" class="headerlink" title="常量定义"></a>常量定义</h2><p>【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中</p>
+<p>参考：[不要再使用魔法值了！_【推荐】不允许任何魔法值(即未经预先定义的常量)直接出现在代码中。 反例: &#96;&#96;&#96; s-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41267618/article/details/103029427">https://blog.csdn.net/qq_41267618/article/details/103029427</a>)</p>
 <p>也就是什么常量，最好用一个变量表达他的意思，不然会给其他阅读者带来阅读障碍。</p>
+<h2 id="代码格式"><a href="#代码格式" class="headerlink" title="代码格式"></a>代码格式</h2><h2 id="OOP规约"><a href="#OOP规约" class="headerlink" title="OOP规约"></a>OOP规约</h2><p>【强制】避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成 本，直接用类名来访问即可。</p>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6924958351684009991">避免通过一个类的对象引用访问此类的静态变量或静态方法，无谓增加编译器解析成本，直接用类名来访问即可，为什么呢？ - 掘金</a></p>
+<p>【强制】定义DO&#x2F;DTO&#x2F;VO等POJO类时，不要设定任何属性默认值。</p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000019768374">java - 如何在同时满足《阿里规约·华山版》OOP规约的12和14条的约束下给类赋默认值？ - SegmentFault 思否</a></p>
+<p>【推荐】使用索引访问用String的split方法得到的数组时，需做最后一个分隔符后有无 内容的检查，否则会有抛IndexOutOfBoundsException的风险。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/MaYuKang/article/details/102903336">String.Split()方法最后一个分隔符后有无内容的检查_split 最后一个分隔符-CSDN博客</a></p>
+<h2 id="集合处理"><a href="#集合处理" class="headerlink" title="集合处理"></a>集合处理</h2><p>【强制】使用工具类Arrays.asList()把数组转换成集合时，不能使用其修改集合相关的方 法，它的add&#x2F;remove&#x2F;clear方法会抛出UnsupportedOperationException异常</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String[] str = new String[] &#123; &quot;you&quot;, &quot;wu&quot; &#125;;</span><br><span class="line">List list = Arrays.asList(str);</span><br><span class="line">str[0] = &quot;aaa&quot;;</span><br><span class="line">System.out.println(Arrays.toString(str));</span><br><span class="line">System.out.println(list.toString());</span><br></pre></td></tr></table></figure>
+
+<p>输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[aaa, wu]</span><br><span class="line">[aaa, wu]</span><br></pre></td></tr></table></figure>
+
+<p>泛型通配符＜? extends T＞来接收返回的数据，此写法的泛型集合不能使用 add 方 法， 而＜? super T＞不能使用 get 方法，作为接口调用赋值时易出错的理解</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43636205/article/details/131579083">泛型通配符＜? extends T＞来接收返回的数据，此写法的泛型集合不能使用 add 方 法， 而＜? super T＞不能使用 get 方法，作为接口调用赋值时易出错的理解_泛型通配符来接收返回的数据,此写法的泛型集 合不能使用 add 方法,-CSDN博客</a></p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>【强制】velocity调用POJO类的属性时，建议直接使用属性名取值即可，模板引擎会自动按 规范调用POJO的getXxx()，如果是boolean基本数据类型变量（boolean命名不需要加is 前缀），会自动调用isXxx()方法。</p>
+<p>都没听过velocity：<a target="_blank" rel="noopener" href="https://developer.aliyun.com/ask/324884">Java velocity 调用 POJO 类的属性时如何取值？_问答-阿里云开发者社区</a></p>
+<h1 id="异常日志"><a href="#异常日志" class="headerlink" title="异常日志"></a>异常日志</h1><p>【推荐】定义时区分unchecked &#x2F; checked 异常，避免直接抛出new RuntimeException()， 更不允许抛出Exception或者Throwable，应使用有业务含义的自定义异常。推荐业界已定义 过的自定义异常，如：DAOException &#x2F; ServiceException等。 </p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34039868/article/details/107145009">Java中的异常（checked异常和unchecked异常）_java 用户自定义的异常 属于 checked exception吗-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/661176797">Java 受检（Checked）异常和非受检（Unchecked）异常 - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010498753/article/details/86014964">阿里巴巴开发手册解析个人笔记（五）Mysql规约(四）ORM 映射_不要用 resultclass 当返回参数-CSDN博客</a></p>
 
       
 
@@ -370,7 +366,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC"><span class="toc-number">1.1.</span> <span class="toc-text">命名风格</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91POJO-%E7%B1%BB%E4%B8%AD%E5%B8%83%E5%B0%94%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%8F%98%E9%87%8F%EF%BC%8C%E9%83%BD%E4%B8%8D%E8%A6%81%E5%8A%A0-is%EF%BC%8C%E5%90%A6%E5%88%99%E9%83%A8%E5%88%86%E6%A1%86%E6%9E%B6%E8%A7%A3%E6%9E%90%E4%BC%9A%E5%BC%95%E8%B5%B7%E5%BA%8F%E5%88%97%E5%8C%96%E9%94%99%E8%AF%AF%E3%80%82"><span class="toc-number">1.1.1.</span> <span class="toc-text">【强制】POJO 类中布尔类型的变量，都不要加 is，否则部分框架解析会引起序列化错误。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E3%80%90%E6%8E%A8%E8%8D%90%E3%80%91%E5%A6%82%E6%9E%9C%E6%A8%A1%E5%9D%97%E3%80%81%E6%8E%A5%E5%8F%A3%E3%80%81%E7%B1%BB%E3%80%81%E6%96%B9%E6%B3%95%E4%BD%BF%E7%94%A8%E4%BA%86%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%8C%E5%9C%A8%E5%91%BD%E5%90%8D%E6%97%B6%E4%BD%93%E7%8E%B0%E5%87%BA%E5%85%B7%E4%BD%93%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.1.2.</span> <span class="toc-text">【推荐】如果模块、接口、类、方法使用了设计模式，在命名时体现出具体模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E7%B1%BB%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E5%B1%9E%E6%80%A7%E4%B8%8D%E8%A6%81%E5%8A%A0%E4%BB%BB%E4%BD%95%E4%BF%AE%E9%A5%B0%E7%AC%A6%E5%8F%B7%EF%BC%88public-%E4%B9%9F%E4%B8%8D%E8%A6%81%E5%8A%A0%EF%BC%89%EF%BC%8C%E4%BF%9D%E6%8C%81%E4%BB%A3%E7%A0%81%E7%9A%84%E7%AE%80%E6%B4%81-%E6%80%A7%EF%BC%8C%E5%B9%B6%E5%8A%A0%E4%B8%8A%E6%9C%89%E6%95%88%E7%9A%84-Javadoc-%E6%B3%A8%E9%87%8A%E3%80%82%E5%B0%BD%E9%87%8F%E4%B8%8D%E8%A6%81%E5%9C%A8%E6%8E%A5%E5%8F%A3%E9%87%8C%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%EF%BC%8C%E5%A6%82%E6%9E%9C%E4%B8%80%E5%AE%9A%E8%A6%81%E5%AE%9A%E4%B9%89%E5%8F%98%E9%87%8F%EF%BC%8C%E8%82%AF%E5%AE%9A%E6%98%AF-%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%96%B9%E6%B3%95%E7%9B%B8%E5%85%B3%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%98%AF%E6%95%B4%E4%B8%AA%E5%BA%94%E7%94%A8%E7%9A%84%E5%9F%BA%E7%A1%80%E5%B8%B8%E9%87%8F%E3%80%82"><span class="toc-number">1.1.3.</span> <span class="toc-text">接口类中的方法和属性不要加任何修饰符号（public 也不要加），保持代码的简洁 性，并加上有效的 Javadoc 注释。尽量不要在接口里定义变量，如果一定要定义变量，肯定是 与接口方法相关，并且是整个应用的基础常量。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">2.</span> <span class="toc-text">常量定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E3%80%90%E5%BC%BA%E5%88%B6%E3%80%91%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BB%BB%E4%BD%95%E9%AD%94%E6%B3%95%E5%80%BC%EF%BC%88%E5%8D%B3%E6%9C%AA%E7%BB%8F%E5%AE%9A%E4%B9%89%E7%9A%84%E5%B8%B8%E9%87%8F%EF%BC%89%E7%9B%B4%E6%8E%A5%E5%87%BA%E7%8E%B0%E5%9C%A8%E4%BB%A3%E7%A0%81%E4%B8%AD"><span class="toc-number">2.1.</span> <span class="toc-text">【强制】不允许任何魔法值（即未经定义的常量）直接出现在代码中</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83"><span class="toc-number">1.</span> <span class="toc-text">编码规范</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC"><span class="toc-number">1.1.</span> <span class="toc-text">命名风格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E9%87%8F%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.</span> <span class="toc-text">常量定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">代码格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OOP%E8%A7%84%E7%BA%A6"><span class="toc-number">1.4.</span> <span class="toc-text">OOP规约</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E5%90%88%E5%A4%84%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text">集合处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E5%AE%83"><span class="toc-number">1.6.</span> <span class="toc-text">其它</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%82%E5%B8%B8%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">异常日志</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -478,23 +474,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安全</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -503,6 +483,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">面试</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安全</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">安卓</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,6 +526,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
@@ -542,11 +542,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -558,11 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安服</a>
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
+                <a href="javascript:void(0)" class="js-tag color3">安服</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -570,11 +570,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">资源整理</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color5">资源整理</a>
               </li>
             
             <div class="clearfix"></div>
