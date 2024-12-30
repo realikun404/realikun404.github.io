@@ -425,81 +425,7 @@
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000005026161">java - netty中的ReferenceCountUtil.release()方法具体作用是什么？ - SegmentFault 思否</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/iou123lg/p/12723518.html">Netty：ChannelFuture - lingjiango - 博客园 (cnblogs.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/gorden5566/article/details/121551002#:~:text=%E6%9C%AC%E6%96%87%E8%AF%A6%E7%BB%86%E5%89%96%E6%9E%90#:~:text=%E6%9C%AC%E6%96%87%E8%AF%A6%E7%BB%86%E5%89%96%E6%9E%90">netty中ChannelFuture.sync()的作用是什么？_channelfuture sync()-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/2319794">【Netty】「萌新入门」（五）掌握 Pipeline 和 ChannelHandler：构建高效网络应用程序的关键-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p>下面的代码调整顺序，使用telnet当客户端学习pipeline执行顺序</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.xccstu;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> io.netty.bootstrap.ServerBootstrap;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.*;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.nio.NioEventLoopGroup;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.nio.NioServerSocketChannel;</span><br><span class="line"><span class="keyword">import</span> io.netty.channel.socket.nio.NioSocketChannel;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TestPipeline</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">ServerBootstrap</span>()</span><br><span class="line">                .group(<span class="keyword">new</span> <span class="title class_">NioEventLoopGroup</span>())</span><br><span class="line">                .channel(NioServerSocketChannel.class)</span><br><span class="line">                .childHandler(<span class="keyword">new</span> <span class="title class_">ChannelInitializer</span>&lt;NioSocketChannel&gt;() &#123;</span><br><span class="line">                    <span class="meta">@Override</span></span><br><span class="line">                    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">initChannel</span><span class="params">(NioSocketChannel ch)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                        <span class="type">ChannelPipeline</span> <span class="variable">pipeline</span> <span class="operator">=</span> ch.pipeline();</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h1&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelInboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Inbound1&quot;</span>);</span><br><span class="line">                                System.out.println();</span><br><span class="line">                                <span class="built_in">super</span>.channelRead(ctx, msg);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h2&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelInboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Inbound2&quot;</span>);</span><br><span class="line">                                <span class="built_in">super</span>.channelRead(ctx, msg);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h3&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelInboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">channelRead</span><span class="params">(ChannelHandlerContext ctx, Object msg)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Inbound3&quot;</span>);</span><br><span class="line">                                <span class="built_in">super</span>.channelRead(ctx, msg);</span><br><span class="line">                                ctx.writeAndFlush(ctx.alloc().buffer().writeBytes(<span class="string">&quot;server...&quot;</span>.getBytes()));</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h4&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelOutboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">write</span><span class="params">(ChannelHandlerContext ctx, Object msg, ChannelPromise promise)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Outbound4&quot;</span>);</span><br><span class="line">                                <span class="built_in">super</span>.write(ctx, msg, promise);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h5&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelOutboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">write</span><span class="params">(ChannelHandlerContext ctx, Object msg, ChannelPromise promise)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Outbound5&quot;</span>);</span><br><span class="line">                                <span class="built_in">super</span>.write(ctx, msg, promise);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                        pipeline.addLast(<span class="string">&quot;h6&quot;</span>, <span class="keyword">new</span> <span class="title class_">ChannelOutboundHandlerAdapter</span>() &#123;</span><br><span class="line">                            <span class="meta">@Override</span></span><br><span class="line">                            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">write</span><span class="params">(ChannelHandlerContext ctx, Object msg, ChannelPromise promise)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">                                System.out.println(<span class="string">&quot;Outbound6&quot;</span>);</span><br><span class="line">                                <span class="built_in">super</span>.write(ctx, msg, promise);</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;)</span><br><span class="line">                .bind(<span class="number">7999</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="相关知识学习篇"><a href="#相关知识学习篇" class="headerlink" title="相关知识学习篇"></a>相关知识学习篇</h2><h3 id="netty"><a href="#netty" class="headerlink" title="netty"></a>netty</h3><p>netty相关面试题：<a target="_blank" rel="noopener" href="https://www.yuque.com/snailclimb/mf2z3k/wlr1b0">Netty 常见面试题总结 (yuque.com)</a></p>
-<h3 id="spring源码"><a href="#spring源码" class="headerlink" title="spring源码"></a>spring源码</h3><p>讲得超级好的b站视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1tR4y1F75R">https://www.bilibili.com/video/BV1tR4y1F75R</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/demon7552003/article/details/107988310">Spring的@Configuration配置类-Full和Lite模式_full模式还是lite模式-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/huangdi1309/article/details/121764438">ImportBeanDefinitionRegistrar作用原理介绍-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30123517#:~:text=Import">动态注册bean，Spring官方套路：使用ImportBeanDefinitionRegistrar - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d5ffdccc4f5d">Spring 的类扫描器分析 - ClassPathBeanDefinitionScanner - 简书 (jianshu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/170578325#:~:text=mapper">mybatis mapper 接口注册流程源码解析 - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Xianhuii/p/17051837.html#:~:text=ClassP">深入理解ClassPathBeanDefinitionScanner - Xianuii - 博客园 (cnblogs.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1497799">【小家Spring】Spring容器加载Bean定义信息的两员大将：AnnotatedBeanDefinitionReader和ClassPathBeanDefinitionScanner-腾讯云开发者社区-腾讯云 (tencent.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/608825840">MyBatis 原理：扫描 Mapper 接口 - 知乎 (zhihu.com)</a></p>
-<h3 id="SPI机制"><a href="#SPI机制" class="headerlink" title="SPI机制"></a>SPI机制</h3><h3 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/KingBoyWorld/article/details/105337011">Java注解入门到精通，这一篇就够了-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/binarylei/p/10415585.html#:~:text=Annota">Spring 注解（二）注解工具类 AnnotationUtils 和 AnnotatedElementUtils - binarylei - 博客园 (cnblogs.com)</a></p>
-<h3 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h3><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1M741137q">https://www.bilibili.com/video/BV1M741137q</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/zookeeper-bs-command.html">7.0 Zookeeper 客户端基础命令使用 | 菜鸟教程 (runoob.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/a1774381324/article/details/123699105">最新版Zookeeper常用命令总结（收藏吃灰系列）_golang zk创建永久节点-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CNpeaceful/article/details/135015770">Zookeeper篇——深入认识和学习Zookeeper节点-Znode，涵盖概念以及详细操作节点命令，保姆级教程，超详细、超全面！！！-CSDN博客</a></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">root@e91dfa6b69fc:/apache-zookeeper-3.5.8-bin/bin# ./zkCli.sh -server localhost:2181</span><br><span class="line">quit</span><br><span class="line"></span><br><span class="line">docker exec -it e91dfa6b69fc /bin/bash</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="RPC完整代码学习"><a href="#RPC完整代码学习" class="headerlink" title="RPC完整代码学习"></a>RPC完整代码学习</h2><h2 id="RPC-框架设计"><a href="#RPC-框架设计" class="headerlink" title="RPC 框架设计"></a>RPC 框架设计</h2><p><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/guide-rpc-framework">Snailclimb&#x2F;guide-rpc-framework: A custom RPC framework implemented by Netty+Kyro+Zookeeper.（一款基于 Netty+Kyro+Zookeeper 实现的自定义 RPC 框架-附详细实现过程和相关教程。） (github.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.yuque.com/snailclimb/gsmusc/hc6nzg">03 如何自己实现一个RPC框架？ (yuque.com)</a>  密码：sztd</p>
-<p> RPC 框架不仅要提供服务发现功能，还要提供负载均衡、容错等功能，这样的 RPC 框架才算真正合格的 -service、balance、tolerance</p>
-<h2 id="实现篇"><a href="#实现篇" class="headerlink" title="实现篇"></a>实现篇</h2><p>个人实现篇（感觉光看代码并不知道实现的流程，感觉还是得看commit自己慢慢写得差不多，甚至改动才算掌握了）</p>
-<p><a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework">rpc-framework: 手写rpc (gitee.com)</a></p>
-<h3 id="初始化项目，编写最简单的server、client"><a href="#初始化项目，编写最简单的server、client" class="headerlink" title="初始化项目，编写最简单的server、client"></a>初始化项目，编写最简单的server、client</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gonjan-blog/p/6685611.html">java动态代理实现与原理详细分析 - Gonjian - 博客园 (cnblogs.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/euyy1029/article/details/52511773">@SuppressWarnings注解-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yiwangzhibujian/p/7107785.html">【Socket】Java Socket编程基础及深入讲解 - 已往之不谏 - 博客园 (cnblogs.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Jzandth/article/details/109096862">SpringCloud(12) —— Feign:使用接口方式调用服务_springcould feign ipage null-CSDN博客</a></p>
-<p>搭建好项目，分为下面对应几个模块：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;groupId&gt;com.xccstu&lt;/groupId&gt;</span><br><span class="line">&lt;artifactId&gt;rpc-framework&lt;/artifactId&gt;</span><br><span class="line">&lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line">&lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;rpc-framework-core&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;rpc-framework-simple&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;hello-service-api&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;example-client&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;example-server&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;rpc-framework-common&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br><span class="line"></span><br><span class="line">根据名字就可以看出来互相的作用</span><br></pre></td></tr></table></figure>
-
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commits/master">提交 · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="提取公共模块"><a href="#提取公共模块" class="headerlink" title="提取公共模块"></a>提取公共模块</h3><p>添加RpcResponse，common新增dto、enumeration包、exception，增加错误信息、返回状态码枚举</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u011397981/article/details/119743032">【开发工具】IDEA生成序列号serialVersionUID快捷键_idea生成serialversionuid快捷键-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/a7cfbadab3b45c33e5e2a23203407c20c802ba4f">提取公共模块，在common包下增加dto、enum、exception包 · a7cfbad · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="之前的server只能注册一个service，使用map注册多个service"><a href="#之前的server只能注册一个service，使用map注册多个service" class="headerlink" title="之前的server只能注册一个service，使用map注册多个service"></a>之前的server只能注册一个service，使用map注册多个service</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hustzw07/article/details/71108945#:~:text=%E6%96%87%E7%AB%A0%E6%B5%8F%E8%A7%88%E9%98%85%E8%AF%BB">Java的getCanonicalName和getName_getcanonicalname getname-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/ee2755d822cb7623dcbbce45b58acf91b74e1aef">之前的server只能注册一个service，使用map注册多个service · ee2755d · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类"><a href="#使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类" class="headerlink" title="使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类"></a>使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类</h3><p>[序列化-Kryo的使用详解-CSDN博客](<a target="_blank" rel="noopener" href="https://blog.csdn.net/w727655308/article/details/121879000#:~:text=%E5%BC%95%E5%85%A5">https://blog.csdn.net/w727655308/article/details/121879000#:~:text=引入</a> mav#:~:text&#x3D;引入 mav)</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hustzw07/article/details/71108945">Java的getCanonicalName和getName_getcanonicalname getname-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_51788416/article/details/119795887">IDEA 最新版找不到allow parallel run 如何打开多个控制台的解决方案-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/0bff7c020af2">Netty：option和childOption参数设置说明 - 简书 (jianshu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/seawaving/article/details/122601043#:~:text=Channe#:~:text=Channe">netty最常用两个处理器父类ChannelInboundHandlerAdapter和SimpleChannelInboundHandler区别与使用-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhengchao1991/article/details/103583766">一文搞懂Netty中Handler的执行顺序-CSDN博客</a></p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/8deedcc37e973e0a6e9b7f46dc1eed7784f73837">使用netty、增加netty依赖、并且修改部分逻辑如增加序列化异常类 · 8deedcc · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="在com-xccstu-transport-netty-下面在细分了client、server、codec包"><a href="#在com-xccstu-transport-netty-下面在细分了client、server、codec包" class="headerlink" title="在com.xccstu.transport.netty 下面在细分了client、server、codec包"></a>在com.xccstu.transport.netty 下面在细分了client、server、codec包</h3><p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/24795bfe5241e0fc8655947a09ba8c9eb3e6de4a">在com.xccstu.transport.netty 下面在细分了client、server、codec包 · 24795bf · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="增加线程池和请求体中的RequestID"><a href="#增加线程池和请求体中的RequestID" class="headerlink" title="增加线程池和请求体中的RequestID"></a>增加线程池和请求体中的RequestID</h3><p><a target="_blank" rel="noopener" href="https://github.com/Snailclimb/guide-rpc-framework/compare/a6028b87b0fc4c59d7319e932e8a339abe0bbff8..df21fdeaca63946f87a0e80b12db3e84cdec74e5">Comparing a6028b87b0fc4c59d7319e932e8a339abe0bbff8..df21fdeaca63946f87a0e80b12db3e84cdec74e5 · Snailclimb&#x2F;guide-rpc-framework (github.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liuyu973971883/article/details/107947496">Java高并发编程中Executor、ExecutorService的使用及详细介绍-刘宇_executor 使用 executorservice-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.github.com/zh/pull-requests/committing-changes-to-your-project/viewing-and-comparing-commits/comparing-commits">比较提交 - GitHub 文档</a></p>
-<p><a target="_blank" rel="noopener" href="https://wizardforcel.gitbooks.io/guava-tutorial/content/1.html">Google Guava官方教程（中文版） | Google Guava 中文教程 (gitbooks.io)</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38893133/article/details/108377331">使用ThreadFactoryBuilder创建线程池_guava的threadfactorybuilder-CSDN博客</a></p>
-<p>使用ThreadFactoryBuilder创建线程池，common模块增加com.xccstu.utils.concurrent包、提取出了RpcMessageChecker统一检查rpc请求的返回</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/3afbf2be25a801ef06b8c3f735a7de407fe86bb4">增加线程池和请求体中的RequestID 以及优化了下pom · 3afbf2b · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）"><a href="#增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）" class="headerlink" title="增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）"></a>增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类）</h3><p>使用 assert 断言，需要在 VM options 添加参数：-ea</p>
-<p>但我感觉还不如直接写测试文件</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/03fcfd1765224c66f686a42a83d6703908b53a2c">增加了断言以及修改了RpcRequestHandler中的handle方法（之后通过注册中心获取到目标类） · 03fcfd1 · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<h3 id="增加客户端重试机制"><a href="#增加客户端重试机制" class="headerlink" title="增加客户端重试机制"></a>增加客户端重试机制</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liu_da_da/article/details/124983187#:~:text=%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFc">CountDownLatch详解以及用法示例-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/small_love/article/details/111058977#:~:text=Atomic">并发编程 — 原子类 AtomicReference 详解-CSDN博客</a></p>
-<p>关键代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">connect</span><span class="params">(Bootstrap bootstrap, InetSocketAddress inetSocketAddress, <span class="type">int</span> retry, CountDownLatch countDownLatch)</span> &#123;</span><br><span class="line">    bootstrap.connect(inetSocketAddress).addListener((ChannelFutureListener) future -&gt; &#123;</span><br><span class="line">        <span class="keyword">if</span> (future.isSuccess()) &#123;</span><br><span class="line">            logger.info(<span class="string">&quot;客户端连接成功!&quot;</span>);</span><br><span class="line">            channel = future.channel();</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (retry == <span class="number">0</span>) &#123;</span><br><span class="line">            logger.error(<span class="string">&quot;客户端连接失败:重试次数已用完，放弃连接！&quot;</span>);</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RpcException</span>(RpcErrorMessageEnum.CLIENT_CONNECT_SERVER_FAILURE);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 第几次重连</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">order</span> <span class="operator">=</span> (MAX_RETRY_COUNT - retry) + <span class="number">1</span>;</span><br><span class="line">        <span class="comment">// 本次重连的间隔</span></span><br><span class="line">        <span class="type">int</span> <span class="variable">delay</span> <span class="operator">=</span> <span class="number">1</span> &lt;&lt; order;</span><br><span class="line">        logger.error(<span class="string">&quot;&#123;&#125;: 连接失败，第 &#123;&#125; 次重连……&quot;</span>, <span class="keyword">new</span> <span class="title class_">Date</span>(), order);</span><br><span class="line">        bootstrap.config().group().schedule(() -&gt; connect(bootstrap, inetSocketAddress, retry - <span class="number">1</span>, countDownLatch), delay, TimeUnit</span><br><span class="line">                .SECONDS);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>使用schedule控制重新连接的间隔，重试次数越多间隔越长</p>
-<p>对应commit：<a target="_blank" rel="noopener" href="https://gitee.com/xiong-changchun/rpc-framework/commit/29ff40d171f58df24edd950f9070b52df9fa3781">增加客户端重试机制 · 29ff40d · changchun&#x2F;rpc-framework - Gitee.com</a></p>
-<p>……</p>
-<h3 id="总结-如果让我重写代码，我会按怎样的顺序实现代码"><a href="#总结-如果让我重写代码，我会按怎样的顺序实现代码" class="headerlink" title="总结-如果让我重写代码，我会按怎样的顺序实现代码"></a>总结-如果让我重写代码，我会按怎样的顺序实现代码</h3><h2 id="相关功能讲解"><a href="#相关功能讲解" class="headerlink" title="相关功能讲解"></a>相关功能讲解</h2><h3 id="sping扫描自定义组件"><a href="#sping扫描自定义组件" class="headerlink" title="sping扫描自定义组件"></a>sping扫描自定义组件</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/gstsyyb/p/17962233">如何让spring扫描到自定义注解的组件 - gstsyyb - 博客园</a></p>
-<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/644047546">烂大街的 RPC 项目，如何和字节面试官聊出花儿来？ - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/363694300083879936">远程服务调用（RPC）高频面试题！(有RPC项目必看！)_牛客网 (nowcoder.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/discuss/353157479641063424">(近)万字总结，RPC 项目相关问题及解答_牛客网 (nowcoder.com)</a></p>
-
+        
       
 
       
@@ -730,6 +656,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -742,19 +672,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -778,11 +704,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">项目</a>
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">项目</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -798,6 +724,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
@@ -806,11 +736,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color5">todo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+                <a href="javascript:void(0)" class="js-tag color3">安服</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -818,15 +752,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">todo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">架构</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">安服</a>
               </li>
              
               <li class="article-tag-list-item">
