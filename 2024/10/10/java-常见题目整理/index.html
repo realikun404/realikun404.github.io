@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250112120922361.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250112120952995.png">
 <meta property="article:published_time" content="2024-10-10T01:26:13.000Z">
-<meta property="article:modified_time" content="2025-01-12T04:11:43.432Z">
+<meta property="article:modified_time" content="2025-01-19T02:10:58.800Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="面试">
@@ -229,15 +229,18 @@
 <h2 id="多线程手撕"><a href="#多线程手撕" class="headerlink" title="多线程手撕"></a>多线程手撕</h2><p><a target="_blank" rel="noopener" href="https://articles.zsxq.com/id_41fbmx7jwqr9.html">面试官：手写线程池，我：？面试官：回去等通知吧！ (zsxq.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94325810">Java面试题|多线程22道必看面试题 - 知乎</a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/270171164">手撕面试题：多个线程交替打印问题 - 知乎</a></p>
+<p>手撕线程池放在了线程池学习里面。</p>
 <h2 id="sql常见手撕题目"><a href="#sql常见手撕题目" class="headerlink" title="sql常见手撕题目"></a>sql常见手撕题目</h2><p><a target="_blank" rel="noopener" href="https://www.nowcoder.com/exam/oj?page=1&tab=SQL%E7%AF%87&topicId=199">牛客网在线编程_SQL篇_非技术快速入门</a></p>
 <p>其实还有lc（但是要开会员，懒得做了，之前也做过不少）</p>
-<h2 id="设计模式手撕及总结"><a href="#设计模式手撕及总结" class="headerlink" title="设计模式手撕及总结"></a>设计模式手撕及总结</h2><h2 id="后端高频笔试题（非常规Leetcode类型）"><a href="#后端高频笔试题（非常规Leetcode类型）" class="headerlink" title="后端高频笔试题（非常规Leetcode类型）"></a>后端高频笔试题（非常规Leetcode类型）</h2><h3 id="手写HashMap"><a href="#手写HashMap" class="headerlink" title="手写HashMap"></a>手写HashMap</h3><p>源码流程</p>
+<p>已在hot100文档里面完成。</p>
+<h2 id="设计模式手撕及总结"><a href="#设计模式手撕及总结" class="headerlink" title="设计模式手撕及总结"></a>设计模式手撕及总结</h2><p>已经有设计模式文档，在设计模式文档里面完成。</p>
+<h2 id="后端高频笔试题（非常规Leetcode类型）"><a href="#后端高频笔试题（非常规Leetcode类型）" class="headerlink" title="后端高频笔试题（非常规Leetcode类型）"></a>后端高频笔试题（非常规Leetcode类型）</h2><h3 id="手写HashMap"><a href="#手写HashMap" class="headerlink" title="手写HashMap"></a>手写HashMap</h3><p>源码流程</p>
 <p><img src="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250112120922361.png" alt="image-20250112120922361"></p>
 <p>简化流程</p>
 <p><img src="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250112120952995.png" alt="image-20250112120952995"></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wayhb/article/details/130040264">一篇搞懂HashMap，手写HashMap-CSDN博客</a></p>
 <p>todo</p>
-<h3 id="有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。"><a href="#有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。" class="headerlink" title="有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。"></a>有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。</span><br><span class="line"> * 输入：大文件</span><br><span class="line"> * 输出：TopN搜索词列表</span><br><span class="line"> */</span><br><span class="line">public class Baidu &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 输出TopN搜索词列表</span><br><span class="line">     *</span><br><span class="line">     * @param inputFile 输入文件</span><br><span class="line">     * @param n         TOP N?</span><br><span class="line">     * @return TopN搜索词列表</span><br><span class="line">     * @decsription 该方法未考虑连所有不重复的词语也无法完全加载的情况，只能假设当前内存能存下所有搜索词（如果时间不够，暂时使用当前办法）</span><br><span class="line">     *              TODO 来不及了，先写思路，海量数据问题通常采用分而治之的解决方法，面对上面连所有不重复词语都无法加载的情况</span><br><span class="line">     *              可以先加载一部分已装入wordCountMap的数据，对key也就是词语进行hash，写入到多个小文件中，这样相同key都会聚集在一个小文件中</span><br><span class="line">     *              装载完成后对小文件中的数据读取，对相同key的数据相加，最后汇总所有小文件数据(还是有问题...)</span><br><span class="line">     */</span><br><span class="line">    public static List&lt;String&gt; findTopNWords(File inputFile, int n) &#123;</span><br><span class="line">        List&lt;String&gt; topNWords = new ArrayList&lt;&gt;();</span><br><span class="line">        Map&lt;String, Integer&gt; wordCountMap = new HashMap&lt;&gt;();</span><br><span class="line">        //读取文件</span><br><span class="line">        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) &#123;</span><br><span class="line">            String line;</span><br><span class="line">            //一行行读取数据，避免一次性加载不了</span><br><span class="line">            while ((line = reader.readLine()) != null) &#123;</span><br><span class="line">                //每行放一个搜索词，没说是不是句子，假设按照  aa bb  cc对语句按照单词拆分</span><br><span class="line">                String[] words = line.split(&quot;\\s+&quot;);</span><br><span class="line">                for (String word : words) &#123;</span><br><span class="line">                    //单词对应次数+1</span><br><span class="line">                    wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();//TODO 引入日志组件后用log.error替换</span><br><span class="line">        &#125;</span><br><span class="line">        //转换成List去用sort的API，方便</span><br><span class="line">//        List&lt;Map.Entry&lt;String, Integer&gt;&gt; sortedWordList = new ArrayList&lt;&gt;(wordCountMap.entrySet());</span><br><span class="line">//        sortedWordList.sort(Comparator.comparing(Map.Entry::getValue).reversed());</span><br><span class="line">//        sortedWordList.sort((e1, e2) -&gt; e2.getValue().compareTo(e1.getValue()));</span><br><span class="line">        //找TOP N</span><br><span class="line">//        for (int i = 0; i &lt; n &amp;&amp; i &lt; sortedWordList.size(); i++) &#123;</span><br><span class="line">//            topNWords.add(sortedWordList.get(i).getKey());</span><br><span class="line">//        &#125;</span><br><span class="line">        PriorityQueue&lt;Map.Entry&lt;String, Integer&gt;&gt; maxHeap =</span><br><span class="line">                new PriorityQueue&lt;&gt;((e1, e2) -&gt; e2.getValue().compareTo(e1.getValue()));</span><br><span class="line">        for (Map.Entry&lt;String, Integer&gt; entry : wordCountMap.entrySet()) &#123;</span><br><span class="line">            maxHeap.offer(entry);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!maxHeap.isEmpty()) &#123;</span><br><span class="line">            for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">                topNWords.add(maxHeap.poll().getKey());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return topNWords;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        File inputFile = new File(&quot;D:/topn.txt&quot;);</span><br><span class="line">        int topN = 10;</span><br><span class="line">        List&lt;String&gt; topNWords = findTopNWords(inputFile, topN);</span><br><span class="line">        System.out.println(&quot;TopN搜索词列表:&quot;);</span><br><span class="line">        for (String word : topNWords) &#123;</span><br><span class="line">            System.out.println(word);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。"><a href="#有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。" class="headerlink" title="有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。"></a>有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">import java.io.BufferedReader;</span><br><span class="line">import java.io.File;</span><br><span class="line">import java.io.FileReader;</span><br><span class="line">import java.util.*;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 有一个大文件，记录一段时间内百度所有的搜索记录，每行放一个搜索词，因为搜索量很大，文件非常大，搜索词数量也很多，内存放不下，求搜索次数最多的TopN个搜索词。</span><br><span class="line"> * 输入：大文件</span><br><span class="line"> * 输出：TopN搜索词列表</span><br><span class="line"> */</span><br><span class="line">public class Baidu &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 输出TopN搜索词列表</span><br><span class="line">     *</span><br><span class="line">     * @param inputFile 输入文件</span><br><span class="line">     * @param n         TOP N?</span><br><span class="line">     * @return TopN搜索词列表</span><br><span class="line">     * @decsription 该方法未考虑连所有不重复的词语也无法完全加载的情况，只能假设当前内存能存下所有搜索词（如果时间不够，暂时使用当前办法）</span><br><span class="line">     *             来不及了，先写思路，海量数据问题通常采用分而治之的解决方法，面对上面连所有不重复词语都无法加载的情况</span><br><span class="line">     *              可以先加载一部分已装入wordCountMap的数据，对key也就是词语进行hash，写入到多个小文件中，这样相同key都会聚集在一个小文件中</span><br><span class="line">     *              装载完成后对小文件中的数据读取，对相同key的数据相加，最后汇总所有小文件数据(还是有问题...)</span><br><span class="line">     */</span><br><span class="line">    public static List&lt;String&gt; findTopNWords(File inputFile, int n) &#123;</span><br><span class="line">        List&lt;String&gt; topNWords = new ArrayList&lt;&gt;();</span><br><span class="line">        Map&lt;String, Integer&gt; wordCountMap = new HashMap&lt;&gt;();</span><br><span class="line">        //读取文件</span><br><span class="line">        try (BufferedReader reader = new BufferedReader(new FileReader(inputFile))) &#123;</span><br><span class="line">            String line;</span><br><span class="line">            //一行行读取数据，避免一次性加载不了</span><br><span class="line">            while ((line = reader.readLine()) != null) &#123;</span><br><span class="line">                //每行放一个搜索词，没说是不是句子，假设按照  aa bb  cc对语句按照单词拆分</span><br><span class="line">                String[] words = line.split(&quot;\\s+&quot;);</span><br><span class="line">                for (String word : words) &#123;</span><br><span class="line">                    //单词对应次数+1</span><br><span class="line">                    wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; catch (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();//TODO 引入日志组件后用log.error替换</span><br><span class="line">        &#125;</span><br><span class="line">        //转换成List去用sort的API，方便</span><br><span class="line">//        List&lt;Map.Entry&lt;String, Integer&gt;&gt; sortedWordList = new ArrayList&lt;&gt;(wordCountMap.entrySet());</span><br><span class="line">//        sortedWordList.sort(Comparator.comparing(Map.Entry::getValue).reversed());</span><br><span class="line">//        sortedWordList.sort((e1, e2) -&gt; e2.getValue().compareTo(e1.getValue()));</span><br><span class="line">        //找TOP N</span><br><span class="line">//        for (int i = 0; i &lt; n &amp;&amp; i &lt; sortedWordList.size(); i++) &#123;</span><br><span class="line">//            topNWords.add(sortedWordList.get(i).getKey());</span><br><span class="line">//        &#125;</span><br><span class="line">        PriorityQueue&lt;Map.Entry&lt;String, Integer&gt;&gt; maxHeap =</span><br><span class="line">                new PriorityQueue&lt;&gt;((e1, e2) -&gt; e2.getValue().compareTo(e1.getValue()));</span><br><span class="line">        for (Map.Entry&lt;String, Integer&gt; entry : wordCountMap.entrySet()) &#123;</span><br><span class="line">            maxHeap.offer(entry);</span><br><span class="line">        &#125;</span><br><span class="line">        if (!maxHeap.isEmpty()) &#123;</span><br><span class="line">            for (int i = 0; i &lt; n; i++) &#123;</span><br><span class="line">                topNWords.add(maxHeap.poll().getKey());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return topNWords;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        File inputFile = new File(&quot;D:/topn.txt&quot;);</span><br><span class="line">        int topN = 10;</span><br><span class="line">        List&lt;String&gt; topNWords = findTopNWords(inputFile, topN);</span><br><span class="line">        System.out.println(&quot;TopN搜索词列表:&quot;);</span><br><span class="line">        for (String word : topNWords) &#123;</span><br><span class="line">            System.out.println(word);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -324,6 +327,11 @@
 <p>Consumer、Supplier、Predicate、Function</p>
 <h3 id="反射创建一个类手写"><a href="#反射创建一个类手写" class="headerlink" title="反射创建一个类手写"></a>反射创建一个类手写</h3><h3 id="CGLIB动态代理手写"><a href="#CGLIB动态代理手写" class="headerlink" title="CGLIB动态代理手写"></a>CGLIB动态代理手写</h3><h3 id="AOP手写模拟记录接口执行时间、打印方法名、参数、传入值"><a href="#AOP手写模拟记录接口执行时间、打印方法名、参数、传入值" class="headerlink" title="AOP手写模拟记录接口执行时间、打印方法名、参数、传入值"></a>AOP手写模拟记录接口执行时间、打印方法名、参数、传入值</h3><h2 id="评测题目规律题"><a href="#评测题目规律题" class="headerlink" title="评测题目规律题"></a>评测题目规律题</h2><h1 id="常见工具"><a href="#常见工具" class="headerlink" title="常见工具"></a>常见工具</h1><h3 id="GIT"><a href="#GIT" class="headerlink" title="GIT"></a>GIT</h3><p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/git/introduction/index.html">简介 - Git教程 - 廖雪峰的官方网站 (liaoxuefeng.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></p>
+<p>问题描述：</p>
+<ul>
+<li>之前做过git branching，但会忘</li>
+<li>git branch 是图像显示，不够直观，本地开个环境进行测试</li>
+</ul>
 <h3 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h3><h3 id="K8s"><a href="#K8s" class="headerlink" title="K8s"></a>K8s</h3>
       
 
@@ -565,6 +573,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
@@ -573,15 +597,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -601,11 +621,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -617,15 +637,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -637,7 +661,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">理论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -649,23 +677,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">理论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color4">juc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">juc</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">

@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20241105142749850.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20241105142903641.png">
 <meta property="article:published_time" content="2024-10-05T02:30:24.000Z">
-<meta property="article:modified_time" content="2024-12-19T06:03:57.972Z">
+<meta property="article:modified_time" content="2025-01-15T07:49:25.442Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="项目">
@@ -604,7 +604,6 @@
 <p>对应数据库创建语句</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> `t_link_goto`(</span><br><span class="line">      `id` <span class="type">bigint</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;ID&#x27;</span>,</span><br><span class="line">      `gid` <span class="type">varchar</span>(<span class="number">32</span>) <span class="keyword">DEFAULT</span> <span class="string">&#x27;default&#x27;</span> COMMENT  <span class="string">&#x27;分组标识&#x27;</span>,</span><br><span class="line">      `full_short_url` <span class="type">varchar</span>(<span class="number">128</span>) <span class="keyword">DEFAULT</span> <span class="keyword">NULL</span> COMMENT <span class="string">&#x27;完整短链接&#x27;</span>,</span><br><span class="line">      <span class="keyword">PRIMARY</span> KEY (`id`))</span><br><span class="line">      ENGINE<span class="operator">=</span>InnoDB <span class="keyword">DEFAULT</span> CHARSET<span class="operator">=</span>utf8mb4</span><br></pre></td></tr></table></figure>
 
-<p>todo：感觉可以加下索引要快点</p>
 <p>本部分关键代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">restoreUrl</span><span class="params">(String shortUri, ServletRequest request, ServletResponse response)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">serverName</span> <span class="operator">=</span> request.getServerName();</span><br><span class="line">    <span class="type">String</span> <span class="variable">fullShortUrl</span> <span class="operator">=</span> serverName + <span class="string">&quot;/&quot;</span> + shortUri;</span><br><span class="line">    LambdaQueryWrapper&lt;ShortLinkGotoDO&gt; linkGotoQueryWrapper = Wrappers.lambdaQuery(ShortLinkGotoDO.class)</span><br><span class="line">            .eq(ShortLinkGotoDO::getFullShortUrl, fullShortUrl);</span><br><span class="line">    <span class="type">ShortLinkGotoDO</span> <span class="variable">shortLinkGotoDO</span> <span class="operator">=</span> shortLinkGotoMapper.selectOne(linkGotoQueryWrapper);</span><br><span class="line">    <span class="keyword">if</span> (shortLinkGotoDO == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="comment">// 严谨来说此处需要进行风控</span></span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    LambdaQueryWrapper&lt;ShortLinkDO&gt; queryWrapper = Wrappers.lambdaQuery(ShortLinkDO.class)</span><br><span class="line">            .eq(ShortLinkDO::getGid, shortLinkGotoDO.getGid())</span><br><span class="line">            .eq(ShortLinkDO::getFullShortUrl, fullShortUrl)</span><br><span class="line">            .eq(ShortLinkDO::getDelFlag, <span class="number">0</span>)</span><br><span class="line">            .eq(ShortLinkDO::getEnableStatus, <span class="number">0</span>);</span><br><span class="line">    <span class="type">ShortLinkDO</span> <span class="variable">shortLinkDO</span> <span class="operator">=</span> baseMapper.selectOne(queryWrapper);</span><br><span class="line">    <span class="keyword">if</span> (shortLinkDO != <span class="literal">null</span>) &#123;</span><br><span class="line">        ((HttpServletResponse) response).sendRedirect(shortLinkDO.getOriginUrl());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -1217,6 +1216,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
@@ -1225,15 +1240,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1253,11 +1264,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1269,15 +1280,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1289,7 +1304,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">理论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1301,23 +1320,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">理论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color4">juc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">juc</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">

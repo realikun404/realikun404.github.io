@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20240624143258336.png">
 <meta property="article:published_time" content="2024-06-23T13:56:54.000Z">
-<meta property="article:modified_time" content="2024-09-22T06:15:19.575Z">
+<meta property="article:modified_time" content="2025-01-15T07:49:06.725Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="项目">
@@ -223,9 +223,9 @@
 </ul>
 <h3 id="数据库表设置分析"><a href="#数据库表设置分析" class="headerlink" title="数据库表设置分析"></a>数据库表设置分析</h3><h3 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42055933/article/details/132175997">快速理解Mybatis-plus中BaseMapper、IService和ServiceImpl-CSDN博客</a></p>
 <h2 id="可能存在的问题及做出的优化"><a href="#可能存在的问题及做出的优化" class="headerlink" title="可能存在的问题及做出的优化"></a>可能存在的问题及做出的优化</h2><ul>
-<li><p>数据安全相关问题-密码加下salt （todo）</p>
+<li><p>数据安全相关问题-密码加下salt   配置文件写个salt</p>
 </li>
-<li><p>数据安全相关问题-yml文件账号密码加密配置下（todo）</p>
+<li><p>数据安全相关问题-yml文件账号密码加密配置下 <a target="_blank" rel="noopener" href="https://blog.csdn.net/lty13142/article/details/122862331">对spring boot yml配置文件敏感信息加密处理的两种方式_iv-generator-classname-CSDN博客</a></p>
 <p>不过这种方法感觉有点像脱裤子放屁，像前端账号密码加密传到后端一样</p>
 <p>有空可以抓包看下传输到数据库的流量是否是解密后的账号、密码</p>
 </li>
@@ -234,9 +234,9 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">@ExceptionHandler(SQLIntegrityConstraintViolationException.class)</span><br><span class="line">public R&lt;String&gt; ExceptionHandler(SQLIntegrityConstraintViolationException ex)&#123;</span><br><span class="line">    if(ex.getMessage().contains((&quot;Duplicate entry&quot;)))&#123;</span><br><span class="line">        String[] split = ex.getMessage().split(&quot; &quot;);</span><br><span class="line">        String msg = split[2] + &quot;已存在&quot;;</span><br><span class="line">        return R.error(msg);</span><br><span class="line">    &#125;</span><br><span class="line">    return null;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>看看咋改能更加好看（todo）</p>
+<p>看看咋改能更加好看</p>
+<p>针对每个接口写下postman接口</p>
 <ul>
-<li>针对每个接口写下postman接口（todo）</li>
 <li>针对每个接口使用pytest或者其它测试框架测试（可以压测下？看看怎样提高抗压能力）</li>
 </ul>
 <h2 id="QA"><a href="#QA" class="headerlink" title="QA"></a>QA</h2><ol>
@@ -330,7 +330,7 @@
 
 
 <p>分析：可能有越权问题，普通员工猜测接口（很容易猜测接口名字太常见了）进而修改自己或者他人禁用状态或其它信息</p>
-<p>todo： 如果最后视频都没有修改，尝试自己处理下。</p>
+<p> 如果最后视频都没有修改，尝试自己处理下。</p>
 <h3 id="编辑员工信息"><a href="#编辑员工信息" class="headerlink" title="编辑员工信息"></a>编辑员工信息</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/&#123;id&#125;&quot;)</span></span><br><span class="line"><span class="keyword">public</span> R&lt;Employee&gt; <span class="title function_">getByID</span><span class="params">(<span class="meta">@PathVariable</span> Long id)</span>&#123;</span><br><span class="line">    <span class="type">Employee</span> <span class="variable">employee</span> <span class="operator">=</span> employeeService.getById(id);</span><br><span class="line">    <span class="keyword">if</span>(employee == <span class="literal">null</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;没有查到员工信息&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> R.success(employee);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="分类管理业务-公共字段自动填充"><a href="#分类管理业务-公共字段自动填充" class="headerlink" title="分类管理业务-公共字段自动填充"></a>分类管理业务-公共字段自动填充</h3><p>实现步骤:<br>1、在实体类的属性上加入@TableField注解，指定自动填充的策略<br>2、按照框架要求编写元数据对象处理器，在此类中统一为公共字段赋值，此类需要实现MetaObjectHandler接口</p>
@@ -371,7 +371,7 @@
 <h3 id="文件上传下载"><a href="#文件上传下载" class="headerlink" title="文件上传下载"></a>文件上传下载</h3><p>上传</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/common&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CommonController</span> &#123;</span><br><span class="line">    <span class="meta">@Value(&quot;$&#123;reggie.path&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">private</span> String basePath;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/upload&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;String&gt; <span class="title function_">upload</span><span class="params">(MultipartFile file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">String</span> <span class="variable">originalFilename</span> <span class="operator">=</span> file.getOriginalFilename();</span><br><span class="line">        <span class="type">String</span> <span class="variable">suffix</span> <span class="operator">=</span> originalFilename.substring(originalFilename.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">        <span class="type">String</span> <span class="variable">filename</span> <span class="operator">=</span> UUID.randomUUID().toString() + suffix;</span><br><span class="line"></span><br><span class="line">        <span class="type">File</span> <span class="variable">dir</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">File</span>(basePath);</span><br><span class="line">        <span class="keyword">if</span>(!dir.exists())&#123;</span><br><span class="line">            dir.mkdirs();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            file. transferTo(<span class="keyword">new</span> <span class="title class_">File</span>(basePath + filename));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line"><span class="comment">//            throw new RuntimeException(e);</span></span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            <span class="keyword">return</span> R.error(<span class="string">&quot;上传失败&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R.success(filename);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>todo：保存文件路径写死的，最好可以保存在jar包所在目录下的static&#x2F;img 下，或者保存在资源目录下的static&#x2F;img</p>
+<p>保存文件路径写死的，最好可以保存在jar包所在目录下的static&#x2F;img 下，或者保存在资源目录下的static&#x2F;img</p>
 <p>下载</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GetMapping(&quot;/download&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">download</span><span class="params">(String name, HttpServletResponse response)</span> <span class="keyword">throws</span> FileNotFoundException &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="type">FileInputStream</span> <span class="variable">fileInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="keyword">new</span> <span class="title class_">File</span>(basePath + name));</span><br><span class="line">        <span class="type">ServletOutputStream</span> <span class="variable">outputStream</span> <span class="operator">=</span> response.getOutputStream();</span><br><span class="line">        response.setContentType(<span class="string">&quot;image/jpeg&quot;</span>);</span><br><span class="line">        <span class="type">byte</span>[] bytes = <span class="keyword">new</span> <span class="title class_">byte</span>[<span class="number">1024</span>];</span><br><span class="line">        <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((len = fileInputStream.read(bytes)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            outputStream.write(bytes, <span class="number">0</span>, len);</span><br><span class="line">            outputStream.flush();</span><br><span class="line">        &#125;</span><br><span class="line">        outputStream.close();</span><br><span class="line">        fileInputStream.close();</span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -481,7 +481,7 @@
 <p>短信发送代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/sendMsg&quot;)</span></span><br><span class="line"><span class="keyword">public</span> R&lt;String&gt; <span class="title function_">sendMsg</span><span class="params">(<span class="meta">@RequestBody</span> User user, HttpSession session)</span>&#123;</span><br><span class="line">    <span class="comment">//获取手机号</span></span><br><span class="line">    <span class="type">String</span> <span class="variable">phone</span> <span class="operator">=</span> user.getPhone();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(StringUtils.isNotEmpty(phone))&#123;</span><br><span class="line">        <span class="comment">//生成随机的4位验证码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> ValidateCodeUtils.generateValidateCode(<span class="number">6</span>).toString();</span><br><span class="line">        log.info(<span class="string">&quot;code=&#123;&#125;&quot;</span>,code);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//调用阿里云提供的短信服务API完成发送短信</span></span><br><span class="line">        SMSUtils.sendMessage(<span class="string">&quot;瑞吉外卖学习&quot;</span>,<span class="string">&quot;SMS_472115146&quot;</span>,<span class="string">&quot;18308250157&quot;</span>,code);</span><br><span class="line">        <span class="comment">//需要将生成的验证码保存到Session</span></span><br><span class="line">        session.setAttribute(phone,code);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> R.success(<span class="string">&quot;手机验证码短信发送成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> R.error(<span class="string">&quot;短信发送失败&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>这里有bug，用户可以一直点击发送验证码，短信轰炸。todo：视频看完后改（可能之后视频会改，没改的话我们就自己改）</p>
+<p>这里有bug，用户可以一直点击发送验证码，短信轰炸。</p>
 <p>登录代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping(&quot;/login&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> R&lt;User&gt; <span class="title function_">login</span><span class="params">(<span class="meta">@RequestBody</span> Map map, HttpSession session)</span>&#123;</span><br><span class="line">        log.info(map.toString());</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取手机号</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">phone</span> <span class="operator">=</span> map.get(<span class="string">&quot;phone&quot;</span>).toString();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//获取验证码</span></span><br><span class="line">        <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> map.get(<span class="string">&quot;code&quot;</span>).toString();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//从Session中获取保存的验证码</span></span><br><span class="line">        <span class="type">Object</span> <span class="variable">codeInSession</span> <span class="operator">=</span> session.getAttribute(phone);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//进行验证码的比对（页面提交的验证码和Session中保存的验证码比对）</span></span><br><span class="line">        <span class="keyword">if</span>(codeInSession != <span class="literal">null</span> &amp;&amp; codeInSession.equals(code))&#123;</span><br><span class="line">            <span class="comment">//如果能够比对成功，说明登录成功</span></span><br><span class="line"></span><br><span class="line">            LambdaQueryWrapper&lt;User&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">            queryWrapper.eq(User::getPhone,phone);</span><br><span class="line"></span><br><span class="line">            <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userService.getOne(queryWrapper);</span><br><span class="line">            <span class="keyword">if</span>(user == <span class="literal">null</span>)&#123;</span><br><span class="line">                <span class="comment">//判断当前手机号对应的用户是否为新用户，如果是新用户就自动完成注册</span></span><br><span class="line">                user = <span class="keyword">new</span> <span class="title class_">User</span>();</span><br><span class="line">                user.setPhone(phone);</span><br><span class="line">                user.setStatus(<span class="number">1</span>);</span><br><span class="line">                userService.save(user);</span><br><span class="line">            &#125;</span><br><span class="line">            session.setAttribute(<span class="string">&quot;user&quot;</span>,user.getId());</span><br><span class="line">            <span class="keyword">return</span> R.success(user);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> R.error(<span class="string">&quot;登录失败&quot;</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
@@ -876,6 +876,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
@@ -884,15 +900,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -912,11 +924,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -928,15 +940,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -948,7 +964,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">理论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -960,23 +980,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">理论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color4">juc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">juc</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">

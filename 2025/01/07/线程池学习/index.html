@@ -16,7 +16,7 @@
 <meta property="og:description" content="线程池源码及相关面试题学习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-07T10:46:54.000Z">
-<meta property="article:modified_time" content="2025-01-10T02:14:37.090Z">
+<meta property="article:modified_time" content="2025-01-19T02:10:01.097Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="源码">
 <meta property="article:tag" content="juc">
@@ -163,7 +163,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">线程池中的设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E6%80%8E%E6%A0%B7%E7%9B%91%E6%8E%A7"><span class="toc-number">2.</span> <span class="toc-text">线程池状态怎样监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E9%80%9F%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%88%E5%85%88%E4%B8%8D%E6%94%BE%E5%85%A5%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">怎样自定义快速消费线程池（先不放入阻塞队列）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%82%E5%B8%B8%E6%98%AF%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">线程池异常是怎样处理的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">线程池的参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E4%BD%BF%E5%BE%97%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">怎样使得线程池的参数可以动态设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E8%B7%B5"><span class="toc-number">6.1.</span> <span class="toc-text">线程池实践</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">线程池中的设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E6%80%8E%E6%A0%B7%E7%9B%91%E6%8E%A7"><span class="toc-number">2.</span> <span class="toc-text">线程池状态怎样监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E9%80%9F%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%88%E5%85%88%E4%B8%8D%E6%94%BE%E5%85%A5%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">怎样自定义快速消费线程池（先不放入阻塞队列）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%82%E5%B8%B8%E6%98%AF%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">线程池异常是怎样处理的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">线程池的参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E4%BD%BF%E5%BE%97%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">怎样使得线程池的参数可以动态设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E3%80%81%E9%9D%9E%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">守护线程、非守护线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E6%92%95%E7%AE%80%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">8.</span> <span class="toc-text">手撕简单线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E8%B7%B5"><span class="toc-number">9.</span> <span class="toc-text">线程池实践</span></a></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -210,6 +210,9 @@
 <p>5、线程池的参数设置</p>
 <p>6、怎样使得线程池的参数可以动态设置</p>
 <p>7、守护线程、非守护线程</p>
+<p>8、手撕简单线程池</p>
+<p>9、线程池实践相关文章</p>
+<p>[toc]</p>
 <span id="more"></span>
 
 <h2 id="线程池中的设计模式"><a href="#线程池中的设计模式" class="headerlink" title="线程池中的设计模式"></a>线程池中的设计模式</h2><h2 id="线程池状态怎样监控"><a href="#线程池状态怎样监控" class="headerlink" title="线程池状态怎样监控"></a>线程池状态怎样监控</h2><p>线程池提供了简单的api，我们可以使用api进行监控</p>
@@ -219,7 +222,13 @@
 
 <h2 id="怎样自定义快速消费线程池（先不放入阻塞队列）"><a href="#怎样自定义快速消费线程池（先不放入阻塞队列）" class="headerlink" title="怎样自定义快速消费线程池（先不放入阻塞队列）"></a>怎样自定义快速消费线程池（先不放入阻塞队列）</h2><h2 id="线程池异常是怎样处理的"><a href="#线程池异常是怎样处理的" class="headerlink" title="线程池异常是怎样处理的"></a>线程池异常是怎样处理的</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU1MzE2NzIzMg==&mid=2247494164&idx=1&sn=20eee262a084a28aeeac9c52212ceec1&scene=21#wechat_redirect">“线程池中线程异常后：销毁还是复用？”</a></p>
 <h2 id="线程池的参数设置"><a href="#线程池的参数设置" class="headerlink" title="线程池的参数设置"></a>线程池的参数设置</h2><h2 id="怎样使得线程池的参数可以动态设置"><a href="#怎样使得线程池的参数可以动态设置" class="headerlink" title="怎样使得线程池的参数可以动态设置"></a>怎样使得线程池的参数可以动态设置</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247533016&idx=1&sn=845cbf76d0bc749e74c5288dba7a9935&scene=21#wechat_redirect">手写一个轻量级动态线程池，很香！！</a></p>
-<h3 id="线程池实践"><a href="#线程池实践" class="headerlink" title="线程池实践"></a>线程池实践</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247533504&idx=1&sn=62ccac1126890c101c26bb6f6acff563&scene=21#wechat_redirect">8 个线程池最佳实践和坑！使用不当直接生产事故！！</a></p>
+<h2 id="守护线程、非守护线程"><a href="#守护线程、非守护线程" class="headerlink" title="守护线程、非守护线程"></a>守护线程、非守护线程</h2><h2 id="手撕简单线程池"><a href="#手撕简单线程池" class="headerlink" title="手撕简单线程池"></a>手撕简单线程池</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/XingLiSir/article/details/113678282">Java阻塞队列BlockingQueue里add、offer、put，take、poll的区别_poll和take的区别-CSDN博客</a></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ThreadPoolTrader</span> <span class="keyword">implements</span> <span class="title class_">Executor</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">AtomicInteger</span> <span class="variable">ctl</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">AtomicInteger</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="type">int</span> corePoolSize;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">volatile</span> <span class="type">int</span> maxPoolSize;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> BlockingQueue&lt;Runnable&gt; workQueue;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">ThreadPoolTrader</span><span class="params">(<span class="type">int</span> corePoolSize, <span class="type">int</span> maxPoolSize, BlockingQueue&lt;Runnable&gt; workQueue)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.corePoolSize = corePoolSize;</span><br><span class="line">        <span class="built_in">this</span>.maxPoolSize = maxPoolSize;</span><br><span class="line">        <span class="built_in">this</span>.workQueue = workQueue;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">execute</span><span class="params">(<span class="meta">@NotNull</span> Runnable command)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">c</span> <span class="operator">=</span> ctl.get();</span><br><span class="line">        <span class="keyword">if</span>(c &lt; corePoolSize)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!addWorker(command))&#123;</span><br><span class="line">                reject();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!workQueue.offer(command))&#123;</span><br><span class="line">            <span class="keyword">if</span>(!addWorker(command))&#123;</span><br><span class="line">                reject();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">boolean</span> <span class="title function_">addWorker</span><span class="params">(Runnable firstTask)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(ctl.get() &gt;= maxPoolSize)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Worker</span> <span class="variable">worker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Worker</span>(firstTask);</span><br><span class="line">        worker.thread.start();</span><br><span class="line">        ctl.incrementAndGet();</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">Worker</span> <span class="keyword">implements</span> <span class="title class_">Runnable</span>&#123;</span><br><span class="line">        <span class="keyword">final</span> Thread thread;</span><br><span class="line">        Runnable firstTask;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">public</span> <span class="title function_">Worker</span><span class="params">(Runnable firstTask)</span> &#123;</span><br><span class="line">            <span class="built_in">this</span>.thread = <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="built_in">this</span>);</span><br><span class="line"><span class="comment">//            this.thread.setDaemon(true);</span></span><br><span class="line">            <span class="built_in">this</span>.firstTask = firstTask;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            <span class="type">Runnable</span> <span class="variable">task</span> <span class="operator">=</span> firstTask;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                <span class="keyword">while</span> (task != <span class="literal">null</span> || (task = getTask()) != <span class="literal">null</span>)&#123;</span><br><span class="line">                    task.run();</span><br><span class="line">                    <span class="keyword">if</span>(ctl.get() &gt; maxPoolSize)&#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                    task = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                ctl.decrementAndGet();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">private</span> Runnable <span class="title function_">getTask</span><span class="params">()</span>&#123;</span><br><span class="line">            <span class="keyword">for</span>(; ; )&#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    log.info(<span class="string">&quot;workQueue.size：&quot;</span> + workQueue.size());</span><br><span class="line">                    <span class="keyword">return</span> workQueue.take();</span><br><span class="line">                &#125;<span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">reject</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;Error！ctl.count：&quot;</span> + ctl.get() + <span class="string">&quot; workQueue.size：&quot;</span> + workQueue.size());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">ThreadPoolTrader</span> <span class="variable">threadPoolTrader</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolTrader</span>(<span class="number">2</span>, <span class="number">2</span>, <span class="keyword">new</span> <span class="title class_">ArrayBlockingQueue</span>&lt;Runnable&gt;(<span class="number">10</span>));</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">finalI</span> <span class="operator">=</span> i;</span><br><span class="line">            threadPoolTrader.execute(() -&gt; &#123;</span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">1500</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                log.info(<span class="string">&quot;任务编号：&quot;</span> + finalI);</span><br><span class="line">            &#125;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>可以改进的点：</p>
+<p>1、线程池有五个状态，这个没有实现，并且线程池把线程状态和运行线程数量合在一个变量了，可以解决cas只能修改一个变量的问题</p>
+<p>2、异常处理</p>
+<h2 id="线程池实践"><a href="#线程池实践" class="headerlink" title="线程池实践"></a>线程池实践</h2><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&mid=2247533504&idx=1&sn=62ccac1126890c101c26bb6f6acff563&scene=21#wechat_redirect">8 个线程池最佳实践和坑！使用不当直接生产事故！！</a></p>
 
       
 
@@ -307,6 +316,15 @@
   
 <nav id="article-nav">
   
+    <a href="/2025/01/15/linux%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          linux学习
+        
+      </div>
+    </a>
+  
   
     <a href="/2025/01/06/%E5%88%86%E5%B8%83%E5%BC%8F%E7%90%86%E8%AE%BA-%E7%AE%97%E6%B3%95-%E5%8D%8F%E8%AE%AE%E5%AD%A6%E4%B9%A0/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">分布式理论&amp;算法&amp;协议学习</div>
@@ -336,7 +354,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">线程池中的设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E6%80%8E%E6%A0%B7%E7%9B%91%E6%8E%A7"><span class="toc-number">2.</span> <span class="toc-text">线程池状态怎样监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E9%80%9F%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%88%E5%85%88%E4%B8%8D%E6%94%BE%E5%85%A5%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">怎样自定义快速消费线程池（先不放入阻塞队列）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%82%E5%B8%B8%E6%98%AF%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">线程池异常是怎样处理的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">线程池的参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E4%BD%BF%E5%BE%97%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">怎样使得线程池的参数可以动态设置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E8%B7%B5"><span class="toc-number">6.1.</span> <span class="toc-text">线程池实践</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">线程池中的设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%8A%B6%E6%80%81%E6%80%8E%E6%A0%B7%E7%9B%91%E6%8E%A7"><span class="toc-number">2.</span> <span class="toc-text">线程池状态怎样监控</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BF%AB%E9%80%9F%E6%B6%88%E8%B4%B9%E7%BA%BF%E7%A8%8B%E6%B1%A0%EF%BC%88%E5%85%88%E4%B8%8D%E6%94%BE%E5%85%A5%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">怎样自定义快速消费线程池（先不放入阻塞队列）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BC%82%E5%B8%B8%E6%98%AF%E6%80%8E%E6%A0%B7%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-number">4.</span> <span class="toc-text">线程池异常是怎样处理的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">线程池的参数设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E6%A0%B7%E4%BD%BF%E5%BE%97%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%8A%A8%E6%80%81%E8%AE%BE%E7%BD%AE"><span class="toc-number">6.</span> <span class="toc-text">怎样使得线程池的参数可以动态设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B%E3%80%81%E9%9D%9E%E5%AE%88%E6%8A%A4%E7%BA%BF%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">守护线程、非守护线程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%8B%E6%92%95%E7%AE%80%E5%8D%95%E7%BA%BF%E7%A8%8B%E6%B1%A0"><span class="toc-number">8.</span> <span class="toc-text">手撕简单线程池</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%AE%9E%E8%B7%B5"><span class="toc-number">9.</span> <span class="toc-text">线程池实践</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -452,6 +470,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">go</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">容器</a>
               </li>
              
@@ -460,15 +494,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">逆向</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">记录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -488,11 +518,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,15 +534,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pwn</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +558,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
+                <a href="javascript:void(0)" class="js-tag color3">理论</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -536,23 +574,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">理论</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">分布式</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">漏洞</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">架构</a>
+                <a href="javascript:void(0)" class="js-tag color4">juc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">juc</a>
+                <a href="javascript:void(0)" class="js-tag color3">架构</a>
               </li>
              
               <li class="article-tag-list-item">
