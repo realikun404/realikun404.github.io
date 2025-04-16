@@ -16,7 +16,7 @@
 <meta property="og:description" content="刷题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-01-15T07:52:30.000Z">
-<meta property="article:modified_time" content="2025-01-15T08:03:26.408Z">
+<meta property="article:modified_time" content="2025-01-23T03:32:05.963Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%B8%89%E5%89%91%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">Linux三剑客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%BA%E7%8E%B0%E6%95%85%E9%9A%9C%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E6%9C%89%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">系统出现故障时的一些可能有用的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Strace"><span class="toc-number">2.1.</span> <span class="toc-text">Strace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demsg"><span class="toc-number">2.2.</span> <span class="toc-text">demsg</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%B8%89%E5%89%91%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">Linux三剑客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98%E5%A4%8D%E7%8E%B0%E5%8F%8A%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">练习题复现及解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%89%BE%E5%87%BA-x2F-proc-x2F-meminfo%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5s%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%EF%BC%8C%E8%87%B3%E5%B0%91%E7%94%A8%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-number">2.1.</span> <span class="toc-text">1、找出&#x2F;proc&#x2F;meminfo文件中以s开头的行，至少用三种方式忽略大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84root-centos%E6%88%96%E8%80%85use%E5%BC%80%E5%A4%B4%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.2.</span> <span class="toc-text">2、显示当前系统上的root,centos或者use开头的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%89%BE%E5%87%BA-x2F-etc-x2F-init-d-x2F-function%E6%96%87%E4%BB%B6%E4%B8%8B%E5%8C%85%E5%90%AB%E5%B0%8F%E6%8B%AC%E5%8F%B7%E7%9A%84%E8%A1%8C"><span class="toc-number">2.3.</span> <span class="toc-text">3、找出&#x2F;etc&#x2F;init.d&#x2F;function文件下包含小括号的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E5%90%8D"><span class="toc-number">2.4.</span> <span class="toc-text">4、输出指定目录的基名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E6%89%BE%E5%87%BA%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">2.5.</span> <span class="toc-text">5、找出网卡信息中包含的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E6%89%BE%E5%87%BA-x2F-etc-x2F-passwd%E4%B8%8B%E6%AF%8F%E7%A7%8D%E8%A7%A3%E6%9E%90%E5%99%A8%E7%9A%84%E7%94%A8%E6%88%B7%E4%B8%AA%E6%95%B0"><span class="toc-number">2.6.</span> <span class="toc-text">6、找出&#x2F;etc&#x2F;passwd下每种解析器的用户个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E8%BF%87%E5%8E%BB%E7%BD%91%E5%8D%A1%E4%B8%AD%E7%9A%84ip%EF%BC%8C%E7%94%A8%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.7.</span> <span class="toc-text">7、过去网卡中的ip，用三种方式实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E6%90%9C%E7%B4%A2-x2F-%E7%9B%AE%E5%BD%95%E4%B8%8B%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84-html%E6%88%96-php%E6%96%87%E4%BB%B6%E4%B8%ADmain%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-number">2.8.</span> <span class="toc-text">8、搜索&#x2F;目录下，所有的.html或.php文件中main函数出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E8%BF%87%E6%BB%A4%E6%8E%89php-ini%E4%B8%AD%E6%B3%A8%E9%87%8A%E7%9A%84%E8%A1%8C%E5%92%8C%E7%A9%BA%E8%A1%8C"><span class="toc-number">2.9.</span> <span class="toc-text">9、过滤掉php.ini中注释的行和空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E6%89%BE%E5%87%BA%E6%96%87%E4%BB%B6%E4%B8%AD%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC%E7%9A%84%E8%A1%8C"><span class="toc-number">2.10.</span> <span class="toc-text">10、找出文件中至少有一个空格的行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11%E3%80%81%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5-%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%EF%BC%8C%E5%90%8E%E9%9D%A2%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC"><span class="toc-number">2.10.1.</span> <span class="toc-text">11、过滤文件中以#开头的行，后面至少有一个空格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E6%9F%A5%E8%AF%A2%E5%87%BA-x2F-etc%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%8C%85%E5%90%AB%E5%A4%9A%E5%B0%91%E4%B8%AAroot"><span class="toc-number">2.11.</span> <span class="toc-text">12、查询出&#x2F;etc目录中包含多少个root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81%E6%9F%A5%E8%AF%A2%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84qq%E9%82%AE%E7%AE%B1"><span class="toc-number">2.12.</span> <span class="toc-text">13、查询出所有的qq邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81%E6%9F%A5%E8%AF%A2%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84error"><span class="toc-number">2.13.</span> <span class="toc-text">14、查询系统日志中所有的error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81%E5%88%A0%E9%99%A4%E6%9F%90%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5s%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E8%AF%8D"><span class="toc-number">2.14.</span> <span class="toc-text">15、删除某文件中以s开头的行的最后一个词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97"><span class="toc-number">2.15.</span> <span class="toc-text">16、删除一个文件中的所有数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81%E6%98%BE%E7%A4%BA%E5%A5%87%E6%95%B0%E8%A1%8C"><span class="toc-number">2.16.</span> <span class="toc-text">17、显示奇数行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81%E5%88%A0%E9%99%A4passwd%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5bin%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%E5%88%B0nobody%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C"><span class="toc-number">2.17.</span> <span class="toc-text">18、删除passwd文件中以bin开头的行到nobody开头的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81%E4%BB%8E%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%AF%8F%E9%9A%94%E4%B8%A4%E8%A1%8C%E6%98%BE%E7%A4%BA%E4%B8%80%E6%AC%A1"><span class="toc-number">2.18.</span> <span class="toc-text">19、从指定行开始，每隔两行显示一次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81%E6%AF%8F%E9%9A%945%E8%A1%8C%E6%89%93%E5%8D%B0%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC"><span class="toc-number">2.19.</span> <span class="toc-text">20、每隔5行打印一个空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%8C"><span class="toc-number">2.20.</span> <span class="toc-text">21、不显示指定字符的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E3%80%81%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%AD1%E5%88%B05%E8%A1%8C%E4%B8%ADaaa%E6%9B%BF%E6%8D%A2%E6%88%90AAA"><span class="toc-number">2.21.</span> <span class="toc-text">22、将文件中1到5行中aaa替换成AAA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7id%E4%B8%BA%E5%A5%87%E6%95%B0%E7%9A%84%E8%A1%8C"><span class="toc-number">2.22.</span> <span class="toc-text">23、显示用户id为奇数的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81%E6%98%BE%E7%A4%BA%E7%B3%BB%E7%BB%9F%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%89%93%E5%8D%B0%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8Cid"><span class="toc-number">2.23.</span> <span class="toc-text">24、显示系统普通用户，并打印系统用户名和id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E7%BB%9F%E8%AE%A1nginx%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%87%8F-ip%E5%94%AF%E7%8B%AC%E8%AE%A1%E7%AE%97"><span class="toc-number">2.24.</span> <span class="toc-text">25、统计nginx日志中访问量(ip唯独计算)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81%E5%AE%9E%E6%97%B6%E6%89%93%E5%8D%B0nginx%E7%9A%84%E8%AE%BF%E9%97%AEip"><span class="toc-number">2.25.</span> <span class="toc-text">26、实时打印nginx的访问ip</span></a></li></ol></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -201,15 +201,271 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>linux其实比较熟练了，但这里还是系统梳理下命令。主要学习下linux三剑客及一些其它进阶的内容，刷面经碰到相关的题目也在此进行记录</p>
-<h2 id="Linux三剑客"><a href="#Linux三剑客" class="headerlink" title="Linux三剑客"></a>Linux三剑客</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mm970919/article/details/118306877">linux12shell编程 –＞三剑客习题汇总_shell 三剑客练习-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xuxuxuxuxu/p/17520962.html">Linux三剑客grep、sed、awk(包含练习题) - FouroFour - 博客园</a></p>
+<span id="more"></span>
+
+<p>[toc]</p>
+<h2 id="Linux三剑客"><a href="#Linux三剑客" class="headerlink" title="Linux三剑客"></a>Linux三剑客</h2><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xuxuxuxuxu/p/17520962.html">Linux三剑客grep、sed、awk(包含练习题) - FouroFour - 博客园</a></p>
+<p>看看就行了，复现太多了（手动dog）</p>
+<h2 id="练习题复现及解析"><a href="#练习题复现及解析" class="headerlink" title="练习题复现及解析"></a>练习题复现及解析</h2><p>在 Linux 中，使用 <code>man</code> 命令查看命令帮助时，默认情况下通常是通过分页器（如 <code>less</code>）来显示内容的。如果你希望一页一页地查看帮助文档，可以使用以下方法：</p>
+<ol>
+<li>**按空格键 (<code>Space</code>)**：向下翻一页。</li>
+<li><strong>按 <code>Enter</code> 键</strong>：向下滚动一行。</li>
+<li><strong>按 <code>b</code> 键</strong>：向上翻一页。</li>
+<li><strong>按 <code>q</code> 键</strong>：退出查看。</li>
+<li><strong>按 <code>/</code> 键</strong>：开始搜索，可以输入一个关键词来搜索相关内容，然后按 <code>n</code> 查找下一个匹配项。</li>
+</ol>
 <p><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1964048">Linux 三剑客练习题-腾讯云开发者社区-腾讯云</a></p>
-<h2 id="系统出现故障时的一些可能有用的命令"><a href="#系统出现故障时的一些可能有用的命令" class="headerlink" title="系统出现故障时的一些可能有用的命令"></a>系统出现故障时的一些可能有用的命令</h2><h3 id="Strace"><a href="#Strace" class="headerlink" title="Strace"></a>Strace</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/180053751">Linux神器strace的使用方法及实践 - 知乎</a></p>
-<p>确实很好用的一条命令，之前实习时也是用这个命令排查出原来问题是出现在少了一个.so文件</p>
-<h3 id="demsg"><a href="#demsg" class="headerlink" title="demsg"></a>demsg</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-comm-dmesg.html">Linux dmesg 命令 | 菜鸟教程</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107259467">Linux诊断机器故障工具—dmesg命令 - 知乎</a></p>
-<p><a target="_blank" rel="noopener" href="https://cn.linux-console.net/?p=3656">Linux dmesg 命令初学者教程（5 个示例）</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/realjimmy/p/12850884.html">如何在没有core文件的情况下用dmesg+addr2line定位段错误 - 一觉醒来写程序 - 博客园</a></p>
+<h3 id="1、找出-x2F-proc-x2F-meminfo文件中以s开头的行，至少用三种方式忽略大小写"><a href="#1、找出-x2F-proc-x2F-meminfo文件中以s开头的行，至少用三种方式忽略大小写" class="headerlink" title="1、找出&#x2F;proc&#x2F;meminfo文件中以s开头的行，至少用三种方式忽略大小写"></a>1、找出&#x2F;proc&#x2F;meminfo文件中以s开头的行，至少用三种方式忽略大小写</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Ei &#x27;^s&#x27; /proc/meminfo </span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>**<code>-E</code>**：启用扩展正则表达式（Extended Regular Expression, ERE）。这允许你使用更多高级的正则表达式特性，例如 <code>+</code>, <code>?</code>, <code>&#123;n,m&#125;</code> 等，而无需转义这些字符。虽然在这个命令中，<code>-E</code> 并没有显著影响，因为使用的正则表达式比较简单，但它仍然是一个启用扩展正则表达式的选项。</li>
+<li>**<code>-i</code>**：表示忽略大小写（case-insensitive）。这意味着 <code>grep</code> 在匹配模式时不区分字母的大小写。</li>
+<li>**<code>&#39;^s&#39;</code>**：这是正则表达式，表示匹配以字母 <code>s</code> 开头的行。<code>^</code> 表示行的开始，<code>s</code> 表示字母 <code>s</code>。</li>
+</ol>
+<h3 id="2、显示当前系统上的root-centos或者use开头的信息"><a href="#2、显示当前系统上的root-centos或者use开头的信息" class="headerlink" title="2、显示当前系统上的root,centos或者use开头的信息"></a>2、显示当前系统上的root,centos或者use开头的信息</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Er &#x27;^(centos|root|user)&#x27; /</span><br></pre></td></tr></table></figure>
+
+<p><code>-r</code> 选项让 <code>grep</code> 在指定目录下递归搜索所有文件。它会在 <code>/</code> 目录及其子目录下的所有文件中查找匹配的行。</p>
+<p>^：表示匹配行的开头。所以，只有那些以 centos、root 或 user 开头的行会被匹配。<br>(centos|root|user)：这是一个括号括起来的选择表达式，表示匹配 centos、root 或 user 这三种字符串中的任意一个。<br>| 是“或”运算符，表示匹配左边或右边的内容。</p>
+<h3 id="3、找出-x2F-etc-x2F-init-d-x2F-function文件下包含小括号的行"><a href="#3、找出-x2F-etc-x2F-init-d-x2F-function文件下包含小括号的行" class="headerlink" title="3、找出&#x2F;etc&#x2F;init.d&#x2F;function文件下包含小括号的行"></a>3、找出&#x2F;etc&#x2F;init.d&#x2F;function文件下包含小括号的行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -oE &#x27;\(|\)&#x27;  /etc/init.d/functions</span><br></pre></td></tr></table></figure>
+
+<p><code>-o</code> 选项告诉 <code>grep</code> 只输出匹配模式的部分，而不是整行。也就是说，<code>grep</code> 会单独输出每个匹配的内容，而不是整个包含该内容的行。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">\(：匹配字面上的左圆括号 (。因为在正则表达式中，( 是一个特殊字符，用于定义分组，所以需要用反斜杠 \ 来进行转义，告诉 grep 匹配字面上的 (。</span><br><span class="line">\)：同理，匹配字面上的右圆括号 )，也需要用反斜杠转义。</span><br><span class="line">|：表示“或”操作符。它的作用是匹配左边的部分（\(）或右边的部分（\)）。即，匹配左圆括号 ( 或右圆括号 )。</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、输出指定目录的基名"><a href="#4、输出指定目录的基名" class="headerlink" title="4、输出指定目录的基名"></a>4、输出指定目录的基名</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pwd | awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>**<code>awk -F &#39;/&#39;</code>**：<code>awk</code> 是一个强大的文本处理工具，它可以根据指定的分隔符对输入文本进行拆分和处理。<code>-F &#39;/&#39;</code> 选项指定 <code>/</code> 作为字段分隔符，意味着 <code>awk</code> 会把输入的每一行数据按 <code>/</code> 字符拆分成多个字段。</p>
+<p><code>$0</code> 是 <code>awk</code> 中的一个特殊变量，表示输入的整行文本。所以，<code>&#123;print $0&#125;</code> 会打印出原始的路径（即 <code>pwd</code> 输出的整个内容），无论如何分割。</p>
+<p><strong><code>$NF</code></strong> 是 <code>awk</code> 中的一个特殊变量，表示“当前行的最后一个字段”。</p>
+<p>为什么单引号，不能双引号？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">在 pwd | awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27; 命令中，单引号和双引号有不同的作用，因此，是否可以将单引号改成双引号取决于你想要的行为。</span><br><span class="line"></span><br><span class="line">1. 单引号的作用：</span><br><span class="line">在 shell 中，单引号（&#x27;）表示字符不会被解释或扩展，所有的字符都被当作字面意义来处理。因此，单引号内的内容不会被 shell 或其他命令解释为特殊字符或变量。对于 awk 命令中的 &#123;print $NF&#125;，单引号用于确保其中的代码被传递给 awk，而不让 shell 进行解释。</span><br><span class="line"></span><br><span class="line">2. 双引号的作用：</span><br><span class="line">双引号（&quot;）允许在其中使用变量替换和命令替换等功能。双引号内部的内容会被 shell 执行时解析，但不会像单引号那样完全保留原样。对于 awk 中的 &#123;print $NF&#125;，如果使用双引号，shell 可能会误解释其中的变量，导致语法错误或不期望的行为。</span><br><span class="line"></span><br><span class="line">能否将单引号改为双引号？</span><br><span class="line">在 pwd | awk -F &#x27;/&#x27; &#x27;&#123;print $NF&#125;&#x27; 这个命令中，不能简单地将单引号替换为双引号，因为双引号会导致 shell 试图解析其中的内容，可能会导致错误。</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、找出网卡信息中包含的数字"><a href="#5、找出网卡信息中包含的数字" class="headerlink" title="5、找出网卡信息中包含的数字"></a>5、找出网卡信息中包含的数字</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a | grep -oE &#x27;[0-9]+&#x27;</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、找出-x2F-etc-x2F-passwd下每种解析器的用户个数"><a href="#6、找出-x2F-etc-x2F-passwd下每种解析器的用户个数" class="headerlink" title="6、找出&#x2F;etc&#x2F;passwd下每种解析器的用户个数"></a>6、找出&#x2F;etc&#x2F;passwd下每种解析器的用户个数</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F&#x27;:&#x27; &#x27;&#123;print $NF&#125;&#x27; /etc/passwd | sort | uniq -c |column -t | sort -n -k 1 </span><br></pre></td></tr></table></figure>
+
+<p><strong><code>sort</code></strong> 命令会对输入的内容进行排序。此时，它将会对从 <code>awk</code> 输出的每个 shell 进行字母排序。</p>
+<p><strong><code>uniq</code></strong> 命令用于去重并统计重复的行。<code>-c</code> 选项会在每行前面显示该行出现的次数。</p>
+<p><strong><code>column -t</code></strong> 命令用于将输入格式化为表格形式，自动调整列宽，使输出更加整齐。</p>
+<p><strong><code>sort -n -k 1</code></strong> **<code>-n</code><strong>：按数字大小排序，而不是按字典顺序。</strong><code>-k 1</code>*：指定按照第一列进行排序。<code>-k</code> 后面的数字指定了你要排序的列的索引（从 1 开始）。</p>
+<h3 id="7、过去网卡中的ip，用三种方式实现"><a href="#7、过去网卡中的ip，用三种方式实现" class="headerlink" title="7、过去网卡中的ip，用三种方式实现"></a>7、过去网卡中的ip，用三种方式实现</h3><p>正则表达式</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip a | grep -oE &#x27;([0-9]&#123;1,3&#125;\.)&#123;1,3&#125;[0-9]&#123;1,3&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>([0-9]{1,3}.+){3}[0-9]{1,3} 这个正则表达式用于匹配 IPv4 地址，其格式是 X.X.X.X，其中 X 是 1 到 3 位的数字。<br>[0-9]{1,3} 匹配每个数字部分。<br>.+ 匹配句点（.）符号。<br>{3} 表示前三个数字块加句点重复三次。<br>[0-9]{1,3} 匹配最后一个数字块。</p>
+<h3 id="8、搜索-x2F-目录下，所有的-html或-php文件中main函数出现的次数"><a href="#8、搜索-x2F-目录下，所有的-html或-php文件中main函数出现的次数" class="headerlink" title="8、搜索&#x2F;目录下，所有的.html或.php文件中main函数出现的次数"></a>8、搜索&#x2F;目录下，所有的.html或.php文件中main函数出现的次数</h3><p>解法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Eo &#x27;main&#x27; `find / -type f -regex &quot;.*\.\(html\|php\)&quot;` | wc -l</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">find / -type f -regex &quot;.*\.\(html\|php\)&quot;</span><br><span class="line">find：这个命令用于在文件系统中查找符合条件的文件。</span><br><span class="line">/：指定查找的起始目录，这里是 /，表示从根目录开始搜索。</span><br><span class="line">-type f：指定查找类型为普通文件（不是目录或其他类型）。</span><br><span class="line">-regex &quot;.*\.\(html\|php\)&quot;：</span><br><span class="line">-regex：这个选项允许你使用正则表达式来匹配文件路径。</span><br><span class="line">&quot;.*\.\(html\|php\)&quot;：这是一个正则表达式，用来匹配所有扩展名为 .html 或 .php 的文件：</span><br><span class="line">.*：表示任意数量的任意字符，即匹配文件路径的前部分（例如 /var/www/）。</span><br><span class="line">\.：表示字面上的点号 .，用于分隔文件名和扩展名。</span><br><span class="line">\( 和 \)：这些是正则表达式中的转义圆括号，表示分组操作。由于括号在正则表达式中有特殊含义，所以需要转义来匹配字面上的括号。</span><br><span class="line">html|php：这是一个“或”操作符，表示匹配 .html 或 .php 文件扩展名。</span><br></pre></td></tr></table></figure>
+
+<p>解法二：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -oE &#x27;main&#x27; `find / -name &#x27;*.html&#x27; -o -name &#x27;*.php&#x27;` | wc -l</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">find / -name &#x27;*.html&#x27; -o -name &#x27;*.php&#x27;</span><br><span class="line">find 命令用于在文件系统中查找符合特定条件的文件。这里的命令查找符合以下条件的文件：</span><br><span class="line"></span><br><span class="line">/：从根目录开始查找，表示查找整个文件系统。</span><br><span class="line">-name &#x27;*.html&#x27;：查找所有扩展名为 .html 的文件。</span><br><span class="line">-o：表示逻辑“或”（OR），意思是满足“-name &#x27;*.html&#x27;”或者“-name &#x27;*.php&#x27;”任意一个条件都符合。</span><br><span class="line">-name &#x27;*.php&#x27;：查找所有扩展名为 .php 的文件。</span><br><span class="line">因此，find / -name &#x27;*.html&#x27; -o -name &#x27;*.php&#x27; 会递归查找系统中所有 .html 或 .php 文件。</span><br></pre></td></tr></table></figure>
+
+<h3 id="9、过滤掉php-ini中注释的行和空行"><a href="#9、过滤掉php-ini中注释的行和空行" class="headerlink" title="9、过滤掉php.ini中注释的行和空行"></a>9、过滤掉php.ini中注释的行和空行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -vE &#x27;^\ *;|^$&#x27; /etc/php.ini</span><br></pre></td></tr></table></figure>
+
+<p><strong><code>-v</code><strong>：这个选项表示</strong>反向匹配</strong>，即排除匹配的行，而输出不匹配的行。因此，它会显示不符合给定模式的所有行。</p>
+<ul>
+<li>**<code>^\ \*;</code>**：表示以零个或多个空格开头，后面紧跟一个分号（<code>;</code>）的行。分号在 PHP 配置文件中通常表示注释行。例如，<code> ; This is a comment</code> 就是一个注释行。<ul>
+<li>**<code>^</code>**：表示行的开头。</li>
+<li>**<code>\ \*</code>**：表示零个或多个空格（注意这里的反斜杠用于转义空格字符，使其匹配空格的字面意义）。</li>
+<li>**<code>;</code>**：字面意思，匹配分号字符。</li>
+</ul>
+</li>
+<li>**<code>^$</code>**：表示空行，即没有任何字符的行。<ul>
+<li>**<code>^</code>**：表示行的开头。</li>
+<li>**<code>$</code>**：表示行的结尾。两个符号结合表示这行没有任何字符（即为空行）。</li>
+</ul>
+</li>
+<li>**<code>|</code>**：这是正则表达式中的“或”操作符，表示匹配前面或后面的模式。因此，<code>&#39;^\ *;|^$&#39;</code> 表示匹配“以零个或多个空格开头的注释行”或“空行”。</li>
+</ul>
+<h3 id="10、找出文件中至少有一个空格的行"><a href="#10、找出文件中至少有一个空格的行" class="headerlink" title="10、找出文件中至少有一个空格的行"></a>10、找出文件中至少有一个空格的行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E &#x27;\ +&#x27; a.sh </span><br></pre></td></tr></table></figure>
+
+<h4 id="11、过滤文件中以-开头的行，后面至少有一个空格"><a href="#11、过滤文件中以-开头的行，后面至少有一个空格" class="headerlink" title="11、过滤文件中以#开头的行，后面至少有一个空格"></a>11、过滤文件中以#开头的行，后面至少有一个空格</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E &#x27;^#\ +&#x27; a.sh </span><br></pre></td></tr></table></figure>
+
+<h3 id="12、查询出-x2F-etc目录中包含多少个root"><a href="#12、查询出-x2F-etc目录中包含多少个root" class="headerlink" title="12、查询出&#x2F;etc目录中包含多少个root"></a>12、查询出&#x2F;etc目录中包含多少个root</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Eor &#x27;root&#x27; /etc/ | wc -l</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>grep -Eor &#39;root&#39; /etc/</code> 会递归地在 <code>/etc/</code> 目录下的所有文件中查找包含 <code>root</code> 字符串的每个地方，并输出每个匹配到的 <code>root</code> 字符串，而不仅仅是包含它的整行。</li>
+</ul>
+<h3 id="13、查询出所有的qq邮箱"><a href="#13、查询出所有的qq邮箱" class="headerlink" title="13、查询出所有的qq邮箱"></a>13、查询出所有的qq邮箱</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Er &quot;[0-9a-zA-Z-_\.]+@qq\.com&quot; a.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="14、查询系统日志中所有的error"><a href="#14、查询系统日志中所有的error" class="headerlink" title="14、查询系统日志中所有的error"></a>14、查询系统日志中所有的error</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -orE &#x27;error&#x27; /var/log/messages</span><br></pre></td></tr></table></figure>
+
+<h3 id="15、删除某文件中以s开头的行的最后一个词"><a href="#15、删除某文件中以s开头的行的最后一个词" class="headerlink" title="15、删除某文件中以s开头的行的最后一个词"></a>15、删除某文件中以s开头的行的最后一个词</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -E &#x27;^s&#x27; /etc/passwd|sed -r &#x27;s/[0-9a-zA-Z]+$//g&#x27; [file]</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>-r</code><strong>：表示启用</strong>扩展正则表达式</strong>（与 <code>grep -E</code> 类似），使得正则表达式能够支持更多特性，如 <code>+</code> 和 <code>()</code> 等。</li>
+<li>**<code>s</code>**：表示替换操作（<code>sed</code> 中的标准替换格式是 <code>s/pattern/replacement/</code>，这里表示用某个替换模式处理匹配的字符串）。</li>
+</ul>
+<p><code>sed</code> 本身并不会<strong>原地修改</strong>文件，除非显式地使用一些选项来进行写回操作。默认情况下，<code>sed</code> 是将处理结果输出到标准输出（通常是屏幕），而不会直接修改文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">如何让 sed 原地修改文件？</span><br><span class="line">如果你想要让 sed 修改文件本身，可以使用以下两种方式：</span><br><span class="line"></span><br><span class="line">1. 使用 -i 选项（最常见）</span><br><span class="line">-i 选项告诉 sed 直接修改文件，而不是仅输出到标准输出。这样，sed 会在处理完成后将修改保存到原始文件中。</span><br><span class="line"></span><br><span class="line">sed -i &#x27;s/old/new/&#x27; file.txt</span><br><span class="line">这个命令会直接修改 file.txt，将其中所有的 old 替换为 new，并直接保存文件，而不是输出到屏幕。</span><br><span class="line"></span><br><span class="line">2. 备份原文件（使用 -i[SUFFIX]）</span><br><span class="line">为了防止数据丢失，有时你可能希望在修改文件之前创建备份。你可以在 -i 后面指定一个备份后缀，这样 sed 会将修改前的文件保存为备份文件，并将修改应用到原文件。</span><br><span class="line"></span><br><span class="line">sed -i.bak &#x27;s/old/new/&#x27; file.txt</span><br><span class="line">这个命令会在当前目录下创建一个名为 file.txt.bak 的备份文件，然后修改 file.txt，将其中所有的 old 替换为 new。</span><br></pre></td></tr></table></figure>
+
+<h3 id="16、删除一个文件中的所有数字"><a href="#16、删除一个文件中的所有数字" class="headerlink" title="16、删除一个文件中的所有数字"></a>16、删除一个文件中的所有数字</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -r &#x27;s/[0-9]+//g&#x27; /root/a.sh </span><br></pre></td></tr></table></figure>
+
+<h3 id="17、显示奇数行"><a href="#17、显示奇数行" class="headerlink" title="17、显示奇数行"></a>17、显示奇数行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;&#123;if(NR%2==1)print NR,$0&#125;&#x27; /root/a.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>NR</code>**：<code>NR</code> 是 <code>awk</code> 内置的变量，表示当前处理的行号（从 1 开始计数）。例如，第一行的 <code>NR</code> 为 1，第二行为 2，以此类推。</li>
+<li>**<code>NR%2 == 1</code>**：这是一个条件判断，用来检查行号是否为奇数。</li>
+</ul>
+<p>命令中的 <code>print NR,$0</code>：</p>
+<ul>
+<li><p>**<code>NR</code>**：表示当前行号（<code>awk</code> 内置变量）。</p>
+</li>
+<li><p>**<code>$0</code>**：表示当前行的整个内容（<code>awk</code> 内置变量，包含该行的所有字段）。</p>
+</li>
+<li><p>这条命令使用了 <strong><code>if</code> 语句</strong>。</p>
+</li>
+<li><p><code>if(NR%2==1)</code> 判断当前行号是否为奇数，如果条件为真（即行号为奇数），则执行 <code>print NR, $0</code> 打印当前行号和行的内容。</p>
+</li>
+<li><p>该命令可以看作是一个 <strong>显式的条件判断</strong>，通过 <code>if</code> 语句来决定是否执行打印操作。</p>
+</li>
+</ul>
+<p><strong>逗号的作用</strong>：</p>
+<ul>
+<li>逗号 <code>,</code> 用来将 <code>NR</code> 和 <code>$0</code> 分开，表示将这两个项（行号和整行内容）打印在同一行，并且默认情况下，<code>awk</code> 会使用一个分隔符将它们分开。</li>
+<li>默认情况下，<code>awk</code> 会使用 <strong>空格</strong>（或者制表符）作为字段输出的分隔符。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;NR%2==1&#123;print NR,$0&#125;&#x27; /root/a.sh</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这条命令直接在模式部分 <code>NR%2==1</code> 后跟一个动作 <code>&#123;print NR, $0&#125;</code>。</li>
+<li><code>NR%2==1</code> 是模式（条件），当该模式成立时（即行号为奇数时），执行花括号内的动作 <code>print NR, $0</code>。</li>
+<li>这种写法省略了显式的 <code>if</code> 语句，直接利用 <code>awk</code> 的模式-动作结构，模式为 <code>NR%2==1</code>，动作为 <code>&#123;print NR, $0&#125;</code>。</li>
+</ul>
+<p><strong>语法差别总结</strong></p>
+<ul>
+<li><strong><code>if</code> 语句 vs. 模式-动作结构</strong>：<ul>
+<li>第一种写法使用了 <strong>显式的 <code>if</code> 语句</strong> 来进行条件判断。只有在条件满足时，才会执行 <code>print</code> 操作。</li>
+<li>第二种写法是 <strong><code>awk</code> 默认的模式-动作结构</strong>，其中 <code>NR%2==1</code> 作为条件（模式），如果条件为真，自动执行 <code>&#123;print NR, $0&#125;</code>。</li>
+</ul>
+</li>
+<li><strong>功能上的差异</strong>：<ul>
+<li>这两种写法的最终结果是完全一样的，都是输出文件中的奇数行。</li>
+<li>第一种写法将条件判断和动作分开，使得 <code>if</code> 语句的逻辑更加显式；而第二种写法更加简洁，直接使用了 <code>awk</code> 内建的模式-动作机制。</li>
+</ul>
+</li>
+<li><strong>代码简洁性</strong>：<ul>
+<li>第二种写法（<code>awk &#39;NR%2==1&#123;print NR,$0&#125;&#39;</code>）更简洁，符合 <code>awk</code> 的惯用法，因为 <code>awk</code> 本身就是基于模式和动作的。如果你只需要基于某个条件执行操作，直接使用模式-动作结构会更加简洁清晰。</li>
+<li>第一种写法（<code>awk &#39;&#123;if(NR%2==1)print NR,$0&#125;&#39;</code>）显得冗长，因为 <code>awk</code> 内部已经有内建的机制来处理条件判断和执行动作，额外使用 <code>if</code> 语句使得语法显得复杂一些。</li>
+</ul>
+</li>
+</ul>
+<h3 id="18、删除passwd文件中以bin开头的行到nobody开头的行"><a href="#18、删除passwd文件中以bin开头的行到nobody开头的行" class="headerlink" title="18、删除passwd文件中以bin开头的行到nobody开头的行"></a>18、删除passwd文件中以bin开头的行到nobody开头的行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -r &#x27;/^bin/,/^nobody/d&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p><code>-r</code> 选项启用扩展正则表达式（ERE，Extended Regular Expression）。这使得正则表达式的语法更加灵活，支持更多复杂的模式（比如 <code>+</code>, <code>?</code>, <code>&#123;&#125;</code> 等）。</p>
+</li>
+<li><p><code>^bin</code>：匹配以 <code>bin</code> 开头的行（<code>^</code> 表示行的开头）。</p>
+</li>
+<li><p><code>^nobody</code>：匹配以 <code>nobody</code> 开头的行。</p>
+</li>
+<li><p><code>d</code> 是 <code>sed</code> 的删除命令，表示删除匹配范围内的所有行。</p>
+</li>
+</ul>
+<h3 id="19、从指定行开始，每隔两行显示一次"><a href="#19、从指定行开始，每隔两行显示一次" class="headerlink" title="19、从指定行开始，每隔两行显示一次"></a>19、从指定行开始，每隔两行显示一次</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if(NR&gt;3)&#123;num=(NR-3)%2; if(num)&#123;print $0&#125;&#125;&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><code>-F:</code> 选项指定字段分隔符为冒号（<code>:</code>）。这是因为 <code>/etc/passwd</code> 文件的每一行记录是由冒号分隔的字段组成（例如，用户名、密码、用户ID等）。所以 <code>-F:</code> 告诉 <code>awk</code> 使用冒号作为字段分隔符。</li>
+</ul>
+<h3 id="20、每隔5行打印一个空格"><a href="#20、每隔5行打印一个空格" class="headerlink" title="20、每隔5行打印一个空格"></a>20、每隔5行打印一个空格</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if(NR%5==0)&#123;print &quot; &quot;&#125;print $0&#125;&#x27; /root/a.sh </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>&#123;print &quot; &quot;&#125;</code> 会打印一个空格。这行代码只会在 <code>NR</code> 是 5 的倍数时执行，因此只会在第 5、10、15 行等时输出一个空格。</li>
+</ul>
+<p>awk分隔符：</p>
+<p>逗号：awk -F, ‘{print $1, $2, $3}’ filename</p>
+<p><strong>空格或制表符作为分隔符</strong>：awk -F’ ‘ ‘{print $1, $2}’ filename</p>
+<p><strong>多个空格或制表符</strong>：awk -F’[[:space:]]+’ ‘{print $1, $2}’ filename</p>
+<h3 id="21、不显示指定字符的行"><a href="#21、不显示指定字符的行" class="headerlink" title="21、不显示指定字符的行"></a>21、不显示指定字符的行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -Ev &#x27;g&#x27; a.sh</span><br></pre></td></tr></table></figure>
+
+<h3 id="22、将文件中1到5行中aaa替换成AAA"><a href="#22、将文件中1到5行中aaa替换成AAA" class="headerlink" title="22、将文件中1到5行中aaa替换成AAA"></a>22、将文件中1到5行中aaa替换成AAA</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -r &#x27;1,5 s/a/A/g&#x27; /root/a.sh | head -n5</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>1,5</code>**：这是一个地址范围，表示从第 1 行到第 5 行。换句话说，这个命令只作用于文件的前 5 行。</li>
+<li><code>s/a/A/g</code>用来替换文本：<ul>
+<li><strong><code>s</code></strong> 表示替换操作（<code>substitute</code>）。</li>
+<li><strong><code>a</code></strong> 是要被替换的字符（即字母 <code>a</code>）。</li>
+<li><strong><code>A</code></strong> 是替换后的字符（即字母 <code>A</code>）。</li>
+<li><strong><code>g</code></strong> 是一个修饰符，表示 <strong>全局替换</strong>，即每行中所有的 <code>a</code> 都会被替换成 <code>A</code>，而不仅仅是每行的第一个 <code>a</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="23、显示用户id为奇数的行"><a href="#23、显示用户id为奇数的行" class="headerlink" title="23、显示用户id为奇数的行"></a>23、显示用户id为奇数的行</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if ($3%2==1) print NR,$0&#125;&#x27; /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>NR</code></strong> 是 <code>awk</code> 内置变量，表示当前行号。<code>NR</code> 的值是文件中当前正在处理的行数。</li>
+<li><strong><code>$0</code></strong> 是 <code>awk</code> 的另一个内置变量，表示当前行的全部内容（即该行的原始文本）。</li>
+</ul>
+<h3 id="24、显示系统普通用户，并打印系统用户名和id"><a href="#24、显示系统普通用户，并打印系统用户名和id" class="headerlink" title="24、显示系统普通用户，并打印系统用户名和id"></a>24、显示系统普通用户，并打印系统用户名和id</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk -F: &#x27;&#123;if($3&gt;=1000)&#123;print &quot;用户名：&quot; $1&quot;用户id：&quot;$3&#125;&#125;&#x27; /etc/passwd </span><br></pre></td></tr></table></figure>
+
+<h3 id="25、统计nginx日志中访问量-ip唯独计算"><a href="#25、统计nginx日志中访问量-ip唯独计算" class="headerlink" title="25、统计nginx日志中访问量(ip唯独计算)"></a>25、统计nginx日志中访问量(ip唯独计算)</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">awk &#x27;/([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;/&#123;arr[$1]++&#125;END&#123;for(i in arr)&#123;print i&#125;&#125;&#x27; access.log </span><br></pre></td></tr></table></figure>
+
+<p>**<code>&#123;arr[$1]++&#125;</code>**：</p>
+<ul>
+<li><code>&#123;&#125;</code> 中的代码是在每一行匹配到 IP 地址时执行的操作。</li>
+<li><code>arr[$1]++</code>：这里 <code>$1</code> 表示 <code>awk</code> 处理的当前行的第一个字段，假设当前行是 <code>access.log</code> 中的一行请求日志，通常 IP 地址是该行的第一个字段。</li>
+<li><code>arr[$1]++</code> 是对 <code>arr</code> 数组进行操作，<code>arr[$1]</code> 的值表示当前 IP 地址的出现次数。每次找到该 IP 地址时，都会将对应的计数器 <code>arr[$1]</code> 自增。</li>
+</ul>
+<p>如果想进一步修改命令以打印每个 IP 的出现次数，可以将 <code>print i</code> 改为 <code>print i, arr[i]</code>，这样就会输出 IP 地址及其对应的出现次数。</p>
+<h3 id="26、实时打印nginx的访问ip"><a href="#26、实时打印nginx的访问ip" class="headerlink" title="26、实时打印nginx的访问ip"></a>26、实时打印nginx的访问ip</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -oE &#x27;[0-9a-zA-Z]+&#x27; /etc/php.ini | awk &#x27;&#123;arr[$1]++&#125;END&#123;for(i in arr)&#123;printf &quot;%-15s | %-5d\n&quot;, i, arr[i]&#125;&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>**<code>for(i in arr)&#123;printf &quot;%-15s | %-5d\n&quot;, i, arr[i]&#125;</code>**：</p>
+<ul>
+<li><p><code>for(i in arr)</code>：遍历数组 <code>arr</code> 中的每一个键（即每个唯一的单词）。</p>
+</li>
+<li><p>&#96;&#96;&#96;<br>printf “%-15s | %-5d\n”, i, arr[i]</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">    ：格式化输出每个单词和它的出现次数：</span><br><span class="line"></span><br><span class="line">    - `%-15s`：表示输出单词时，左对齐并占 15 个字符宽度。</span><br><span class="line">    - `%-5d`：表示输出单词出现次数时，左对齐并占 5 个字符宽度。</span><br><span class="line">    - `\n`：换行符，用于每行输出之后换行。</span><br><span class="line"></span><br><span class="line">### 27、统计php.ini中每个词的个数</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<p>egrep -o “[a-Z]+” php.ini | wc -l</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **`egrep`**：`egrep` 是 `grep` 的扩展版本，允许使用扩展正则表达式（ERE）。实际上，`egrep` 和 `grep -E` 是等价的，因此我们可以用 `grep -E` 来代替 `egrep`，两者功能相同。</span><br><span class="line"></span><br><span class="line">### 28、统计1分钟内访问nginx次数超过10次的ip</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#!&#x2F;bin&#x2F;bash<br>NGINX_LOG&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log<br>TIME&#x3D;<code>date +%s</code><br>DATE&#x3D;<code>echo $TIME - 3600 | bc</code><br>declare -A IP<br>while read line<br>do<br>    timestamp&#x3D;<code>echo $line | grep -oE &#39;[0-9]&#123;4&#125;.*T[0-9]&#123;2&#125;:[0-9]&#123;2&#125;:[0-9]&#123;2&#125;&#39;</code><br>    timestamp&#x3D;<code>date -d &quot;$timestamp&quot; +%s</code><br>    if (( $TIME &gt;&#x3D; $timestamp &amp;&amp; $DATE &lt;&#x3D; $timestamp ));then<br>        ip&#x3D;<code>echo $line| grep -oE &#39;([0-9]&#123;1,3&#125;\.)&#123;3&#125;[0-9]&#123;1,3&#125;&#39;</code><br>        number&#x3D;<code>echo $&#123;IP[&quot;$ip&quot;]&#125; | wc -L</code><br>        [ $number -eq 0 ] &amp;&amp; IP[“$ip”]&#x3D;0<br>        num&#x3D;${IP[“$ip”]}<br>        IP[“$ip”]&#x3D;<code>echo &quot;$num + 1&quot; | bc</code><br>    fi<br>done &lt; $NGINX_LOG<br>for i in ${!IP[*]}<br>do<br>    if (( ${IP[$i]} &gt;&#x3D; 10 ));then<br>        echo $i<br>    fi<br>done</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- **`declare -A IP`**：声明一个关联数组 `IP`，用来存储每个 IP 地址的请求次数。</span><br><span class="line"></span><br><span class="line">- **`if (( $TIME &gt;= $timestamp &amp;&amp; $DATE &lt;= $timestamp ))`**：判断日志行的时间戳是否在过去一小时内。`$TIME` 是当前时间的 Unix 时间戳（即 `date +%s` 计算得到的值），`$DATE` 是一小时前的时间戳（即 `$TIME - 3600`）。如果当前时间戳 `$TIME` 大于等于日志中的时间戳，且日志中的时间戳大于等于 `$DATE`（即一小时之前的时间戳），则表示该日志行属于过去一小时的时间窗口。</span><br><span class="line"></span><br><span class="line">- **`done &lt; $NGINX_LOG`**：结束 `while` 循环，并指定从 `$NGINX_LOG` 文件中读取输入。</span><br><span class="line">- 在 Bash 中，`$&#123;!IP[*]&#125;` 是用来获取关联数组 `IP` 的所有键的语法。具体来说，`!` 是一种引用方式，用来访问数组或关联数组的 **键（keys）**，而不是它们的值。</span><br><span class="line">- [ $number -eq 0 ] &amp;&amp; IP[&quot;$ip&quot;]=0 的作用是：**如果某个 IP 地址在关联数组 `IP` 中尚未记录，则将其初始值设置为 0**。</span><br><span class="line"></span><br><span class="line">### 29、找出nginx访问的峰值，按每个小时计算</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#!&#x2F;bin&#x2F;bash</p>
+<p>NGINX_LOG&#x3D;&#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log</p>
+<p>declare -A IP </p>
+<p>while read line<br>do<br>    timestamp&#x3D;<code>echo $line | grep -oE &#39;[0-9]&#123;4&#125;.*T[0-9]&#123;2&#125;:[0-9]&#123;2&#125;:[0-9]&#123;2&#125;&#39;</code><br>    timestamp&#x3D;<code>date -d &quot;$timestamp&quot; +%Y%m%d%H</code></p>
+<pre><code>number=`echo $&#123;IP[&quot;$timestamp&quot;]&#125; | wc -L`
+[ $number -eq 0 ] &amp;&amp; IP[&quot;$timestamp&quot;]=0
+num=$&#123;IP[&quot;$timestamp&quot;]&#125;
+IP[&quot;$timestamp&quot;]=`echo &quot;$num + 1&quot; | bc`
+</code></pre>
+<p>done &lt; $NGINX_LOG</p>
+<p>for i in ${!IP[*]}<br>do<br>    if (( ${IP[$i]} &gt;&#x3D; 10 ));then<br>        echo “$i ${IP[$i]}”<br>    fi<br>done</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 30、统计访问nginx前10的ip</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>grep -oE ‘([0-9]{1,3}.){3}[0-9]{1,3}’ &#x2F;var&#x2F;log&#x2F;nginx&#x2F;access.log | sort | uniq -c | sort -r | head </p>
+<pre><code>
+- **`sort -r`**：按 **降序** 排序。这个选项会将数据从大到小排列。
+
+
+
+## 系统出现故障时的一些可能有用的命令
+
+
+
+### Strace
+
+[Linux神器strace的使用方法及实践 - 知乎](https://zhuanlan.zhihu.com/p/180053751)
+
+确实很好用的一条命令，之前实习时也是用这个命令排查出原来问题是出现在少了一个.so文件
+
+
+
+### demsg
+
+[Linux dmesg 命令 | 菜鸟教程](https://www.runoob.com/linux/linux-comm-dmesg.html)
+
+[Linux诊断机器故障工具—dmesg命令 - 知乎](https://zhuanlan.zhihu.com/p/107259467)
+
+[Linux dmesg 命令初学者教程（5 个示例）](https://cn.linux-console.net/?p=3656)
+
+[如何在没有core文件的情况下用dmesg+addr2line定位段错误 - 一觉醒来写程序 - 博客园](https://www.cnblogs.com/realjimmy/p/12850884.html)
+</code></pre>
 
       
 
@@ -331,7 +587,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%B8%89%E5%89%91%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">Linux三剑客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%87%BA%E7%8E%B0%E6%95%85%E9%9A%9C%E6%97%B6%E7%9A%84%E4%B8%80%E4%BA%9B%E5%8F%AF%E8%83%BD%E6%9C%89%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4"><span class="toc-number">2.</span> <span class="toc-text">系统出现故障时的一些可能有用的命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Strace"><span class="toc-number">2.1.</span> <span class="toc-text">Strace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#demsg"><span class="toc-number">2.2.</span> <span class="toc-text">demsg</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Linux%E4%B8%89%E5%89%91%E5%AE%A2"><span class="toc-number">1.</span> <span class="toc-text">Linux三剑客</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%83%E4%B9%A0%E9%A2%98%E5%A4%8D%E7%8E%B0%E5%8F%8A%E8%A7%A3%E6%9E%90"><span class="toc-number">2.</span> <span class="toc-text">练习题复现及解析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%89%BE%E5%87%BA-x2F-proc-x2F-meminfo%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5s%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%EF%BC%8C%E8%87%B3%E5%B0%91%E7%94%A8%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%BF%BD%E7%95%A5%E5%A4%A7%E5%B0%8F%E5%86%99"><span class="toc-number">2.1.</span> <span class="toc-text">1、找出&#x2F;proc&#x2F;meminfo文件中以s开头的行，至少用三种方式忽略大小写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E6%98%BE%E7%A4%BA%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%8A%E7%9A%84root-centos%E6%88%96%E8%80%85use%E5%BC%80%E5%A4%B4%E7%9A%84%E4%BF%A1%E6%81%AF"><span class="toc-number">2.2.</span> <span class="toc-text">2、显示当前系统上的root,centos或者use开头的信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%89%BE%E5%87%BA-x2F-etc-x2F-init-d-x2F-function%E6%96%87%E4%BB%B6%E4%B8%8B%E5%8C%85%E5%90%AB%E5%B0%8F%E6%8B%AC%E5%8F%B7%E7%9A%84%E8%A1%8C"><span class="toc-number">2.3.</span> <span class="toc-text">3、找出&#x2F;etc&#x2F;init.d&#x2F;function文件下包含小括号的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81%E8%BE%93%E5%87%BA%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E7%9A%84%E5%9F%BA%E5%90%8D"><span class="toc-number">2.4.</span> <span class="toc-text">4、输出指定目录的基名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81%E6%89%BE%E5%87%BA%E7%BD%91%E5%8D%A1%E4%BF%A1%E6%81%AF%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E6%95%B0%E5%AD%97"><span class="toc-number">2.5.</span> <span class="toc-text">5、找出网卡信息中包含的数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E6%89%BE%E5%87%BA-x2F-etc-x2F-passwd%E4%B8%8B%E6%AF%8F%E7%A7%8D%E8%A7%A3%E6%9E%90%E5%99%A8%E7%9A%84%E7%94%A8%E6%88%B7%E4%B8%AA%E6%95%B0"><span class="toc-number">2.6.</span> <span class="toc-text">6、找出&#x2F;etc&#x2F;passwd下每种解析器的用户个数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E8%BF%87%E5%8E%BB%E7%BD%91%E5%8D%A1%E4%B8%AD%E7%9A%84ip%EF%BC%8C%E7%94%A8%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AE%9E%E7%8E%B0"><span class="toc-number">2.7.</span> <span class="toc-text">7、过去网卡中的ip，用三种方式实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E6%90%9C%E7%B4%A2-x2F-%E7%9B%AE%E5%BD%95%E4%B8%8B%EF%BC%8C%E6%89%80%E6%9C%89%E7%9A%84-html%E6%88%96-php%E6%96%87%E4%BB%B6%E4%B8%ADmain%E5%87%BD%E6%95%B0%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0"><span class="toc-number">2.8.</span> <span class="toc-text">8、搜索&#x2F;目录下，所有的.html或.php文件中main函数出现的次数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81%E8%BF%87%E6%BB%A4%E6%8E%89php-ini%E4%B8%AD%E6%B3%A8%E9%87%8A%E7%9A%84%E8%A1%8C%E5%92%8C%E7%A9%BA%E8%A1%8C"><span class="toc-number">2.9.</span> <span class="toc-text">9、过滤掉php.ini中注释的行和空行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81%E6%89%BE%E5%87%BA%E6%96%87%E4%BB%B6%E4%B8%AD%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC%E7%9A%84%E8%A1%8C"><span class="toc-number">2.10.</span> <span class="toc-text">10、找出文件中至少有一个空格的行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#11%E3%80%81%E8%BF%87%E6%BB%A4%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5-%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%EF%BC%8C%E5%90%8E%E9%9D%A2%E8%87%B3%E5%B0%91%E6%9C%89%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC"><span class="toc-number">2.10.1.</span> <span class="toc-text">11、过滤文件中以#开头的行，后面至少有一个空格</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81%E6%9F%A5%E8%AF%A2%E5%87%BA-x2F-etc%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%8C%85%E5%90%AB%E5%A4%9A%E5%B0%91%E4%B8%AAroot"><span class="toc-number">2.11.</span> <span class="toc-text">12、查询出&#x2F;etc目录中包含多少个root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81%E6%9F%A5%E8%AF%A2%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84qq%E9%82%AE%E7%AE%B1"><span class="toc-number">2.12.</span> <span class="toc-text">13、查询出所有的qq邮箱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14%E3%80%81%E6%9F%A5%E8%AF%A2%E7%B3%BB%E7%BB%9F%E6%97%A5%E5%BF%97%E4%B8%AD%E6%89%80%E6%9C%89%E7%9A%84error"><span class="toc-number">2.13.</span> <span class="toc-text">14、查询系统日志中所有的error</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15%E3%80%81%E5%88%A0%E9%99%A4%E6%9F%90%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5s%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%E7%9A%84%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E8%AF%8D"><span class="toc-number">2.14.</span> <span class="toc-text">15、删除某文件中以s开头的行的最后一个词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#16%E3%80%81%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%95%B0%E5%AD%97"><span class="toc-number">2.15.</span> <span class="toc-text">16、删除一个文件中的所有数字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#17%E3%80%81%E6%98%BE%E7%A4%BA%E5%A5%87%E6%95%B0%E8%A1%8C"><span class="toc-number">2.16.</span> <span class="toc-text">17、显示奇数行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#18%E3%80%81%E5%88%A0%E9%99%A4passwd%E6%96%87%E4%BB%B6%E4%B8%AD%E4%BB%A5bin%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C%E5%88%B0nobody%E5%BC%80%E5%A4%B4%E7%9A%84%E8%A1%8C"><span class="toc-number">2.17.</span> <span class="toc-text">18、删除passwd文件中以bin开头的行到nobody开头的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#19%E3%80%81%E4%BB%8E%E6%8C%87%E5%AE%9A%E8%A1%8C%E5%BC%80%E5%A7%8B%EF%BC%8C%E6%AF%8F%E9%9A%94%E4%B8%A4%E8%A1%8C%E6%98%BE%E7%A4%BA%E4%B8%80%E6%AC%A1"><span class="toc-number">2.18.</span> <span class="toc-text">19、从指定行开始，每隔两行显示一次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#20%E3%80%81%E6%AF%8F%E9%9A%945%E8%A1%8C%E6%89%93%E5%8D%B0%E4%B8%80%E4%B8%AA%E7%A9%BA%E6%A0%BC"><span class="toc-number">2.19.</span> <span class="toc-text">20、每隔5行打印一个空格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#21%E3%80%81%E4%B8%8D%E6%98%BE%E7%A4%BA%E6%8C%87%E5%AE%9A%E5%AD%97%E7%AC%A6%E7%9A%84%E8%A1%8C"><span class="toc-number">2.20.</span> <span class="toc-text">21、不显示指定字符的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#22%E3%80%81%E5%B0%86%E6%96%87%E4%BB%B6%E4%B8%AD1%E5%88%B05%E8%A1%8C%E4%B8%ADaaa%E6%9B%BF%E6%8D%A2%E6%88%90AAA"><span class="toc-number">2.21.</span> <span class="toc-text">22、将文件中1到5行中aaa替换成AAA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#23%E3%80%81%E6%98%BE%E7%A4%BA%E7%94%A8%E6%88%B7id%E4%B8%BA%E5%A5%87%E6%95%B0%E7%9A%84%E8%A1%8C"><span class="toc-number">2.22.</span> <span class="toc-text">23、显示用户id为奇数的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#24%E3%80%81%E6%98%BE%E7%A4%BA%E7%B3%BB%E7%BB%9F%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%89%93%E5%8D%B0%E7%B3%BB%E7%BB%9F%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8Cid"><span class="toc-number">2.23.</span> <span class="toc-text">24、显示系统普通用户，并打印系统用户名和id</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#25%E3%80%81%E7%BB%9F%E8%AE%A1nginx%E6%97%A5%E5%BF%97%E4%B8%AD%E8%AE%BF%E9%97%AE%E9%87%8F-ip%E5%94%AF%E7%8B%AC%E8%AE%A1%E7%AE%97"><span class="toc-number">2.24.</span> <span class="toc-text">25、统计nginx日志中访问量(ip唯独计算)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#26%E3%80%81%E5%AE%9E%E6%97%B6%E6%89%93%E5%8D%B0nginx%E7%9A%84%E8%AE%BF%E9%97%AEip"><span class="toc-number">2.25.</span> <span class="toc-text">26、实时打印nginx的访问ip</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -439,6 +695,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">408</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -447,11 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -459,7 +723,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -471,11 +735,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -511,6 +775,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
@@ -519,19 +787,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">

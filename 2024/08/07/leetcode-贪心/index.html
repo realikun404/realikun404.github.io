@@ -8,15 +8,18 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>leetcode_贪心 | ZER0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="刷题">
+<meta property="og:type" content="article">
 <meta property="og:title" content="leetcode_贪心">
 <meta property="og:url" content="http://example.com/2024/08/07/leetcode-%E8%B4%AA%E5%BF%83/index.html">
 <meta property="og:site_name" content="ZER0">
+<meta property="og:description" content="刷题">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-08-07T12:27:58.000Z">
-<meta property="article:modified_time" content="2024-08-21T10:36:09.026Z">
+<meta property="article:modified_time" content="2025-02-09T09:15:31.971Z">
 <meta property="article:author" content="ZER0">
-<meta property="article:tag" content="java leetcode ctf">
+<meta property="article:tag" content="coding">
+<meta property="article:tag" content="leetcode">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="ZER0" type="application/atom+xml">
@@ -153,6 +156,30 @@
           <div id="js-content" class="content-ll">
             <!-- 目录内容 -->
 
+  <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+  <span class="btn-bg"></span>
+  <span class="btn-text">文章导航</span>
+  </p>
+  <div id="toc-article" class="toc-article">
+      <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+      <strong class="toc-title">文章目录</strong>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E6%B8%85%E5%8D%95"><span class="toc-number">1.</span> <span class="toc-text">思考清单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5"><span class="toc-number"></span> <span class="toc-text">一、贪心策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E4%BB%8E%E6%9C%80%E5%B0%8F-x2F-%E6%9C%80%E5%A4%A7%E5%BC%80%E5%A7%8B%E8%B4%AA%E5%BF%83"><span class="toc-number">1.</span> <span class="toc-text">1.1从最小&#x2F;最大开始贪心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C"><span class="toc-number">1.1.</span> <span class="toc-text">3074. 重新分装苹果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2279-%E8%A3%85%E6%BB%A1%E7%9F%B3%E5%A4%B4%E7%9A%84%E8%83%8C%E5%8C%85%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2279. 装满石头的背包的最大数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1833-%E9%9B%AA%E7%B3%95%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">1833. 雪糕的最大数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C"><span class="toc-number">1.4.</span> <span class="toc-text">1005. K 次取反后最大化的数组和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1481-%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">1481. 不同整数的最少数目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1403-%E9%9D%9E%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">1.6.</span> <span class="toc-text">1403. 非递增顺序的最小子序列</span></a></li></ol></li></ol>
+ </div>
+ <script type="text/javascript">
+  function showToc(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:block");
+      show_toc_btn.setAttribute("style","display:none");
+      };
+  function showBtn(){
+      var toc_article = document.getElementById("toc-article");
+      var show_toc_btn = document.getElementById("show-toc-btn");
+      toc_article.setAttribute("style","display:none");
+      show_toc_btn.setAttribute("style","display:block");
+      };
+ </script>
+
 <!-- 目录内容结束 -->
 <article id="post-leetcode-贪心" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -174,7 +201,53 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p><a target="_blank" rel="noopener" href="https://leetcode.cn/circle/discuss/g6KTKL/">分享丨【题单】贪心算法（基本贪心策略&#x2F;反悔&#x2F;区间&#x2F;字典序&#x2F;数学&#x2F;思维&#x2F;构造） - 力扣（LeetCode）</a></p>
+<span id="more"></span>
+
+<p>[toc]</p>
+<p>回想一下高考数学的最后一题，三个小问，前两小问让你计算一些特殊情况，第三小问让你计算证明一个一般的结论。这其实就是从特殊到一般的思考方式，我们在做算法题（尤其是思维题和构造题）时，也可以从最简单、最特殊的情况开始，去探索题目的性质，逐渐过渡到一般情况。</p>
+<h2 id="思考清单"><a href="#思考清单" class="headerlink" title="思考清单"></a>思考清单</h2><ul>
+<li><strong>小型数组</strong>：<code>nums</code> 只有 1 个数？只有 2 个数？只有 3 个数？</li>
+<li><strong>万里挑一</strong>：<code>nums</code> 所有数都相同？只有一个数不一样？有两个数不一样？某个数特别大？</li>
+<li><strong>黑白世界</strong>：只有两种数？例如 <code>[0, 1, 0, 1, 0, 1]</code> 或者 <code>ababab</code>。</li>
+<li><strong>反向思考</strong>：如果答案是 1，输入会是什么样的？如果答案是 2？是 <code>nums[0]</code>？是 <code>nums[1]</code>？</li>
+<li><strong>枚举归纳</strong>：试试小范围打表，暴力枚举所有情况，找规律。</li>
+</ul>
+<p>思考这些特殊情况，有时会产生求解原问题的灵感。</p>
+<h1 id="一、贪心策略"><a href="#一、贪心策略" class="headerlink" title="一、贪心策略"></a>一、贪心策略</h1><p>有两种<strong>基本贪心策略</strong>：</p>
+<p>1、从<strong>最小&#x2F;最大</strong>开始贪心，优先考虑最小&#x2F;最大的数，从小到大&#x2F;从大到小贪心。在此基础上，衍生出了<strong>反悔贪心</strong></p>
+<p>2、从<strong>最左&#x2F;最右</strong>开始贪心，思考第一个数&#x2F;最后一个数的贪心策略，把 n<em>n</em> 个数的原问题转换成 n−1<em>n</em>−1 个数（或更少）的子问题。</p>
+<h2 id="1-1从最小-x2F-最大开始贪心"><a href="#1-1从最小-x2F-最大开始贪心" class="headerlink" title="1.1从最小&#x2F;最大开始贪心"></a>1.1从最小&#x2F;最大开始贪心</h2><h3 id="3074-重新分装苹果"><a href="#3074-重新分装苹果" class="headerlink" title="3074. 重新分装苹果"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/apple-redistribution-into-boxes/">3074. 重新分装苹果</a></h3><p>思路：贪心即可，肯定先选最大的箱子</p>
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">minimumBoxes</span><span class="params">(<span class="type">int</span>[] apple, <span class="type">int</span>[] capacity)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> Arrays.stream(apple).sum();</span><br><span class="line">        Arrays.sort(capacity);</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> capacity.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (sum &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            sum -= capacity[i];</span><br><span class="line">            i--;</span><br><span class="line">            res++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2279-装满石头的背包的最大数量"><a href="#2279-装满石头的背包的最大数量" class="headerlink" title="2279. 装满石头的背包的最大数量"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-bags-with-full-capacity-of-rocks/">2279. 装满石头的背包的最大数量</a></h3><p>思路</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">减下得到差值数组然后排序就行</span><br></pre></td></tr></table></figure>
+
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maximumBags</span><span class="params">(<span class="type">int</span>[] capacity, <span class="type">int</span>[] rocks, <span class="type">int</span> additionalRocks)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> capacity.length;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            capacity[i] -= rocks[i];</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(capacity);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            additionalRocks -= capacity[i];</span><br><span class="line">            <span class="keyword">if</span>(additionalRocks == <span class="number">0</span>) <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(additionalRocks &lt; <span class="number">0</span>) <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1833-雪糕的最大数量"><a href="#1833-雪糕的最大数量" class="headerlink" title="1833. 雪糕的最大数量"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-ice-cream-bars/">1833. 雪糕的最大数量</a></h3><p>思路：贪心</p>
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">maxIceCream</span><span class="params">(<span class="type">int</span>[] costs, <span class="type">int</span> coins)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> costs.length;</span><br><span class="line">        Arrays.sort(costs);</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (coins &gt;= costs[i]) &#123;</span><br><span class="line">                ans++; coins -= costs[i];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1005-K-次取反后最大化的数组和"><a href="#1005-K-次取反后最大化的数组和" class="headerlink" title="1005. K 次取反后最大化的数组和"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/">1005. K 次取反后最大化的数组和</a></h3><p>思路</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">先排序，然后先把最小值分别取反即可</span><br></pre></td></tr></table></figure>
+
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">largestSumAfterKNegations</span><span class="params">(<span class="type">int</span>[] nums, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        Arrays.sort(nums);</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//-3 1 2 3 k = 2</span></span><br><span class="line">        <span class="comment">// -1 4 5 6 k = 2</span></span><br><span class="line">        <span class="keyword">while</span> (k &gt; <span class="number">0</span> &amp;&amp; i &lt; nums.length)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                k--;</span><br><span class="line">                nums[i] = -nums[i];</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                k %= <span class="number">2</span>;</span><br><span class="line">                <span class="keyword">if</span>(k &gt; <span class="number">0</span>)&#123;</span><br><span class="line">                    <span class="type">int</span> <span class="variable">reverseIndex</span> <span class="operator">=</span> i;</span><br><span class="line">                    <span class="keyword">if</span>(i - <span class="number">1</span> &gt;= <span class="number">0</span> &amp;&amp; nums[i - <span class="number">1</span>] &lt; nums[i]) reverseIndex = i - <span class="number">1</span>;</span><br><span class="line">                    nums[reverseIndex] = -nums[reverseIndex];</span><br><span class="line">                    k--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k % <span class="number">2</span> == <span class="number">1</span>)  nums[nums.length - <span class="number">1</span>] = -nums[nums.length - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">return</span> Arrays.stream(nums).sum();        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1481-不同整数的最少数目"><a href="#1481-不同整数的最少数目" class="headerlink" title="1481. 不同整数的最少数目"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/least-number-of-unique-integers-after-k-removals/">1481. 不同整数的最少数目</a></h3><p>思路：哪个整数数量少移除哪个</p>
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">findLeastNumOfUniqueInts</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> num : arr) &#123;</span><br><span class="line">            map.merge(num, <span class="number">1</span>, Integer::sum);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(k == <span class="number">0</span>) <span class="keyword">return</span> map.size();</span><br><span class="line">        <span class="type">int</span>[] freq = <span class="keyword">new</span> <span class="title class_">int</span>[map.size()];</span><br><span class="line">        <span class="type">int</span> <span class="variable">addIndex</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (Map.Entry&lt;Integer, Integer&gt; entry : map.entrySet()) &#123;</span><br><span class="line">            freq[addIndex++] = entry.getValue();</span><br><span class="line">        &#125;</span><br><span class="line">        Arrays.sort(freq);</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; freq.length &amp;&amp; k &gt; <span class="number">0</span>)&#123;</span><br><span class="line">            k -= freq[i];</span><br><span class="line">            <span class="keyword">if</span>(k == <span class="number">0</span>) <span class="keyword">return</span> freq.length - i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>(k &lt; <span class="number">0</span>) <span class="keyword">return</span> freq.length - i;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1403-非递增顺序的最小子序列"><a href="#1403-非递增顺序的最小子序列" class="headerlink" title="1403. 非递增顺序的最小子序列"></a><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-subsequence-in-non-increasing-order/">1403. 非递增顺序的最小子序列</a></h3><p>思路</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取总和 + 排序即可</span><br></pre></td></tr></table></figure>
+
+<p>代码</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
 
       
@@ -182,6 +255,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">coding</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">leetcode</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -284,7 +372,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E6%B8%85%E5%8D%95"><span class="toc-number">1.</span> <span class="toc-text">思考清单</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E8%B4%AA%E5%BF%83%E7%AD%96%E7%95%A5"><span class="toc-number"></span> <span class="toc-text">一、贪心策略</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1%E4%BB%8E%E6%9C%80%E5%B0%8F-x2F-%E6%9C%80%E5%A4%A7%E5%BC%80%E5%A7%8B%E8%B4%AA%E5%BF%83"><span class="toc-number">1.</span> <span class="toc-text">1.1从最小&#x2F;最大开始贪心</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3074-%E9%87%8D%E6%96%B0%E5%88%86%E8%A3%85%E8%8B%B9%E6%9E%9C"><span class="toc-number">1.1.</span> <span class="toc-text">3074. 重新分装苹果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2279-%E8%A3%85%E6%BB%A1%E7%9F%B3%E5%A4%B4%E7%9A%84%E8%83%8C%E5%8C%85%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2279. 装满石头的背包的最大数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1833-%E9%9B%AA%E7%B3%95%E7%9A%84%E6%9C%80%E5%A4%A7%E6%95%B0%E9%87%8F"><span class="toc-number">1.3.</span> <span class="toc-text">1833. 雪糕的最大数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1005-K-%E6%AC%A1%E5%8F%96%E5%8F%8D%E5%90%8E%E6%9C%80%E5%A4%A7%E5%8C%96%E7%9A%84%E6%95%B0%E7%BB%84%E5%92%8C"><span class="toc-number">1.4.</span> <span class="toc-text">1005. K 次取反后最大化的数组和</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1481-%E4%B8%8D%E5%90%8C%E6%95%B4%E6%95%B0%E7%9A%84%E6%9C%80%E5%B0%91%E6%95%B0%E7%9B%AE"><span class="toc-number">1.5.</span> <span class="toc-text">1481. 不同整数的最少数目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1403-%E9%9D%9E%E9%80%92%E5%A2%9E%E9%A1%BA%E5%BA%8F%E7%9A%84%E6%9C%80%E5%B0%8F%E5%AD%90%E5%BA%8F%E5%88%97"><span class="toc-number">1.6.</span> <span class="toc-text">1403. 非递增顺序的最小子序列</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -392,6 +480,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">408</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -400,11 +496,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -412,7 +508,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -424,11 +520,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -464,6 +560,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
@@ -472,19 +572,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">

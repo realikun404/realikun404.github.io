@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="ZER0">
 <meta property="og:description" content="问题描述：  之前做过git branching，但会忘 git branch 是图像显示，不够直观，本地开个环境进行测试">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250208122514930.png">
 <meta property="article:published_time" content="2025-01-15T08:03:58.000Z">
-<meta property="article:modified_time" content="2025-01-15T08:04:59.373Z">
+<meta property="article:modified_time" content="2025-02-08T12:33:17.836Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="开发工具">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250208122514930.png">
   
     <link rel="alternative" href="/atom.xml" title="ZER0" type="application/atom+xml">
   
@@ -183,8 +185,430 @@
 </ul>
 <span id="more"></span>
 
+<p>[toc]</p>
 <p><a target="_blank" rel="noopener" href="https://liaoxuefeng.com/books/git/introduction/index.html">简介 - Git教程 - 廖雪峰的官方网站 (liaoxuefeng.com)</a></p>
 <p><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">Learn Git Branching</a></p>
+<h2 id="常见场景"><a href="#常见场景" class="headerlink" title="常见场景"></a>常见场景</h2><h3 id="git-rebase使用"><a href="#git-rebase使用" class="headerlink" title="git rebase使用"></a>git rebase使用</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42310154/article/details/119004977">git rebase详解（图解+最简单示例，一次就懂）-CSDN博客</a></p>
+<h3 id="git-reflog"><a href="#git-reflog" class="headerlink" title="git reflog"></a>git reflog</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/685073933">探索 Git 引用日志：利用 git reflog 恢复、理解和追溯 Git 操作历史 - 知乎</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PS E:\code\learnGit\user2\learn_git_branch&gt; git reflog</span><br><span class="line">c590b38 (HEAD -&gt; test, origin/test) HEAD@&#123;0&#125;: commit: test stash pop</span><br><span class="line">cc19a12 HEAD@&#123;1&#125;: pull: Fast-forward</span><br><span class="line">1cc8d4c HEAD@&#123;2&#125;: reset: moving to HEAD</span><br><span class="line">1cc8d4c HEAD@&#123;3&#125;: commit (merge): Merge remote-tracking branch &#x27;origin/test&#x27; into test</span><br><span class="line">7147405 HEAD@&#123;4&#125;: commit: add test fetch2</span><br><span class="line">3f4a50f HEAD@&#123;5&#125;: checkout: moving from master to test</span><br><span class="line">c8b5f36 (origin/master, origin/HEAD, master) HEAD@&#123;6&#125;: clone: from https://gitee.com/xiong-changchun/learn_git_branch.git</span><br></pre></td></tr></table></figure>
+
+<p>解释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">c590b38 (HEAD -&gt; test, origin/test) HEAD@&#123;0&#125;: commit: test stash pop</span><br><span class="line"></span><br><span class="line">HEAD@&#123;0&#125; 表示你当前的 HEAD 指向的状态（最新的状态）。</span><br><span class="line">commit: test stash pop 表示你进行了一个新的提交，提交信息是 test stash pop。这通常意味着你在合并 stash 的更改后创建了这个提交。</span><br><span class="line">HEAD -&gt; test, origin/test 表示当前 HEAD 指向本地的 test 分支，并且与远程 origin/test 分支一致。</span><br><span class="line">cc19a12 HEAD@&#123;1&#125;: pull: Fast-forward</span><br><span class="line"></span><br><span class="line">HEAD@&#123;1&#125; 表示上一次的状态。</span><br><span class="line">pull: Fast-forward 表示你在这次操作中执行了 git pull，并且使用了 Fast-forward 合并，意味着远程分支的更新可以直接应用到当前分支，无需创建新的合并提交。</span><br><span class="line">1cc8d4c HEAD@&#123;2&#125;: reset: moving to HEAD</span><br><span class="line"></span><br><span class="line">HEAD@&#123;2&#125; 表示更早的一次操作。</span><br><span class="line">reset: moving to HEAD 表示你执行了 git reset，这将当前分支的 HEAD 重置到某个提交，通常是回到某个特定的提交。</span><br><span class="line">1cc8d4c HEAD@&#123;3&#125;: commit (merge): Merge remote-tracking branch &#x27;origin/test&#x27; into test</span><br><span class="line"></span><br><span class="line">HEAD@&#123;3&#125; 是更早的状态。</span><br><span class="line">commit (merge) 表示你在这次操作中进行了合并提交，合并了远程 origin/test 分支到本地的 test 分支。</span><br><span class="line">7147405 HEAD@&#123;4&#125;: commit: add test fetch2</span><br><span class="line"></span><br><span class="line">HEAD@&#123;4&#125; 记录了更早的一次提交。</span><br><span class="line">commit: add test fetch2 表示你做了一个提交，提交信息为 add test fetch2。</span><br><span class="line">3f4a50f HEAD@&#123;5&#125;: checkout: moving from master to test</span><br><span class="line"></span><br><span class="line">HEAD@&#123;5&#125; 记录了你切换分支的操作。</span><br><span class="line">checkout: moving from master to test 表示你从 master 分支切换到了 test 分支。</span><br><span class="line">c8b5f36 (origin/master, origin/HEAD, master) HEAD@&#123;6&#125;: clone: from https://gitee.com/xiong-changchun/learn_git_branch.git HEAD -&gt; test, origin/test</span><br><span class="line"></span><br><span class="line">HEAD@&#123;6&#125; 记录了仓库克隆操作。</span><br><span class="line">clone: from https://gitee.com/xiong-changchun/learn_git_branch.git 表示你从远程仓库 https://gitee.com/xiong-changchun/learn_git_branch.git 克隆了这个仓库。</span><br><span class="line">HEAD -&gt; test, origin/test 表示你在克隆仓库时，HEAD 被设置为本地 test 分支，并且远程分支 origin/test 被拉取下来。</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="git-fetch-amp-pull详解"><a href="#git-fetch-amp-pull详解" class="headerlink" title="git fetch &amp; pull详解"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/runnerjack/p/9342362.html">git fetch &amp; pull详解</a></h3><p>两个类似命令的差别</p>
+<p><strong>简短概念：</strong></p>
+<ul>
+<li><code>git fetch</code>：只会从远程仓库获取最新的提交、更新本地的远程追踪分支（如 <code>origin/master</code>），但<strong>不会</strong>自动合并到你当前所在的本地分支。</li>
+<li><code>git pull</code>：通常等同于先 <code>git fetch</code> 再 <code>git merge</code>，也就是在获取远程最新提交后，会<strong>自动</strong>把这些更新合并到你当前分支。</li>
+</ul>
+<p>详细区别</p>
+<ol>
+<li><p><strong><code>git fetch</code></strong></p>
+<ul>
+<li>作用：从远程仓库获取所有尚未在本地的提交，更新对应的远程追踪分支（如 <code>origin/master</code>、<code>origin/dev</code> 等），但<strong>不会</strong>把这些更新合并到本地分支。</li>
+<li>特点：<ol>
+<li>不会影响当前分支工作区的文件。</li>
+<li>只是在本地的 <code>.git/refs/remotes/origin/</code>（或类似目录）里更新了远程分支的引用。</li>
+<li>你可以在 fetch 后自行决定要不要合并、怎么合并；也可以查看差异再做决定（安全性更高）。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong><code>git pull</code></strong></p>
+<ul>
+<li><p>作用：从远程仓库获取更新后，<strong>立即</strong>把远程更新合并到当前分支。</p>
+</li>
+<li><p>常见命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+
+<p>等同于：</p>
+<ol>
+<li><code>git fetch origin master</code></li>
+<li><code>git merge origin/master</code></li>
+</ol>
+</li>
+<li><p>特点：</p>
+<ol>
+<li>省时省力，一步到位，把远程最新提交拿下来后直接合并到当前分支。</li>
+<li>如果远程有改动与本地发生冲突，会立刻要求你解决冲突。</li>
+<li>没有给你中间“查看差异然后再决定是否合并”的机会。</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<p>何时用 <code>git fetch</code>，何时用 <code>git pull</code>？</p>
+<ul>
+<li><strong><code>git fetch</code></strong> 常用于：<ul>
+<li>对远程分支的改动比较敏感、在合并之前想先看看别人改了什么，再决定如何合并。</li>
+<li>避免一下子自动合并后出现大面积冲突，或者不想让本地工作区的内容被影响。</li>
+<li>在多人协作项目里，如果你想先<strong>查看差异</strong>（例如 <code>git diff origin/master</code>）、<strong>和团队沟通</strong>再合并，<code>fetch</code> 更安全。</li>
+</ul>
+</li>
+<li><strong><code>git pull</code></strong> 常用于：<ul>
+<li>简化操作，快速与远程同步。</li>
+<li>对自己负责的分支改动比较熟悉，不介意马上合并，即使有冲突也可以立刻解决。</li>
+<li>日常快速更新远程仓库的最新代码。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>结论</p>
+<ul>
+<li><strong><code>git fetch</code> &#x3D; 只下载，不合并；</strong></li>
+<li><strong><code>git pull</code> &#x3D; 下载后直接合并到当前分支。</strong></li>
+</ul>
+<p>在实际开发中，如果你<strong>希望更可控</strong>、要先看变更再合并，用 <code>fetch</code>；如果你<strong>经常需要更新</strong>并对合并冲突不敏感，用 <code>pull</code> 即可。</p>
+<h3 id="git-fetch实战"><a href="#git-fetch实战" class="headerlink" title="git fetch实战"></a>git fetch实战</h3><p>测试：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">user1、user2拉取了最新代码， user1 push了新的提交，user2本地进行了修改（相同文件，模拟冲突）</span><br></pre></td></tr></table></figure>
+
+<p>1、fetch</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># user2</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">PS E:\code\learnGit\user2\learn_git_branch&gt; git fetch</span><br><span class="line">remote: Enumerating objects: 5, done.</span><br><span class="line">remote: Counting objects: 100% (5/5), done.</span><br><span class="line">remote: Compressing objects: 100% (3/3), done.</span><br><span class="line">remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (3/3), 320 bytes | 45.00 KiB/s, done.</span><br><span class="line">From https://gitee.com/xiong-changchun/learn_git_branch</span><br><span class="line">   3f4a50f..6834b76  test       -&gt; origin/test</span><br><span class="line">   </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>2、合并远程 <code>test</code> 分支的提交到本地 <code>test</code> 分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git merge origin/test</span><br><span class="line"></span><br><span class="line">PS E:\code\learnGit\user2\learn_git_branch&gt; git merge origin/test   </span><br><span class="line">error: Your local changes to the following files would be overwritten by merge:</span><br><span class="line">        test.txt</span><br><span class="line">Please commit your changes or stash them before you merge.</span><br><span class="line">Aborting</span><br><span class="line">Updating 3f4a50f..6834b76</span><br></pre></td></tr></table></figure>
+
+<p>这个错误信息表示你在当前本地 <code>test</code> 分支上有未提交的修改，而这些修改与将要合并的内容会发生冲突。因此，Git 会阻止你执行合并操作，直到你先处理好这些本地的修改。</p>
+<p>①<strong>提交本地的改动</strong>（如果本地修改是有效的）</p>
+<p>如果你本地的修改是有效的并且你希望保留它们，你可以先将这些修改提交到本地仓库，然后再执行合并。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># 查看修改</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"># 添加修改到暂存区</span><br><span class="line">git add test.txt</span><br><span class="line"></span><br><span class="line"># 提交本地的改动</span><br><span class="line">git commit -m &quot;Save local changes before merge&quot;</span><br><span class="line"></span><br><span class="line"># 然后再进行合并</span><br><span class="line">git merge origin/test</span><br></pre></td></tr></table></figure>
+
+<p>②<strong>使用 Git Stash 暂存本地改动</strong></p>
+<p>如果你不想立即提交本地的修改，或者你的本地修改还没有准备好提交，你可以使用 <code>git stash</code> 将本地的修改临时存储起来，合并远程的更新后再恢复这些修改。</p>
+<p>步骤如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 暂存本地修改</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"># 然后进行合并操作</span><br><span class="line">git merge origin/test</span><br><span class="line"></span><br><span class="line"># 恢复之前的修改</span><br><span class="line">git stash pop</span><br></pre></td></tr></table></figure>
+
+<p><code>git stash</code> 会把你当前工作区和暂存区的修改暂时保存起来，等合并完成后，<code>git stash pop</code> 会恢复这些修改，并把它们从 stash 中移除。如果存在冲突，你可以像处理合并冲突一样解决。</p>
+<p>③<strong>放弃本地修改</strong></p>
+<p>如果你的本地修改不重要，或者你决定丢弃这些修改，可以使用 <code>git checkout</code> 恢复被修改的文件到最新提交的状态：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 放弃对 test.txt 的本地修改，恢复到最新提交的状态</span><br><span class="line">git checkout -- test.txt</span><br><span class="line"></span><br><span class="line"># 然后再进行合并</span><br><span class="line">git merge origin/test</span><br></pre></td></tr></table></figure>
+
+<p><code>git checkout -- &lt;file&gt;</code> 的含义</p>
+<ol>
+<li><p>**<code>git checkout</code>**：这个命令本身用于切换分支、恢复文件等。在不同的上下文中，它的行为有所不同。</p>
+<ul>
+<li><strong>切换分支</strong>：<code>git checkout &lt;branch&gt;</code> 会让你切换到另一个分支。</li>
+<li><strong>恢复文件</strong>：<code>git checkout -- &lt;file&gt;</code> 会把指定文件恢复为<strong>当前分支上最新提交时的版本</strong>，即丢弃你对该文件的所有本地修改。</li>
+</ul>
+</li>
+<li><p>**<code>--</code>**：在 Git 中，<code>--</code> 用作“分隔符”，它告诉 Git 后面的内容是文件名，而不是其他选项或者参数。例如，<code>git checkout -- &lt;file&gt;</code> 中，<code>--</code> 表示后面跟着的是文件路径名，而不是其它 Git 参数。</p>
+<p>这很重要，因为 <code>git checkout</code> 本身是一个多功能的命令，有时会涉及到分支切换或恢复某个特定提交的文件，<code>--</code> 用来明确指示你正在操作的是文件，而不是分支或提交。</p>
+</li>
+<li><p>**<code>&lt;file&gt;</code>**：指定你想要恢复的文件，通常是你已经修改但还没提交的文件。如果你想丢弃某个文件的修改并恢复到当前提交时的状态，可以直接指定文件路径。</p>
+</li>
+</ol>
+<p>3、commit试试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add *</span><br><span class="line">git commit -m &quot;add test fetch2&quot;</span><br><span class="line">git merge origin/test</span><br></pre></td></tr></table></figure>
+
+<p>冲突了，解冲突</p>
+<p><img src="https://cdn.jsdelivr.net/gh/realikun404/img_bed2@master/imgimage-20250208122514930.png" alt="image-20250208122514930"></p>
+<p>完成meger后，查看状态</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">PS E:\code\learnGit\user2\learn_git_branch&gt; git status</span><br><span class="line">On branch test</span><br><span class="line">Your branch and &#x27;origin/test&#x27; have diverged,</span><br><span class="line">and have 1 and 1 different commits each, respectively.</span><br><span class="line">  (use &quot;git pull&quot; if you want to integrate the remote branch with yours)</span><br><span class="line"></span><br><span class="line">All conflicts fixed but you are still merging.</span><br><span class="line">  (use &quot;git commit&quot; to conclude merge)</span><br></pre></td></tr></table></figure>
+
+<p>对应解释</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">这条信息意味着你当前的 Git 状态处于合并冲突已解决，但尚未完成合并的阶段。具体来说，有以下几个要点：</span><br><span class="line"></span><br><span class="line">1. 分支已分叉（Your branch and &#x27;origin/test&#x27; have diverged）</span><br><span class="line">你本地的 test 分支和远程的 origin/test 分支已经分叉，这意味着：</span><br><span class="line">本地 test 分支有一个提交，远程 origin/test 分支也有一个提交。</span><br><span class="line">这两个分支各自有不同的提交记录，并且它们并不包含对方的更改。因此，它们的历史已分叉。</span><br><span class="line">解决方案：通常你需要合并（git merge）或者拉取远程分支（git pull）来将这两个分支合并在一起。</span><br><span class="line"></span><br><span class="line">2. 所有冲突已解决（All conflicts fixed but you are still merging）</span><br><span class="line">这意味着你已经解决了合并中的所有冲突，冲突的部分已经被处理完毕。</span><br><span class="line">但是，Git 提示你还没有完成合并操作，你需要执行 git commit 来完成合并并记录合并结果。</span><br><span class="line">3. 需要执行 git commit 来结束合并（use &quot;git commit&quot; to conclude merge）</span><br><span class="line">Git 等待你确认并提交合并结果。你需要运行 git commit 来将解决冲突后的内容保存为合并提交。</span><br><span class="line">一旦执行了 git commit，合并过程就会完成，合并提交会被记录在你的本地分支中。</span><br></pre></td></tr></table></figure>
+
+<p>我不commit，直接push进行测试</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git push</span><br><span class="line">To https://gitee.com/xiong-changchun/learn_git_branch.git</span><br><span class="line">                                                          ! [rejected]        test -&gt; test (non-fast-forward)</span><br><span class="line">   error: failed to push some refs to &#x27;https://gitee.com/xiong-changchun/learn_git_branch.git&#x27;</span><br><span class="line">                                                                                              hint: Updates were rejected because the tip of your current branch is behind</span><br><span class="line">                                                                hint: its remote counterpart. If you want </span><br><span class="line">to integrate the remote changes,</span><br><span class="line">                                hint: use &#x27;git pull&#x27; before pushing again.</span><br><span class="line">                                                                          hint: See the &#x27;Note about fast-forwards&#x27; in &#x27;git push --help&#x27; for details.</span><br></pre></td></tr></table></figure>
+
+<p>先commit在push</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git commit</span><br><span class="line">git push origin test</span><br></pre></td></tr></table></figure>
+
+<p>输出如下</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Enumerating objects: 8, done.</span><br><span class="line">Counting objects: 100% (8/8), done.ng objects:  12% (1/8)</span><br><span class="line">                                   Delta compression using up to 16 threads</span><br><span class="line">Compressing objects: 100% (4/4), done.                                     Compressing objects:  25% (1/4)Writing objects: 100% (4/4), 454 bytes | 454.00 KiB/s, done.(1/4)</span><br><span class="line">                                                            Total 4 (delta 2), reused 0 (delta 0), pack-reused 0</span><br><span class="line">      remote: Powered by GITEE.COM [1.1.5]</span><br><span class="line">                                          remote: Set trace flag 1d4a68b4</span><br><span class="line">                                                                         To https://gitee.com/xiong-changchun/learn_git_branch.git</span><br><span class="line">                           6834b76..1cc8d4c  test -&gt; test</span><br></pre></td></tr></table></figure>
+
+<h3 id="git撤销本地修改（add、commit了还没有push）"><a href="#git撤销本地修改（add、commit了还没有push）" class="headerlink" title="git撤销本地修改（add、commit了还没有push）"></a>git撤销本地修改（add、commit了还没有push）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/MrHamster/article/details/121023757">git如何撤销已commit未push的提交_git merge撤销未push的commit-CSDN博客</a></p>
+<p>–mixed : 撤销git <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=commit&spm=1001.2101.3001.7020">commit</a> , 撤销git add， 不撤销本地改动的代码<br>–soft ： 撤销git commit , 不撤销git add， 不撤销本地改动的代码<br>–hard : 全部撤销</p>
+<h3 id="git撤销本地修改（add，还没commit）"><a href="#git撤销本地修改（add，还没commit）" class="headerlink" title="git撤销本地修改（add，还没commit）"></a>git撤销本地修改（add，还没commit）</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mus123/article/details/106304630">怎么撤销git add 的内容–reset_git撤销add-CSDN博客</a></p>
+<p>–mixed : 撤销git <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=commit&spm=1001.2101.3001.7020">commit</a> , 撤销git add， 不撤销本地改动的代码<br>–soft ： 撤销git commit , 不撤销git add， 不撤销本地改动的代码<br>–hard : 全部撤销（<code>it reset --hard</code> 是一个<strong>破坏性操作</strong>，会<strong>永久丢失</strong>你的未提交修改。请在执行此操作前确认你不再需要这些更改，或者已经将它们备份。）</p>
+<h3 id="git撤销中间某次提交"><a href="#git撤销中间某次提交" class="headerlink" title="git撤销中间某次提交"></a>git撤销中间某次提交</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u013066244/article/details/79920012">git 优雅的撤销中间某次提交_after resolving the conflicts, mark the corrected -CSDN博客</a></p>
+<h3 id="提交pr"><a href="#提交pr" class="headerlink" title="提交pr"></a>提交pr</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/584834288">如何在 Github 上规范的提交 PR（图文详解） - 知乎</a></p>
+<h3 id="GIT-stash"><a href="#GIT-stash" class="headerlink" title="GIT stash"></a>GIT stash</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tocy/p/git-stash-reference.html">git-stash用法小结 - Tocy - 博客园</a></p>
+<h3 id="git-commit-amend"><a href="#git-commit-amend" class="headerlink" title="git commit --amend"></a><code>git commit --amend</code></h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wq6ylg08/article/details/88862025">git commit –amend命令的详细讲解+实际应用场景-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/100243017">git commit –amend 修改git提交记录用法详解 - 知乎</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38669561/article/details/103385514">git commit –amend踩坑记录_git push –amend-CSDN博客</a></p>
+<h3 id="某次提交有问题修改该次提交"><a href="#某次提交有问题修改该次提交" class="headerlink" title="某次提交有问题修改该次提交"></a>某次提交有问题修改该次提交</h3><p>如果你希望<strong>直接修改远程仓库的最近一次提交</strong>，而不想新建本地分支，可以通过以下步骤实现。你将会使用 <code>git reset</code> 来撤销本地的提交，然后进行修改，最后使用 <code>git push --force</code> 来更新远程仓库。</p>
+<p>操作步骤</p>
+<ol>
+<li><strong>重置本地提交</strong></li>
+</ol>
+<p>首先，你需要<strong>撤销本地最近一次提交</strong>，这一步使用 <code>git reset</code> 来回到你想要的提交。可以选择保留修改（保留工作区的更改）或丢弃工作区的更改。</p>
+<ul>
+<li><p><strong>撤销最近的提交，并保留工作区更改</strong>（即保留你对文件的修改，但将其移出暂存区）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --soft HEAD~1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--soft</code> 会将提交撤销，但保留所有修改在<strong>暂存区</strong>。你可以在这基础上继续修改提交。</li>
+</ul>
+</li>
+<li><p><strong>撤销最近的提交并丢弃工作区的更改</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard HEAD~1</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--hard</code> 会将提交和工作区的所有修改丢弃，恢复到上一个提交的状态。</li>
+</ul>
+</li>
+</ul>
+<ol start="2">
+<li><strong>修改文件并重新提交</strong></li>
+</ol>
+<ul>
+<li><p>修改你需要调整的文件。</p>
+</li>
+<li><p>在修改完后，重新将文件加入暂存区：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;modified-file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后重新提交：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>这样，你就可以编辑提交信息，或者在不修改文件内容的情况下修改提交信息。如果你修改了文件，<code>git commit --amend</code> 会将文件更改一起提交。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><strong>强制推送到远程仓库</strong></li>
+</ol>
+<p>最后，你需要将修改后的提交推送到远程仓库。由于你重写了本地历史记录（使用 <code>git reset</code> 和 <code>git commit --amend</code>），你需要使用 <code>--force</code> 强制推送来覆盖远程的历史记录：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>**<code>--force</code>**：强制推送，将本地的历史记录强制推送到远程，覆盖远程仓库的当前状态。</li>
+</ul>
+<ol start="4">
+<li><strong>确认远程仓库更新</strong></li>
+</ol>
+<p>推送成功后，你可以检查远程仓库，确认你的修改已经生效。你可以使用 <code>git log</code> 查看远程分支的提交历史，确保远程分支已更新为你修改后的提交。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log origin/master</span><br></pre></td></tr></table></figure>
+
+<p>注意事项</p>
+<ul>
+<li><strong>强制推送 (<code>git push --force</code>) 的风险</strong>：使用 <code>--force</code> 强制推送会覆盖远程仓库的提交历史，因此<strong>如果有其他协作者正在工作</strong>，这可能会导致他们的提交丢失或者出现冲突。在多人协作时，建议谨慎使用，最好提前与其他协作者沟通。</li>
+<li>**<code>git commit --amend</code>**：这将重写最近的提交，并允许你修改提交信息或添加&#x2F;修改提交的内容。它不会创建新的提交，而是替换掉原来的提交。</li>
+</ul>
+<p>总结</p>
+<ol>
+<li><strong>撤销最近的提交</strong>：使用 <code>git reset --soft HEAD~1</code>（保留修改）或 <code>git reset --hard HEAD~1</code>（丢弃修改）。</li>
+<li><strong>修改文件并重新提交</strong>：修改文件后，使用 <code>git commit --amend</code> 修改提交。</li>
+<li><strong>强制推送</strong>：使用 <code>git push origin master --force</code> 强制推送修改到远程仓库。</li>
+</ol>
+<p>这样，你就能修改远程仓库的最近一次提交，而不需要创建新的本地分支。</p>
+<h2 id="Learn-git-branch"><a href="#Learn-git-branch" class="headerlink" title="Learn git branch"></a>Learn git branch</h2><h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>初始化，包括三个分支：master、test、dev。先编写test、dev然后merge到master</p>
+<p>1、克隆仓库到本地</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone https://gitee.com/xiong-changchun/learn_git_branch.git</span><br><span class="line">cd learn_git_branch</span><br></pre></td></tr></table></figure>
+
+<p>2、检查默认分支情况</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br></pre></td></tr></table></figure>
+
+<p>3、如果仓库完全为空，先做一次初始化提交</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># 确保当前在 master 分支（若没有，先创建 master 分支）</span><br><span class="line">git checkout -b master</span><br><span class="line"></span><br><span class="line"># 新建一个简单的文件，比如 README.md</span><br><span class="line">echo &quot;# learn_git_branch&quot; &gt; README.md</span><br><span class="line"></span><br><span class="line"># 提交</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;init: add README.md&quot;</span><br><span class="line"></span><br><span class="line"># 推送到远程 master 分支</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+
+<p>4、创建并切换到 test 分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b test</span><br><span class="line">echo &quot;this is from test branch&quot; &gt; test.txt</span><br><span class="line">git add test.txt</span><br><span class="line">git commit -m &quot;feat(test): add test.txt&quot;</span><br><span class="line">git push -u origin test</span><br></pre></td></tr></table></figure>
+
+<p>5、创建并切换到 dev 分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git checkout master        # 先回到 master</span><br><span class="line">git checkout -b dev</span><br><span class="line">echo &quot;this is from dev branch&quot; &gt; dev.txt</span><br><span class="line">git add dev.txt</span><br><span class="line">git commit -m &quot;feat(dev): add dev.txt&quot;</span><br><span class="line">git push -u origin dev</span><br></pre></td></tr></table></figure>
+
+<p>注意点：需要先git checkout master    。因为当你执行 <code>git checkout -b 新分支名</code> 时，新的分支会从你<strong>当前所在的分支（HEAD 指针所指向的提交）</strong>复制完整的提交历史和当前文件快照，相当于“继承”了原分支的内容与历史。</p>
+<p>push 参数加-u的作用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin test 命令中的 -u（或 --set-upstream）参数的作用，是将本地分支和远程分支建立关联，也就是设置本地分支的上游（upstream）分支。具体来说：</span><br><span class="line"></span><br><span class="line">当你执行 git push -u origin test 时，Git 会将本地的 test 分支推送到远程 origin 仓库，并在本地记录“以后这个本地 test 分支就跟踪（tracking）远程 origin/test 分支”。</span><br><span class="line">这样做的好处是：往后在这个分支上，执行 git push、git pull 等命令时，不再需要手动指定远程仓库和分支（比如 git push origin test），而只要用 git push 或 git pull 就可以了，因为 Git 已经知道这个本地分支的默认远程分支是谁。</span><br></pre></td></tr></table></figure>
+
+
+
+<p>6、将 test 分支合并到 master</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull origin master</span><br><span class="line">git merge test</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>7、将 dev 分支合并到 master</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">git checkout master</span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line"># 合并 dev 分支</span><br><span class="line">git merge dev</span><br><span class="line"></span><br><span class="line"># 如果有冲突就手动解决并提交，然后再 push</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+
+<p>8、(可选) 删除本地和远程无用分支</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git branch -d test</span><br><span class="line">git branch -d dev</span><br><span class="line">git push origin --delete test</span><br><span class="line">git push origin --delete dev</span><br></pre></td></tr></table></figure>
+
+<p>9、流程总结</p>
+<ol>
+<li><strong>克隆远程仓库</strong>到本地（如果远程是空仓库，先做一次初始提交）</li>
+<li><strong>新建并切换分支</strong>：<code>git checkout -b test</code> &#x2F; <code>git checkout -b dev</code></li>
+<li><strong>在对应分支进行开发</strong>，并通过 <code>git add</code> + <code>git commit</code> 提交，然后 <code>git push</code> 推送到远程</li>
+<li><strong>最后切换到 <code>master</code> 分支，merge</strong> 需要合并的分支（<code>test</code> 或 <code>dev</code>），解决冲突后提交并推送到远程</li>
+<li><strong>可选</strong>删除不用的分支</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h2 id="一些学习过程中的问题解答"><a href="#一些学习过程中的问题解答" class="headerlink" title="一些学习过程中的问题解答"></a>一些学习过程中的问题解答</h2><h3 id="git-checkout-b-分支名-从哪个分支checkout-b就复制对应原来分支文件？"><a href="#git-checkout-b-分支名-从哪个分支checkout-b就复制对应原来分支文件？" class="headerlink" title="git checkout -b 分支名  从哪个分支checkout -b就复制对应原来分支文件？"></a>git checkout -b 分支名  从哪个分支checkout -b就复制对应原来分支文件？</h3><p>是的，当你执行 <code>git checkout -b 新分支名</code> 时，新的分支会从你<strong>当前所在的分支（HEAD 指针所指向的提交）</strong>复制完整的提交历史和当前文件快照，相当于“继承”了原分支的内容与历史。</p>
+<hr>
+<p>详解说明</p>
+<ol>
+<li><strong>当前所在分支（HEAD 指针）决定新分支的“起点”</strong><br>当你在本地使用 <code>git checkout -b dev1</code> 命令时，Git 会先根据“当前所在分支（HEAD 指针所指向的提交）”来创建一个名为 <code>dev1</code> 的新分支。<ul>
+<li>假设你此时在 <code>dev</code> 分支，那么执行 <code>git checkout -b dev1</code> 后，<code>dev1</code> 分支的历史就和 <code>dev</code> 一样，文件内容也完全相同。</li>
+<li>如果你此时在 <code>master</code> 分支，那么 <code>dev1</code> 分支就是从 <code>master</code> 那里继承历史和文件内容。</li>
+</ul>
+</li>
+<li><strong>继承文件内容和提交历史</strong><ul>
+<li>在你执行这条命令时，Git 并不会“额外拷贝一份”所有文件到新路径，而只是<strong>基于内部的引用</strong>，让新分支指向同一个提交记录。因为 Git 是分布式版本控制系统，文件快照是存在 <code>.git</code> 目录中，各分支只是指向不同的提交而已。</li>
+<li>新分支被创建后，你会自动切换到该分支，后续你在这条新分支上所做的任何提交都只会写入到 <code>dev1</code> 的提交历史，与原来的分支（<code>dev</code> 或 <code>master</code>）互不干扰。</li>
+</ul>
+</li>
+<li><strong>后续若需要把 <code>dev1</code> 的改动合并回原分支</strong><br>你可以使用 <code>git merge dev1</code> 或者 <code>git rebase dev1</code> 等方式，把 <code>dev1</code> 上的提交合并到其他分支里。只要遵循 Git 的基本分支&#x2F;合并流程即可。</li>
+</ol>
+<h3 id="本地merge和远程merge-git怎样区分呢，比如master-merge-test，但是本地test有修改commit了，但是还没push"><a href="#本地merge和远程merge-git怎样区分呢，比如master-merge-test，但是本地test有修改commit了，但是还没push" class="headerlink" title="本地merge和远程merge git怎样区分呢，比如master merge test，但是本地test有修改commit了，但是还没push"></a>本地merge和远程merge git怎样区分呢，比如master merge test，但是本地test有修改commit了，但是还没push</h3><p>在 Git 的概念里，<strong>本地 merge 和“远程 merge”其实是两种不同的操作范畴</strong>：</p>
+<ol>
+<li><strong>本地 merge</strong><ul>
+<li>指的是你在自己电脑上的 Git 仓库中，将一个分支合并到另一个分支。</li>
+<li>例如：<code>git checkout master &amp;&amp; git merge test</code></li>
+<li>这个合并是<strong>只发生在你本地的 <code>.git</code> 仓库</strong>里，不会自动同步到远程。</li>
+<li>合并完成后，如果你想让其他人也获得这次合并的结果，你需要执行 <code>git push</code>，把合并后的分支更新推送到远程仓库。</li>
+</ul>
+</li>
+<li><strong>“远程 merge”</strong>（或者说 Pull Request&#x2F;Merge Request）<ul>
+<li>一般是指在 GitHub&#x2F;Gitee&#x2F;GitLab 等平台上，基于<strong>远程仓库</strong>的分支发起合并请求，然后在网站上进行审核、点击“合并”等操作。</li>
+<li>这种方式通常要求你先把本地 <code>test</code> 分支的改动<strong>push 到远程</strong>，让远程仓库上存在一个 <code>origin/test</code> 分支；然后在平台上对比 <code>origin/test</code> 和 <code>origin/master</code> 的差异进行合并。</li>
+<li>平台上的合并完成后，会在远程仓库里生成一个新的合并提交。此时，如果你本地也需要这次合并结果，就要再 <code>git pull</code>（或者 <code>git fetch + merge</code>）把远程的更新拉到本地。</li>
+</ul>
+</li>
+</ol>
+<p>如何区分本地 merge 和远程 merge？</p>
+<ol>
+<li><strong>本地 merge：</strong><ul>
+<li>直接用命令行 <code>git merge test</code> 或 <code>git merge dev</code> 等，把某分支合并到当前分支。</li>
+<li>只要本地分支上有提交就能合并，无需推送到远程。</li>
+<li>合并完成后，如果想让远程仓库也同步到这次合并结果，需要 <code>git push</code>。</li>
+</ul>
+</li>
+<li><strong>远程 merge (Pull Request &#x2F; Merge Request)：</strong><ul>
+<li>先 <code>git push origin test</code>，让远程有 <code>origin/test</code> 分支。</li>
+<li>在 Gitee&#x2F;GitHub&#x2F;GitLab 上发起一个“合并请求”或“Pull Request”，把 <code>origin/test</code> 合并到 <code>origin/master</code>。</li>
+<li>这一步实质发生在服务器（远程仓库）端，合并成功后会生成一个新的合并提交，也只存在于远程。</li>
+<li>想在本地获得这次合并的结果，再 <code>git pull origin master</code>（或 <code>git fetch + git merge</code> 等）。</li>
+</ul>
+</li>
+</ol>
+<p>因此，如果你只是本地合并，那么还没 push 不影响你本地看到合并结果；<strong>如果是平台发起合并，但本地没 push，那么远程就合并不到你本地尚未 push 的代码</strong>。</p>
+<p>小结</p>
+<ul>
+<li><strong>git merge</strong> 命令始终是本地操作，不管你是否 push 过，只要本地分支有已提交的改动都能合并。</li>
+<li><strong>远程合并</strong>是基于远程仓库的分支来做的（常见于 Pull Request &#x2F; Merge Request 流程），只有在把本地提交 push 上去之后，远程才能进行合并操作。</li>
+<li>合并后，如果你想本地和远程都保持一致，需要记住做 push 或 pull，把合并的提交同步到对方。</li>
+</ul>
+<h3 id="感觉有点搞不清楚本地冲突和远程冲突了"><a href="#感觉有点搞不清楚本地冲突和远程冲突了" class="headerlink" title="感觉有点搞不清楚本地冲突和远程冲突了"></a>感觉有点搞不清楚本地冲突和远程冲突了</h3><ol>
+<li>本地冲突与远程冲突的概念</li>
+</ol>
+<p><strong>本地冲突</strong>和<strong>远程冲突</strong>在 Git 中并不是两个完全独立的概念，它们实际上描述的是在合并（merge）过程中产生的冲突，只是发生的上下文有所不同。</p>
+<ul>
+<li><strong>本地冲突</strong>：发生在本地分支和本地修改之间的冲突。当你在本地有未提交的改动（即修改了文件但没有提交）时，你尝试合并或拉取（<code>git pull</code>）远程的更新，这时可能会发生冲突，因为 Git 会发现远程的提交和你本地的未提交修改冲突了。这种冲突通常会在合并或拉取时发生，Git 会提示你解决冲突。</li>
+<li><strong>远程冲突</strong>：发生在你尝试将本地分支的更改推送到远程仓库时，远程仓库的内容和你的本地内容冲突了。通常这种冲突发生在<strong>推送到远程仓库时</strong>，并且是因为远程仓库有新的提交（别人推送了更新，而你本地没有），而你本地的提交没有包含这些更新。解决这类冲突时，你需要首先将远程的提交拉取到本地，解决冲突后再推送到远程。</li>
+</ul>
+<ol start="2">
+<li>解决冲突（本地合并冲突）</li>
+</ol>
+<p>从你提供的图片来看，发生的是<strong>本地的合并冲突</strong>，并且你已经进入了冲突的解决阶段。在这段过程中，Git 会标记文件中冲突的部分，并让你选择如何合并这部分内容。</p>
+<p>在你的截图中：</p>
+<ul>
+<li><strong>Incoming</strong> 部分显示的是从 <code>origin/test</code>（远程的 <code>test</code> 分支）来的内容。</li>
+<li><strong>Current</strong> 部分显示的是你本地 <code>test</code> 分支的内容。</li>
+</ul>
+<p>这表明 Git 发现了相同部分的不同内容，导致了冲突。在本地解决冲突时，你可以选择：</p>
+<ol>
+<li><strong>接受当前的修改（Current）</strong></li>
+<li><strong>接受远程的修改（Incoming）</strong></li>
+<li><strong>组合两者的修改（Accept Combination）</strong></li>
+</ol>
+<p>这些选项允许你手动选择或合并两边的更改，以完成冲突的解决。</p>
+<ol start="3">
+<li><code>Complete Merge</code> 的含义</li>
+</ol>
+<p>在你的截图中，右下角有一个“<strong>Complete Merge</strong>”按钮。这是 Git 图形界面的一部分，允许你在解决了冲突之后完成合并操作。点击该按钮后，Git 会保存你的冲突解决结果并标记合并为已完成。</p>
+<ol start="4">
+<li><strong>Push 上去会不会有问题？</strong></li>
+</ol>
+<ul>
+<li>在你本地成功解决了冲突并完成了合并后，理论上来说，合并后的更改可以正常推送到远程仓库。</li>
+<li><strong>注意</strong>：你必须确保已经解决了所有的冲突并提交了合并结果。如果你没有提交（没有点击“Complete Merge”或没有执行 <code>git commit</code>），则无法进行推送。</li>
+</ul>
+<ol start="5">
+<li><strong>关于本地冲突和远程冲突</strong></li>
+</ol>
+<ul>
+<li><strong>本地冲突</strong>：你在本地修改了文件，但这些修改与远程仓库的修改冲突了。通常发生在你拉取远程分支时（例如 <code>git pull</code>）。Git 会提示你解决本地冲突。</li>
+<li><strong>远程冲突</strong>：通常在推送（<code>git push</code>）时发生，因为远程仓库有新的提交，而你本地没有这些提交，导致 Git 无法推送本地的修改。通常，解决远程冲突的方式是先拉取远程仓库的更新（<code>git pull</code>），然后处理冲突，再推送。</li>
+</ul>
+<p>总结来说，你目前所看到的就是<strong>本地合并冲突</strong>，解决了冲突并完成合并后，推送到远程仓库时不会有问题，前提是所有的冲突已经解决，并且合并后的内容已经提交。</p>
+<h3 id="Git-如何跟踪冲突解决"><a href="#Git-如何跟踪冲突解决" class="headerlink" title="Git 如何跟踪冲突解决"></a>Git 如何跟踪冲突解决</h3><ol>
+<li><p><strong>标记冲突部分</strong></p>
+<p>在冲突发生时，Git 会在冲突的文件中插入冲突标记，类似下面的内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</span><br><span class="line">this is from test branch (your local changes)</span><br><span class="line">=======</span><br><span class="line">this is from test branch (incoming from remote)</span><br><span class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/test</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong><code>HEAD</code></strong> 表示你本地的修改（当前分支的内容）。</li>
+<li><strong><code>origin/test</code></strong> 表示远程仓库中 <code>test</code> 分支的修改。</li>
+<li>Git 将这些标记放在文件的冲突部分，让你知道哪一部分是你的修改，哪一部分是远程修改。</li>
+</ul>
+</li>
+<li><p><strong>解决冲突</strong></p>
+<p>当你手动解决冲突时，你的任务是编辑文件，删除这些标记并选择保留哪些修改，或者将两者合并成一个新的内容。</p>
+<p>例如，你可能会选择合并两部分内容：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">this is from test branch (your local changes)</span><br><span class="line">this is from test branch (incoming from remote)</span><br></pre></td></tr></table></figure>
+
+<p>或者你只选择保留其中一个版本，删除另一个版本的内容和冲突标记。</p>
+</li>
+<li><p><strong>Git 如何知道冲突已解决</strong></p>
+<ul>
+<li><strong>Git 通过文件的状态来判断</strong>：在你解决完冲突后，你需要执行 <code>git add &lt;file&gt;</code> 来告诉 Git 你已经解决了这个冲突并准备好提交。Git 会检测到文件已经不再包含冲突标记（即文件内容已经被修改），并且文件的状态会变为“已暂存的修改”。</li>
+<li>在冲突解决后，Git 不会自动提交，而是将文件的状态更新为“已解决冲突”，即你手动编辑的文件已经变成“准备提交”的状态。Git 依赖的是你**是否执行了 <code>git add</code>**，来告诉它你已经解决了冲突。</li>
+</ul>
+</li>
+<li><p><strong>提交冲突解决结果</strong></p>
+<p>一旦你通过 <code>git add</code> 将解决冲突的文件添加到暂存区，Git 会将这些文件标记为解决冲突并准备提交。当你执行 <code>git commit</code> 时，Git 会完成合并并记录一个新的提交，表示你已经解决了冲突。</p>
+<p>在提交时，你可以看到 Git 会自动生成一个合并提交的消息，类似：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Merge branch &#x27;test&#x27; of https://gitee.com/xiong-changchun/learn_git_branch into test</span><br></pre></td></tr></table></figure>
+
+<p>这表示合并已经完成，冲突已被解决。</p>
+</li>
+</ol>
+<p>总结</p>
+<p>Git 知道你已解决冲突，主要通过以下两个步骤：</p>
+<ol>
+<li><strong>删除冲突标记并修改文件内容</strong>，解决冲突后将文件添加到暂存区（<code>git add</code>）。</li>
+<li><strong>提交冲突解决的结果</strong>，通过 <code>git commit</code> 完成合并。</li>
+</ol>
+<p>这两个步骤通知 Git，你已经手动解决了冲突，Git 会将其标记为已解决，并允许你继续推送或进行其他操作。</p>
+<h3 id="git-commit-–m或者git-commit-–a-差别是啥"><a href="#git-commit-–m或者git-commit-–a-差别是啥" class="headerlink" title="git commit –m或者git commit –a 差别是啥"></a>git commit –m或者git commit –a 差别是啥</h3><ol>
+<li><strong><code>git commit -m &quot;&lt;message&gt;&quot;</code></strong></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：创建一个新的提交，并附加提交信息（<code>&lt;message&gt;</code>）。</li>
+<li><strong>详细解释</strong>：这个命令用于提交你在当前分支上已经被跟踪的文件的更改。<strong>它不会自动将未暂存的更改添加到提交中</strong>，因此在执行 <code>git commit -m</code> 之前，你必须手动使用 <code>git add</code> 将修改的文件添加到暂存区。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add file.txt          # 将修改的文件添加到暂存区</span><br><span class="line">git commit -m &quot;fix bug&quot;    # 提交并附加提交信息 &quot;fix bug&quot;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>适用场景</strong>：当你已经使用 <code>git add</code> 将文件更改添加到暂存区时，使用 <code>git commit -m</code> 来创建一个新提交，并附上相关的提交消息。</li>
+</ul>
+<ol start="2">
+<li><strong><code>git commit -a</code></strong></li>
+</ol>
+<ul>
+<li><strong>作用</strong>：自动将所有<strong>已跟踪的文件</strong>的修改添加到暂存区，并创建一个新的提交。</li>
+<li><strong>详细解释</strong>：这个命令会<strong>跳过 <code>git add</code> 步骤</strong>，将所有已经被 Git 跟踪的文件的修改（包括已修改和已删除的文件）自动添加到暂存区，然后提交这些修改。</li>
+<li>但是<strong>它不会包括新创建的未跟踪文件</strong>（新文件需要手动使用 <code>git add</code> 添加）。</li>
+</ul>
+<p><strong>例子</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -a -m &quot;fix bug&quot;  # 自动将已修改的文件添加到暂存区，并创建提交</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>适用场景</strong>：如果你已经修改了已经被 Git 跟踪的文件，并且不想每次都使用 <code>git add</code>，你可以直接使用 <code>git commit -a</code> 来提交这些已修改的文件。但请注意，<strong>对于新创建的文件（未跟踪的文件），你仍然需要使用 <code>git add</code> 来添加它们到暂存区</strong>。</li>
+</ul>
+<p>总结：</p>
+<ul>
+<li>**<code>git commit -m &quot;&lt;message&gt;&quot;</code>**：仅提交那些已经通过 <code>git add</code> 添加到暂存区的文件。</li>
+<li><strong><code>git commit -a</code><strong>：自动将所有已跟踪的文件的修改添加到暂存区，并创建提交，</strong>但不包括新创建的未跟踪文件</strong>。</li>
+</ul>
+<h2 id="常见面试题"><a href="#常见面试题" class="headerlink" title="常见面试题"></a>常见面试题</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/nobody_1/article/details/88956315">GIT | GIT常见面试题_git命令面试-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000019315509">关于 Git 的 20 个面试题 - 疯狂的技术宅 - SegmentFault 思否</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40522090/article/details/139267290">面试专区|【56道Git高频题整理(附答案背诵版)】_git面试题-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_24047659/article/details/88378827">超详细的 Git 实战教程_git实战详解-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/366567326">Git实战篇（快速上手精通） - 知乎</a></p>
 
       
 
@@ -268,11 +692,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2025/01/15/k8s/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/03/23/leetcode-%E5%AD%97%E7%AC%A6%E4%B8%B2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          k8s
+          leetcode_字符串
         
       </div>
     </a>
@@ -306,7 +730,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E5%9C%BA%E6%99%AF"><span class="toc-number">1.</span> <span class="toc-text">常见场景</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-rebase%E4%BD%BF%E7%94%A8"><span class="toc-number">1.1.</span> <span class="toc-text">git rebase使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-reflog"><span class="toc-number">1.2.</span> <span class="toc-text">git reflog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch-amp-pull%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.3.</span> <span class="toc-text">git fetch &amp; pull详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-fetch%E5%AE%9E%E6%88%98"><span class="toc-number">1.4.</span> <span class="toc-text">git fetch实战</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%92%A4%E9%94%80%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%EF%BC%88add%E3%80%81commit%E4%BA%86%E8%BF%98%E6%B2%A1%E6%9C%89push%EF%BC%89"><span class="toc-number">1.5.</span> <span class="toc-text">git撤销本地修改（add、commit了还没有push）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%92%A4%E9%94%80%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9%EF%BC%88add%EF%BC%8C%E8%BF%98%E6%B2%A1commit%EF%BC%89"><span class="toc-number">1.6.</span> <span class="toc-text">git撤销本地修改（add，还没commit）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E6%92%A4%E9%94%80%E4%B8%AD%E9%97%B4%E6%9F%90%E6%AC%A1%E6%8F%90%E4%BA%A4"><span class="toc-number">1.7.</span> <span class="toc-text">git撤销中间某次提交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4pr"><span class="toc-number">1.8.</span> <span class="toc-text">提交pr</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GIT-stash"><span class="toc-number">1.9.</span> <span class="toc-text">GIT stash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-commit-amend"><span class="toc-number">1.10.</span> <span class="toc-text">git commit --amend</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%90%E6%AC%A1%E6%8F%90%E4%BA%A4%E6%9C%89%E9%97%AE%E9%A2%98%E4%BF%AE%E6%94%B9%E8%AF%A5%E6%AC%A1%E6%8F%90%E4%BA%A4"><span class="toc-number">1.11.</span> <span class="toc-text">某次提交有问题修改该次提交</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Learn-git-branch"><span class="toc-number">2.</span> <span class="toc-text">Learn git branch</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">2.1.</span> <span class="toc-text">初始化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">2.2.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94"><span class="toc-number">3.</span> <span class="toc-text">一些学习过程中的问题解答</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-checkout-b-%E5%88%86%E6%94%AF%E5%90%8D-%E4%BB%8E%E5%93%AA%E4%B8%AA%E5%88%86%E6%94%AFcheckout-b%E5%B0%B1%E5%A4%8D%E5%88%B6%E5%AF%B9%E5%BA%94%E5%8E%9F%E6%9D%A5%E5%88%86%E6%94%AF%E6%96%87%E4%BB%B6%EF%BC%9F"><span class="toc-number">3.1.</span> <span class="toc-text">git checkout -b 分支名  从哪个分支checkout -b就复制对应原来分支文件？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0merge%E5%92%8C%E8%BF%9C%E7%A8%8Bmerge-git%E6%80%8E%E6%A0%B7%E5%8C%BA%E5%88%86%E5%91%A2%EF%BC%8C%E6%AF%94%E5%A6%82master-merge-test%EF%BC%8C%E4%BD%86%E6%98%AF%E6%9C%AC%E5%9C%B0test%E6%9C%89%E4%BF%AE%E6%94%B9commit%E4%BA%86%EF%BC%8C%E4%BD%86%E6%98%AF%E8%BF%98%E6%B2%A1push"><span class="toc-number">3.2.</span> <span class="toc-text">本地merge和远程merge git怎样区分呢，比如master merge test，但是本地test有修改commit了，但是还没push</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E8%A7%89%E6%9C%89%E7%82%B9%E6%90%9E%E4%B8%8D%E6%B8%85%E6%A5%9A%E6%9C%AC%E5%9C%B0%E5%86%B2%E7%AA%81%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%86%B2%E7%AA%81%E4%BA%86"><span class="toc-number">3.3.</span> <span class="toc-text">感觉有点搞不清楚本地冲突和远程冲突了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Git-%E5%A6%82%E4%BD%95%E8%B7%9F%E8%B8%AA%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3"><span class="toc-number">3.4.</span> <span class="toc-text">Git 如何跟踪冲突解决</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git-commit-%E2%80%93m%E6%88%96%E8%80%85git-commit-%E2%80%93a-%E5%B7%AE%E5%88%AB%E6%98%AF%E5%95%A5"><span class="toc-number">3.5.</span> <span class="toc-text">git commit –m或者git commit –a 差别是啥</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">常见面试题</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -414,6 +838,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">408</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -422,11 +854,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -434,7 +866,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,11 +878,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -486,6 +918,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
@@ -494,19 +930,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">

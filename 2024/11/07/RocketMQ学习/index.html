@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>RocketMQ学习 | ZER0</title>
+  <title>MQ学习（主要为ROCKETMQ、还有Kafka八股背诵） | ZER0</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RocketMQ学习">
+  <meta name="description" content="MQ学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RocketMQ学习">
+<meta property="og:title" content="MQ学习（主要为ROCKETMQ、还有Kafka八股背诵）">
 <meta property="og:url" content="http://example.com/2024/11/07/RocketMQ%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="ZER0">
-<meta property="og:description" content="RocketMQ学习">
+<meta property="og:description" content="MQ学习">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-07T06:42:19.000Z">
-<meta property="article:modified_time" content="2025-01-09T11:57:45.525Z">
+<meta property="article:modified_time" content="2025-04-09T08:30:36.816Z">
 <meta property="article:author" content="ZER0">
 <meta property="article:tag" content="中间件">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
   <div id="toc-article" class="toc-article">
       <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
       <strong class="toc-title">文章目录</strong>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">RocketMQ安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">RocketMQ 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98-Topic"><span class="toc-number">2.1.</span> <span class="toc-text">主题 Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="toc-number">2.2.</span> <span class="toc-text">队列 Queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF-Message"><span class="toc-number">2.3.</span> <span class="toc-text">消息 Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-Producer"><span class="toc-number">2.4.</span> <span class="toc-text">生产者 Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85-Consumer"><span class="toc-number">2.5.</span> <span class="toc-text">消费者 Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8-NameServer"><span class="toc-number">2.6.</span> <span class="toc-text">名字服务器 NameServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-Broker"><span class="toc-number">2.7.</span> <span class="toc-text">代理服务器 Broker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">RocketMQ 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1"><span class="toc-number">3.1.</span> <span class="toc-text">如何保障消息不丢失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">RocketMQ为什么高性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E5%BB%B6%E6%97%B6%E7%AD%89%E7%BA%A7%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">RocketMQ延时等级原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.4.</span> <span class="toc-text">RocketMQ部分源码解读</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">RocketMQ安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">RocketMQ 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98-Topic"><span class="toc-number">2.1.</span> <span class="toc-text">主题 Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="toc-number">2.2.</span> <span class="toc-text">队列 Queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF-Message"><span class="toc-number">2.3.</span> <span class="toc-text">消息 Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-Producer"><span class="toc-number">2.4.</span> <span class="toc-text">生产者 Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85-Consumer"><span class="toc-number">2.5.</span> <span class="toc-text">消费者 Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8-NameServer"><span class="toc-number">2.6.</span> <span class="toc-text">名字服务器 NameServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-Broker"><span class="toc-number">2.7.</span> <span class="toc-text">代理服务器 Broker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">RocketMQ 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">RocketMQ面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">RocketMQ为什么高性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E5%BB%B6%E6%97%B6%E7%AD%89%E7%BA%A7%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">RocketMQ延时等级原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.4.</span> <span class="toc-text">RocketMQ部分源码解读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">Kafka学习</span></a></li></ol>
  </div>
  <script type="text/javascript">
   function showToc(){
@@ -187,7 +187,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      RocketMQ学习
+      MQ学习（主要为ROCKETMQ、还有Kafka八股背诵）
     </h1>
   
 
@@ -267,8 +267,18 @@
 <p><a target="_blank" rel="noopener" href="https://javabetter.cn/sidebar/sanfene/rocketmq.html">消息队列面试题之RocketMQ篇，23道RocketMQ八股文（1.1万字45张手绘图），面渣逆袭必看👍 | 二哥的Java进阶之路</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40522090/article/details/140106704">面试专区|【40道RocketMQ高频题整理(附答案背诵版)】_rocketmq面试题-CSDN博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6850418115382738958">使用RocketMQTemplate发送各种消息RocketMQTemplate是spring boot为RocketM - 掘金</a></p>
-<h3 id="如何保障消息不丢失"><a href="#如何保障消息不丢失" class="headerlink" title="如何保障消息不丢失"></a>如何保障消息不丢失</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45076180/article/details/113828472">RocketMQ如何保证消息不丢失? 如何快速处理积压消息？_rocketmq 积压数量上限-CSDN博客</a></p>
-<h3 id="RocketMQ为什么高性能"><a href="#RocketMQ为什么高性能" class="headerlink" title="RocketMQ为什么高性能"></a>RocketMQ为什么高性能</h3><h3 id="RocketMQ延时等级原理"><a href="#RocketMQ延时等级原理" class="headerlink" title="RocketMQ延时等级原理"></a>RocketMQ延时等级原理</h3><h3 id="RocketMQ部分源码解读"><a href="#RocketMQ部分源码解读" class="headerlink" title="RocketMQ部分源码解读"></a>RocketMQ部分源码解读</h3><p>消息发送流程源码：</p>
+<h3 id="RocketMQ面试题"><a href="#RocketMQ面试题" class="headerlink" title="RocketMQ面试题"></a>RocketMQ面试题</h3><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/mp/appmsgalbum?action=getalbum&__biz=MzU2NTEyNjIzMw==&scene=24&album_id=2012550058793058307&count=3#wechat_redirect">#RocketMQ|军哥聊技术</a></p>
+<p>订阅关系一致讲解、ConsumeQueue结构：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NTEyNjIzMw==&mid=2247486894&idx=1&sn=98a35127bf43e1c7d0f9a927e149d514&chksm=fc413898cb36b18e8b9bd11c9c7f20234194e4fe9319097f7eb84dfdd87633a0df8fae9abb7a&scene=178&cur_album_id=2012550058793058307#rd">阿里二面：RocketMQ同一个消费组内的消费者订阅量不同tag，会有问题吗？</a></p>
+<p>怎样不丢失消息：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NTEyNjIzMw==&mid=2247487294&idx=1&sn=9cd01b1ed5b48ab7fed27d2049d1f32d&chksm=fc413a08cb36b31eb00b691f33fea35db669a4002ff1e497fba410014edbb25b1183c0a6250c&scene=178&cur_album_id=2012550058793058307#rd">4 张图，9 个维度告诉你怎么做能确保 RocketMQ 不丢失消息</a></p>
+<p>消息积压增加消费者是否有用（包括 6 种负载策略及源码）：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NTEyNjIzMw==&mid=2247487539&idx=1&sn=2a38024e3db509a9ee902ab80213fa92&chksm=fc412505cb36ac13d456c36b0645b570304319e708ed39053f3cae4575b046ca8cff81ad9551&scene=178&cur_album_id=2012550058793058307#rd">阿里二面：RocketMQ 消息积压了，增加消费者有用吗？</a></p>
+<p>RocketMQ集群架构、MessageQueue、Consumer、Broker 高可用集群、消息存储：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NTEyNjIzMw==&mid=2247487551&idx=1&sn=33fb9f360d8ddd9c2b8a7caee2cff383&chksm=fc412509cb36ac1f3c68eaa1767bcc7ec2e2d09603e0587912808ce8e475f836328262b8ce90&scene=178&cur_album_id=2012550058793058307#rd">【修正版】7张图带你轻松入门RocketMQ</a></p>
+<p>RocketMQ流量控制（Broker 流控、Consumer 流控）：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzU2NTEyNjIzMw==&mid=2247487685&idx=1&sn=16a1cc071ca996df5de05835f343571d&chksm=fc4125f3cb36ace5892cd2fd2009756550971c86ed631e85bf85b2426e7c8f3a7bef9e1e65c4&scene=178&cur_album_id=2012550058793058307#rd">警惕！这 8 个场景下 RocketMQ 会发生流量控制</a></p>
+<h3 id="RocketMQ为什么高性能"><a href="#RocketMQ为什么高性能" class="headerlink" title="RocketMQ为什么高性能"></a>RocketMQ为什么高性能</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/CTZL123456/article/details/140768809">这下，我终于弄明白了RocketMQ为什么这么快！_rocketmq为什么性能高-CSDN博客</a></p>
+<h3 id="RocketMQ延时等级原理"><a href="#RocketMQ延时等级原理" class="headerlink" title="RocketMQ延时等级原理"></a>RocketMQ延时等级原理</h3><h3 id="RocketMQ部分源码解读"><a href="#RocketMQ部分源码解读" class="headerlink" title="RocketMQ部分源码解读"></a>RocketMQ部分源码解读</h3><p>nameserver源码：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI4NjY4MTU5Nw==&mid=2247491949&idx=2&sn=37424f387fa99d3ad9906192fcc2b755&chksm=ebdb91ffdcac18e9248d05349c6748711ce7df3b39a797c06967b3e0d951bd85a2c68566f21e&scene=21#wechat_redirect">深入剖析RocketMQ源码-NameServer</a></p>
+<p>负载均衡源码：</p>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y_c6jD-r9DVgSotOXfk4tQ">深入剖析 RocketMQ 源码 - 负载均衡机制</a></p>
+<p>消息发送流程源码：</p>
 <p>消息存储流程源码：</p>
 <p>消息接收流程源码：</p>
 <p>消息过滤流程源码：</p>
@@ -278,9 +288,8 @@
 <p>事务消息源码</p>
 <p>ACL权限控制源码</p>
 <p>逻辑队列源码</p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/y_c6jD-r9DVgSotOXfk4tQ">深入剖析 RocketMQ 源码 - 负载均衡机制</a></p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/EVaoKa68OQmfrHTM9Jyn0g">深入剖析RocketMQ源码-NameServer</a></p>
 <p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/tmm7kdbwEmCEUKKzkEcD_A">vivo鲁班RocketMQ平台的消息灰度方案</a></p>
+<h2 id="Kafka学习"><a href="#Kafka学习" class="headerlink" title="Kafka学习"></a>Kafka学习</h2><p><a target="_blank" rel="noopener" href="https://javaguide.cn/high-performance/message-queue/kafka-questions-01.html#kafka-%E5%9F%BA%E7%A1%80">Kafka常见问题总结 | JavaGuide</a></p>
 
       
 
@@ -364,11 +373,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2024/11/20/go%E5%85%A5%E9%97%A8%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/12/06/leetcode-hot100/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          go语言入门学习
+          leetcode_hot100_sql
         
       </div>
     </a>
@@ -402,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">RocketMQ安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">RocketMQ 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98-Topic"><span class="toc-number">2.1.</span> <span class="toc-text">主题 Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="toc-number">2.2.</span> <span class="toc-text">队列 Queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF-Message"><span class="toc-number">2.3.</span> <span class="toc-text">消息 Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-Producer"><span class="toc-number">2.4.</span> <span class="toc-text">生产者 Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85-Consumer"><span class="toc-number">2.5.</span> <span class="toc-text">消费者 Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8-NameServer"><span class="toc-number">2.6.</span> <span class="toc-text">名字服务器 NameServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-Broker"><span class="toc-number">2.7.</span> <span class="toc-text">代理服务器 Broker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">RocketMQ 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BF%9D%E9%9A%9C%E6%B6%88%E6%81%AF%E4%B8%8D%E4%B8%A2%E5%A4%B1"><span class="toc-number">3.1.</span> <span class="toc-text">如何保障消息不丢失</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">RocketMQ为什么高性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E5%BB%B6%E6%97%B6%E7%AD%89%E7%BA%A7%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">RocketMQ延时等级原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.4.</span> <span class="toc-text">RocketMQ部分源码解读</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">RocketMQ安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">2.</span> <span class="toc-text">RocketMQ 基础概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E9%A2%98-Topic"><span class="toc-number">2.1.</span> <span class="toc-text">主题 Topic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97-Queue"><span class="toc-number">2.2.</span> <span class="toc-text">队列 Queue</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E6%81%AF-Message"><span class="toc-number">2.3.</span> <span class="toc-text">消息 Message</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85-Producer"><span class="toc-number">2.4.</span> <span class="toc-text">生产者 Producer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E8%B4%B9%E8%80%85-Consumer"><span class="toc-number">2.5.</span> <span class="toc-text">消费者 Consumer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8D%E5%AD%97%E6%9C%8D%E5%8A%A1%E5%99%A8-NameServer"><span class="toc-number">2.6.</span> <span class="toc-text">名字服务器 NameServer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%90%86%E6%9C%8D%E5%8A%A1%E5%99%A8-Broker"><span class="toc-number">2.7.</span> <span class="toc-text">代理服务器 Broker</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RocketMQ-%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">RocketMQ 工作原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%9D%A2%E8%AF%95%E9%A2%98"><span class="toc-number">3.1.</span> <span class="toc-text">RocketMQ面试题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E4%B8%BA%E4%BB%80%E4%B9%88%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">RocketMQ为什么高性能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E5%BB%B6%E6%97%B6%E7%AD%89%E7%BA%A7%E5%8E%9F%E7%90%86"><span class="toc-number">3.3.</span> <span class="toc-text">RocketMQ延时等级原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RocketMQ%E9%83%A8%E5%88%86%E6%BA%90%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.4.</span> <span class="toc-text">RocketMQ部分源码解读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Kafka%E5%AD%A6%E4%B9%A0"><span class="toc-number">4.</span> <span class="toc-text">Kafka学习</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -510,6 +519,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">408</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">安全</a>
               </li>
              
@@ -518,11 +535,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">go</a>
+                <a href="javascript:void(0)" class="js-tag color3">QT</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -530,7 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -542,11 +559,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">记录</a>
+                <a href="javascript:void(0)" class="js-tag color5">开发工具</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">k8s</a>
+                <a href="javascript:void(0)" class="js-tag color3">记录</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -582,6 +599,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">steam</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ctf</a>
               </li>
              
@@ -590,19 +611,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">steam</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">源码</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">sqlmap</a>
               </li>
              
               <li class="article-tag-list-item">
